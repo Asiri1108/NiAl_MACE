@@ -215,3 +215,20 @@ Status: Completed
 ### Step 3 — MACE Installation and Baseline Testing
 
 Status: Ready to Begin
+
+### ASE Validation Result
+
+The ASE validation script successfully created a primitive FCC aluminum cell.
+
+Recorded results:
+
+- Chemical formula: Al
+- Number of atoms: 1
+- Atomic number: 13
+- Lattice constant: 4.05 Å
+- Primitive-cell volume: 16.607531 Å³
+- Periodic boundaries: enabled in all three dimensions
+
+The calculated primitive-cell volume is consistent with an FCC conventional
+cell containing four atoms. This confirms that ASE generated the expected
+primitive aluminum structure correctly.
