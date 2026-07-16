@@ -145,3 +145,73 @@ The model must also be tested on structures and physical conditions that were no
 - Virtual environment: `.venv`
 - Active interpreter:
 
+## Step 2 – Atomic Simulation Environment (ASE)
+
+Status: Completed
+
+Completed tasks:
+
+- Installed ASE successfully.
+- Verified ASE can generate FCC aluminum structures.
+- Confirmed atomic positions and simulation cell can be created.
+- Prepared the project for integration with MACE.
+
+Lessons learned:
+
+- ASE is not a physics engine.
+- ASE is a framework that creates and manipulates atomic structures.
+- ASE will become the interface between Python, MACE, and LAMMPS.
+
+## Step 2 — Atomic Simulation Environment
+
+Status: Completed
+
+### Completed Tasks
+
+* Installed the Atomic Simulation Environment.
+* Verified that ASE can generate an FCC aluminum crystal.
+* Generated the primitive FCC unit cell using a lattice constant of 4.05 Å.
+* Confirmed that the primitive cell contains one aluminum atom.
+* Confirmed that ASE correctly represents periodic cell vectors and atomic positions.
+
+### ASE Test Result
+
+The generated aluminum structure had:
+
+* Chemical formula: Al
+* Number of atoms: 1
+* Crystal type: FCC primitive cell
+* Lattice constant: 4.05 Å
+* Periodic boundary representation: three-dimensional periodic cell
+
+### Interpretation
+
+The single atom does not represent the full aluminum crystal. It represents one primitive periodic cell that is repeated in three dimensions.
+
+ASE will be used as the structure and calculator interface between Python, MACE, Materials Project data, and LAMMPS.
+
+## Planned Data Source
+
+Materials Project will be used to obtain Ni, Al, and Ni–Al structures and calculated properties.
+
+The project will initially use Materials Project data for:
+
+* Selecting relevant Ni–Al phases.
+* Obtaining relaxed crystal structures.
+* Recording material identifiers and calculation provenance.
+* Comparing lattice, energy, formation-energy, and stability results.
+* Investigating relaxation trajectories as a possible source of training configurations.
+
+Materials Project summary data alone will not automatically be treated as a complete MACE training dataset. Each candidate training configuration must be checked for consistent energy, atomic-force, stress, structure, and DFT-method information.
+
+Mixing data generated using different DFT functionals will be avoided unless the difference is explicitly understood and handled.
+
+## Current Status
+
+### Step 2 — Atomic Simulation Environment
+
+Status: Completed
+
+### Step 3 — MACE Installation and Baseline Testing
+
+Status: Ready to Begin
