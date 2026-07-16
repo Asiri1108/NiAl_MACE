@@ -139,3 +139,9 @@ The model must also be tested on structures and physical conditions that were no
 * Added the proposed workflow.
 * Added data management and reproducibility rules.
 * Started the environment setup stage.
+### Python Environment
+
+- Project Python version: Python 3.11.9
+- Virtual environment: `.venv`
+- Active interpreter:
+
