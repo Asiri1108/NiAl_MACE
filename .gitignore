@@ -1,0 +1,30 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+**/.venv/
+
+# Python generated files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter generated files
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+
+# Training checkpoints and large model files
+*.pt
+*.pth
+*.model
+checkpoints/
+runs/
+logs/
+
+# Large simulation outputs
+*.dump
+*.lammpstrj
+*.restart

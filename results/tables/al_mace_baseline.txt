@@ -1,0 +1,44 @@
+MACE Aluminum Baseline Calculation
+==================================
+
+Model family:
+MACE-MP-0
+
+Model size:
+small
+
+Execution device:
+CPU
+
+Numerical precision:
+float32
+
+Perfect FCC aluminum
+--------------------
+Number of atoms: 32
+Total energy: -118.7061767578 eV
+Energy per atom: -3.7095680237 eV/atom
+Maximum force: 0.0000024471 eV/Å
+Mean force: 0.0000013962 eV/Å
+Stress: [-0.001156202401034534, -0.0011562022846192122, -0.0011562015861272812, 1.0227028945930527e-10, -6.490606385689546e-10, -6.831974430632215e-10]
+
+Displaced FCC aluminum
+----------------------
+Number of atoms: 32
+Total energy: -118.7021636963 eV
+Energy per atom: -3.7094426155 eV/atom
+Maximum force: 0.1605849564 eV/Å
+Mean force: 0.0153147206 eV/Å
+Stress: [-0.0011965412413701415, -0.001186905661597848, -0.0011869047302752733, -2.0733714745091447e-09, 8.30235324933426e-11, 4.787357732460862e-10]
+
+Comparison
+----------
+Energy change after displacement: 0.0040130615 eV
+
+Interpretation
+--------------
+The perfect structure tests the model on a symmetric FCC crystal.
+
+The displaced structure tests whether the model responds to a local
+change in atomic position by changing the energy and producing atomic
+forces.

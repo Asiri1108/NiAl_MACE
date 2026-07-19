@@ -232,3 +232,61 @@ Recorded results:
 The calculated primitive-cell volume is consistent with an FCC conventional
 cell containing four atoms. This confirms that ASE generated the expected
 primitive aluminum structure correctly.
+
+## Step 3 — MACE Aluminum Baseline
+
+Status: Completed
+
+### Execution Environment
+
+- Python version: 3.11.9
+- Python environment: `.venv`
+- Execution device: CPU
+- Foundation model: MACE-MP-0 small
+- Numerical precision: float32
+- Dispersion correction: disabled
+
+### Evaluated System
+
+A 2 × 2 × 2 conventional FCC aluminum supercell was generated using ASE.
+
+- Number of atoms: 32
+- Initial lattice constant: 4.05 Å
+- First structure: perfect FCC aluminum
+- Second structure: one atom displaced by 0.05 Å along the x direction
+
+### Baseline Results
+
+#### Perfect FCC Aluminum
+
+- Total energy: -118.70617676 eV
+- Energy per atom: -3.70956802 eV/atom
+- Maximum force: 0.00000245 eV/Å
+- Mean force: 0.00000140 eV/Å
+
+#### Displaced FCC Aluminum
+
+- Total energy: -118.70216370 eV
+- Energy per atom: -3.70944262 eV/atom
+- Maximum force: 0.16058496 eV/Å
+- Mean force: 0.01531472 eV/Å
+
+### Comparison
+
+Moving one atom by 0.05 Å increased the predicted energy by:
+
+- 0.00401306 eV
+
+The perfect periodic crystal produced forces close to zero. The displaced
+structure produced a clear increase in force and energy. This confirms that
+the pretrained MACE model responds to changes in the local atomic environment.
+
+This test validates the software workflow only. It does not yet establish
+the final physical accuracy of the model.
+
+### Generated Files
+
+```text
+scripts/al_mace_baseline.py
+results/structures/al_mace_baseline.extxyz
+results/tables/al_mace_baseline.txt
