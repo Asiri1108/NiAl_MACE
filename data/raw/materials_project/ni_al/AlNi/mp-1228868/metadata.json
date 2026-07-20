@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "source": "Materials Project",
+  "retrieval_time_utc": "2026-07-20T14:16:25Z",
+  "phase_key": "AlNi",
+  "query_formula": "AlNi",
+  "aliases": [
+    "AlNi",
+    "NiAl"
+  ],
+  "scientific_description": "Equiatomic nickel aluminide, commonly associated with the ordered B2 phase.",
+  "is_compound": true,
+  "is_elemental_reference": false,
+  "material_id": "mp-1228868",
+  "formula_pretty": "AlNi",
+  "reduced_composition": "AlNi",
+  "number_of_sites": 2,
+  "volume_A3": 23.472839297968516,
+  "density_g_cm3": 6.060902175772776,
+  "energy_above_hull_eV_per_atom": 0.02678004500000064,
+  "formation_energy_per_atom_eV": -0.6581211049999993,
+  "is_stable": false,
+  "theoretical": true,
+  "deprecated": false,
+  "symmetry_symbol": "P4/mmm",
+  "symmetry_number": 123,
+  "crystal_system": "Tetragonal",
+  "database_IDs": {},
+  "origins": [
+    {
+      "name": "structure",
+      "task_id": "aaaefiph",
+      "last_updated": "2021-02-09T13:05:35.858000Z"
+    },
+    {
+      "name": "electronic_structure",
+      "task_id": "aaaefiph",
+      "last_updated": "2021-02-09T13:05:35.858000Z"
+    },
+    {
+      "name": "magnetism",
+      "task_id": "aaaefiph",
+      "last_updated": "2021-02-09T13:05:35.858000Z"
+    },
+    {
+      "name": "energy",
+      "task_id": "aaaefiph",
+      "last_updated": "2026-05-30T04:43:30.281000Z"
+    }
+  ],
+  "materials_project_last_updated": "2021-02-09T13:05:35.858000Z",
+  "selected_candidate": false,
+  "selection_rank": 2,
+  "selection_reason": "Retained as alternative candidate at rank 2 of 3 under the deterministic rule (lowest available energy above hull; stable status on a hull-energy tie; lowest available formation energy per atom on a further tie; lexicographical material_id as the final tie-breaker). mp-1487 is the current working structure; this alternative was not discarded.",
+  "raw_cif_path": "data/raw/materials_project/ni_al/AlNi/mp-1228868/structure.cif",
+  "raw_extxyz_path": "data/raw/materials_project/ni_al/AlNi/mp-1228868/structure.extxyz",
+  "selected_cif_path": null,
+  "selected_extxyz_path": null
+}

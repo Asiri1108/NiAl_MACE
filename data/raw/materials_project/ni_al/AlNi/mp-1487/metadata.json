@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "source": "Materials Project",
+  "retrieval_time_utc": "2026-07-20T14:16:25Z",
+  "phase_key": "AlNi",
+  "query_formula": "AlNi",
+  "aliases": [
+    "AlNi",
+    "NiAl"
+  ],
+  "scientific_description": "Equiatomic nickel aluminide, commonly associated with the ordered B2 phase.",
+  "is_compound": true,
+  "is_elemental_reference": false,
+  "material_id": "mp-1487",
+  "formula_pretty": "AlNi",
+  "reduced_composition": "AlNi",
+  "number_of_sites": 2,
+  "volume_A3": 23.386572118200654,
+  "density_g_cm3": 6.083259318791009,
+  "energy_above_hull_eV_per_atom": 0.0,
+  "formation_energy_per_atom_eV": -0.68490115,
+  "is_stable": true,
+  "theoretical": false,
+  "deprecated": false,
+  "symmetry_symbol": "Pm-3m",
+  "symmetry_number": 221,
+  "crystal_system": "Cubic",
+  "database_IDs": {
+    "icsd": [
+      "icsd-58037",
+      "icsd-151396",
+      "icsd-150607",
+      "icsd-608802",
+      "icsd-151386",
+      "icsd-608785",
+      "icsd-608805",
+      "icsd-602150",
+      "icsd-604356"
+    ]
+  },
+  "origins": [
+    {
+      "name": "structure",
+      "task_id": "aaaegurs",
+      "last_updated": "2021-03-05T00:48:15.968000Z"
+    },
+    {
+      "name": "setyawan_curtarolo",
+      "task_id": "aaadmthc",
+      "last_updated": "2021-02-22T00:11:37.711000Z"
+    },
+    {
+      "name": "hinuma",
+      "task_id": "aaaeusax",
+      "last_updated": "2021-07-23T00:44:07.819000Z"
+    },
+    {
+      "name": "latimer_munro",
+      "task_id": "aaafiljq",
+      "last_updated": "2022-06-14T05:21:29.201000Z"
+    },
+    {
+      "name": "dos",
+      "task_id": "aaadqyrt",
+      "last_updated": "2020-07-14T19:52:24.313000Z"
+    },
+    {
+      "name": "electronic_structure",
+      "task_id": "aaafiljq",
+      "last_updated": "2022-06-14T05:21:29.201000Z"
+    },
+    {
+      "name": "magnetism",
+      "task_id": "aaaegurs",
+      "last_updated": "2021-03-05T00:48:15.968000Z"
+    },
+    {
+      "name": "energy",
+      "task_id": "aaaegurs",
+      "last_updated": "2026-05-30T04:43:30.312000Z"
+    }
+  ],
+  "materials_project_last_updated": "2023-10-08T00:39:39.855000Z",
+  "selected_candidate": true,
+  "selection_rank": 1,
+  "selection_reason": "Selected as the current working structure by deterministic ranking (lowest available energy above hull; stable status on a hull-energy tie; lowest available formation energy per atom on a further tie; lexicographical material_id as the final tie-breaker). It ranked 1 of 3 candidates. This reproducible project choice is not a claim of absolute experimental ground truth.",
+  "raw_cif_path": "data/raw/materials_project/ni_al/AlNi/mp-1487/structure.cif",
+  "raw_extxyz_path": "data/raw/materials_project/ni_al/AlNi/mp-1487/structure.extxyz",
+  "selected_cif_path": "data/processed/ni_al_structures/selected/AlNi.cif",
+  "selected_extxyz_path": "data/processed/ni_al_structures/selected/AlNi.extxyz"
+}

@@ -1,0 +1,4 @@
+2
+Lattice="2.85971129 0.0 -0.0 -0.0 2.85971129 -0.0 0.0 -0.0 2.85971129" Properties=species:S:1:pos:R:3 source="Materials Project" material_id=mp-1487 phase_key=AlNi query_formula=AlNi formula_pretty=AlNi selected_candidate=T selection_rank=1 retrieval_time_utc=2026-07-20T14:16:25Z energy_above_hull_eV_per_atom=0.0 formation_energy_per_atom_eV=-0.68490115 is_stable=T pbc="T T T"
+Al       1.42985564       1.42985564       1.42985564
+Ni       0.00000000       0.00000000       0.00000000

@@ -1,0 +1,59 @@
+{
+  "description": "Materials Project structure-acquisition configuration for the five Ni-Al intermetallic compositions studied in this project.",
+  "schema_version": "1.0",
+  "phases": [
+    {
+      "phase_key": "Al3Ni",
+      "query_formula": "Al3Ni",
+      "aliases": [
+        "Al3Ni"
+      ],
+      "description": "Al-rich nickel aluminide with a 3:1 Al-to-Ni stoichiometry.",
+      "is_compound": true,
+      "is_elemental_reference": false
+    },
+    {
+      "phase_key": "Al3Ni2",
+      "query_formula": "Al3Ni2",
+      "aliases": [
+        "Al3Ni2"
+      ],
+      "description": "Intermediate nickel aluminide with a 3:2 Al-to-Ni stoichiometry.",
+      "is_compound": true,
+      "is_elemental_reference": false
+    },
+    {
+      "phase_key": "AlNi",
+      "query_formula": "AlNi",
+      "aliases": [
+        "AlNi",
+        "NiAl"
+      ],
+      "description": "Equiatomic nickel aluminide, commonly associated with the ordered B2 phase.",
+      "is_compound": true,
+      "is_elemental_reference": false
+    },
+    {
+      "phase_key": "Al3Ni5",
+      "query_formula": "Al3Ni5",
+      "aliases": [
+        "Al3Ni5",
+        "Ni5Al3"
+      ],
+      "description": "Ni-rich intermediate nickel aluminide with a 3:5 Al-to-Ni stoichiometry.",
+      "is_compound": true,
+      "is_elemental_reference": false
+    },
+    {
+      "phase_key": "AlNi3",
+      "query_formula": "AlNi3",
+      "aliases": [
+        "AlNi3",
+        "Ni3Al"
+      ],
+      "description": "Ni-rich nickel aluminide, commonly associated with the ordered L1_2 phase.",
+      "is_compound": true,
+      "is_elemental_reference": false
+    }
+  ]
+}

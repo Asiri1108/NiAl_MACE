@@ -290,3 +290,149 @@ the final physical accuracy of the model.
 scripts/al_mace_baseline.py
 results/structures/al_mace_baseline.extxyz
 results/tables/al_mace_baseline.txt
+```
+
+## Step 4 — Ni-Al Phase Structure Acquisition
+
+Status: Completed on 2026-07-20. The authenticated Materials Project
+acquisition retained nine exact-composition candidates and selected one
+working structure for each of the five target phases.
+
+### Purpose and Scientific Scope
+
+This step prepares a reproducible, provenance-rich structure dataset from
+Materials Project. It downloads crystal structures and summary metadata only;
+it does not train or fine-tune MACE, relax structures, run molecular dynamics,
+or perform EAM, MEAM, or LAMMPS calculations.
+
+The five target intermetallic compositions are:
+
+* `Al3Ni`
+* `Al3Ni2`
+* `AlNi` / `NiAl`
+* `Al3Ni5` / `Ni5Al3`
+* `AlNi3` / `Ni3Al`
+
+The pretrained MACE-MP-0 model already supports both Al and Ni. Pure aluminum
+and pure nickel are therefore not being trained separately before the
+compounds are studied. They may be introduced later as elemental reference
+structures for formation-energy calculations, but they are not part of this
+download step.
+
+Materials Project summary structures are not automatically a force-training
+trajectory dataset. A summary structure does not by itself provide the
+consistent collection of energies, atomic forces, stresses, configurations,
+and calculation settings needed for force training.
+
+### Candidate Preservation and Selection
+
+The acquisition script queries all current, non-deprecated summary entries for
+each configured formula. It uses pymatgen compositions to verify the exact
+reduced composition instead of relying on formula-string order. Every exact
+candidate is preserved under `data/raw/`; alternative polymorphs are never
+silently discarded.
+
+One candidate is copied to the selected working directory using this
+deterministic order:
+
+1. Lowest available energy above hull.
+2. Stable entries before entries not marked stable when hull energies tie.
+3. Lowest available formation energy per atom when the earlier values tie.
+4. Lexicographical Materials Project ID as the final tie-breaker.
+
+Missing numerical values rank as positive infinity. The selected candidate is
+the project's reproducible current working structure, not a claim of absolute
+experimental ground truth. The manifest and metadata record the full ranking
+and a human-readable selection reason.
+
+### API-Key Security and Installation
+
+Install only the Step 4 packages into the existing project environment from
+Windows CMD:
+
+```bat
+cd /d D:\Materials_Research\NiAl_MACE
+.venv\Scripts\python.exe -m pip install mp-api python-dotenv
+```
+
+Create the local API configuration and run validation before downloading:
+
+```bat
+cd /d D:\Materials_Research\NiAl_MACE
+.venv\Scripts\activate.bat
+copy .env.example .env
+python scripts\fetch_ni_al_structures.py --validate-only
+python scripts\fetch_ni_al_structures.py
+```
+
+Edit `.env` locally and replace the example value with a Materials Project API
+key. The script also accepts `MP_API_KEY` when it is already defined as a
+Windows environment variable. It never prints the key. **The `.env` file must
+never be committed.** `.env.example` contains only a safe placeholder.
+
+To download one phase only:
+
+```bat
+python scripts\fetch_ni_al_structures.py --phase AlNi
+```
+
+To replace existing downloaded phase files after reviewing the consequences:
+
+```bat
+python scripts\fetch_ni_al_structures.py --overwrite
+```
+
+Without `--overwrite`, an existing complete candidate bundle causes a clear
+failure rather than an implicit replacement. An incomplete bundle always
+stops the workflow with a partial-output diagnostic so its provenance can be
+inspected before another acquisition is attempted. During an explicit
+`--overwrite` refresh, candidate bundles no longer returned by the current API
+query are reported and removed in the same rollback-protected transaction that
+publishes the replacement files and manifests.
+
+### Output Layout
+
+Directories are created only by a real successful acquisition when needed:
+
+```text
+configs/
+└── ni_al_phases.json
+data/
+├── raw/materials_project/ni_al/
+│   └── <phase_key>/<material_id>/
+│       ├── structure.cif
+│       ├── structure.extxyz
+│       └── metadata.json
+└── processed/ni_al_structures/
+    ├── selected/
+    │   ├── Al3Ni.cif
+    │   ├── Al3Ni.extxyz
+    │   ├── Al3Ni.metadata.json
+    │   └── ... corresponding files for all five phases
+    ├── ni_al_phase_manifest.csv
+    └── ni_al_phase_manifest.json
+```
+
+Each candidate has one record in both manifests. Records contain composition,
+energetic and symmetry fields when available, selection rank and reason,
+retrieval time, and repository-relative raw and selected paths. A single-phase
+run merges its new records with existing records for other phases instead of
+erasing them.
+
+### Success Criteria and Current Project Status
+
+Step 4 acquisition is complete when all five formulas have been queried, all
+exact-composition candidates and provenance metadata have been saved, exactly
+one working candidate per phase has been selected deterministically, both
+manifests agree, and the console reports zero failed phases.
+
+The code, configuration, API-key safeguards, and validation path are
+implemented. The authenticated acquisition completed successfully: nine raw
+candidates were retained, five working structures were selected, and the JSON
+and CSV manifests record their provenance and deterministic rankings.
+
+### Next Step
+
+The selected Ni-Al structures will be evaluated using the pretrained
+MACE-MP-0 small model in a zero-shot single-point baseline before any
+fine-tuning decision is made.

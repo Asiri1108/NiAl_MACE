@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "source": "Materials Project",
+  "retrieval_time_utc": "2026-07-20T14:16:25Z",
+  "phase_key": "Al3Ni2",
+  "query_formula": "Al3Ni2",
+  "aliases": [
+    "Al3Ni2"
+  ],
+  "scientific_description": "Intermediate nickel aluminide with a 3:2 Al-to-Ni stoichiometry.",
+  "is_compound": true,
+  "is_elemental_reference": false,
+  "material_id": "mp-1057",
+  "formula_pretty": "Al3Ni2",
+  "reduced_composition": "Al3Ni2",
+  "number_of_sites": 5,
+  "volume_A3": 67.43506090961826,
+  "density_g_cm3": 4.883766101605819,
+  "energy_above_hull_eV_per_atom": 0.0,
+  "formation_energy_per_atom_eV": -0.6442166279999995,
+  "is_stable": true,
+  "theoretical": false,
+  "deprecated": false,
+  "symmetry_symbol": "P-3m1",
+  "symmetry_number": 164,
+  "crystal_system": "Trigonal",
+  "database_IDs": {
+    "icsd": [
+      "icsd-191103",
+      "icsd-183321",
+      "icsd-608786",
+      "icsd-107937",
+      "icsd-107713",
+      "icsd-604357"
+    ]
+  },
+  "origins": [
+    {
+      "name": "structure",
+      "task_id": "aaaeimqb",
+      "last_updated": "2021-03-08T00:22:55.029000Z"
+    },
+    {
+      "name": "setyawan_curtarolo",
+      "task_id": "aaacivyr",
+      "last_updated": "2021-03-07T07:39:25.648000Z"
+    },
+    {
+      "name": "hinuma",
+      "task_id": "aaaeuufs",
+      "last_updated": "2021-07-22T22:26:42.256000Z"
+    },
+    {
+      "name": "latimer_munro",
+      "task_id": "aaafwxcl",
+      "last_updated": "2022-06-26T05:26:09.379000Z"
+    },
+    {
+      "name": "dos",
+      "task_id": "aaadrgtw",
+      "last_updated": "2020-07-15T02:36:59.330000Z"
+    },
+    {
+      "name": "electronic_structure",
+      "task_id": "aaafwxcl",
+      "last_updated": "2022-06-26T05:26:09.379000Z"
+    },
+    {
+      "name": "magnetism",
+      "task_id": "aaaeimqb",
+      "last_updated": "2021-03-08T00:22:55.029000Z"
+    },
+    {
+      "name": "energy",
+      "task_id": "aaaeimqb",
+      "last_updated": "2026-05-30T04:42:47.255000Z"
+    }
+  ],
+  "materials_project_last_updated": "2023-10-07T13:16:30.189000Z",
+  "selected_candidate": true,
+  "selection_rank": 1,
+  "selection_reason": "Selected as the current working structure by deterministic ranking (lowest available energy above hull; stable status on a hull-energy tie; lowest available formation energy per atom on a further tie; lexicographical material_id as the final tie-breaker). It ranked 1 of 1 candidates. This reproducible project choice is not a claim of absolute experimental ground truth.",
+  "raw_cif_path": "data/raw/materials_project/ni_al/Al3Ni2/mp-1057/structure.cif",
+  "raw_extxyz_path": "data/raw/materials_project/ni_al/Al3Ni2/mp-1057/structure.extxyz",
+  "selected_cif_path": "data/processed/ni_al_structures/selected/Al3Ni2.cif",
+  "selected_extxyz_path": "data/processed/ni_al_structures/selected/Al3Ni2.extxyz"
+}

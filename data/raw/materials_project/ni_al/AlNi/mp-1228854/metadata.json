@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "source": "Materials Project",
+  "retrieval_time_utc": "2026-07-20T14:16:25Z",
+  "phase_key": "AlNi",
+  "query_formula": "AlNi",
+  "aliases": [
+    "AlNi",
+    "NiAl"
+  ],
+  "scientific_description": "Equiatomic nickel aluminide, commonly associated with the ordered B2 phase.",
+  "is_compound": true,
+  "is_elemental_reference": false,
+  "material_id": "mp-1228854",
+  "formula_pretty": "AlNi",
+  "reduced_composition": "AlNi",
+  "number_of_sites": 2,
+  "volume_A3": 24.904996714431185,
+  "density_g_cm3": 5.712371071712924,
+  "energy_above_hull_eV_per_atom": 0.24665903,
+  "formation_energy_per_atom_eV": -0.43824211999999996,
+  "is_stable": false,
+  "theoretical": true,
+  "deprecated": false,
+  "symmetry_symbol": "C2/m",
+  "symmetry_number": 12,
+  "crystal_system": "Monoclinic",
+  "database_IDs": {},
+  "origins": [
+    {
+      "name": "structure",
+      "task_id": "aaadcmpi",
+      "last_updated": "2020-05-03T16:07:03.569000Z"
+    },
+    {
+      "name": "setyawan_curtarolo",
+      "task_id": "aaadnqho",
+      "last_updated": "2021-02-23T08:01:45.668000Z"
+    },
+    {
+      "name": "hinuma",
+      "task_id": "aaaetmqp",
+      "last_updated": "2021-07-23T17:00:32.724000Z"
+    },
+    {
+      "name": "latimer_munro",
+      "task_id": "aaafsjhp",
+      "last_updated": "2022-06-22T13:31:59.715000Z"
+    },
+    {
+      "name": "dos",
+      "task_id": "aaadrico",
+      "last_updated": "2020-07-15T03:01:35.628000Z"
+    },
+    {
+      "name": "electronic_structure",
+      "task_id": "aaafsjhp",
+      "last_updated": "2022-06-22T13:31:59.715000Z"
+    },
+    {
+      "name": "magnetism",
+      "task_id": "aaadcmpi",
+      "last_updated": "2020-05-03T16:07:03.569000Z"
+    },
+    {
+      "name": "energy",
+      "task_id": "aaadcmpi",
+      "last_updated": "2026-05-30T04:43:30.301000Z"
+    }
+  ],
+  "materials_project_last_updated": "2022-06-22T13:31:59.715000Z",
+  "selected_candidate": false,
+  "selection_rank": 3,
+  "selection_reason": "Retained as alternative candidate at rank 3 of 3 under the deterministic rule (lowest available energy above hull; stable status on a hull-energy tie; lowest available formation energy per atom on a further tie; lexicographical material_id as the final tie-breaker). mp-1487 is the current working structure; this alternative was not discarded.",
+  "raw_cif_path": "data/raw/materials_project/ni_al/AlNi/mp-1228854/structure.cif",
+  "raw_extxyz_path": "data/raw/materials_project/ni_al/AlNi/mp-1228854/structure.extxyz",
+  "selected_cif_path": null,
+  "selected_extxyz_path": null
+}

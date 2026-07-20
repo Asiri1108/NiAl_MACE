@@ -16,6 +16,11 @@ __pycache__/
 # IDE files
 .vscode/
 
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+
 # Training checkpoints and large model files
 *.pt
 *.pth
