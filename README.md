@@ -436,3 +436,143 @@ and CSV manifests record their provenance and deterministic rankings.
 The selected Ni-Al structures will be evaluated using the pretrained
 MACE-MP-0 small model in a zero-shot single-point baseline before any
 fine-tuning decision is made.
+
+## Step 5 — MACE-MP-0 Zero-Shot Evaluation of Ni-Al Phases
+
+Status: Completed on 2026-07-21. Validation passed, the cached pretrained model
+loaded successfully, and all five requested phases completed with zero failures.
+
+### Scientific Purpose and Scope
+
+Step 5 tests whether the pretrained MACE-MP-0 small foundation model can
+successfully calculate finite energies, forces, and stresses for the five
+selected Ni-Al intermetallic structures without additional training. This is a
+zero-shot software and physical-response baseline, not yet a complete accuracy
+validation against DFT or experiment.
+
+Zero-shot evaluation means that the pretrained model is applied directly to
+the selected structures without project-specific training or fine-tuning. The
+model is not trained or fine-tuned in this step. Atomic positions, cell vectors,
+chemical species, and periodic boundary conditions are preserved exactly as
+downloaded, and no geometry optimization or relaxation is performed.
+
+The default calculation settings are:
+
+* Foundation model: MACE-MP-0 small.
+* Execution device: CPU.
+* Numerical precision: float64.
+* Dispersion correction: disabled.
+* Evaluation type: zero-shot single-point calculation.
+
+The evaluated phases, in report order, are:
+
+1. `Al3Ni`
+2. `Al3Ni2`
+3. `AlNi`
+4. `Al3Ni5`
+5. `AlNi3`
+
+### Calculated Properties and Interpretation
+
+For each phase, the script calculates the total energy, energy per atom,
+atomic force vectors, periodic-cell stress, cell volume, and volume per atom.
+It also reports the maximum, mean, root-mean-square, and minimum magnitudes of
+the per-atom force vectors, together with the vector sum of all atomic forces
+and the norm of that total-force vector. The RMS statistic is
+`sqrt(mean(|F_i|^2))`, where `|F_i|` is the magnitude of one atom's force.
+
+Stress is reported in the ASE Voigt component order `xx, yy, zz, yz, xz, xy`
+in eV/angstrom^3. ASE uses positive stress for tension; hydrostatic compression
+has negative diagonal stress components under this convention.
+
+Materials Project formation energies must not be compared directly with raw
+MACE total energies in this step. The two sources may use different elemental
+energy references and calculation conventions. Step 5 therefore does not
+calculate formation energies or subtract elemental reference energies.
+
+The selected Materials Project structures were optimized on a DFT energy
+surface, not on the MACE energy surface. Nonzero MACE forces are consequently
+expected in general and do not by themselves show that either a structure or
+the model is incorrect. A maximum force from this single-point calculation is
+not sufficient to classify a phase as physically stable or unstable.
+
+### Inputs and Generated Outputs
+
+The input directory is:
+
+```text
+data/processed/ni_al_structures/selected/
+```
+
+Original selected files are read only. Annotated copies and summaries are
+written under:
+
+```text
+results/mace_zero_shot/
+├── structures/
+│   ├── Al3Ni_mace_zero_shot.extxyz
+│   ├── Al3Ni2_mace_zero_shot.extxyz
+│   ├── AlNi_mace_zero_shot.extxyz
+│   ├── Al3Ni5_mace_zero_shot.extxyz
+│   └── AlNi3_mace_zero_shot.extxyz
+├── tables/
+│   ├── ni_al_mace_zero_shot.csv
+│   └── ni_al_mace_zero_shot.json
+└── reports/
+    └── ni_al_mace_zero_shot.txt
+```
+
+Each annotated EXTXYZ retains the source structure and adds explicitly named
+MACE energy, force, and stress fields plus model and provenance metadata. The
+original Materials Project selected structures are never overwritten.
+
+### Windows CMD Commands
+
+Activate the existing project environment and validate all dependencies,
+configuration fields, selected structures, formulas, and output paths without
+loading the pretrained model:
+
+```bat
+cd /d D:\Materials_Research\NiAl_MACE
+.venv\Scripts\activate.bat
+
+python scripts\evaluate_ni_al_mace_zero_shot.py --validate-only
+```
+
+Run the complete five-phase zero-shot calculation:
+
+```bat
+python scripts\evaluate_ni_al_mace_zero_shot.py
+```
+
+Evaluate one phase only:
+
+```bat
+python scripts\evaluate_ni_al_mace_zero_shot.py --phase AlNi
+```
+
+Replace an existing, reviewed Step 5 result bundle:
+
+```bat
+python scripts\evaluate_ni_al_mace_zero_shot.py --overwrite
+```
+
+### Success Criteria and Current Project Status
+
+Step 5 succeeds when configuration and input validation pass, the pretrained
+model loads once, all requested phases return finite energy, force, stress, and
+derived statistics, every annotated structure passes read-back verification,
+the CSV, JSON, and text reports are published atomically, and the console
+reports zero failed phases. Validation-only mode must not load the model, run a
+calculation, or create result directories.
+
+Current project status: the Step 5 implementation, configuration,
+documentation, environment snapshot, five annotated structures, and three
+summary reports are present. The CPU/float64 MACE-MP-0 small run completed all
+five phases successfully. The authoritative execution record is
+`results/mace_zero_shot/reports/ni_al_mace_zero_shot.txt`.
+
+### Next Step
+
+Reviewing the zero-shot results and preparing controlled geometry-relaxation
+tests before comparing MACE with selected Ni-Al potentials in LAMMPS.

@@ -1,0 +1,6 @@
+4
+Lattice="3.5229346 0.0 -0.0 0.0 3.52311529 0.0 0.0 0.0 3.52311429" Properties=species:S:1:pos:R:3:MACE_forces_eV_per_A:R:3 source="Materials Project" material_id=mp-2593 phase_key=AlNi3 query_formula=AlNi3 formula_pretty=AlNi3 selected_candidate=T selection_rank=1 retrieval_time_utc=2026-07-20T14:16:25Z energy_above_hull_eV_per_atom=0.0 formation_energy_per_atom_eV=-0.4264197774999996 is_stable=T MACE_total_energy_eV=-22.836292364226455 MACE_energy_per_atom_eV=-5.709073091056614 MACE_stress_eV_per_A3="-0.03664195876647671 -0.036619047115213375 -0.03661917398439417 -6.518081729040704e-18 2.6831920314577485e-18 5.8249061297221476e-18" source_material_id=mp-2593 source_formula=AlNi3 model_family=MACE model_name=MACE-MP-0 model_size=small device=cpu default_dtype=float64 dispersion=F evaluation_type="zero-shot single-point" evaluation_time_utc=2026-07-21T12:06:56Z ASE_stress_order="xx yy zz yz xz xy" pbc="T T T"
+Al       0.00000000       0.00000000       0.00000000      -0.00000000      -0.00000003       0.00000003
+Ni       0.00000000       1.76155764       1.76155715      -0.00000000       0.00000004      -0.00000004
+Ni       1.76146730       0.00000000       1.76155715       0.00000000      -0.00000004      -0.00000004
+Ni       1.76146730       1.76155764       0.00000000       0.00000000       0.00000004       0.00000004

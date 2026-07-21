@@ -1,0 +1,175 @@
+Ni-Al MACE-MP-0 Zero-Shot Single-Point Evaluation
+==================================================
+
+Purpose
+-------
+Evaluate whether the pretrained MACE-MP-0 model value 'small' can
+compute finite energies, forces, and stresses for the requested
+5 selected Ni-Al intermetallic phase(s) without additional training.
+
+Evaluation definition
+---------------------
+Zero-shot means the pretrained model is applied directly to structures
+that were not used for any project-specific training or fine-tuning.
+No training or fine-tuning occurred in this step.
+No geometry optimization or atomic/cell relaxation occurred in this step.
+Each input was evaluated once at its downloaded Materials Project geometry.
+
+Model and execution
+-------------------
+Model family: MACE
+Model name: MACE-MP-0
+Model value/size: small
+Execution device: cpu
+Numerical precision: float64
+Dispersion correction enabled: false
+Evaluation type: zero-shot single-point
+Report generation time (UTC): 2026-07-21T12:06:56Z
+
+Stress convention
+-----------------
+Stress is reported in ASE Voigt order: xx, yy, zz, yz, xz, xy.
+Units are eV/angstrom^3. ASE uses positive stress for tension and
+negative diagonal stress for hydrostatic compression.
+
+Energy-reference limitation
+---------------------------
+Materials Project formation energies are not directly compared with raw
+MACE total energies here because the reference states and calculation
+conventions may differ. No formation energy or elemental-reference
+subtraction is performed in Step 5.
+
+Phase results
+=============
+
+Al3Ni
+-----
+Status: success
+Formula: Al3Ni
+Materials Project ID: mp-622209
+Space group: Pnma (62)
+Number of atoms: 16
+Total energy: -74.6957108787 eV
+Energy per atom: -4.66848192992 eV/atom
+Cell volume: 228.550737269 angstrom^3
+Volume per atom: 14.2844210793 angstrom^3/atom
+Maximum force magnitude: 0.212792948909 eV/angstrom
+Mean force magnitude: 0.14473339807 eV/angstrom
+RMS force magnitude: 0.150501412874 eV/angstrom
+Minimum force magnitude: 0.111594099315 eV/angstrom
+Total force vector (x, y, z): [2.77555756156e-17, 5.55111512313e-17, 3.21971768395e-16] eV/angstrom
+Total force norm: 3.27898886141e-16 eV/angstrom
+Stress (xx, yy, zz, yz, xz, xy): [-0.0160416244982, -0.0185317794392, -0.0202518249277, 5.07757364034e-11, -2.0965042185e-12, -5.91571731688e-07] eV/angstrom^3
+Input structure: data/processed/ni_al_structures/selected/Al3Ni.extxyz
+Annotated output: results/mace_zero_shot/structures/Al3Ni_mace_zero_shot.extxyz
+Evaluation time (UTC): 2026-07-21T12:06:56Z
+
+Al3Ni2
+------
+Status: success
+Formula: Al3Ni2
+Materials Project ID: mp-1057
+Space group: P-3m1 (164)
+Number of atoms: 5
+Total energy: -25.7805520901 eV
+Energy per atom: -5.15611041802 eV/atom
+Cell volume: 67.4350609096 angstrom^3
+Volume per atom: 13.4870121819 angstrom^3/atom
+Maximum force magnitude: 0.102594155532 eV/angstrom
+Mean force magnitude: 0.068338222094 eV/angstrom
+RMS force magnitude: 0.0779328282837 eV/angstrom
+Minimum force magnitude: 1.44439246616e-15 eV/angstrom
+Total force vector (x, y, z): [-1.5978429517e-17, -1.28088322284e-17, -2.49800180541e-16] eV/angstrom
+Total force norm: 2.50638198587e-16 eV/angstrom
+Stress (xx, yy, zz, yz, xz, xy): [-0.0235176647181, -0.0235181649568, -0.0160519336166, -1.19462621953e-08, 1.18989711818e-09, -3.09826382969e-07] eV/angstrom^3
+Input structure: data/processed/ni_al_structures/selected/Al3Ni2.extxyz
+Annotated output: results/mace_zero_shot/structures/Al3Ni2_mace_zero_shot.extxyz
+Evaluation time (UTC): 2026-07-21T12:06:56Z
+
+AlNi
+----
+Status: success
+Formula: AlNi
+Materials Project ID: mp-1487
+Space group: Pm-3m (221)
+Number of atoms: 2
+Total energy: -10.813681753 eV
+Energy per atom: -5.40684087649 eV/atom
+Cell volume: 23.3865721182 angstrom^3
+Volume per atom: 11.6932860591 angstrom^3/atom
+Maximum force magnitude: 4.88879156031e-08 eV/angstrom
+Mean force magnitude: 4.88879155888e-08 eV/angstrom
+RMS force magnitude: 4.88879155888e-08 eV/angstrom
+Minimum force magnitude: 4.88879155744e-08 eV/angstrom
+Total force vector (x, y, z): [-5.42101086243e-18, 4.11996825544e-17, 1.38777878078e-17] eV/angstrom
+Total force norm: 4.3810891292e-17 eV/angstrom
+Stress (xx, yy, zz, yz, xz, xy): [-0.0296972855198, -0.0296972855198, -0.0296972855198, -5.5825841305e-17, -4.31316767718e-17, -5.66806765029e-17] eV/angstrom^3
+Input structure: data/processed/ni_al_structures/selected/AlNi.extxyz
+Annotated output: results/mace_zero_shot/structures/AlNi_mace_zero_shot.extxyz
+Evaluation time (UTC): 2026-07-21T12:06:56Z
+
+Al3Ni5
+------
+Status: success
+Formula: Al3Ni5
+Materials Project ID: mp-16514
+Space group: Cmmm (65)
+Number of atoms: 8
+Total energy: -44.5680760769 eV
+Energy per atom: -5.57100950961 eV/atom
+Cell volume: 90.372065811 angstrom^3
+Volume per atom: 11.2965082264 angstrom^3/atom
+Maximum force magnitude: 0.160800415761 eV/angstrom
+Mean force magnitude: 0.0418796438111 eV/angstrom
+RMS force magnitude: 0.0804703422059 eV/angstrom
+Minimum force magnitude: 4.62358041976e-08 eV/angstrom
+Total force vector (x, y, z): [-5.61697987571e-18, 2.49800180541e-16, 2.77555756156e-17] eV/angstrom
+Total force norm: 2.51400184246e-16 eV/angstrom
+Stress (xx, yy, zz, yz, xz, xy): [-0.0404235945444, -0.0374954184483, -0.0384708696186, 0.00451959771607, 1.47487606484e-17, 1.82448167126e-17] eV/angstrom^3
+Input structure: data/processed/ni_al_structures/selected/Al3Ni5.extxyz
+Annotated output: results/mace_zero_shot/structures/Al3Ni5_mace_zero_shot.extxyz
+Evaluation time (UTC): 2026-07-21T12:06:56Z
+
+AlNi3
+-----
+Status: success
+Formula: AlNi3
+Materials Project ID: mp-2593
+Space group: Pm-3m (221)
+Number of atoms: 4
+Total energy: -22.8362923642 eV
+Energy per atom: -5.70907309106 eV/atom
+Cell volume: 43.7278543854 angstrom^3
+Volume per atom: 10.9319635963 angstrom^3/atom
+Maximum force magnitude: 5.97849521949e-08 eV/angstrom
+Mean force magnitude: 5.61617528863e-08 eV/angstrom
+RMS force magnitude: 5.63350977222e-08 eV/angstrom
+Minimum force magnitude: 4.89683503555e-08 eV/angstrom
+Total force vector (x, y, z): [-3.04650181953e-18, -1.80342645068e-17, -8.10576649204e-17] eV/angstrom
+Total force norm: 8.30954927297e-17 eV/angstrom
+Stress (xx, yy, zz, yz, xz, xy): [-0.0366419587665, -0.0366190471152, -0.0366191739844, -6.51808172904e-18, 2.68319203146e-18, 5.82490612972e-18] eV/angstrom^3
+Input structure: data/processed/ni_al_structures/selected/AlNi3.extxyz
+Annotated output: results/mace_zero_shot/structures/AlNi3_mace_zero_shot.extxyz
+Evaluation time (UTC): 2026-07-21T12:06:56Z
+
+Force interpretation
+--------------------
+Nonzero forces in this step are not by themselves evidence that the
+structure or model is incorrect, because the input geometry was optimized
+using a different energy model.
+They show that a Materials Project DFT geometry need not be a stationary
+point on the MACE potential-energy surface. Maximum force alone from this
+single-point calculation does not classify a phase as stable or unstable.
+
+Scientific limitations
+----------------------
+This is a software and physical-response baseline, not a complete accuracy
+validation against DFT or experiment. No relaxation, training, fine-tuning,
+molecular dynamics, LAMMPS, EAM, or MEAM calculation was performed.
+
+Final summary
+-------------
+Requested phases: 5
+Completed phases: 5
+Failed phases: 0
+Overall status: SUCCESS
