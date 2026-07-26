@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "description": "Controlled MACE-MP-0 geometry-relaxation configuration for selected Ni-Al intermetallic phases.",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false
+  },
+  "input": {
+    "selected_structure_directory": "data/processed/ni_al_structures/selected",
+    "zero_shot_table": "results/mace_zero_shot/tables/ni_al_mace_zero_shot.json"
+  },
+  "output": {
+    "root_directory": "results/mace_relaxation",
+    "atomic_only_directory": "results/mace_relaxation/atomic_only",
+    "full_cell_directory": "results/mace_relaxation/full_cell",
+    "comparison_directory": "results/mace_relaxation/comparison"
+  },
+  "phase_order": [
+    "Al3Ni",
+    "Al3Ni2",
+    "AlNi",
+    "Al3Ni5",
+    "AlNi3"
+  ],
+  "expected_phases": {
+    "Al3Ni": {
+      "expected_material_id": "mp-622209"
+    },
+    "Al3Ni2": {
+      "expected_material_id": "mp-1057"
+    },
+    "AlNi": {
+      "expected_material_id": "mp-1487"
+    },
+    "Al3Ni5": {
+      "expected_material_id": "mp-16514"
+    },
+    "AlNi3": {
+      "expected_material_id": "mp-2593"
+    }
+  },
+  "relaxation_modes": {
+    "atomic_only": {
+      "enabled": true,
+      "optimizer": "FIRE",
+      "force_threshold_eV_per_A": 0.01,
+      "maximum_steps": 500,
+      "trajectory_interval": 1,
+      "allow_atomic_positions": true,
+      "allow_cell_shape": false,
+      "allow_cell_volume": false
+    },
+    "full_cell": {
+      "enabled": true,
+      "optimizer": "FIRE",
+      "force_threshold_eV_per_A": 0.01,
+      "stress_threshold_eV_per_A3": 0.0006241509,
+      "maximum_steps": 1000,
+      "trajectory_interval": 1,
+      "hydrostatic_strain": false,
+      "constant_volume": false,
+      "allow_atomic_positions": true,
+      "allow_cell_shape": true,
+      "allow_cell_volume": true
+    }
+  },
+  "safety": {
+    "maximum_absolute_volume_change_percent": 25.0,
+    "maximum_atomic_displacement_A": 2.0,
+    "stop_on_nonfinite_value": true,
+    "preserve_original_structure": true,
+    "require_periodic_cell": true
+  },
+  "step6_execution": {
+    "atomic_only_pilot_phase": "Al3Ni",
+    "full_cell_pilot_phase": "AlNi",
+    "symmetry_symprec_A": 0.001,
+    "symmetry_angle_tolerance_deg": 5.0,
+    "history_interval": 1,
+    "external_pressure_eV_per_A3": 0.0
+  }
+}

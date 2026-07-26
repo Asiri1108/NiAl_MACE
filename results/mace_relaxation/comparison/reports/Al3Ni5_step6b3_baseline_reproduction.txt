@@ -1,0 +1,316 @@
+Step 6B.3 - Al3Ni5 Initial Baseline Reproduction
+================================================
+
+Project and execution
+---------------------
+Project root: D:\Materials_Research\NiAl_MACE
+Report timestamp (UTC): 2026-07-26T10:15:16Z
+Configuration: configs/mace_relaxation.json
+Phase: Al3Ni5
+Materials Project ID: mp-16514
+Execution mode: --all-remaining
+Purpose: computational reproduction of the stored Step 5 fixed-geometry single-point baseline.
+Scientific accuracy conclusion: not evaluated in this sub-step.
+
+Model settings
+--------------
+Family: MACE
+Name: MACE-MP-0
+Model value: small
+Device: cpu
+Default dtype: float64
+Dispersion enabled: false
+Calculator class: mace.calculators.mace.MACECalculator
+Calculator loads for this invocation: 1
+Single-point calculations for this phase: 1
+Calculator reuse: one shared calculator is reused across four independent phases.
+
+Inputs
+------
+Selected structure: data/processed/ni_al_structures/selected/Al3Ni5.extxyz
+Selected metadata: data/processed/ni_al_structures/selected/Al3Ni5.metadata.json
+Step 5 baseline JSON: results/mace_zero_shot/tables/ni_al_mace_zero_shot.json
+Step 5 annotated structure: results/mace_zero_shot/structures/Al3Ni5_mace_zero_shot.extxyz
+Numerical baseline source: Step 5 JSON table
+Per-atom force-vector policy: reproduced vectors are recorded, but the Step 5 JSON has no per-atom force-vector array. Rounded annotated EXTXYZ force columns are not used as numerical references.
+
+Identity and metadata validation
+--------------------------------
+[PASS] EXTXYZ file exists: data/processed/ni_al_structures/selected/Al3Ni5.extxyz
+[PASS] Metadata JSON exists: data/processed/ni_al_structures/selected/Al3Ni5.metadata.json
+[PASS] Phase key: Al3Ni5
+[PASS] Materials Project ID: mp-16514
+[PASS] Metadata formula: Al3Ni5
+[PASS] Metadata formula composition: Al3Ni5
+[PASS] Metadata reduced composition: Al3Ni5
+[PASS] Metadata selected EXTXYZ path: data/processed/ni_al_structures/selected/Al3Ni5.extxyz
+[PASS] Metadata site count: 8
+[PASS] Metadata volume: 90.372065811009335 angstrom^3
+[PASS] Atom count: 8
+[PASS] Elements: Al, Ni
+[PASS] Reduced composition: Al3Ni5
+[PASS] Atom ordering: Al, Al, Al, Ni, Ni, Ni, Ni, Ni
+[PASS] Atomic numbers: 13, 13, 13, 28, 28, 28, 28, 28
+[PASS] PBC in all directions: true, true, true
+[PASS] Finite positions: shape=(8, 3)
+[PASS] Finite cell: shape=(3, 3)
+[PASS] Positive finite volume: 90.372065811009378
+[PASS] Calculator absent after reading: None
+[PASS] Selected status: selected_candidate=true
+[PASS] EXTXYZ identity header: phase_key=Al3Ni5; material_id=mp-16514; formula_pretty=Al3Ni5
+[PASS] Original EXTXYZ unchanged while reading: sha256=7aa0e38fad171f4e57af5c9c1c2286b65ecf5f7075dd01fcd3991cc672bea052
+
+Step 5 baseline validation
+--------------------------
+[PASS] Step 5 schema version: 1.0
+[PASS] Step 5 evaluation type: zero-shot single-point
+[PASS] Step 5 overall status: success
+[PASS] Step 5 Al3Ni5 record count: 1
+[PASS] Step 5 Al3Ni5 status: success
+[PASS] Step 5 Al3Ni5 material ID: mp-16514
+[PASS] Step 5 Al3Ni5 atom count: 8
+[PASS] Step 5 model settings: match configuration
+[PASS] Step 5 energy fields finite: 2 fields
+[PASS] Step 5 force fields finite: 8 fields
+[PASS] Step 5 stress fields finite: 6 fields
+[PASS] Step 5 volumes finite and positive: 2 fields
+[PASS] Step 5 annotated structure exists: results/mace_zero_shot/structures/Al3Ni5_mace_zero_shot.extxyz
+[PASS] Step 5 numerical source: JSON table (not rounded EXTXYZ force columns)
+
+Reproduced single-point values
+------------------------------
+Number of atoms: 8
+Atom ordering: Al, Al, Al, Ni, Ni, Ni, Ni, Ni
+Atomic numbers: 13, 13, 13, 28, 28, 28, 28, 28
+Total energy: -44.568076076884417 eV
+Energy per atom: -5.5710095096105521 eV/atom
+Maximum atomic force magnitude: 0.16080041576105142 eV/angstrom
+RMS atomic force magnitude: 0.080470342205861869 eV/angstrom
+Total force vector (x, y, z): [-5.6169798757086851e-18, 2.4980018054066022e-16, 2.7755575615628914e-17] eV/angstrom
+Total force norm: 2.5140018424580649e-16 eV/angstrom
+Stress in ASE Voigt order (xx, yy, zz, yz, xz, xy): [-0.040423594544364977, -0.037495418448320099, -0.038470869618626849, 0.0045195977160738688, 1.4748760648434658e-17, 1.8244816712616336e-17] eV/angstrom^3
+Volume: 90.372065811009378 angstrom^3
+Volume per atom: 11.296508226376172 angstrom^3/atom
+
+Atomic force vectors
+--------------------
+Atom 1 (Al): [5.6146921456785848e-08, 5.9011855255825234e-08, 2.3472314749847789e-08] eV/angstrom; magnitude=8.4769248017927289e-08 eV/angstrom
+Atom 2 (Al): [-3.8299777399421196e-08, 0.0044887736266986111, -0.0049982828057462403] eV/angstrom; magnitude=0.006718029449133904 eV/angstrom
+Atom 3 (Al): [-3.8299777522505843e-08, -0.0044887570477114558, 0.004998310908208764] eV/angstrom; magnitude=0.0067180392801743025 eV/angstrom
+Atom 4 (Ni): [3.829849947367525e-08, -8.446971720864872e-09, 2.4487204752810801e-08] eV/angstrom; magnitude=4.6235804197550995e-08 eV/angstrom
+Atom 5 (Ni): [3.6155994594796145e-08, 4.1712914376941523e-09, -4.1485796538950209e-08] eV/angstrom; magnitude=5.518810498529807e-08 eV/angstrom
+Atom 6 (Ni): [3.6155995105802533e-08, -5.5830229783032648e-08, -3.5107037532058558e-08] eV/angstrom; magnitude=7.521153251991619e-08 eV/angstrom
+Atom 7 (Ni): [-4.507892836661323e-08, 0.11965015346519926, 0.107427235341816] eV/angstrom; magnitude=0.16080040459350123 eV/angstrom
+Atom 8 (Ni): [-4.5078927348136487e-08, -0.11965016895013136, -0.10742723481096393] eV/angstrom; magnitude=0.16080041576105142 eV/angstrom
+
+Detailed Step 5 comparisons and tolerances
+------------------------------------------
+Pass criterion: absolute_difference <= absolute_tolerance + relative_tolerance * abs(Step 5 value).
+Relative difference is N/A when abs(Step 5 value) is at or below the absolute tolerance.
+
+[PASS] Total energy (eV)
+  Step 5 value: -44.568076076884417
+  Reproduced value: -44.568076076884417
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-10
+  Effective allowed difference: 1.4456807607688442e-08
+[PASS] Energy per atom (eV/atom)
+  Step 5 value: -5.5710095096105521
+  Reproduced value: -5.5710095096105521
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-10
+  Effective allowed difference: 1.5571009509610553e-09
+[PASS] Maximum atomic force magnitude (eV/angstrom)
+  Step 5 value: 0.16080041576105142
+  Reproduced value: 0.16080041576105142
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.1608004157610514e-08
+[PASS] RMS atomic force magnitude (eV/angstrom)
+  Step 5 value: 0.080470342205861869
+  Reproduced value: 0.080470342205861869
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.0804703422058619e-08
+[PASS] Total force x (eV/angstrom)
+  Step 5 value: -5.6169798757086851e-18
+  Reproduced value: -5.6169798757086851e-18
+  Absolute difference: 0
+  Relative difference: N/A
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1e-08
+[PASS] Total force y (eV/angstrom)
+  Step 5 value: 2.4980018054066022e-16
+  Reproduced value: 2.4980018054066022e-16
+  Absolute difference: 0
+  Relative difference: N/A
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.0000000000000004e-08
+[PASS] Total force z (eV/angstrom)
+  Step 5 value: 2.7755575615628914e-17
+  Reproduced value: 2.7755575615628914e-17
+  Absolute difference: 0
+  Relative difference: N/A
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1e-08
+[PASS] Total force norm (eV/angstrom)
+  Step 5 value: 2.5140018424580649e-16
+  Reproduced value: 2.5140018424580649e-16
+  Absolute difference: 0
+  Relative difference: N/A
+  Absolute tolerance: 1e-08
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.0000000000000004e-08
+[PASS] Stress xx (eV/angstrom^3)
+  Step 5 value: -0.040423594544364977
+  Reproduced value: -0.040423594544364977
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.4042359454436498e-09
+[PASS] Stress yy (eV/angstrom^3)
+  Step 5 value: -0.037495418448320099
+  Reproduced value: -0.037495418448320099
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.3749541844832012e-09
+[PASS] Stress zz (eV/angstrom^3)
+  Step 5 value: -0.038470869618626849
+  Reproduced value: -0.038470869618626849
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.3847086961862686e-09
+[PASS] Stress yz (eV/angstrom^3)
+  Step 5 value: 0.0045195977160738688
+  Reproduced value: 0.0045195977160738688
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.0451959771607387e-09
+[PASS] Stress xz (eV/angstrom^3)
+  Step 5 value: 1.4748760648434658e-17
+  Reproduced value: 1.4748760648434658e-17
+  Absolute difference: 0
+  Relative difference: N/A
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.0000000000000003e-09
+[PASS] Stress xy (eV/angstrom^3)
+  Step 5 value: 1.8244816712616336e-17
+  Reproduced value: 1.8244816712616336e-17
+  Absolute difference: 0
+  Relative difference: N/A
+  Absolute tolerance: 1.0000000000000001e-09
+  Relative tolerance: 1e-08
+  Effective allowed difference: 1.0000000000000003e-09
+[PASS] Volume (angstrom^3)
+  Step 5 value: 90.372065811009378
+  Reproduced value: 90.372065811009378
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1e-10
+  Relative tolerance: 1e-10
+  Effective allowed difference: 9.1372065811009371e-09
+[PASS] Volume per atom (angstrom^3/atom)
+  Step 5 value: 11.296508226376172
+  Reproduced value: 11.296508226376172
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 1e-10
+  Relative tolerance: 1e-10
+  Effective allowed difference: 1.2296508226376173e-09
+[PASS] Atom count (atoms)
+  Step 5 value: 8
+  Reproduced value: 8
+  Absolute difference: 0
+  Relative difference: 0
+  Absolute tolerance: 0
+  Relative tolerance: 0
+  Effective allowed difference: 0
+[PASS] Materials Project ID
+  Step 5 value: mp-16514
+  Reproduced value: mp-16514
+  Absolute difference: N/A
+  Relative difference: N/A
+  Tolerance: exact string equality
+
+Immutability checks
+-------------------
+[PASS] Atomic positions unchanged: max absolute difference=0; atol=1.0e-12, rtol=0
+[PASS] Cell vectors unchanged: max absolute difference=0; atol=1.0e-12, rtol=0
+[PASS] Chemical symbols and atom ordering unchanged: initial=['Al', 'Al', 'Al', 'Ni', 'Ni', 'Ni', 'Ni', 'Ni']; final=['Al', 'Al', 'Al', 'Ni', 'Ni', 'Ni', 'Ni', 'Ni']
+[PASS] Atomic numbers and atom ordering unchanged: initial=[13, 13, 13, 28, 28, 28, 28, 28]; final=[13, 13, 13, 28, 28, 28, 28, 28]
+[PASS] Atom count unchanged: initial=8; final=8
+[PASS] Periodic boundary conditions unchanged: initial=[True, True, True]; final=[True, True, True]
+[PASS] Cell volume unchanged: initial=90.372065811009378; final=90.372065811009378; absolute difference=0; atol=1.0e-12, rtol=0
+[PASS] Phase identity retained during calculation: Al3Ni5
+[PASS] Calculator detached from working copy: None
+[PASS] Pristine source remains calculator-free: None
+
+Source-file checks
+------------------
+[PASS] selected Al3Ni5 EXTXYZ content unchanged: initial_sha256=7aa0e38fad171f4e57af5c9c1c2286b65ecf5f7075dd01fcd3991cc672bea052; final_sha256=7aa0e38fad171f4e57af5c9c1c2286b65ecf5f7075dd01fcd3991cc672bea052
+[PASS] selected Al3Ni5 EXTXYZ size unchanged: initial=850; final=850 bytes
+[PASS] selected Al3Ni5 EXTXYZ modification time unchanged: initial=1784556990835157200; final=1784556990835157200 ns
+[PASS] selected Al3Ni5 metadata content unchanged: initial_sha256=9fd6266f0d121fc3594cc730f295264e31d88992c7ca8a541091f0e4c55cf77d; final_sha256=9fd6266f0d121fc3594cc730f295264e31d88992c7ca8a541091f0e4c55cf77d
+[PASS] selected Al3Ni5 metadata size unchanged: initial=2776; final=2776 bytes
+[PASS] selected Al3Ni5 metadata modification time unchanged: initial=1784556990835157200; final=1784556990835157200 ns
+[PASS] Step 5 zero-shot JSON table content unchanged: initial_sha256=83658efab2902dcb8113f9562c9adebebd963d697adc6791dc8cd4213c912488; final_sha256=83658efab2902dcb8113f9562c9adebebd963d697adc6791dc8cd4213c912488
+[PASS] Step 5 zero-shot JSON table size unchanged: initial=8933; final=8933 bytes
+[PASS] Step 5 zero-shot JSON table modification time unchanged: initial=1784635616942765600; final=1784635616942765600 ns
+[PASS] Step 5 annotated Al3Ni5 EXTXYZ content unchanged: initial_sha256=a5c0c65b4ebd37b1f715b33af2a08b5c0798feff23defa46c4de18b1e7980b49; final_sha256=a5c0c65b4ebd37b1f715b33af2a08b5c0798feff23defa46c4de18b1e7980b49
+[PASS] Step 5 annotated Al3Ni5 EXTXYZ size unchanged: initial=1790; final=1790 bytes
+[PASS] Step 5 annotated Al3Ni5 EXTXYZ modification time unchanged: initial=1784635616800178800; final=1784635616800178800 ns
+
+Protected AlNi Step 6B.2 pilot
+--------------------------------
+[PASS] protected AlNi Step 6B.2 report content unchanged: initial_sha256=53beefe9e502ac925d2d96cd267dcef039d27d882181b4aa6bbafef1239ed6b2; final_sha256=53beefe9e502ac925d2d96cd267dcef039d27d882181b4aa6bbafef1239ed6b2
+[PASS] protected AlNi Step 6B.2 report size unchanged: initial=11873; final=11873 bytes
+[PASS] protected AlNi Step 6B.2 report modification time unchanged: initial=1785057634938970800; final=1785057634938970800 ns
+
+Execution boundary
+------------------
+Optimizer imported: No
+Optimizer created: No
+FIRE executed: No
+Relaxation executed: No
+Atomic positions deliberately changed: No
+Cell vectors deliberately changed: No
+Trajectory created: No
+Structure output created: No
+Formation energy calculated: No
+
+Phase status
+------------
+Identity status: PASS
+Stress comparison status: PASS
+Volume comparison status: PASS
+Immutability status: PASS
+Source-file status: PASS
+Phase reproducibility status: PASS
+Overall reproducibility status: PASS
+
+This status tests computational reproducibility only. It is not a scientific accuracy conclusion.
+
+Stored Step 5 reference excerpt
+-------------------------------
+Step 5 total energy: -44.568076076884417 eV
+Step 5 energy per atom: -5.5710095096105521 eV/atom
+Step 5 maximum force: 0.16080041576105142 eV/angstrom

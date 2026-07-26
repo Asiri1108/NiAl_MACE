@@ -1,0 +1,69 @@
+Step 6D - Ni-Al Full-Cell Relaxation Summary
+============================================
+
+Generated (UTC): 2026-07-26T11:46:10Z
+Configuration SHA-256: 9d3e42c304f9eb02a898d067bdcd95f9ccbc4b35790769ae6c85f879d518f176
+Requested phases: Al3Ni, Al3Ni2, AlNi, Al3Ni5, AlNi3
+Overall status: SUCCESS
+Calculator class: mace.calculators.mace.MACECalculator
+Calculator loads this invocation: 1
+Executed phases: Al3Ni, Al3Ni2, AlNi, Al3Ni5, AlNi3
+Resumed phases: None
+Total optimizer steps: 126
+
+Per-phase results
+-----------------
+Al3Ni: CONVERGED
+  steps=40
+  force_converged=True
+  stress_converged=True
+  initial_energy_eV=-74.695710878699174
+  final_energy_eV=-74.810242625764687
+  final_max_force_eV_per_A=0.0058094319582050538
+  final_max_abs_stress_eV_per_A3=0.00047611636650905288
+  volume_change_percent=2.7396657596109319
+  maximum_internal_displacement_A=0.060376058569616767
+Al3Ni2: CONVERGED
+  steps=33
+  force_converged=True
+  stress_converged=True
+  initial_energy_eV=-25.780552090100379
+  final_energy_eV=-25.798824772972484
+  final_max_force_eV_per_A=0.0092538922852418454
+  final_max_abs_stress_eV_per_A3=0.0002693647048544764
+  volume_change_percent=2.3826128726031293
+  maximum_internal_displacement_A=0.0068226749846669581
+AlNi: CONVERGED
+  steps=5
+  force_converged=True
+  stress_converged=True
+  initial_energy_eV=-10.813681752983006
+  final_energy_eV=-10.822397327556473
+  final_max_force_eV_per_A=1.5380728593448733e-08
+  final_max_abs_stress_eV_per_A3=0.00060587634531633985
+  volume_change_percent=2.6281713873017365
+  maximum_internal_displacement_A=2.8025568946340096e-09
+Al3Ni5: CONVERGED
+  steps=34
+  force_converged=True
+  stress_converged=True
+  initial_energy_eV=-44.568076076884417
+  final_energy_eV=-44.639280982911714
+  final_max_force_eV_per_A=0.0074963310987620144
+  final_max_abs_stress_eV_per_A3=0.00061486860075601587
+  volume_change_percent=3.2800405996383342
+  maximum_internal_displacement_A=0.035546550460171071
+AlNi3: CONVERGED
+  steps=14
+  force_converged=True
+  stress_converged=True
+  initial_energy_eV=-22.836292364226455
+  final_energy_eV=-22.858771955109983
+  final_max_force_eV_per_A=4.588836767778199e-09
+  final_max_abs_stress_eV_per_A3=9.6488685000459636e-05
+  volume_change_percent=2.8941496261269961
+  maximum_internal_displacement_A=3.3046534977218197e-09
+
+Interpretation boundary
+-----------------------
+These are MACE-potential relaxation results, not DFT or experimental validation. Raw energies are not compared across compositions as a stability ranking. No formation energies were calculated.

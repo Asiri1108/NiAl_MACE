@@ -29,6 +29,17 @@ checkpoints/
 runs/
 logs/
 
+# Step 6 relaxation manifests/logs are small scientific provenance artifacts,
+# not training checkpoints. They are required for strict validation and resume.
+!results/mace_relaxation/atomic_only/checkpoints/
+!results/mace_relaxation/atomic_only/checkpoints/*.json
+!results/mace_relaxation/atomic_only/logs/
+!results/mace_relaxation/atomic_only/logs/*.log
+!results/mace_relaxation/full_cell/checkpoints/
+!results/mace_relaxation/full_cell/checkpoints/*.json
+!results/mace_relaxation/full_cell/logs/
+!results/mace_relaxation/full_cell/logs/*.log
+
 # Large simulation outputs
 *.dump
 *.lammpstrj

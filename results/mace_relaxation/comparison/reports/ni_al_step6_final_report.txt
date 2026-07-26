@@ -1,0 +1,152 @@
+Ni-Al MACE Step 6 Final Report
+==============================================================================
+
+1. Step 6 objective
+Relax the five selected Ni-Al structures on the configured MACE-MP-0 Small potential-energy surface in independent fixed-cell and full-cell modes, then compare the validated results.
+
+2. Completed sub-stages
+Step 6C atomic-only relaxation; Step 6D full-cell relaxation; Step 6E comparison and symmetry analysis; Step 6F reporting.
+
+3. Model and numerical settings
+MACE-MP-0 Small; CPU; float64; dispersion=false. FIRE thresholds: max atomic force <= 0.01 eV/angstrom in both modes and max absolute raw six-component ASE stress <= 0.0006241509 eV/angstrom^3 in full-cell mode. Maximum steps: 500 fixed cell, 1000 full cell.
+
+4. Source structures
+Each run started from its own original selected Materials Project EXTXYZ. Full-cell runs did not start from atomic-only results.
+
+5. Atomic-only methodology
+FIRE changed positions only; every cell component and volume was required to remain equal to the original at atol=1e-12, rtol=0.
+
+6. Full-cell methodology
+FIRE acted on FrechetCellFilter with zero external pressure, hydrostatic_strain=false, and constant_volume=false. Convergence was decided from raw underlying-Atoms forces and stress.
+
+7. Convergence definitions
+ALREADY_CONVERGED means the original structure met all applicable criteria at step 0. CONVERGED means the final state met them after optimization. NOT_CONVERGED is retained as diagnostic data.
+
+8. Safety definitions
+All values and geometry had to remain finite; atom identity/order and PBC were exact; determinant and volume positive; internal displacement <= 2 A; full-cell |volume change| <= 25%.
+
+9-10. Per-phase atomic-only and full-cell results
+| Phase | Atomic status | Atomic steps | Atomic Delta E (eV) | Full-cell status | Full steps | Full Delta E (eV) | Delta V (%) |
+|---|---|---:|---:|---|---:|---:|---:|
+| Al3Ni | CONVERGED | 28 | -0.03974671177 | CONVERGED | 40 | -0.1145317471 | 2.7396658 |
+| Al3Ni2 | CONVERGED | 10 | -0.001103025753 | CONVERGED | 33 | -0.01827268287 | 2.3826129 |
+| AlNi | ALREADY_CONVERGED | 0 | 0 | CONVERGED | 5 | -0.008715574573 | 2.6281714 |
+| Al3Ni5 | CONVERGED | 24 | -0.003624474698 | CONVERGED | 34 | -0.07120490603 | 3.2800406 |
+| AlNi3 | ALREADY_CONVERGED | 0 | 0 | CONVERGED | 14 | -0.02247959088 | 2.8941496 |
+
+11. Initial/atomic/full-cell comparison
+See comparison/tables/ni_al_relaxation_comparison.csv and .json. Energy changes are within-composition relaxation changes only, never a cross-composition stability ranking.
+
+12. Symmetry comparison
+- Al3Ni: {"symprec_A": 0.001, "angle_tolerance_deg": 5.0, "initial": {"space_group_symbol": "Pnma", "space_group_number": 62}, "atomic_only": {"space_group_symbol": "Pnma", "space_group_number": 62}, "full_cell": {"space_group_symbol": "Pnma", "space_group_number": 62}, "atomic_only_preserved": true, "full_cell_preserved": true, "limitation": "Space-group detection is tolerance-dependent; no symmetry constraint or refinement was applied."}
+- Al3Ni2: {"symprec_A": 0.001, "angle_tolerance_deg": 5.0, "initial": {"space_group_symbol": "P-3m1", "space_group_number": 164}, "atomic_only": {"space_group_symbol": "P-3m1", "space_group_number": 164}, "full_cell": {"space_group_symbol": "P-3m1", "space_group_number": 164}, "atomic_only_preserved": true, "full_cell_preserved": true, "limitation": "Space-group detection is tolerance-dependent; no symmetry constraint or refinement was applied."}
+- AlNi: {"symprec_A": 0.001, "angle_tolerance_deg": 5.0, "initial": {"space_group_symbol": "Pm-3m", "space_group_number": 221}, "atomic_only": {"space_group_symbol": "Pm-3m", "space_group_number": 221}, "full_cell": {"space_group_symbol": "Pm-3m", "space_group_number": 221}, "atomic_only_preserved": true, "full_cell_preserved": true, "limitation": "Space-group detection is tolerance-dependent; no symmetry constraint or refinement was applied."}
+- Al3Ni5: {"symprec_A": 0.001, "angle_tolerance_deg": 5.0, "initial": {"space_group_symbol": "Cmmm", "space_group_number": 65}, "atomic_only": {"space_group_symbol": "Cmmm", "space_group_number": 65}, "full_cell": {"space_group_symbol": "Cmmm", "space_group_number": 65}, "atomic_only_preserved": true, "full_cell_preserved": true, "limitation": "Space-group detection is tolerance-dependent; no symmetry constraint or refinement was applied."}
+- AlNi3: {"symprec_A": 0.001, "angle_tolerance_deg": 5.0, "initial": {"space_group_symbol": "Pm-3m", "space_group_number": 221}, "atomic_only": {"space_group_symbol": "Pm-3m", "space_group_number": 221}, "full_cell": {"space_group_symbol": "Pm-3m", "space_group_number": 221}, "atomic_only_preserved": true, "full_cell_preserved": true, "limitation": "Space-group detection is tolerance-dependent; no symmetry constraint or refinement was applied."}
+Symmetry detection used symprec=0.001 A and angle_tolerance=5 deg and is tolerance-dependent.
+
+13. Warnings
+- Runtime notice: cuequivariance acceleration was unavailable and therefore disabled; the CPU/float64 calculations completed normally.
+- UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+
+14. Nonconverged or failed cases
+- None; all ten relaxation results converged safely.
+
+15. Scientific limitations
+These are MACE-potential relaxation results, not DFT or experimental accuracy conclusions. No formation energy, physical phase-stability ranking, training, fine-tuning, molecular dynamics, or LAMMPS calculation was performed.
+
+16. Output inventory
+- results/mace_relaxation/atomic_only/checkpoints/Al3Ni2_atomic_only_result.json
+- results/mace_relaxation/atomic_only/checkpoints/Al3Ni5_atomic_only_result.json
+- results/mace_relaxation/atomic_only/checkpoints/Al3Ni_atomic_only_result.json
+- results/mace_relaxation/atomic_only/checkpoints/AlNi3_atomic_only_result.json
+- results/mace_relaxation/atomic_only/checkpoints/AlNi_atomic_only_result.json
+- results/mace_relaxation/atomic_only/logs/Al3Ni2_atomic_only.log
+- results/mace_relaxation/atomic_only/logs/Al3Ni5_atomic_only.log
+- results/mace_relaxation/atomic_only/logs/Al3Ni_atomic_only.log
+- results/mace_relaxation/atomic_only/logs/AlNi3_atomic_only.log
+- results/mace_relaxation/atomic_only/logs/AlNi_atomic_only.log
+- results/mace_relaxation/atomic_only/reports/Al3Ni2_atomic_only_report.txt
+- results/mace_relaxation/atomic_only/reports/Al3Ni5_atomic_only_report.txt
+- results/mace_relaxation/atomic_only/reports/Al3Ni_atomic_only_report.txt
+- results/mace_relaxation/atomic_only/reports/AlNi3_atomic_only_report.txt
+- results/mace_relaxation/atomic_only/reports/AlNi_atomic_only_report.txt
+- results/mace_relaxation/atomic_only/reports/ni_al_atomic_only_summary.txt
+- results/mace_relaxation/atomic_only/structures/Al3Ni2_atomic_only_relaxed.extxyz
+- results/mace_relaxation/atomic_only/structures/Al3Ni5_atomic_only_relaxed.extxyz
+- results/mace_relaxation/atomic_only/structures/Al3Ni_atomic_only_relaxed.extxyz
+- results/mace_relaxation/atomic_only/structures/AlNi3_atomic_only_relaxed.extxyz
+- results/mace_relaxation/atomic_only/structures/AlNi_atomic_only_relaxed.extxyz
+- results/mace_relaxation/atomic_only/tables/Al3Ni2_atomic_only_history.csv
+- results/mace_relaxation/atomic_only/tables/Al3Ni5_atomic_only_history.csv
+- results/mace_relaxation/atomic_only/tables/Al3Ni_atomic_only_history.csv
+- results/mace_relaxation/atomic_only/tables/AlNi3_atomic_only_history.csv
+- results/mace_relaxation/atomic_only/tables/AlNi_atomic_only_history.csv
+- results/mace_relaxation/atomic_only/tables/ni_al_atomic_only_summary.csv
+- results/mace_relaxation/atomic_only/tables/ni_al_atomic_only_summary.json
+- results/mace_relaxation/atomic_only/trajectories/Al3Ni2_atomic_only.traj
+- results/mace_relaxation/atomic_only/trajectories/Al3Ni5_atomic_only.traj
+- results/mace_relaxation/atomic_only/trajectories/Al3Ni_atomic_only.traj
+- results/mace_relaxation/atomic_only/trajectories/AlNi3_atomic_only.traj
+- results/mace_relaxation/atomic_only/trajectories/AlNi_atomic_only.traj
+- results/mace_relaxation/comparison/figures/atomic_only_energy_convergence.png
+- results/mace_relaxation/comparison/figures/atomic_only_force_convergence.png
+- results/mace_relaxation/comparison/figures/final_energy_change_by_phase.png
+- results/mace_relaxation/comparison/figures/final_max_force_by_phase.png
+- results/mace_relaxation/comparison/figures/full_cell_energy_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_force_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_stress_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_volume_change_percent.png
+- results/mace_relaxation/comparison/figures/full_cell_volume_convergence.png
+- results/mace_relaxation/comparison/reports/Al3Ni2_step6b3_baseline_reproduction.txt
+- results/mace_relaxation/comparison/reports/Al3Ni5_step6b3_baseline_reproduction.txt
+- results/mace_relaxation/comparison/reports/Al3Ni_step6b3_baseline_reproduction.txt
+- results/mace_relaxation/comparison/reports/AlNi3_step6b3_baseline_reproduction.txt
+- results/mace_relaxation/comparison/reports/AlNi_step6b2_baseline_reproduction.txt
+- results/mace_relaxation/comparison/reports/ni_al_relaxation_comparison.txt
+- results/mace_relaxation/comparison/reports/ni_al_step6_final_report.txt
+- results/mace_relaxation/comparison/reports/ni_al_step6b3_baseline_reproduction_summary.txt
+- results/mace_relaxation/comparison/tables/ni_al_relaxation_comparison.csv
+- results/mace_relaxation/comparison/tables/ni_al_relaxation_comparison.json
+- results/mace_relaxation/comparison/tables/ni_al_step6b3_baseline_reproduction.json
+- results/mace_relaxation/full_cell/checkpoints/Al3Ni2_full_cell_result.json
+- results/mace_relaxation/full_cell/checkpoints/Al3Ni5_full_cell_result.json
+- results/mace_relaxation/full_cell/checkpoints/Al3Ni_full_cell_result.json
+- results/mace_relaxation/full_cell/checkpoints/AlNi3_full_cell_result.json
+- results/mace_relaxation/full_cell/checkpoints/AlNi_full_cell_result.json
+- results/mace_relaxation/full_cell/logs/Al3Ni2_full_cell.log
+- results/mace_relaxation/full_cell/logs/Al3Ni5_full_cell.log
+- results/mace_relaxation/full_cell/logs/Al3Ni_full_cell.log
+- results/mace_relaxation/full_cell/logs/AlNi3_full_cell.log
+- results/mace_relaxation/full_cell/logs/AlNi_full_cell.log
+- results/mace_relaxation/full_cell/reports/Al3Ni2_full_cell_report.txt
+- results/mace_relaxation/full_cell/reports/Al3Ni5_full_cell_report.txt
+- results/mace_relaxation/full_cell/reports/Al3Ni_full_cell_report.txt
+- results/mace_relaxation/full_cell/reports/AlNi3_full_cell_report.txt
+- results/mace_relaxation/full_cell/reports/AlNi_full_cell_report.txt
+- results/mace_relaxation/full_cell/reports/ni_al_full_cell_summary.txt
+- results/mace_relaxation/full_cell/structures/Al3Ni2_full_cell_relaxed.extxyz
+- results/mace_relaxation/full_cell/structures/Al3Ni5_full_cell_relaxed.extxyz
+- results/mace_relaxation/full_cell/structures/Al3Ni_full_cell_relaxed.extxyz
+- results/mace_relaxation/full_cell/structures/AlNi3_full_cell_relaxed.extxyz
+- results/mace_relaxation/full_cell/structures/AlNi_full_cell_relaxed.extxyz
+- results/mace_relaxation/full_cell/tables/Al3Ni2_full_cell_history.csv
+- results/mace_relaxation/full_cell/tables/Al3Ni5_full_cell_history.csv
+- results/mace_relaxation/full_cell/tables/Al3Ni_full_cell_history.csv
+- results/mace_relaxation/full_cell/tables/AlNi3_full_cell_history.csv
+- results/mace_relaxation/full_cell/tables/AlNi_full_cell_history.csv
+- results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.csv
+- results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.json
+- results/mace_relaxation/full_cell/trajectories/Al3Ni2_full_cell.traj
+- results/mace_relaxation/full_cell/trajectories/Al3Ni5_full_cell.traj
+- results/mace_relaxation/full_cell/trajectories/Al3Ni_full_cell.traj
+- results/mace_relaxation/full_cell/trajectories/AlNi3_full_cell.traj
+- results/mace_relaxation/full_cell/trajectories/AlNi_full_cell.traj
+
+17. Overall Step 6 status
+OVERALL STEP 6 STATUS: SUCCESS
+
+18. Exact next stage
+Step 7 - Calculate consistent pure Al and pure Ni MACE reference states, then calculate MACE-consistent Ni-Al formation energies.
+Step 7 was not implemented by this workflow.

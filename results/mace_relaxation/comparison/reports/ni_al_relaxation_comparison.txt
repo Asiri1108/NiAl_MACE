@@ -1,0 +1,163 @@
+Step 6E - Ni-Al MACE Relaxation Comparison
+===========================================
+
+Scope and provenance
+--------------------
+Generated at (UTC): 2026-07-26T11:32:06Z
+Initial numeric source: Step 5 zero-shot JSON table
+Atomic-only numeric source: validated Step 6C phase-result JSON
+Full-cell numeric source: validated Step 6D phase-result JSON
+MACE loaded or rerun: No
+Formation energy calculated: No
+
+Convergence criteria
+--------------------
+Atomic-only force threshold: 0.01 eV/angstrom
+Full-cell force threshold: 0.01 eV/angstrom
+Full-cell stress threshold: 0.0006241508999999999 eV/angstrom^3
+A result is accepted as converged only when its machine-readable status, text report, and recomputed final criteria agree.
+
+Symmetry method
+---------------
+Implementation: pymatgen SpacegroupAnalyzer
+symprec: 0.001 angstrom
+Angle tolerance: 5 degrees
+No symmetry constraint, refinement, or FixSymmetry was applied.
+Space-group detection is tolerance-dependent.
+
+Per-phase comparison
+--------------------
+
+Al3Ni
+~~~~~
+Material ID: mp-622209
+Atom count: 16
+Initial total energy: -74.69571087869917 eV
+Atomic-only energy change: -0.03974671177287803 eV
+Full-cell energy change: -0.1145317470655129 eV
+Initial / atomic-only / full-cell maximum force: 0.2127929489094258 / 0.009378659891460002 / 0.005809431958205054 eV/angstrom
+Initial / atomic-only / full-cell maximum absolute stress: 0.02025182492773855 / 0.02216775953186454 / 0.0004761163665090529 eV/angstrom^3
+Atomic-only volume change: 0 %
+Full-cell volume change: 2.739665759610935 %
+Atomic-only maximum / RMS displacement: 0.05055719702398555 / 0.03820386559548627 angstrom
+Full-cell maximum / RMS internal displacement: 0.06037605856961677 / 0.05303668845935382 angstrom
+Atomic-only optimizer steps and status: 28; CONVERGED
+Full-cell optimizer steps and status: 40; CONVERGED
+Symmetry initial / atomic-only / full-cell: Pnma (62) / Pnma (62) / Pnma (62)
+Symmetry preserved atomic-only / full-cell: True / True
+Atomic-only safety status: PASS
+Full-cell safety status: PASS
+
+Al3Ni2
+~~~~~~
+Material ID: mp-1057
+Atom count: 5
+Initial total energy: -25.78055209010038 eV
+Atomic-only energy change: -0.001103025752627218 eV
+Full-cell energy change: -0.01827268287210515 eV
+Initial / atomic-only / full-cell maximum force: 0.1025941555317909 / 0.009127100352973972 / 0.009253892285241845 eV/angstrom
+Initial / atomic-only / full-cell maximum absolute stress: 0.02351816495681306 / 0.02266679266341074 / 0.0002693647048544764 eV/angstrom^3
+Atomic-only volume change: 0 %
+Full-cell volume change: 2.382612872603124 %
+Atomic-only maximum / RMS displacement: 0.008259902857096638 / 0.00585652578072295 angstrom
+Full-cell maximum / RMS internal displacement: 0.006822674984666958 / 0.004331372853734508 angstrom
+Atomic-only optimizer steps and status: 10; CONVERGED
+Full-cell optimizer steps and status: 33; CONVERGED
+Symmetry initial / atomic-only / full-cell: P-3m1 (164) / P-3m1 (164) / P-3m1 (164)
+Symmetry preserved atomic-only / full-cell: True / True
+Atomic-only safety status: PASS
+Full-cell safety status: PASS
+
+AlNi
+~~~~
+Material ID: mp-1487
+Atom count: 2
+Initial total energy: -10.81368175298301 eV
+Atomic-only energy change: 0 eV
+Full-cell energy change: -0.008715574573466611 eV
+Initial / atomic-only / full-cell maximum force: 4.888791560310382e-08 / 4.888791560310382e-08 / 1.538072859344873e-08 eV/angstrom
+Initial / atomic-only / full-cell maximum absolute stress: 0.0296972855197814 / 0.0296972855197814 / 0.0006058763453163399 eV/angstrom^3
+Atomic-only volume change: 0 %
+Full-cell volume change: 2.628171387301736 %
+Atomic-only maximum / RMS displacement: 0 / 0 angstrom
+Full-cell maximum / RMS internal displacement: 2.80255689463401e-09 / 2.802556597936946e-09 angstrom
+Atomic-only optimizer steps and status: 0; ALREADY_CONVERGED
+Full-cell optimizer steps and status: 5; CONVERGED
+Symmetry initial / atomic-only / full-cell: Pm-3m (221) / Pm-3m (221) / Pm-3m (221)
+Symmetry preserved atomic-only / full-cell: True / True
+Atomic-only safety status: PASS
+Full-cell safety status: PASS
+
+Al3Ni5
+~~~~~~
+Material ID: mp-16514
+Atom count: 8
+Initial total energy: -44.56807607688442 eV
+Atomic-only energy change: -0.003624474698128211 eV
+Full-cell energy change: -0.07120490602729745 eV
+Initial / atomic-only / full-cell maximum force: 0.1608004157610514 / 0.009277188605651564 / 0.007496331098762014 eV/angstrom
+Initial / atomic-only / full-cell maximum absolute stress: 0.04042359454436498 / 0.04278251294383705 / 0.0006148686007560159 eV/angstrom^3
+Atomic-only volume change: 0 %
+Full-cell volume change: 3.280040599638328 %
+Atomic-only maximum / RMS displacement: 0.02135109514485195 / 0.01187320434046001 angstrom
+Full-cell maximum / RMS internal displacement: 0.03554655046017107 / 0.01983038122876221 angstrom
+Atomic-only optimizer steps and status: 24; CONVERGED
+Full-cell optimizer steps and status: 34; CONVERGED
+Symmetry initial / atomic-only / full-cell: Cmmm (65) / Cmmm (65) / Cmmm (65)
+Symmetry preserved atomic-only / full-cell: True / True
+Atomic-only safety status: PASS
+Full-cell safety status: PASS
+
+AlNi3
+~~~~~
+Material ID: mp-2593
+Atom count: 4
+Initial total energy: -22.83629236422646 eV
+Atomic-only energy change: 0 eV
+Full-cell energy change: -0.02247959088352758 eV
+Initial / atomic-only / full-cell maximum force: 5.978495219488439e-08 / 5.978495219488439e-08 / 4.588836767778199e-09 eV/angstrom
+Initial / atomic-only / full-cell maximum absolute stress: 0.03664195876647671 / 0.03664195876647671 / 9.648868500045964e-05 eV/angstrom^3
+Atomic-only volume change: 0 %
+Full-cell volume change: 2.894149626126986 %
+Atomic-only maximum / RMS displacement: 0 / 0 angstrom
+Full-cell maximum / RMS internal displacement: 3.30465349772182e-09 / 3.24492038664544e-09 angstrom
+Atomic-only optimizer steps and status: 0; ALREADY_CONVERGED
+Full-cell optimizer steps and status: 14; CONVERGED
+Symmetry initial / atomic-only / full-cell: Pm-3m (221) / Pm-3m (221) / Pm-3m (221)
+Symmetry preserved atomic-only / full-cell: True / True
+Atomic-only safety status: PASS
+Full-cell safety status: PASS
+
+Nonconverged diagnostic results
+-------------------------------
+atomic_only: none
+full_cell: none
+
+Scientific limitations
+----------------------
+These are MACE-potential relaxation results. They do not establish accuracy against DFT or experiment.
+Raw total energies and raw energies per atom were not used to rank phase stability across different compositions.
+No formation energy was calculated and Step 7 was not implemented.
+
+Output inventory
+----------------
+- results/mace_relaxation/comparison/tables/ni_al_relaxation_comparison.csv
+- results/mace_relaxation/comparison/tables/ni_al_relaxation_comparison.json
+- results/mace_relaxation/comparison/reports/ni_al_relaxation_comparison.txt
+- results/mace_relaxation/comparison/figures/atomic_only_energy_convergence.png
+- results/mace_relaxation/comparison/figures/atomic_only_force_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_energy_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_force_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_stress_convergence.png
+- results/mace_relaxation/comparison/figures/full_cell_volume_convergence.png
+- results/mace_relaxation/comparison/figures/final_energy_change_by_phase.png
+- results/mace_relaxation/comparison/figures/final_max_force_by_phase.png
+- results/mace_relaxation/comparison/figures/full_cell_volume_change_percent.png
+
+Final Step 6E status
+--------------------
+Analysis status: SUCCESS
+MACE loaded: No
+Optimizer created: No
+Relaxation executed: No
+Formation energy calculated: No
