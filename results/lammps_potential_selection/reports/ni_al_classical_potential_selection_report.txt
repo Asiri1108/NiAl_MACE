@@ -1,0 +1,67 @@
+Step 9 - Classical Ni-Al Potential Selection Report
+============================================================================
+
+Authoritative source policy
+---------------------------
+All files were retrieved over HTTPS exclusively from the NIST Interatomic Potentials Repository (www.ctcms.nist.gov); OpenKIM identifiers and the original peer-reviewed publications provide cross-reference provenance. Unverified sources were rejected.
+
+Selection decision (evidence-based, qualitative)
+------------------------------------------------
+1. Primary: pun_mishin_2009
+   Purja Pun and Mishin (2009) Ni-Al EAM
+   Citation: G. P. Purja Pun and Y. Mishin (2009), 'Development of an interatomic potential for the Ni-Al system', Philosophical Magazine 89(34-36), 3245-3267.
+   DOI: 10.1080/14786430903258184
+   NIST implementation: 2009--Purja-Pun-G-P--Ni-Al--LAMMPS--ipr1
+   OpenKIM: EAM_Dynamo_PunMishin_2009_NiAl__MO_751354403791_005 (family MO_751354403791; driver EAM_Dynamo)
+   File: Mishin-Ni-Al-2009.eam.alloy (sha256 e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b)
+   File element order: Ni Al; cutoff 6.287210 A
+   Planned mapping: pair_coeff * * Mishin-Ni-Al-2009.eam.alloy Al Ni
+   Scope: Binary Ni-Al potential built on established pure Al and pure Ni descriptions; cross interaction fitted to experimental cohesive energy, lattice parameter, and elastic constants of B2-NiAl plus ab initio formation energies of several real or hypothetical intermetallic compounds; intended for Ni-Al phases, heterophase interfaces, and mechanical behavior.
+
+2. Secondary: mishin_2004_ipr2
+   Mishin (2004) Ni-Al EAM (gamma/gamma-prime)
+   Citation: Y. Mishin (2004), 'Atomistic modeling of the gamma and gamma'-phases of the Ni-Al system', Acta Materialia 52(6), 1451-1467.
+   DOI: 10.1016/j.actamat.2003.11.026
+   NIST implementation: 2004--Mishin-Y--Ni-Al--LAMMPS--ipr2
+   OpenKIM: EAM_Dynamo_Mishin_2004_NiAl__MO_101214310689_005 (family MO_101214310689; driver EAM_Dynamo)
+   File: NiAl_Mishin_2004.eam.alloy (sha256 15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611)
+   File element order: Ni Al; cutoff 6.724884 A
+   Planned mapping: pair_coeff * * NiAl_Mishin_2004.eam.alloy Al Ni
+   Scope: Ni-Al potential developed primarily for the gamma (Ni solid solution) and gamma-prime (Ni3Al) phases; fitted to experimental and first-principles data for lattice properties, point defects, planar faults, and phase-diagram characteristics; narrower intended composition scope than the 2009 general binary potential.
+   Warning: The superseded ipr1 implementation (NiAl.eam.alloy) must not be used; it has non-zero isolated-atom energies.
+
+3. Historical secondary: mishin_2002
+   Mishin, Mehl, and Papaconstantopoulos (2002) B2-NiAl EAM
+   Citation: Y. Mishin, M. J. Mehl, and D. A. Papaconstantopoulos (2002), 'Embedded-atom potential for B2-NiAl', Physical Review B 65(22), 224114.
+   DOI: 10.1103/PhysRevB.65.224114
+   NIST implementation: 2002--Mishin-Y--Ni-Al--LAMMPS--ipr1
+   OpenKIM: EAM_Dynamo_MishinMehlPapaconstantopoulos_2002_NiAl__MO_109933561507_005 (family MO_109933561507; driver EAM_Dynamo)
+   File: NiAl02.eam.alloy (sha256 68de13eb1b6682bfdef15ef75248104f9b796eeae7fda5c8e1007872ba767b3b)
+   File element order: Ni Al; cutoff 5.954144 A
+   Planned mapping: pair_coeff * * NiAl02.eam.alloy Al Ni
+   Scope: Historical EAM optimized for the B2 phase of NiAl, fitted to experimental properties and ab initio data for multiple crystal structures; accurately reproduces basic B2-NiAl lattice properties, planar faults, and point-defect characteristics.
+   Warning: NIST documentation cautions that the elemental descriptions taken from this B2-optimized alloy fit may perform poorly for pure Ni, pure Al, and non-B2 Ni-Al phases; this directly affects formation-energy transferability across the five selected compositions.
+
+Primary rationale
+-----------------
+pun_mishin_2009 is the primary candidate because it is binary Ni-Al specific, builds on established pure Al and pure Ni descriptions, fits the cross interaction to B2-NiAl properties plus ab initio formation energies of multiple intermetallic structures, and targets broader Ni-Al phase, interface, and mechanical applications - the closest match to a general comparison across the five selected compositions. This is a documented-scope argument, not a claim of universal accuracy.
+
+mishin_2004_ipr2 is the secondary sensitivity test: an important gamma/gamma-prime (Ni3Al-focused) model whose narrower intended scope makes it a probe of how fitting emphasis affects transferability. Only the corrected ipr2 implementation is accepted: the superseded ipr1 file has non-zero isolated-atom energies, while ipr2 explicitly sets F(rho=0)=0 so isolated atoms have zero energy. Project formation energies still use consistently relaxed bulk elemental references, never isolated atoms.
+
+mishin_2002 is the historical secondary: an established B2-NiAl EAM retained for model-generation sensitivity. Its documented warning about weaker pure-element behavior is recorded evidence, and age alone is not treated as proof of lower accuracy.
+
+Excluded or deferred categories
+-------------------------------
+- ternary Ni-Al-Co, Ni-Al-H, and Fe-Ni-Al potentials
+- pure-element-only Al or Ni potentials
+- arbitrary tutorial or unverified personal-repository files
+- hybrid combinations of unrelated Al-Al, Ni-Ni, and Al-Ni functions or mixing rules
+- Lennard-Jones approximations and ReaxFF
+- potentials without documented Ni-Al cross interactions or with unclear license/citation/provenance
+No cross interactions were created by mixing rules and no separate pure-element EAM files were combined; every accepted file provides the alloy interaction explicitly in a supported multielement setfl form.
+
+LAMMPS availability
+-------------------
+Status: AVAILABLE_AND_EAM_ALLOY_CONFIRMED
+Detail: 'C:\Users\A\AppData\Local\LAMMPS 64-bit 22Jul2025 with Python\bin\lmp.EXE -h' completed; eam/alloy was listed in the help output.
+LAMMPS absence does not affect this selection; it only leaves Step 10 execution readiness incomplete.

@@ -1752,3 +1752,67 @@ Symmetry symbols and numbers are tolerance-dependent and use `symprec=0.001 A`, 
 
 Overall Step 6 status: **SUCCESS**. This establishes behavior on the selected MACE potential-energy surface only; it does not establish DFT or experimental accuracy. Step 7 must still establish consistent pure-element MACE references before any formation energies are computed. Whether those later values agree with reference data, and whether fine-tuning is warranted, remain unanswered.
 <!-- NI_AL_STEP6_KNOWLEDGE_END -->
+
+<!-- NI_AL_STEP7_KNOWLEDGE_START -->
+## Step 7 Research-Log Entry (2026-07-28)
+
+Pure elemental crystals are required because a formation energy compares a compound against the elements in their reference crystalline states; isolated atoms would measure atomization energy instead, which is a different quantity with much larger magnitudes. Every energy entering the formula must come from the same model, precision, and convergence convention - mixing MACE and DFT energies would make the difference meaningless.
+
+The elemental chemical potential `mu_X_MACE` is the relaxed MACE total energy per atom of the pure crystal. The formation energy per atom subtracts composition-weighted chemical potentials from the compound energy and divides by the total atom count. Formula-unit counting (x, y per Al_x Ni_y) and simulation-cell counting (N_Al, N_Ni per cell) must agree after handling the number of formula units; Step 7 validates the two routes against each other at 1e-12 eV/atom.
+
+The initial-versus-relaxed distinction matters: the initial diagnostic uses fixed DFT geometries on the MACE surface, while the primary result uses MACE-relaxed geometries on both sides. Raw total energies across compositions can never be ranked directly because each composition has a different reference scale. The selected-set envelope is not a complete convex hull: only seven points were considered, and untested compositions may lie below it.
+
+Actual results - mu_Al_MACE = -3.709587940 eV/atom; mu_Ni_MACE = -5.732347320 eV/atom (Al: mp-134, Ni: mp-23; database version Al=2026.04.13; Ni=2026.04.13).
+
+| Phase | x_Ni | Initial E_f (eV/atom) | Relaxed E_f (eV/atom) | Relaxation effect (eV/atom) | Above envelope (eV/atom) | On envelope |
+|---|---:|---:|---:|---:|---:|---|
+| Al3Ni | 0.250000 | -0.455126193 | -0.460362379 | -0.005236186 | 0.000000000 | yes |
+| Al3Ni2 | 0.400000 | -0.640219089 | -0.641073263 | -0.000854174 | 0.000000000 | yes |
+| AlNi | 0.500000 | -0.689259153 | -0.690231034 | -0.000971881 | 0.000000000 | yes |
+| Al3Ni5 | 0.625000 | -0.601314792 | -0.606097570 | -0.004782778 | 0.000000000 | yes |
+| AlNi3 | 0.750000 | -0.487265381 | -0.488035514 | -0.000770133 | 0.000000000 | yes |
+
+Ni magnetic limitation: Ni is magnetic in DFT descriptions; the structural MACE workflow exposes no user-controlled spin input, so the Ni reference is the configured pretrained MACE model's energy for the selected crystal - a MACE-consistent reference, not a controlled magnetic DFT reference. No Ni magnetic moment was invented.
+
+Unanswered questions for Step 8: which classical Ni-Al potentials should enter the LAMMPS comparison; how MACE and classical formation energies, lattice constants, and relaxed structures compare under identical conventions; whether observed MACE-versus-reference differences are systematic; and whether fine-tuning is justified.
+
+Overall Step 7 status: **SUCCESS**.
+<!-- NI_AL_STEP7_KNOWLEDGE_END -->
+
+<!-- NI_AL_STEP8_KNOWLEDGE_START -->
+## Step 8 Research-Log Entry (2026-07-28)
+
+A MACE formation energy and an MP DFT formation energy are the same physical definition evaluated on two different energy surfaces: each subtracts its own elemental references, so the two are comparable while raw totals are not. Materials Project publishes processed thermodynamic entries (its recommended correction/mixing scheme, recorded per phase via the thermo endpoint), which is why the processed `formation_energy_per_atom` is the benchmark rather than any raw VASP total.
+
+The signed error (MACE - MP DFT) keeps the direction of the bias visible; MAE averages magnitudes and RMSE additionally weights outliers. A systematic bias means the signed errors share one sign rather than scattering around zero. Ranking agreement asks whether both methods order the five phases identically by formation energy - relevant because many alloy conclusions depend on ordering rather than absolute values.
+
+MP energy above hull is computed against every Ni-Al entry in Materials Project, while the Step 7 envelope contains only seven points on the MACE surface; the two answer different questions and were never subtracted. Volume-per-atom is compared directly, while lattice parameters are compared only after both structures pass through the same pymatgen conventional standardization, because primitive and conventional representations would otherwise differ trivially.
+
+Actual Step 8 findings (n=5): MAE = 0.030905 eV/atom; RMSE = 0.038471 eV/atom; mean signed error = -0.029647 eV/atom; all signed errors positive = False; exact ranking agreement = True; pairwise agreement = 10/10; mean signed volume error = +2.7849%; symmetry agreement = 5/5.
+
+| Phase | MP DFT E_f (eV/atom) | MACE relaxed E_f (eV/atom) | Signed error (eV/atom) | MP hull (eV/atom) | dV/atom (%) |
+|---|---:|---:|---:|---:|---:|
+| Al3Ni | -0.418776 | -0.460362 | -0.041587 | 0.000000 | +2.7397 |
+| Al3Ni2 | -0.644217 | -0.641073 | +0.003143 | 0.000000 | +2.3826 |
+| AlNi | -0.684901 | -0.690231 | -0.005330 | 0.000000 | +2.6282 |
+| Al3Ni5 | -0.563251 | -0.606098 | -0.042847 | 0.000000 | +3.2800 |
+| AlNi3 | -0.426420 | -0.488036 | -0.061616 | 0.000000 | +2.8941 |
+
+Ni remains a magnetic element in DFT descriptions while the structural MACE workflow exposes no spin input, so part of the Ni-rich error budget may be magnetic; this is recorded, not resolved. The next research decision (whether fine-tuning is justified) must weigh the formation-energy bias, the single-signed volume error, the preserved or broken ranking, the Ni magnetic limitation, and the five-phase sample size - no undocumented universal threshold decides it.
+
+Overall Step 8 status: **SUCCESS**.
+<!-- NI_AL_STEP8_KNOWLEDGE_END -->
+
+<!-- NI_AL_STEP9_KNOWLEDGE_START -->
+## Step 9 Research-Log Entry (2026-07-28)
+
+A classical interatomic potential is an explicit analytic/tabulated energy model. In EAM the energy is a sum of pair terms plus an embedding energy F(rho) evaluated at the host electron density each atom sits in; the alloy cross interaction is the fitted Al-Ni pair function plus how each species' density enters the other's embedding. A setfl (`eam/alloy`) file tabulates F(rho), rho(r), and r*phi(r) for every element and pair on shared grids - unlike the older single-element funcfl (`eam`) format, it defines the cross-pair explicitly, which is why separate pure Al and pure Ni files can never be mixed safely: the Al-Ni interaction would be an undefined guess, not physics.
+
+Potential scope matters because a fit reproduces what it was trained on. 2009 (Purja Pun & Mishin) is the broad binary Ni-Al model (B2 properties plus ab initio intermetallic formation energies; interfaces and mechanics), 2004 (Mishin) targets gamma/gamma-prime (Ni3Al), and 2002 (Mishin-Mehl-Papaconstantopoulos) targets B2-NiAl with documented weaker pure-element behavior. That is why 2009 is primary and the others are sensitivity tests. The 2004 ipr1 file is rejected: its isolated-atom energies are non-zero, so bulk energies are correct but are not cohesive energies; ipr2 sets F(rho=0)=0. Our formation energies always use relaxed bulk elemental references, so each potential needs its own Al and Ni references and raw totals can never be compared across potentials - every model has its own arbitrary energy zero.
+
+LAMMPS is the engine that reads the potential file and evaluates it; the file is data, not code. Static minimization follows forces downhill to a zero-temperature local minimum (the analogue of Step 6's FIRE relaxations), while molecular dynamics integrates finite-temperature motion - Step 10's primary benchmark is static minimization only.
+
+Actual Step 9 selection: primary pun_mishin_2009, secondary mishin_2004_ipr2, historical secondary mishin_2002; all three official NIST files validated array-complete with recorded SHA-256; local LAMMPS status AVAILABLE_AND_EAM_ALLOY_CONFIRMED. Overall Step 9 status: **SUCCESS**.
+
+Unanswered questions for Step 10: how large are each potential's formation-energy and volume errors against MP DFT and against MACE under identical structures and convergence targets; does the 2004 model's gamma-prime focus degrade Al-rich phases; how strong is the 2002 pure-element weakness in practice; and how do classical costs compare with MACE.
+<!-- NI_AL_STEP9_KNOWLEDGE_END -->

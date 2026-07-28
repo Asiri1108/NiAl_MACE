@@ -1062,3 +1062,132 @@ Step 7 - Calculate consistent pure Al and pure Ni MACE reference states, then ca
 
 Step 7 is not implemented here.
 <!-- NI_AL_STEP6_C_TO_F_END -->
+
+<!-- NI_AL_STEP7_START -->
+## Step 7 - MACE Elemental References and Formation Energies
+
+Step 7 retrieves the stable FCC pure Al and pure Ni reference structures from Materials Project (structures and provenance only - never DFT energies), relaxes both independently with the exact Step 6 full-cell criteria (FIRE + FrechetCellFilter; max force <= 0.01 eV/angstrom; max |raw ASE stress| <= 0.0006241509 eV/angstrom^3; up to 1000 steps), and defines the chemical potentials `mu_X_MACE = relaxed total energy / atoms`.
+
+Selected structures - Al: mp-134, Ni: mp-23. Materials Project database version: Al=2026.04.13; Ni=2026.04.13.
+
+The MACE-consistent formation energy per atom is
+
+```text
+E_f = (E_compound_total - N_Al*mu_Al_MACE - N_Ni*mu_Ni_MACE) / (N_Al + N_Ni)
+```
+
+applied with the actual cell composition (validated against the formula-unit route at 1e-12 eV/atom). The primary result uses full-cell relaxed compound and elemental energies; the clearly separated diagnostic uses initial fixed-geometry single points on both sides. Initial and relaxed states are never mixed.
+
+Chemical potentials (this executed run): mu_Al_MACE = -3.709587940 eV/atom; mu_Ni_MACE = -5.732347320 eV/atom.
+
+| Phase | x_Ni | Initial E_f (eV/atom) | Relaxed E_f (eV/atom) | Relaxation effect (eV/atom) | Above envelope (eV/atom) | On envelope |
+|---|---:|---:|---:|---:|---:|---|
+| Al3Ni | 0.250000 | -0.455126193 | -0.460362379 | -0.005236186 | 0.000000000 | yes |
+| Al3Ni2 | 0.400000 | -0.640219089 | -0.641073263 | -0.000854174 | 0.000000000 | yes |
+| AlNi | 0.500000 | -0.689259153 | -0.690231034 | -0.000971881 | 0.000000000 | yes |
+| Al3Ni5 | 0.625000 | -0.601314792 | -0.606097570 | -0.004782778 | 0.000000000 | yes |
+| AlNi3 | 0.750000 | -0.487265381 | -0.488035514 | -0.000770133 | 0.000000000 | yes |
+
+The selected-set lower convex envelope uses only pure Al, the five selected compounds, and pure Ni. It is not the complete Ni-Al convex hull, not Materials Project energy above hull, and not a phase-diagram or experimental-stability claim. Untested compositions may lie below it. Ni is magnetic in DFT descriptions; the structural MACE workflow has no explicit spin input, so the Ni reference is MACE-consistent, not a controlled magnetic DFT reference.
+
+Implementation: `scripts/step7_utils.py`, `scripts/fetch_ni_al_elemental_references.py`, `scripts/run_ni_al_mace_elemental_references.py`, `scripts/calculate_ni_al_mace_formation_energies.py`, and `scripts/run_step7_pipeline.py`, with settings in `configs/mace_formation_energy.json`. Outputs are under `results/mace_elemental_references/` and `results/mace_formation_energy/`; the authoritative report is `results/mace_formation_energy/reports/ni_al_step7_final_report.txt`.
+
+Commands:
+
+```bat
+.\.venv\Scripts\python.exe scripts\fetch_ni_al_elemental_references.py --validate-only
+.\.venv\Scripts\python.exe scripts\fetch_ni_al_elemental_references.py --fetch
+.\.venv\Scripts\python.exe scripts\run_ni_al_mace_elemental_references.py --validate-only
+.\.venv\Scripts\python.exe scripts\run_ni_al_mace_elemental_references.py --execute
+.\.venv\Scripts\python.exe scripts\calculate_ni_al_mace_formation_energies.py --validate-only
+.\.venv\Scripts\python.exe scripts\calculate_ni_al_mace_formation_energies.py --calculate
+.\.venv\Scripts\python.exe scripts\run_step7_pipeline.py --validate-only
+.\.venv\Scripts\python.exe scripts\run_step7_pipeline.py --execute
+.\.venv\Scripts\python.exe scripts\run_step7_pipeline.py --execute --resume
+```
+
+Actual overall Step 7 status: **SUCCESS**. These are MACE-consistent results only; no DFT was performed, no MACE-versus-DFT formation-energy comparison was made, and no accuracy or fine-tuning conclusion is drawn. The exact next stage is:
+
+Step 8 - Select and document candidate classical Ni-Al interatomic potentials for the future LAMMPS comparison.
+
+Step 8 is not implemented here.
+<!-- NI_AL_STEP7_END -->
+
+<!-- NI_AL_STEP8_START -->
+## Step 8 - MACE vs Materials Project DFT Benchmark
+
+Step 8 retrieves the five selected phases by exact material ID from the official Materials Project summary endpoint and benchmarks the Step 7 relaxed MACE formation energies and Step 6 MACE-relaxed structures against the MP processed DFT-derived references. Processed `formation_energy_per_atom` is used because it is Materials Project's recommended, correction-consistent thermodynamic quantity; raw MACE and VASP total energies use incompatible reference scales and are never compared. The signed error is `MACE - MP DFT` in eV/atom.
+
+Material IDs: Al3Ni=mp-622209, Al3Ni2=mp-1057, AlNi=mp-1487, Al3Ni5=mp-16514, AlNi3=mp-2593. Materials Project database version: 2026.04.13.
+
+| Phase | MP DFT E_f (eV/atom) | MACE relaxed E_f (eV/atom) | Signed error (eV/atom) | MP hull (eV/atom) | dV/atom (%) |
+|---|---:|---:|---:|---:|---:|
+| Al3Ni | -0.418776 | -0.460362 | -0.041587 | 0.000000 | +2.7397 |
+| Al3Ni2 | -0.644217 | -0.641073 | +0.003143 | 0.000000 | +2.3826 |
+| AlNi | -0.684901 | -0.690231 | -0.005330 | 0.000000 | +2.6282 |
+| Al3Ni5 | -0.563251 | -0.606098 | -0.042847 | 0.000000 | +3.2800 |
+| AlNi3 | -0.426420 | -0.488036 | -0.061616 | 0.000000 | +2.8941 |
+
+Aggregate (n=5): MAE = 0.030905 eV/atom; RMSE = 0.038471 eV/atom; mean signed error = -0.029647 eV/atom; exact ranking agreement = True; pairwise ordering agreement = 10/10. Volume: mean signed error = +2.7849%; symmetry agreement = 5/5 (symprec 0.001 A, angle tolerance 5 deg).
+
+MP energy above hull is DFT context computed against the full MP Ni-Al entry set; it is not comparable to and was never subtracted from the Step 7 selected-set envelope. Five phases are a small sample: statistics are descriptive, correlations exploratory, and no universal MACE accuracy claim is made.
+
+Implementation: `scripts/step8_utils.py`, `scripts/fetch_ni_al_mp_dft_benchmarks.py`, `scripts/compare_ni_al_mace_vs_mp_dft.py`, and `scripts/run_step8_pipeline.py`, with settings in `configs/mace_dft_benchmark.json`. Outputs are under `results/mace_vs_dft/`; the authoritative report is `results/mace_vs_dft/reports/ni_al_step8_final_report.txt`.
+
+Commands:
+
+```bat
+.\.venv\Scripts\python.exe scripts\fetch_ni_al_mp_dft_benchmarks.py --validate-only
+.\.venv\Scripts\python.exe scripts\fetch_ni_al_mp_dft_benchmarks.py --fetch
+.\.venv\Scripts\python.exe scripts\compare_ni_al_mace_vs_mp_dft.py --validate-only
+.\.venv\Scripts\python.exe scripts\compare_ni_al_mace_vs_mp_dft.py --compare
+.\.venv\Scripts\python.exe scripts\run_step8_pipeline.py --validate-only
+.\.venv\Scripts\python.exe scripts\run_step8_pipeline.py --execute
+.\.venv\Scripts\python.exe scripts\run_step8_pipeline.py --execute --resume
+```
+
+Actual overall Step 8 status: **SUCCESS**. No DFT was run, no LAMMPS or fine-tuning was implemented, and no automatic fine-tuning decision was made. The exact next stage is:
+
+Step 9 - Select and document candidate classical Ni-Al interatomic potentials and design the LAMMPS comparison.
+
+Step 9 is not implemented here.
+<!-- NI_AL_STEP8_END -->
+
+<!-- NI_AL_STEP9_START -->
+## Step 9 - Classical Ni-Al Potential Selection
+
+Step 9 selected, retrieved, and validated three documented binary Ni-Al EAM potentials from the NIST Interatomic Potentials Repository (HTTPS-only, redirect-confined, fingerprinted) and designed the Step 10 LAMMPS benchmark. No LAMMPS simulation, MACE calculation, or DFT calculation was executed, and no new scientific energy exists from this step.
+
+| Candidate | Role | Official file | Cutoff (A) | File element order | SHA-256 |
+|---|---|---|---:|---|---|
+| pun_mishin_2009 | primary | `Mishin-Ni-Al-2009.eam.alloy` | 6.2872 | Ni Al | `e0c4b32cbf05f804...` |
+| mishin_2004_ipr2 | secondary | `NiAl_Mishin_2004.eam.alloy` | 6.7249 | Ni Al | `15712c13a4728436...` |
+| mishin_2002 | historical_secondary | `NiAl02.eam.alloy` | 5.9541 | Ni Al | `68de13eb1b6682bf...` |
+
+**Primary: `pun_mishin_2009`** (Purja Pun & Mishin 2009, DOI 10.1080/14786430903258184) - binary Ni-Al specific, built on established pure-element descriptions with the cross interaction fitted to B2-NiAl properties and ab initio intermetallic formation energies. Secondary: `mishin_2004_ipr2` (gamma/gamma-prime focus) - only the corrected ipr2 file `NiAl_Mishin_2004.eam.alloy` is accepted because the superseded ipr1 file has non-zero isolated-atom energies, while ipr2 sets F(rho=0)=0. Historical secondary: `mishin_2002` (B2-optimized; documented pure-element weakness).
+
+All files are `eam/alloy` setfl files validated array-by-array (headers, Al+Ni identity, grids, finiteness, exact counts, no trailing content) with byte-identical processed copies under `data/processed/interatomic_potentials/ni_al/`. Planned mapping: atom type 1 = Al, type 2 = Ni via `pair_coeff * * <file> Al Ni` (never per-pair pair_coeff and never pair_style hybrid mixing).
+
+Local LAMMPS availability: **AVAILABLE_AND_EAM_ALLOY_CONFIRMED** - 'C:\Users\A\AppData\Local\LAMMPS 64-bit 22Jul2025 with Python\bin\lmp.EXE -h' completed; eam/alloy was listed in the help output. LAMMPS was not installed automatically; absence only affects Step 10 readiness.
+
+The Step 10 design (results/lammps_potential_selection/plans/) specifies: identical starting structures for every potential; two-stage static minimization (fixed-cell, then full-cell via `fix box/relax` at zero pressure); per-potential elemental references with the standard formation-energy equation; force target 0.01 eV/angstrom and stress target 0.0006241509 eV/angstrom^3 = 999.999988 bar (converted from exact SI definitions); and independent convergence verification.
+
+Commands:
+
+```bat
+.\.venv\Scripts\python.exe scripts\fetch_ni_al_classical_potentials.py --validate-only
+.\.venv\Scripts\python.exe scripts\fetch_ni_al_classical_potentials.py --fetch
+.\.venv\Scripts\python.exe scripts\validate_ni_al_classical_potentials.py --validate-only
+.\.venv\Scripts\python.exe scripts\design_ni_al_lammps_benchmark.py --validate-only
+.\.venv\Scripts\python.exe scripts\design_ni_al_lammps_benchmark.py --design
+.\.venv\Scripts\python.exe scripts\run_step9_pipeline.py --validate-only
+.\.venv\Scripts\python.exe scripts\run_step9_pipeline.py --execute
+.\.venv\Scripts\python.exe scripts\run_step9_pipeline.py --execute --resume
+```
+
+Actual overall Step 9 status: **SUCCESS**. The exact next stage is:
+
+Step 10 - Execute the designed LAMMPS benchmark: convert structures, relax with each validated classical potential, and compare formation energies and structures against MACE and the Materials Project DFT references.
+
+Step 10 is not implemented here.
+<!-- NI_AL_STEP9_END -->

@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "description": "Candidate classical Ni-Al potentials and future LAMMPS benchmark design.",
+  "source_policy": {
+    "allowed_repositories": [
+      "NIST Interatomic Potentials Repository",
+      "OpenKIM",
+      "Official LAMMPS documentation"
+    ],
+    "allowed_download_hosts": ["www.ctcms.nist.gov"],
+    "allow_unverified_sources": false,
+    "https_required": true,
+    "connection_timeout_seconds": 60,
+    "maximum_file_size_bytes": 20000000,
+    "maximum_attempts_per_file": 2,
+    "user_agent": "NiAl-MACE-research-workflow-step9/1.0 (academic materials-science research)"
+  },
+  "candidate_order": [
+    "pun_mishin_2009",
+    "mishin_2004_ipr2",
+    "mishin_2002"
+  ],
+  "candidates": {
+    "pun_mishin_2009": {
+      "role": "primary",
+      "potential_name": "Purja Pun and Mishin (2009) Ni-Al EAM",
+      "formalism": "EAM (setfl multielement)",
+      "authors": "G. P. Purja Pun and Y. Mishin",
+      "publication_year": 2009,
+      "citation": "G. P. Purja Pun and Y. Mishin (2009), 'Development of an interatomic potential for the Ni-Al system', Philosophical Magazine 89(34-36), 3245-3267.",
+      "doi": "10.1080/14786430903258184",
+      "repository_identity": "2009--Purja-Pun-G-P-Mishin-Y--Ni-Al",
+      "implementation_identity": "2009--Purja-Pun-G-P--Ni-Al--LAMMPS--ipr1",
+      "entry_page_url": "https://www.ctcms.nist.gov/potentials/entry/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/",
+      "potential_file_url": "https://www.ctcms.nist.gov/potentials/Download/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/2/Mishin-Ni-Al-2009.eam.alloy",
+      "release_notes_url": "https://www.ctcms.nist.gov/potentials/Download/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/2/Mishin-Ni-Al-2009_releaseNotes_1.pdf",
+      "release_notes_filename": "Mishin-Ni-Al-2009_releaseNotes_1.pdf",
+      "expected_filename": "Mishin-Ni-Al-2009.eam.alloy",
+      "pair_style": "eam/alloy",
+      "expected_elements": ["Al", "Ni"],
+      "openkim_family_id": "MO_751354403791",
+      "openkim_extended_id": "EAM_Dynamo_PunMishin_2009_NiAl__MO_751354403791_005",
+      "openkim_model_driver_family": "EAM_Dynamo",
+      "enabled_for_step10": true,
+      "fitting_scope": "Binary Ni-Al potential built on established pure Al and pure Ni descriptions; cross interaction fitted to experimental cohesive energy, lattice parameter, and elastic constants of B2-NiAl plus ab initio formation energies of several real or hypothetical intermetallic compounds; intended for Ni-Al phases, heterophase interfaces, and mechanical behavior.",
+      "implementation_notes": "LAMMPS eam/alloy conversion produced by Chandler Becker (13 Aug 2009) from the authors' plt tabulated functions; reference updated from in-press status on 15 Dec 2009.",
+      "known_warnings": []
+    },
+    "mishin_2004_ipr2": {
+      "role": "secondary",
+      "potential_name": "Mishin (2004) Ni-Al EAM (gamma/gamma-prime)",
+      "formalism": "EAM (setfl multielement)",
+      "authors": "Y. Mishin",
+      "publication_year": 2004,
+      "citation": "Y. Mishin (2004), 'Atomistic modeling of the gamma and gamma'-phases of the Ni-Al system', Acta Materialia 52(6), 1451-1467.",
+      "doi": "10.1016/j.actamat.2003.11.026",
+      "repository_identity": "2004--Mishin-Y--Ni-Al",
+      "implementation_identity": "2004--Mishin-Y--Ni-Al--LAMMPS--ipr2",
+      "entry_page_url": "https://www.ctcms.nist.gov/potentials/entry/2004--Mishin-Y--Ni-Al/",
+      "potential_file_url": "https://www.ctcms.nist.gov/potentials/Download/2004--Mishin-Y--Ni-Al/4/NiAl_Mishin_2004.eam.alloy",
+      "release_notes_url": "https://www.ctcms.nist.gov/potentials/Download/2004--Mishin-Y--Ni-Al/4/Version%202%20notes.pdf",
+      "release_notes_filename": "Version 2 notes.pdf",
+      "expected_filename": "NiAl_Mishin_2004.eam.alloy",
+      "pair_style": "eam/alloy",
+      "expected_elements": ["Al", "Ni"],
+      "openkim_family_id": "MO_101214310689",
+      "openkim_extended_id": "EAM_Dynamo_Mishin_2004_NiAl__MO_101214310689_005",
+      "openkim_model_driver_family": "EAM_Dynamo",
+      "enabled_for_step10": true,
+      "reject_superseded_ipr1": true,
+      "superseded_ipr1": {
+        "implementation_identity": "2004--Mishin-Y--Ni-Al--LAMMPS--ipr1",
+        "filename": "NiAl.eam.alloy",
+        "superseded_date": "2020-12-14",
+        "rejection_reason": "The ipr1 file has non-zero isolated-atom energies: bulk potential energies are correct but do not correspond to cohesive energies. The corrected ipr2 file explicitly sets the zero-density embedding value F(rho=0)=0 so isolated atoms have zero energy."
+      },
+      "fitting_scope": "Ni-Al potential developed primarily for the gamma (Ni solid solution) and gamma-prime (Ni3Al) phases; fitted to experimental and first-principles data for lattice properties, point defects, planar faults, and phase-diagram characteristics; narrower intended composition scope than the 2009 general binary potential.",
+      "implementation_notes": "Only the corrected ipr2 implementation is accepted for this project. Project formation energies are still calculated from consistently relaxed bulk elemental references, never from isolated atoms.",
+      "known_warnings": [
+        "The superseded ipr1 implementation (NiAl.eam.alloy) must not be used; it has non-zero isolated-atom energies."
+      ]
+    },
+    "mishin_2002": {
+      "role": "historical_secondary",
+      "potential_name": "Mishin, Mehl, and Papaconstantopoulos (2002) B2-NiAl EAM",
+      "formalism": "EAM (setfl multielement)",
+      "authors": "Y. Mishin, M. J. Mehl, and D. A. Papaconstantopoulos",
+      "publication_year": 2002,
+      "citation": "Y. Mishin, M. J. Mehl, and D. A. Papaconstantopoulos (2002), 'Embedded-atom potential for B2-NiAl', Physical Review B 65(22), 224114.",
+      "doi": "10.1103/PhysRevB.65.224114",
+      "repository_identity": "2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al",
+      "implementation_identity": "2002--Mishin-Y--Ni-Al--LAMMPS--ipr1",
+      "entry_page_url": "https://www.ctcms.nist.gov/potentials/entry/2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al/",
+      "potential_file_url": "https://www.ctcms.nist.gov/potentials/Download/2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al/2/NiAl02.eam.alloy",
+      "release_notes_url": "https://www.ctcms.nist.gov/potentials/Download/2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al/2/NiAl02_releaseNotes_1.pdf",
+      "release_notes_filename": "NiAl02_releaseNotes_1.pdf",
+      "expected_filename": "NiAl02.eam.alloy",
+      "pair_style": "eam/alloy",
+      "expected_elements": ["Al", "Ni"],
+      "openkim_family_id": "MO_109933561507",
+      "openkim_extended_id": "EAM_Dynamo_MishinMehlPapaconstantopoulos_2002_NiAl__MO_109933561507_005",
+      "openkim_model_driver_family": "EAM_Dynamo",
+      "enabled_for_step10": true,
+      "fitting_scope": "Historical EAM optimized for the B2 phase of NiAl, fitted to experimental properties and ab initio data for multiple crystal structures; accurately reproduces basic B2-NiAl lattice properties, planar faults, and point-defect characteristics.",
+      "implementation_notes": "LAMMPS eam/alloy conversion produced by Chandler Becker (14 Feb 2009) from the authors' plt tabulated functions; historical model-generation comparison role, not the primary production recommendation. Age alone is not treated as proof of lower accuracy.",
+      "known_warnings": [
+        "NIST documentation cautions that the elemental descriptions taken from this B2-optimized alloy fit may perform poorly for pure Ni, pure Al, and non-B2 Ni-Al phases; this directly affects formation-energy transferability across the five selected compositions."
+      ]
+    }
+  },
+  "validation": {
+    "minimum_file_size_bytes": 5000,
+    "expected_atomic_numbers": {
+      "Al": 13,
+      "Ni": 28
+    },
+    "expected_masses_amu": {
+      "Al": 26.98,
+      "Ni": 58.69
+    },
+    "mass_tolerance_amu": 0.5
+  },
+  "lammps_design": {
+    "units": "metal",
+    "atom_style": "atomic",
+    "boundary": ["p", "p", "p"],
+    "pair_style": "eam/alloy",
+    "atom_type_mapping": {
+      "1": "Al",
+      "2": "Ni"
+    },
+    "execute_in_step9": false,
+    "executable_candidates": [
+      "lmp",
+      "lmp.exe",
+      "lmp_serial",
+      "lmp_serial.exe",
+      "lmp_mpi",
+      "lmp_mpi.exe"
+    ]
+  },
+  "step10_design": {
+    "force_threshold_eV_per_A": 0.01,
+    "stress_threshold_eV_per_A3": 0.0006241509,
+    "selected_structure_directory": "data/processed/ni_al_structures/selected",
+    "elemental_reference_directory": "data/processed/elemental_references/selected",
+    "phase_order": ["Al3Ni", "Al3Ni2", "AlNi", "Al3Ni5", "AlNi3"],
+    "elemental_references": ["Al", "Ni"]
+  },
+  "output": {
+    "raw_root": "data/raw/interatomic_potentials/ni_al",
+    "selected_root": "data/processed/interatomic_potentials/ni_al",
+    "result_root": "results/lammps_potential_selection"
+  }
+}
