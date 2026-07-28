@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "description": "Benchmark relaxed MACE Ni-Al results against Materials Project DFT-derived thermodynamic and structural data.",
+  "benchmark_source": {
+    "provider": "Materials Project",
+    "api_key_environment_variable": "MP_API_KEY",
+    "require_non_deprecated": true,
+    "record_database_version": true
+  },
+  "phases": {
+    "Al3Ni": {
+      "material_id": "mp-622209"
+    },
+    "Al3Ni2": {
+      "material_id": "mp-1057"
+    },
+    "AlNi": {
+      "material_id": "mp-1487"
+    },
+    "Al3Ni5": {
+      "material_id": "mp-16514"
+    },
+    "AlNi3": {
+      "material_id": "mp-2593"
+    }
+  },
+  "mace_sources": {
+    "formation_energy_table": "results/mace_formation_energy/tables/ni_al_mace_formation_energies.json",
+    "formation_energy_configuration": "configs/mace_formation_energy.json",
+    "full_cell_summary": "results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.json",
+    "full_cell_checkpoint_directory": "results/mace_relaxation/full_cell/checkpoints",
+    "full_cell_structure_directory": "results/mace_relaxation/full_cell/structures",
+    "step7_report": "results/mace_formation_energy/reports/ni_al_step7_final_report.txt"
+  },
+  "comparison": {
+    "primary_mace_energy_field": "relaxed_formation_energy_eV_per_atom",
+    "initial_mace_energy_field": "initial_formation_energy_eV_per_atom",
+    "include_initial_mace_diagnostic": true,
+    "symmetry_symprec_A": 0.001,
+    "symmetry_angle_tolerance_deg": 5.0,
+    "numerical_tolerance": 1e-12,
+    "error_threshold_bins_eV_per_atom": [0.05, 0.1, 0.2],
+    "relative_error_minimum_denominator_eV_per_atom": 0.05
+  },
+  "output": {
+    "raw_benchmark_root": "data/raw/materials_project/dft_benchmark",
+    "result_root": "results/mace_vs_dft"
+  }
+}

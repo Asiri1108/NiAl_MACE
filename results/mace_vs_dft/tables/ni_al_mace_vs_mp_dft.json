@@ -1,0 +1,367 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_mace_vs_mp_dft_benchmark",
+  "project_step": "8",
+  "generated_at_utc": "2026-07-28T08:13:56Z",
+  "configuration_path": "configs/mace_dft_benchmark.json",
+  "configuration_fingerprint_sha256": "349943b01b76dd465d26ae4e906a34c1139822ea778196cfdf9bbe605f505d8c",
+  "step7_configuration_fingerprint_sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+  "package_versions": {
+    "ase": "3.29.0",
+    "mace-torch": "0.3.16",
+    "numpy": "2.4.6",
+    "pymatgen": "2026.5.4",
+    "matplotlib": "3.11.0",
+    "mp-api": "0.46.4",
+    "python-dotenv": "1.2.2"
+  },
+  "mace_model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false
+  },
+  "chemical_potentials_eV_per_atom": {
+    "mu_Al_MACE": -3.7095879398802807,
+    "mu_Ni_MACE": -5.732347319930138
+  },
+  "units": {
+    "formation_energy": "eV/atom",
+    "errors": "eV/atom",
+    "volume": "angstrom^3/atom"
+  },
+  "error_convention": "signed_error = MACE - Materials Project processed DFT; positive means MACE is less negative.",
+  "records": [
+    {
+      "phase_key": "Al3Ni",
+      "material_id": "mp-622209",
+      "reduced_formula": "Al3Ni",
+      "ni_atomic_fraction": 0.25,
+      "mp_database_version": "2026.04.13",
+      "mp_thermo_type": "GGA_GGA+U_R2SCAN",
+      "mp_formation_energy_eV_per_atom": -0.4187757031250001,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_initial_formation_energy_eV_per_atom": -0.4551261929195278,
+      "mace_relaxed_formation_energy_eV_per_atom": -0.46036237921754797,
+      "initial_signed_error_eV_per_atom": -0.03635048979452771,
+      "relaxed_signed_error_eV_per_atom": -0.04158667609254785,
+      "relaxed_absolute_error_eV_per_atom": 0.04158667609254785,
+      "squared_error_eV2_per_atom2": 0.0017294516284264907,
+      "relaxation_effect_on_benchmark_error_eV_per_atom": 0.00523618629802014,
+      "diagnostic_relative_error_percent": -9.930536987274705,
+      "mace_on_selected_set_envelope": true,
+      "mace_convergence_status": "CONVERGED",
+      "mace_safety_status": "PASS",
+      "benchmark_provenance_path": "data/raw/materials_project/dft_benchmark/Al3Ni/metadata.json",
+      "mace_provenance_path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni_full_cell_result.json"
+    },
+    {
+      "phase_key": "Al3Ni2",
+      "material_id": "mp-1057",
+      "reduced_formula": "Al3Ni2",
+      "ni_atomic_fraction": 0.4,
+      "mp_database_version": "2026.04.13",
+      "mp_thermo_type": "GGA_GGA+U_R2SCAN",
+      "mp_formation_energy_eV_per_atom": -0.6442166279999995,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_initial_formation_energy_eV_per_atom": -0.6402190889565805,
+      "mace_relaxed_formation_energy_eV_per_atom": -0.6410732626942732,
+      "initial_signed_error_eV_per_atom": 0.0039975390434189295,
+      "relaxed_signed_error_eV_per_atom": 0.003143365305726231,
+      "relaxed_absolute_error_eV_per_atom": 0.003143365305726231,
+      "squared_error_eV2_per_atom2": 9.880745445243363e-06,
+      "relaxation_effect_on_benchmark_error_eV_per_atom": -0.0008541737376926983,
+      "diagnostic_relative_error_percent": 0.4879360713623545,
+      "mace_on_selected_set_envelope": true,
+      "mace_convergence_status": "CONVERGED",
+      "mace_safety_status": "PASS",
+      "benchmark_provenance_path": "data/raw/materials_project/dft_benchmark/Al3Ni2/metadata.json",
+      "mace_provenance_path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni2_full_cell_result.json"
+    },
+    {
+      "phase_key": "AlNi",
+      "material_id": "mp-1487",
+      "reduced_formula": "AlNi",
+      "ni_atomic_fraction": 0.5,
+      "mp_database_version": "2026.04.13",
+      "mp_thermo_type": "GGA_GGA+U_R2SCAN",
+      "mp_formation_energy_eV_per_atom": -0.68490115,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_initial_formation_energy_eV_per_atom": -0.6892591527184582,
+      "mace_relaxed_formation_energy_eV_per_atom": -0.6902310338730269,
+      "initial_signed_error_eV_per_atom": -0.004358002718458209,
+      "relaxed_signed_error_eV_per_atom": -0.005329883873026908,
+      "relaxed_absolute_error_eV_per_atom": 0.005329883873026908,
+      "squared_error_eV2_per_atom2": 2.8407662099952316e-05,
+      "relaxation_effect_on_benchmark_error_eV_per_atom": 0.000971881154568699,
+      "diagnostic_relative_error_percent": -0.7781975359549197,
+      "mace_on_selected_set_envelope": true,
+      "mace_convergence_status": "CONVERGED",
+      "mace_safety_status": "PASS",
+      "benchmark_provenance_path": "data/raw/materials_project/dft_benchmark/AlNi/metadata.json",
+      "mace_provenance_path": "results/mace_relaxation/full_cell/checkpoints/AlNi_full_cell_result.json"
+    },
+    {
+      "phase_key": "Al3Ni5",
+      "material_id": "mp-16514",
+      "reduced_formula": "Al3Ni5",
+      "ni_atomic_fraction": 0.625,
+      "mp_database_version": "2026.04.13",
+      "mp_thermo_type": "GGA_GGA+U_R2SCAN",
+      "mp_formation_energy_eV_per_atom": -0.5632505449999989,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_initial_formation_energy_eV_per_atom": -0.6013147924505695,
+      "mace_relaxed_formation_energy_eV_per_atom": -0.6060975704525231,
+      "initial_signed_error_eV_per_atom": -0.038064247450570576,
+      "relaxed_signed_error_eV_per_atom": -0.04284702545252417,
+      "relaxed_absolute_error_eV_per_atom": 0.04284702545252417,
+      "squared_error_eV2_per_atom2": 0.0018358675901292538,
+      "relaxation_effect_on_benchmark_error_eV_per_atom": 0.0047827780019535915,
+      "diagnostic_relative_error_percent": -7.6070988005034685,
+      "mace_on_selected_set_envelope": true,
+      "mace_convergence_status": "CONVERGED",
+      "mace_safety_status": "PASS",
+      "benchmark_provenance_path": "data/raw/materials_project/dft_benchmark/Al3Ni5/metadata.json",
+      "mace_provenance_path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni5_full_cell_result.json"
+    },
+    {
+      "phase_key": "AlNi3",
+      "material_id": "mp-2593",
+      "reduced_formula": "AlNi3",
+      "ni_atomic_fraction": 0.75,
+      "mp_database_version": "2026.04.13",
+      "mp_thermo_type": "GGA_GGA+U_R2SCAN",
+      "mp_formation_energy_eV_per_atom": -0.4264197774999996,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_initial_formation_energy_eV_per_atom": -0.4872653805096938,
+      "mace_relaxed_formation_energy_eV_per_atom": -0.48803551385982225,
+      "initial_signed_error_eV_per_atom": -0.060845603009694216,
+      "relaxed_signed_error_eV_per_atom": -0.06161573635982265,
+      "relaxed_absolute_error_eV_per_atom": 0.06161573635982265,
+      "squared_error_eV2_per_atom2": 0.003796498967163171,
+      "relaxation_effect_on_benchmark_error_eV_per_atom": 0.0007701333501284324,
+      "diagnostic_relative_error_percent": -14.44954939028894,
+      "mace_on_selected_set_envelope": true,
+      "mace_convergence_status": "CONVERGED",
+      "mace_safety_status": "PASS",
+      "benchmark_provenance_path": "data/raw/materials_project/dft_benchmark/AlNi3/metadata.json",
+      "mace_provenance_path": "results/mace_relaxation/full_cell/checkpoints/AlNi3_full_cell_result.json"
+    }
+  ],
+  "statistics": {
+    "sample_size": 5,
+    "sample_size_note": "Only five selected compounds; all statistics are descriptive and correlation metrics are exploratory.",
+    "mean_signed_error_eV_per_atom": -0.029647191294439067,
+    "mean_absolute_error_eV_per_atom": 0.03090453741672956,
+    "root_mean_squared_error_eV_per_atom": 0.03847104519834134,
+    "median_absolute_error_eV_per_atom": 0.04158667609254785,
+    "maximum_absolute_error_eV_per_atom": 0.06161573635982265,
+    "phase_with_maximum_absolute_error": "AlNi3",
+    "phase_with_minimum_absolute_error": "Al3Ni2",
+    "standard_deviation_of_signed_errors_eV_per_atom": 0.024516634495863387,
+    "standard_deviation_note": "Population standard deviation over n=5.",
+    "pearson_correlation": 0.9909501796557142,
+    "spearman_rank_correlation": 0.9999999999999999,
+    "correlation_note": "Exploratory only: five data points cannot support strong statistical claims.",
+    "mace_ranking_most_negative_first": [
+      "AlNi",
+      "Al3Ni2",
+      "Al3Ni5",
+      "AlNi3",
+      "Al3Ni"
+    ],
+    "dft_ranking_most_negative_first": [
+      "AlNi",
+      "Al3Ni2",
+      "Al3Ni5",
+      "AlNi3",
+      "Al3Ni"
+    ],
+    "exact_ranking_agreement": true,
+    "pairwise_ordering_agreement": "10/10",
+    "pairwise_ordering_agreement_fraction": 1.0,
+    "most_negative_phase_mace": "AlNi",
+    "most_negative_phase_dft": "AlNi",
+    "composition_trend_signs_match": true,
+    "error_threshold_counts": {
+      "0.05": 4,
+      "0.1": 5,
+      "0.2": 5
+    },
+    "error_threshold_note": "Descriptive bins only, not universal accuracy standards.",
+    "all_signed_errors_positive": false,
+    "all_signed_errors_negative": false
+  },
+  "energy_above_hull_context": [
+    {
+      "phase_key": "Al3Ni",
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_on_selected_set_envelope_step7": true,
+      "note": "MP hull uses the full MP Ni-Al entry set and its processed thermodynamic scheme; the Step 7 envelope uses only five compounds plus elemental endpoints on the MACE surface. These values answer different questions."
+    },
+    {
+      "phase_key": "Al3Ni2",
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_on_selected_set_envelope_step7": true,
+      "note": "MP hull uses the full MP Ni-Al entry set and its processed thermodynamic scheme; the Step 7 envelope uses only five compounds plus elemental endpoints on the MACE surface. These values answer different questions."
+    },
+    {
+      "phase_key": "AlNi",
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_on_selected_set_envelope_step7": true,
+      "note": "MP hull uses the full MP Ni-Al entry set and its processed thermodynamic scheme; the Step 7 envelope uses only five compounds plus elemental endpoints on the MACE surface. These values answer different questions."
+    },
+    {
+      "phase_key": "Al3Ni5",
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_on_selected_set_envelope_step7": true,
+      "note": "MP hull uses the full MP Ni-Al entry set and its processed thermodynamic scheme; the Step 7 envelope uses only five compounds plus elemental endpoints on the MACE surface. These values answer different questions."
+    },
+    {
+      "phase_key": "AlNi3",
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "mace_on_selected_set_envelope_step7": true,
+      "note": "MP hull uses the full MP Ni-Al entry set and its processed thermodynamic scheme; the Step 7 envelope uses only five compounds plus elemental endpoints on the MACE surface. These values answer different questions."
+    }
+  ],
+  "structural_summary": {
+    "sample_size": 5,
+    "mean_signed_volume_percent_error": 2.7849280490562505,
+    "mean_absolute_volume_percent_error": 2.7849280490562505,
+    "rmse_volume_percent_error": 2.800880783246502,
+    "maximum_absolute_volume_percent_error": 3.2800405996383613,
+    "phase_with_maximum_absolute_volume_error": "Al3Ni5",
+    "symmetry_agreement_count": 5,
+    "lattice_comparisons_available": 5,
+    "all_volume_errors_positive": true,
+    "systematic_volume_statement": "All five selected phases show positive MACE volume-per-atom error relative to the Materials Project structures; the selected sample suggests systematic expansion, without claiming universal behavior beyond this dataset."
+  },
+  "source_fingerprints": [
+    {
+      "label": "Step 7 formation-energy table",
+      "path": "results/mace_formation_energy/tables/ni_al_mace_formation_energies.json",
+      "sha256": "bb36c8f2edf66fbedf19ea096b93732fc539a7d1e3d9652226e1ef5782b83ddc",
+      "size_bytes": 11634,
+      "modification_time_ns": 1785222497878669700
+    },
+    {
+      "label": "Step 7 configuration",
+      "path": "configs/mace_formation_energy.json",
+      "sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+      "size_bytes": 2283,
+      "modification_time_ns": 1785221146596962600
+    },
+    {
+      "label": "Step 6 full-cell summary",
+      "path": "results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.json",
+      "sha256": "44db72514c7a3a27e14e926f1f41acf3c4cc5ed6cd3e99aa4c4f5488a058de0e",
+      "size_bytes": 14777,
+      "modification_time_ns": 1785066370429314800
+    },
+    {
+      "label": "Step 7 final report",
+      "path": "results/mace_formation_energy/reports/ni_al_step7_final_report.txt",
+      "sha256": "1809733668f0087208c98b8ea719e52eb5cb72c136153dbfc70538de4300a7b5",
+      "size_bytes": 9935,
+      "modification_time_ns": 1785222525646230700
+    },
+    {
+      "label": "Al3Ni full-cell checkpoint",
+      "path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni_full_cell_result.json",
+      "sha256": "4e0b15a516b4f65546682eff4efce5f2c455f7b85f49ba3774a063fb0edd2d48",
+      "size_bytes": 611711,
+      "modification_time_ns": 1785065420343619700
+    },
+    {
+      "label": "Al3Ni MACE relaxed structure",
+      "path": "results/mace_relaxation/full_cell/structures/Al3Ni_full_cell_relaxed.extxyz",
+      "sha256": "bb7c21ef43963ae57e56e3fa97d5580bbfeeb71032ef7d68bfed1dfb32e9410c",
+      "size_bytes": 2601,
+      "modification_time_ns": 1785065420131212600
+    },
+    {
+      "label": "Al3Ni2 full-cell checkpoint",
+      "path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni2_full_cell_result.json",
+      "sha256": "912748d09d81f4fcadae585369175c0f4b9030ae8c9a5968de3f14ece79a74e3",
+      "size_bytes": 248732,
+      "modification_time_ns": 1785065439551892300
+    },
+    {
+      "label": "Al3Ni2 MACE relaxed structure",
+      "path": "results/mace_relaxation/full_cell/structures/Al3Ni2_full_cell_relaxed.extxyz",
+      "sha256": "b727d86d361468849f89d0d0b9b8c91ba4c61519e696ae8d9d1fde68b15b572e",
+      "size_bytes": 1960,
+      "modification_time_ns": 1785065439395117700
+    },
+    {
+      "label": "AlNi full-cell checkpoint",
+      "path": "results/mace_relaxation/full_cell/checkpoints/AlNi_full_cell_result.json",
+      "sha256": "d271cea48de358382d9133a7f3c68d5df9826f68f32ccf22a7f92a7d9dd3b3a0",
+      "size_bytes": 51560,
+      "modification_time_ns": 1785065351829044100
+    },
+    {
+      "label": "AlNi MACE relaxed structure",
+      "path": "results/mace_relaxation/full_cell/structures/AlNi_full_cell_relaxed.extxyz",
+      "sha256": "9e8018524c9fad96c83206beff0f7c7a85ea7c49136e0ebf9ecf3064833efc6f",
+      "size_bytes": 1760,
+      "modification_time_ns": 1785065351688367900
+    },
+    {
+      "label": "Al3Ni5 full-cell checkpoint",
+      "path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni5_full_cell_result.json",
+      "sha256": "ba1b95156db53b95b383874e17d0f911909b38f7926f4304ced9690b615c61cb",
+      "size_bytes": 330870,
+      "modification_time_ns": 1785065465397199500
+    },
+    {
+      "label": "Al3Ni5 MACE relaxed structure",
+      "path": "results/mace_relaxation/full_cell/structures/Al3Ni5_full_cell_relaxed.extxyz",
+      "sha256": "0d17d8c1afbafe8f1da61ececd3a88c525f18615ad56f525ac324f187ba39730",
+      "size_bytes": 2143,
+      "modification_time_ns": 1785065465309830300
+    },
+    {
+      "label": "AlNi3 full-cell checkpoint",
+      "path": "results/mace_relaxation/full_cell/checkpoints/AlNi3_full_cell_result.json",
+      "sha256": "d7d60bb6b7e27910e0c56477ed644dbc3e785fe619a4917c9dd6d717c2c3119b",
+      "size_bytes": 114449,
+      "modification_time_ns": 1785065467691994000
+    },
+    {
+      "label": "AlNi3 MACE relaxed structure",
+      "path": "results/mace_relaxation/full_cell/structures/AlNi3_full_cell_relaxed.extxyz",
+      "sha256": "9e36afaaf8fa29c43b248a50f648aababdcde67142dd27614c59bdfdf909a035",
+      "size_bytes": 1904,
+      "modification_time_ns": 1785065467596672500
+    }
+  ],
+  "methodological_limitations": [
+    "Materials Project values are processed DFT-derived reference data under the Materials Project correction and mixing scheme, not experimental truth and not raw uncorrected DFT total energies.",
+    "This five-phase benchmark is not a complete Ni-Al phase diagram.",
+    "Materials Project energy above hull is computed against the full Materials Project Ni-Al entry set and is not directly comparable to the Step 7 selected-set MACE envelope.",
+    "Raw MACE and VASP total energies are never compared.",
+    "Sample size is five compounds; correlation metrics are exploratory.",
+    "Ni is a magnetic element in DFT descriptions.",
+    "The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.",
+    "Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.",
+    "This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.",
+    "Magnetic-state sensitivity must be considered during later DFT comparison.",
+    "This selected-set analysis is incomplete: only pure Al, pure Ni, and the five selected compounds were included.",
+    "Untested Ni-Al compositions may lie below the selected envelope.",
+    "The selected-set lower convex envelope is not Materials Project energy above hull and is not a complete Ni-Al convex hull.",
+    "This is not a complete phase diagram and is not proof of experimental stability."
+  ]
+}

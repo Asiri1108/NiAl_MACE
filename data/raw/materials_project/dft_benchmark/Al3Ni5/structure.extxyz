@@ -1,0 +1,10 @@
+8
+Lattice="3.72527337 0.0 0.0 0.0 4.9112235 -0.56361537 0.0 -0.03319863 4.94334827" Properties=species:S:1:pos:R:3 source="Materials Project" material_id=mp-16514 phase_key=Al3Ni5 formula_pretty=Al3Ni5 retrieval_time_utc=2026-07-28T08:12:39Z step8_role=dft_benchmark_structure formation_energy_per_atom_eV=-0.5632505449999989 energy_above_hull_eV_per_atom=0.0 materials_project_database_version=2026.04.13 pbc="T T T"
+Al       0.00000000       2.43901243       2.18986645
+Al       1.86263669       1.06081899       3.72486103
+Al       1.86263669       3.81720588       0.65487187
+Ni       0.00000000       0.00000000       0.00000000
+Ni       0.00000000       2.45561175      -0.28180768
+Ni       0.00000000      -0.01659931       2.47167414
+Ni       1.86263669       1.34580828       1.20833349
+Ni       1.86263669       3.53221659       3.17139941
