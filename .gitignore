@@ -40,6 +40,18 @@ logs/
 !results/mace_relaxation/full_cell/logs/
 !results/mace_relaxation/full_cell/logs/*.log
 
+# Step 7 elemental-reference manifests/logs are the same kind of small
+# provenance artifacts and are required for strict validation and resume.
+!results/mace_elemental_references/full_cell/checkpoints/
+!results/mace_elemental_references/full_cell/checkpoints/*.json
+!results/mace_elemental_references/full_cell/logs/
+!results/mace_elemental_references/full_cell/logs/*.log
+
+# The Step 8 benchmark checkpoint is the same kind of small provenance
+# artifact and is required for strict validation and resume.
+!results/mace_vs_dft/checkpoints/
+!results/mace_vs_dft/checkpoints/*.json
+
 # Large simulation outputs
 *.dump
 *.lammpstrj

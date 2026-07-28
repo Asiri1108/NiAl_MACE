@@ -1,0 +1,40 @@
+Step 7 - MACE Elemental Reference Summary
+============================================================
+
+Generated (UTC): 2026-07-28T07:07:44Z
+Configuration SHA-256: d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f
+Elements: Al, Ni
+Overall status: SUCCESS
+
+Per-element results
+-------------------
+Al (mp-134): CONVERGED
+  atoms=1
+  optimizer_steps=7
+  initial_energy_per_atom_eV=-3.709129750225296
+  final_energy_per_atom_eV=-3.7095879398802807
+  final_max_force_eV_per_A=0
+  final_max_abs_stress_eV_per_A3=0.00046808837637533261
+  volume_change_percent=1.1543505680333688
+  final_space_group=Fm-3m (225)
+Ni (mp-23): CONVERGED
+  atoms=1
+  optimizer_steps=4
+  initial_energy_per_atom_eV=-5.7260336973207941
+  final_energy_per_atom_eV=-5.7323473199301382
+  final_max_force_eV_per_A=0
+  final_max_abs_stress_eV_per_A3=0.00061081770795027527
+  volume_change_percent=3.224708672568255
+  final_space_group=Fm-3m (225)
+
+Magnetic limitation for Ni
+--------------------------
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.
+
+Interpretation boundary
+-----------------------
+These are MACE-potential reference states, not DFT or experimental validation. Raw elemental energies are never ranked against compound energies across compositions.

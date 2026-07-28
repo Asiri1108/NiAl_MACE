@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_mace_elemental_initial_single_point",
+  "project_step": "7",
+  "element": "Al",
+  "material_id": "mp-134",
+  "number_of_atoms": 1,
+  "generated_at_utc": "2026-07-28T07:07:44Z",
+  "configuration_fingerprint_sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false,
+    "calculator_class": "mace.calculators.mace.MACECalculator"
+  },
+  "state": {
+    "step": 0,
+    "elapsed_seconds": 0.0,
+    "total_energy_eV": -3.709129750225296,
+    "energy_per_atom_eV": -3.709129750225296,
+    "forces_eV_per_A": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "maximum_force_eV_per_A": 0.0,
+    "rms_force_eV_per_A": 0.0,
+    "total_force_eV_per_A": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "total_force_norm_eV_per_A": 0.0,
+    "stress_component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "yz",
+      "xz",
+      "xy"
+    ],
+    "stress_eV_per_A3": [
+      -0.005349911594117587,
+      -0.005349906781546996,
+      -0.005349848123990695,
+      -2.0545703111747626e-08,
+      -2.9056015872476977e-08,
+      2.955579998819605e-09
+    ],
+    "maximum_absolute_stress_eV_per_A3": 0.005349911594117587,
+    "volume_A3": 16.471717630914863,
+    "volume_per_atom_A3": 16.471717630914863,
+    "cell_A": [
+      [
+        2.473329,
+        0.0,
+        1.427977
+      ],
+      [
+        0.824443,
+        2.331877,
+        1.427977
+      ],
+      [
+        0.0,
+        0.0,
+        2.855955
+      ]
+    ],
+    "lattice_lengths_A": [
+      2.8559542459167657,
+      2.855954291634759,
+      2.855955
+    ],
+    "lattice_angles_deg": [
+      60.0000033779252,
+      60.00000284838631,
+      60.00000242846307
+    ],
+    "positions_A": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "scaled_positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "maximum_internal_displacement_A": 0.0,
+    "rms_internal_displacement_A": 0.0,
+    "maximum_total_displacement_A": 0.0,
+    "rms_total_displacement_A": 0.0,
+    "volume_change_percent": 0.0,
+    "force_converged": true,
+    "stress_converged": false,
+    "overall_converged": false
+  },
+  "symmetry": {
+    "space_group_symbol": "Fm-3m",
+    "space_group_number": 225,
+    "crystal_system": "cubic",
+    "symprec_A": 0.001,
+    "angle_tolerance_deg": 5.0
+  },
+  "source_structure_path": "data/processed/elemental_references/selected/Al.extxyz",
+  "note": "Fixed-geometry MACE single point of the pristine selected structure before any relaxation."
+}

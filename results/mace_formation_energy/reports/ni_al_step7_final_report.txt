@@ -1,0 +1,167 @@
+Ni-Al MACE Step 7 Final Report
+==============================================================================
+
+1. Step 7 objective
+Establish MACE-consistent pure Al and pure Ni reference states with full-cell relaxation, then calculate MACE-consistent formation energies for the five selected Ni-Al phases.
+
+2. Completed gates
+Gate 1 preflight; Gate 2 configuration; Gate 3 elemental retrieval; Gate 4 structure validation; Gate 5 elemental single points; Gate 6 elemental full-cell relaxations; Gate 7 chemical potentials; Gate 8 formation energies; Gate 9 selected-set analysis and figures; Gate 10 reporting and verification.
+
+3. Materials Project retrieval details
+Endpoint: mp_api.client.MPRester.materials.summary.search; queried per element with deprecated=false. Materials Project supplied crystal structures and provenance only; its DFT energies were never used as MACE reference energies.
+
+4-5. Selected elemental structures
+Al:
+  Selected material ID: mp-134
+  API documents returned: 10
+  Valid candidates: 1
+  Selection rationale: Exactly one valid, stable, non-deprecated elemental Al candidate with energy_above_hull <= 1e-08 eV/atom and the recognized ambient Fm-3m (225) FCC reference symmetry remained after deterministic filtering; it was selected without any tie-breaking. This reproducible project choice documents the crystal structure only; Materials Project energies are not used as MACE reference energies.
+  Atom count: 1
+  Initial energy per atom (eV/atom): -3.709129750225296
+  Relaxed energy per atom (eV/atom): -3.7095879398802807
+  Initial max |stress| (eV/angstrom^3): 0.0053499115941175873
+  Final max |stress| (eV/angstrom^3): 0.00046808837637533261
+  Optimizer steps: 7
+  Convergence status: CONVERGED
+  Volume change (percent): 1.1543505680333688
+  Initial symmetry: Fm-3m (225)
+  Final symmetry: Fm-3m (225)
+Ni:
+  Selected material ID: mp-23
+  API documents returned: 6
+  Valid candidates: 1
+  Selection rationale: Exactly one valid, stable, non-deprecated elemental Ni candidate with energy_above_hull <= 1e-08 eV/atom and the recognized ambient Fm-3m (225) FCC reference symmetry remained after deterministic filtering; it was selected without any tie-breaking. This reproducible project choice documents the crystal structure only; Materials Project energies are not used as MACE reference energies.
+  Atom count: 1
+  Initial energy per atom (eV/atom): -5.7260336973207941
+  Relaxed energy per atom (eV/atom): -5.7323473199301382
+  Initial max |stress| (eV/angstrom^3): 0.039074822319937294
+  Final max |stress| (eV/angstrom^3): 0.00061081770795027527
+  Optimizer steps: 4
+  Convergence status: CONVERGED
+  Volume change (percent): 3.224708672568255
+  Initial symmetry: Fm-3m (225)
+  Final symmetry: Fm-3m (225)
+
+6. Materials Project database version
+Al=2026.04.13; Ni=2026.04.13
+
+7. MACE model settings
+MACE-MP-0 small; device=cpu; dtype=float64; dispersion=false
+
+8. Elemental relaxation settings
+FIRE on ase.filters.FrechetCellFilter; force threshold 0.01 eV/angstrom; raw six-component stress threshold 0.0006241509 eV/angstrom^3; maximum 1000 steps; trajectory interval 1; hydrostatic_strain=false; constant_volume=false; zero external pressure. Identical to the Step 6 full-cell criteria.
+
+9-12. Al and Ni initial/relaxed values, convergence, symmetry
+See section 4-5 blocks above; both references were processed independently from their original selected structures.
+
+13. Chemical potentials
+mu_Al_MACE = -3.7095879398802807 eV/atom
+mu_Ni_MACE = -5.7323473199301382 eV/atom
+
+14. Formation-energy equation
+E_f[eV/atom] = (E_compound_total - N_Al*mu_Al_MACE - N_Ni*mu_Ni_MACE) / (N_Al + N_Ni), applied with the actual cell composition and validated against the formula-unit route at 1e-12 eV/atom.
+
+15. Per-phase initial formation energies (diagnostic)
+- Al3Ni: -0.455126193 eV/atom
+- Al3Ni2: -0.640219089 eV/atom
+- AlNi: -0.689259153 eV/atom
+- Al3Ni5: -0.601314792 eV/atom
+- AlNi3: -0.487265381 eV/atom
+
+16. Per-phase relaxed formation energies (primary)
+- Al3Ni: -0.460362379 eV/atom
+- Al3Ni2: -0.641073263 eV/atom
+- AlNi: -0.690231034 eV/atom
+- Al3Ni5: -0.606097570 eV/atom
+- AlNi3: -0.488035514 eV/atom
+
+17. Relaxation effects (relaxed minus initial)
+- Al3Ni: -0.005236186 eV/atom
+- Al3Ni2: -0.000854174 eV/atom
+- AlNi: -0.000971881 eV/atom
+- Al3Ni5: -0.004782778 eV/atom
+- AlNi3: -0.000770133 eV/atom
+
+18. Selected-set lower-envelope analysis
+Envelope vertices (x_Ni, E_f eV/atom):
+- (0.000000, 0.000000000)
+- (0.250000, -0.460362379)
+- (0.400000, -0.641073263)
+- (0.500000, -0.690231034)
+- (0.625000, -0.606097570)
+- (0.750000, -0.488035514)
+- (1.000000, 0.000000000)
+Membership:
+- Al3Ni: above envelope 0.000000000 eV/atom; on envelope: yes
+- Al3Ni2: above envelope 0.000000000 eV/atom; on envelope: yes
+- AlNi: above envelope 0.000000000 eV/atom; on envelope: yes
+- Al3Ni5: above envelope 0.000000000 eV/atom; on envelope: yes
+- AlNi3: above envelope 0.000000000 eV/atom; on envelope: yes
+- This selected-set analysis is incomplete: only pure Al, pure Ni, and the five selected compounds were included.
+- Untested Ni-Al compositions may lie below the selected envelope.
+- The selected-set lower convex envelope is not Materials Project energy above hull and is not a complete Ni-Al convex hull.
+- This is not a complete phase diagram and is not proof of experimental stability.
+
+19. Warnings
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+
+20. Magnetic limitation for Ni
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.
+
+21. Scientific limitations
+These are MACE-consistent results on the configured potential only. They do not show agreement with DFT or experiment, do not form a complete phase diagram, do not prove MACE accuracy, and do not decide whether fine-tuning is necessary. Raw total energies were never used to rank phases across compositions.
+
+22. Output inventory
+- data/processed/elemental_references/selected/Al.extxyz
+- data/processed/elemental_references/selected/Al.metadata.json
+- data/processed/elemental_references/selected/Ni.extxyz
+- data/processed/elemental_references/selected/Ni.metadata.json
+- data/raw/materials_project/elemental_references/Al/mp-134/metadata.json
+- data/raw/materials_project/elemental_references/Al/mp-134/structure.cif
+- data/raw/materials_project/elemental_references/Al/mp-134/structure.extxyz
+- data/raw/materials_project/elemental_references/Ni/mp-23/metadata.json
+- data/raw/materials_project/elemental_references/Ni/mp-23/structure.cif
+- data/raw/materials_project/elemental_references/Ni/mp-23/structure.extxyz
+- results/mace_elemental_references/figures/elemental_reference_energy_convergence.png
+- results/mace_elemental_references/figures/elemental_reference_force_convergence.png
+- results/mace_elemental_references/figures/elemental_reference_stress_convergence.png
+- results/mace_elemental_references/figures/elemental_reference_volume_convergence.png
+- results/mace_elemental_references/full_cell/checkpoints/Al_mace_reference_result.json
+- results/mace_elemental_references/full_cell/checkpoints/Ni_mace_reference_result.json
+- results/mace_elemental_references/full_cell/logs/Al_mace_reference.log
+- results/mace_elemental_references/full_cell/logs/Ni_mace_reference.log
+- results/mace_elemental_references/full_cell/reports/Al_mace_reference_report.txt
+- results/mace_elemental_references/full_cell/reports/Ni_mace_reference_report.txt
+- results/mace_elemental_references/full_cell/reports/mace_elemental_reference_summary.txt
+- results/mace_elemental_references/full_cell/structures/Al_mace_full_cell_relaxed.extxyz
+- results/mace_elemental_references/full_cell/structures/Ni_mace_full_cell_relaxed.extxyz
+- results/mace_elemental_references/full_cell/tables/Al_mace_full_cell_history.csv
+- results/mace_elemental_references/full_cell/tables/Ni_mace_full_cell_history.csv
+- results/mace_elemental_references/full_cell/tables/mace_elemental_reference_summary.csv
+- results/mace_elemental_references/full_cell/tables/mace_elemental_reference_summary.json
+- results/mace_elemental_references/full_cell/trajectories/Al_mace_full_cell.traj
+- results/mace_elemental_references/full_cell/trajectories/Ni_mace_full_cell.traj
+- results/mace_elemental_references/single_point/Al_mace_initial_single_point.json
+- results/mace_elemental_references/single_point/Ni_mace_initial_single_point.json
+- results/mace_formation_energy/figures/mace_initial_vs_relaxed_formation_energy.png
+- results/mace_formation_energy/figures/mace_relaxed_formation_energy_vs_ni_fraction.png
+- results/mace_formation_energy/figures/selected_set_lower_convex_envelope.png
+- results/mace_formation_energy/reports/ni_al_mace_formation_energy_report.txt
+- results/mace_formation_energy/reports/ni_al_step7_final_report.txt
+- results/mace_formation_energy/tables/ni_al_mace_formation_energies.csv
+- results/mace_formation_energy/tables/ni_al_mace_formation_energies.json
+
+23. Protected-file verification
+All protected Step 5 and Step 6 inputs, the selected Ni-Al structures, and the Step 7 configuration retained their recorded SHA-256, size, and modification-time fingerprints.
+
+24. Overall Step 7 status
+OVERALL STEP 7 STATUS: SUCCESS
+
+25. Exact next stage
+Step 8 - Select and document candidate classical Ni-Al interatomic potentials for the future LAMMPS comparison.
+Step 8 is not implemented by this workflow.

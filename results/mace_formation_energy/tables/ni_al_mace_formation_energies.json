@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_mace_formation_energies",
+  "project_step": "7",
+  "generated_at_utc": "2026-07-28T07:08:17Z",
+  "configuration_path": "configs/mace_formation_energy.json",
+  "configuration_fingerprint_sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false
+  },
+  "package_versions": {
+    "ase": "3.29.0",
+    "mace-torch": "0.3.16",
+    "numpy": "2.4.6",
+    "pymatgen": "2026.5.4",
+    "matplotlib": "3.11.0",
+    "mp-api": "0.46.4",
+    "python-dotenv": "1.2.2"
+  },
+  "materials_project_database_version": {
+    "Al": "2026.04.13",
+    "Ni": "2026.04.13"
+  },
+  "units": {
+    "total_energy": "eV",
+    "energy_per_atom": "eV/atom",
+    "formation_energy": "eV/atom",
+    "composition": "Ni atomic fraction (dimensionless)"
+  },
+  "formation_energy_equation": "formation_energy_eV_per_atom = (compound_total_energy_eV - N_Al * mu_Al_MACE - N_Ni * mu_Ni_MACE) / (N_Al + N_Ni), using the actual cell composition; the formula-unit route was validated to agree within 1e-12 eV/atom.",
+  "elemental_references": {
+    "Al": {
+      "material_id": "mp-134",
+      "atom_count": 1,
+      "initial_energy_per_atom_eV": -3.709129750225296,
+      "relaxed_energy_per_atom_eV": -3.7095879398802807,
+      "convergence_status": "CONVERGED",
+      "optimizer_steps": 7,
+      "checkpoint": "results/mace_elemental_references/full_cell/checkpoints/Al_mace_reference_result.json"
+    },
+    "Ni": {
+      "material_id": "mp-23",
+      "atom_count": 1,
+      "initial_energy_per_atom_eV": -5.726033697320794,
+      "relaxed_energy_per_atom_eV": -5.732347319930138,
+      "convergence_status": "CONVERGED",
+      "optimizer_steps": 4,
+      "checkpoint": "results/mace_elemental_references/full_cell/checkpoints/Ni_mace_reference_result.json"
+    }
+  },
+  "chemical_potentials_eV_per_atom": {
+    "mu_Al_MACE": -3.7095879398802807,
+    "mu_Ni_MACE": -5.732347319930138
+  },
+  "selected_set_envelope": {
+    "description": "Selected-set lower convex envelope over pure Al, the five selected compounds, and pure Ni only.",
+    "tolerance_eV_per_atom": 1e-08,
+    "vertices": [
+      {
+        "ni_fraction": 0.0,
+        "formation_energy_eV_per_atom": 0.0
+      },
+      {
+        "ni_fraction": 0.25,
+        "formation_energy_eV_per_atom": -0.46036237921754797
+      },
+      {
+        "ni_fraction": 0.4,
+        "formation_energy_eV_per_atom": -0.6410732626942732
+      },
+      {
+        "ni_fraction": 0.5,
+        "formation_energy_eV_per_atom": -0.6902310338730269
+      },
+      {
+        "ni_fraction": 0.625,
+        "formation_energy_eV_per_atom": -0.6060975704525231
+      },
+      {
+        "ni_fraction": 0.75,
+        "formation_energy_eV_per_atom": -0.48803551385982225
+      },
+      {
+        "ni_fraction": 1.0,
+        "formation_energy_eV_per_atom": 0.0
+      }
+    ],
+    "limitations": [
+      "This selected-set analysis is incomplete: only pure Al, pure Ni, and the five selected compounds were included.",
+      "Untested Ni-Al compositions may lie below the selected envelope.",
+      "The selected-set lower convex envelope is not Materials Project energy above hull and is not a complete Ni-Al convex hull.",
+      "This is not a complete phase diagram and is not proof of experimental stability."
+    ]
+  },
+  "records": [
+    {
+      "phase_key": "Al3Ni",
+      "material_id": "mp-622209",
+      "reduced_formula": "Al3Ni",
+      "cell_al_count": 12,
+      "cell_ni_count": 4,
+      "cell_atom_count": 16,
+      "formula_unit_al": 3,
+      "formula_unit_ni": 1,
+      "formula_units_in_cell": 4,
+      "ni_atomic_fraction": 0.25,
+      "initial_compound_total_energy_eV": -74.69571087869917,
+      "relaxed_compound_total_energy_eV": -74.81024262576469,
+      "initial_al_reference_eV_per_atom": -3.709129750225296,
+      "relaxed_al_reference_eV_per_atom": -3.7095879398802807,
+      "initial_ni_reference_eV_per_atom": -5.726033697320794,
+      "relaxed_ni_reference_eV_per_atom": -5.732347319930138,
+      "initial_formation_energy_eV_per_atom": -0.4551261929195278,
+      "relaxed_formation_energy_eV_per_atom": -0.46036237921754797,
+      "relaxation_effect_eV_per_atom": -0.00523618629802014,
+      "selected_set_envelope_eV_per_atom": -0.46036237921754797,
+      "energy_above_selected_set_envelope_eV_per_atom": 0.0,
+      "on_selected_set_envelope": true,
+      "compound_convergence_status": "CONVERGED",
+      "elemental_convergence_status": "Al=CONVERGED; Ni=CONVERGED",
+      "safety_status": "PASS",
+      "compound_checkpoint_path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni_full_cell_result.json",
+      "selected_structure_path": "data/processed/ni_al_structures/selected/Al3Ni.extxyz"
+    },
+    {
+      "phase_key": "Al3Ni2",
+      "material_id": "mp-1057",
+      "reduced_formula": "Al3Ni2",
+      "cell_al_count": 3,
+      "cell_ni_count": 2,
+      "cell_atom_count": 5,
+      "formula_unit_al": 3,
+      "formula_unit_ni": 2,
+      "formula_units_in_cell": 1,
+      "ni_atomic_fraction": 0.4,
+      "initial_compound_total_energy_eV": -25.78055209010038,
+      "relaxed_compound_total_energy_eV": -25.798824772972484,
+      "initial_al_reference_eV_per_atom": -3.709129750225296,
+      "relaxed_al_reference_eV_per_atom": -3.7095879398802807,
+      "initial_ni_reference_eV_per_atom": -5.726033697320794,
+      "relaxed_ni_reference_eV_per_atom": -5.732347319930138,
+      "initial_formation_energy_eV_per_atom": -0.6402190889565805,
+      "relaxed_formation_energy_eV_per_atom": -0.6410732626942732,
+      "relaxation_effect_eV_per_atom": -0.0008541737376926983,
+      "selected_set_envelope_eV_per_atom": -0.6410732626942732,
+      "energy_above_selected_set_envelope_eV_per_atom": 0.0,
+      "on_selected_set_envelope": true,
+      "compound_convergence_status": "CONVERGED",
+      "elemental_convergence_status": "Al=CONVERGED; Ni=CONVERGED",
+      "safety_status": "PASS",
+      "compound_checkpoint_path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni2_full_cell_result.json",
+      "selected_structure_path": "data/processed/ni_al_structures/selected/Al3Ni2.extxyz"
+    },
+    {
+      "phase_key": "AlNi",
+      "material_id": "mp-1487",
+      "reduced_formula": "AlNi",
+      "cell_al_count": 1,
+      "cell_ni_count": 1,
+      "cell_atom_count": 2,
+      "formula_unit_al": 1,
+      "formula_unit_ni": 1,
+      "formula_units_in_cell": 1,
+      "ni_atomic_fraction": 0.5,
+      "initial_compound_total_energy_eV": -10.813681752983006,
+      "relaxed_compound_total_energy_eV": -10.822397327556473,
+      "initial_al_reference_eV_per_atom": -3.709129750225296,
+      "relaxed_al_reference_eV_per_atom": -3.7095879398802807,
+      "initial_ni_reference_eV_per_atom": -5.726033697320794,
+      "relaxed_ni_reference_eV_per_atom": -5.732347319930138,
+      "initial_formation_energy_eV_per_atom": -0.6892591527184582,
+      "relaxed_formation_energy_eV_per_atom": -0.6902310338730269,
+      "relaxation_effect_eV_per_atom": -0.000971881154568699,
+      "selected_set_envelope_eV_per_atom": -0.6902310338730269,
+      "energy_above_selected_set_envelope_eV_per_atom": 0.0,
+      "on_selected_set_envelope": true,
+      "compound_convergence_status": "CONVERGED",
+      "elemental_convergence_status": "Al=CONVERGED; Ni=CONVERGED",
+      "safety_status": "PASS",
+      "compound_checkpoint_path": "results/mace_relaxation/full_cell/checkpoints/AlNi_full_cell_result.json",
+      "selected_structure_path": "data/processed/ni_al_structures/selected/AlNi.extxyz"
+    },
+    {
+      "phase_key": "Al3Ni5",
+      "material_id": "mp-16514",
+      "reduced_formula": "Al3Ni5",
+      "cell_al_count": 3,
+      "cell_ni_count": 5,
+      "cell_atom_count": 8,
+      "formula_unit_al": 3,
+      "formula_unit_ni": 5,
+      "formula_units_in_cell": 1,
+      "ni_atomic_fraction": 0.625,
+      "initial_compound_total_energy_eV": -44.56807607688442,
+      "relaxed_compound_total_energy_eV": -44.639280982911714,
+      "initial_al_reference_eV_per_atom": -3.709129750225296,
+      "relaxed_al_reference_eV_per_atom": -3.7095879398802807,
+      "initial_ni_reference_eV_per_atom": -5.726033697320794,
+      "relaxed_ni_reference_eV_per_atom": -5.732347319930138,
+      "initial_formation_energy_eV_per_atom": -0.6013147924505695,
+      "relaxed_formation_energy_eV_per_atom": -0.6060975704525231,
+      "relaxation_effect_eV_per_atom": -0.0047827780019535915,
+      "selected_set_envelope_eV_per_atom": -0.6060975704525231,
+      "energy_above_selected_set_envelope_eV_per_atom": 0.0,
+      "on_selected_set_envelope": true,
+      "compound_convergence_status": "CONVERGED",
+      "elemental_convergence_status": "Al=CONVERGED; Ni=CONVERGED",
+      "safety_status": "PASS",
+      "compound_checkpoint_path": "results/mace_relaxation/full_cell/checkpoints/Al3Ni5_full_cell_result.json",
+      "selected_structure_path": "data/processed/ni_al_structures/selected/Al3Ni5.extxyz"
+    },
+    {
+      "phase_key": "AlNi3",
+      "material_id": "mp-2593",
+      "reduced_formula": "AlNi3",
+      "cell_al_count": 1,
+      "cell_ni_count": 3,
+      "cell_atom_count": 4,
+      "formula_unit_al": 1,
+      "formula_unit_ni": 3,
+      "formula_units_in_cell": 1,
+      "ni_atomic_fraction": 0.75,
+      "initial_compound_total_energy_eV": -22.836292364226455,
+      "relaxed_compound_total_energy_eV": -22.858771955109983,
+      "initial_al_reference_eV_per_atom": -3.709129750225296,
+      "relaxed_al_reference_eV_per_atom": -3.7095879398802807,
+      "initial_ni_reference_eV_per_atom": -5.726033697320794,
+      "relaxed_ni_reference_eV_per_atom": -5.732347319930138,
+      "initial_formation_energy_eV_per_atom": -0.4872653805096938,
+      "relaxed_formation_energy_eV_per_atom": -0.48803551385982225,
+      "relaxation_effect_eV_per_atom": -0.0007701333501284324,
+      "selected_set_envelope_eV_per_atom": -0.48803551385982225,
+      "energy_above_selected_set_envelope_eV_per_atom": 0.0,
+      "on_selected_set_envelope": true,
+      "compound_convergence_status": "CONVERGED",
+      "elemental_convergence_status": "Al=CONVERGED; Ni=CONVERGED",
+      "safety_status": "PASS",
+      "compound_checkpoint_path": "results/mace_relaxation/full_cell/checkpoints/AlNi3_full_cell_result.json",
+      "selected_structure_path": "data/processed/ni_al_structures/selected/AlNi3.extxyz"
+    }
+  ],
+  "magnetic_limitation_Ni": [
+    "Ni is a magnetic element in DFT descriptions.",
+    "The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.",
+    "Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.",
+    "This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.",
+    "Magnetic-state sensitivity must be considered during later DFT comparison."
+  ],
+  "scientific_limitations": [
+    "This selected-set analysis is incomplete: only pure Al, pure Ni, and the five selected compounds were included.",
+    "Untested Ni-Al compositions may lie below the selected envelope.",
+    "The selected-set lower convex envelope is not Materials Project energy above hull and is not a complete Ni-Al convex hull.",
+    "This is not a complete phase diagram and is not proof of experimental stability.",
+    "No comparison against Materials Project DFT formation energies was performed in this step.",
+    "MACE and DFT energies were never mixed.",
+    "Raw total energies were never ranked across compositions."
+  ]
+}
