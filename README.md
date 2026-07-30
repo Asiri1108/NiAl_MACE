@@ -1191,3 +1191,32 @@ Step 10 - Execute the designed LAMMPS benchmark: convert structures, relax with 
 
 Step 10 is not implemented here.
 <!-- NI_AL_STEP9_END -->
+
+<!-- NI_AL_STEP10_START -->
+## Step 10 - LAMMPS Classical-Potential Benchmark
+
+Step 10 executed the Step 9-designed static benchmark: the three validated NIST EAM/alloy potentials each processed independent copies of the same seven original selected structures (pure Al, pure Ni, five compounds) through an initial `run 0`, a fixed-cell CG minimization, and a full-cell `fix box/relax tri 0.0` minimization (63 states total; sequential; no dynamics, velocities, or thermostats). Convergence was verified independently: max force <= 0.01 eV/angstrom and max |pressure component| <= 999.999988 bar (= 0.0006241509 eV/angstrom^3; stress = -pressure/1.602176634e6). Formation energies use each potential's own relaxed pure-element references in the matching state; no cross-potential, MACE, or MP elemental reference was ever mixed.
+
+| Method | MAE (eV/atom) | RMSE (eV/atom) | Mean signed (eV/atom) | Ranking exact | Volume MAE (%) | Symmetry |
+|---|---:|---:|---:|---|---:|---|
+| MACE-MP-0 Small | 0.030905 | 0.038471 | -0.029647 | True | 2.7849 | 5/5 |
+| Pun-Mishin 2009 EAM | 0.117265 | 0.153381 | +0.106242 | False | 1.8576 | 5/5 |
+| Mishin 2004 EAM (ipr2) | 0.126620 | 0.159870 | +0.118100 | False | 2.6759 | 5/5 |
+| Mishin 2002 EAM | 0.149494 | 0.166682 | +0.149494 | False | 1.6380 | 5/5 |
+
+Best method by formation-energy MAE: **MACE-MP-0 Small**. Full per-phase values, envelopes, runtime, and structural details are under `results/lammps_benchmark/`; the authoritative report is `results/lammps_benchmark/reports/ni_al_step10_final_report.txt`.
+
+Commands:
+
+```bat
+.\.venv\Scripts\python.exe scripts\run_step10_pipeline.py --validate-only
+.\.venv\Scripts\python.exe scripts\run_step10_pipeline.py --execute
+.\.venv\Scripts\python.exe scripts\run_step10_pipeline.py --execute --resume
+```
+
+Actual overall Step 10 status: **SUCCESS**. These are static bulk-phase results only; they do not prove accuracy for defects, surfaces, interfaces, finite temperature, or dynamics, and no potential is universally best. The exact next stage is:
+
+Step 11 - Design and generate a DFT reference dataset for Ni-Al, beginning with convergence tests and pilot calculations.
+
+Step 11 is not implemented here.
+<!-- NI_AL_STEP10_END -->

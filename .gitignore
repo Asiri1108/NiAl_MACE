@@ -52,6 +52,14 @@ logs/
 !results/mace_vs_dft/checkpoints/
 !results/mace_vs_dft/checkpoints/*.json
 
+# Step 10 LAMMPS state checkpoints and per-atom force dumps are small
+# scientific provenance artifacts required for strict validation/resume.
+!results/lammps_benchmark/checkpoints/
+!results/lammps_benchmark/checkpoints/*.json
+!results/lammps_benchmark/runs/**/checkpoints/
+!results/lammps_benchmark/runs/**/checkpoints/*.json
+!results/lammps_benchmark/runs/**/*.dump
+
 # Large simulation outputs
 *.dump
 *.lammpstrj

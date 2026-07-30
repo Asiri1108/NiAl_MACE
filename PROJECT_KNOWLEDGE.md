@@ -1816,3 +1816,24 @@ Actual Step 9 selection: primary pun_mishin_2009, secondary mishin_2004_ipr2, hi
 
 Unanswered questions for Step 10: how large are each potential's formation-energy and volume errors against MP DFT and against MACE under identical structures and convergence targets; does the 2004 model's gamma-prime focus degrade Al-rich phases; how strong is the 2002 pure-element weakness in practice; and how do classical costs compare with MACE.
 <!-- NI_AL_STEP9_KNOWLEDGE_END -->
+
+<!-- NI_AL_STEP10_KNOWLEDGE_START -->
+## Step 10 Research-Log Entry (2026-07-28)
+
+LAMMPS is a simulation engine: it reads a structure and an interatomic-potential file and evaluates/minimizes the model the file defines - LAMMPS itself is not the physical model. Static energy minimization walks downhill to a zero-temperature local minimum (here conjugate gradient with a quadratic line search); molecular dynamics would integrate finite-temperature motion and was not used. Fixed-cell minimization moves only atoms; `fix box/relax tri 0.0` adds all six cell degrees of freedom at zero target pressure. LAMMPS reports pressure (positive = compression) while ASE stress is positive in tension: stress_eV_per_A3 = -pressure_bar/1.602176634e6; convergence checks use absolute values so the sign convention cannot change a decision.
+
+Every potential defines its own energy zero, so each needs its own relaxed pure Al and pure Ni references, and raw totals can never be compared across potentials or compositions. The initial / fixed-cell / full-cell formation energies separate the chemical prediction from the atomic and cell relaxation contributions, always with same-state, same-potential references.
+
+Actual Step 10 findings (n=5 compounds; errors vs MP processed DFT):
+
+| Method | MAE (eV/atom) | RMSE (eV/atom) | Mean signed (eV/atom) | Ranking exact | Volume MAE (%) | Symmetry |
+|---|---:|---:|---:|---|---:|---|
+| MACE-MP-0 Small | 0.030905 | 0.038471 | -0.029647 | True | 2.7849 | 5/5 |
+| Pun-Mishin 2009 EAM | 0.117265 | 0.153381 | +0.106242 | False | 1.8576 | 5/5 |
+| Mishin 2004 EAM (ipr2) | 0.126620 | 0.159870 | +0.118100 | False | 2.6759 | 5/5 |
+| Mishin 2002 EAM | 0.149494 | 0.166682 | +0.149494 | False | 1.6380 | 5/5 |
+
+The combined Step 8 and Step 10 evidence feeds the Step 11 decision: a DFT reference dataset (convergence tests first) is the justified next investigation, with any MACE fine-tuning deferred to Step 12 after that dataset is validated.
+
+Overall Step 10 status: **SUCCESS**.
+<!-- NI_AL_STEP10_KNOWLEDGE_END -->

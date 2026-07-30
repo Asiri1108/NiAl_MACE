@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_lammps_runtime_summary",
+  "project_step": "10",
+  "generated_at_utc": "2026-07-28T10:10:12Z",
+  "records": [
+    {
+      "potential_key": "pun_mishin_2009",
+      "total_wall_time_seconds": 2.7139971998985857,
+      "mean_wall_time_per_structure_seconds": 0.387713885699798,
+      "median_wall_time_per_structure_seconds": 0.389725600136444,
+      "total_force_evaluations": 972,
+      "states": 21
+    },
+    {
+      "potential_key": "mishin_2004_ipr2",
+      "total_wall_time_seconds": 2.6627824001479894,
+      "mean_wall_time_per_structure_seconds": 0.38039748573542703,
+      "median_wall_time_per_structure_seconds": 0.3834056998603046,
+      "total_force_evaluations": 1123,
+      "states": 21
+    },
+    {
+      "potential_key": "mishin_2002",
+      "total_wall_time_seconds": 2.785737100057304,
+      "mean_wall_time_per_structure_seconds": 0.3979624428653291,
+      "median_wall_time_per_structure_seconds": 0.39201979991048574,
+      "total_force_evaluations": 780,
+      "states": 21
+    }
+  ],
+  "mace_step6_context": [
+    {
+      "phase_key": "Al3Ni",
+      "wall_time_seconds": 67.31200000003446
+    },
+    {
+      "phase_key": "Al3Ni2",
+      "wall_time_seconds": 18.71799999999348
+    },
+    {
+      "phase_key": "AlNi",
+      "wall_time_seconds": 2.14000000001397
+    },
+    {
+      "phase_key": "Al3Ni5",
+      "wall_time_seconds": 25.530999999959022
+    },
+    {
+      "phase_key": "AlNi3",
+      "wall_time_seconds": 2.0469999999040738
+    }
+  ],
+  "comparability_note": "MACE Step 6 full-cell wall times are listed as context only: they were measured on the same machine but include the Python-side per-step monitoring of that workflow, so the timing scopes differ and no precise LAMMPS-versus-MACE speed ratio is claimed."
+}

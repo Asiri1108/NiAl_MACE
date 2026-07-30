@@ -1,0 +1,70 @@
+Step 10 - LAMMPS Classical-Potential Benchmark Comparison
+============================================================================
+
+Error convention: signed error = method - MP processed DFT (eV/atom). Sample size is five compounds; every statistic is descriptive and correlations are exploratory.
+
+1. Full-cell formation energies (eV/atom)
+phase | MP DFT | MACE-MP-0 Small | Pun-Mishin 2009 EAM | Mishin 2004 EAM (ipr2) | Mishin 2002 EAM
+Al3Ni | -0.418776 | -0.460362 | -0.242708 | -0.243823 | -0.267036
+Al3Ni2 | -0.644217 | -0.641073 | -0.362929 | -0.352211 | -0.370819
+AlNi | -0.684901 | -0.690231 | -0.605871 | -0.590420 | -0.533491
+Al3Ni5 | -0.563251 | -0.606098 | -0.540870 | -0.512888 | -0.435295
+AlNi3 | -0.426420 | -0.488036 | -0.453978 | -0.447720 | -0.383452
+
+2. Error metrics versus MP DFT (n=5)
+MACE-MP-0 Small:
+  mean signed error: -0.029647 eV/atom
+  MAE: 0.030905; RMSE: 0.038471; median |err|: 0.041587 eV/atom
+  maximum |err|: 0.061616 (AlNi3); minimum: 0.003143 (Al3Ni2)
+  Pearson: 0.9909501796557142; Spearman: 0.9999999999999999; exact ranking agreement: True; pairwise: 10/10
+  |err| <= 0.05 / 0.10 eV/atom: 4/5, 5/5
+  most negative formation energy among the five selected phases under this method: AlNi
+Pun-Mishin 2009 EAM:
+  mean signed error: +0.106242 eV/atom
+  MAE: 0.117265; RMSE: 0.153381; median |err|: 0.079030 eV/atom
+  maximum |err|: 0.281287 (Al3Ni2); minimum: 0.022381 (Al3Ni5)
+  Pearson: 0.578035468132815; Spearman: 0.7; exact ranking agreement: False; pairwise: 8/10
+  |err| <= 0.05 / 0.10 eV/atom: 2/5, 3/5
+  most negative formation energy among the five selected phases under this method: AlNi
+Mishin 2004 EAM (ipr2):
+  mean signed error: +0.118100 eV/atom
+  MAE: 0.126620; RMSE: 0.159870; median |err|: 0.094481 eV/atom
+  maximum |err|: 0.292006 (Al3Ni2); minimum: 0.021300 (AlNi3)
+  Pearson: 0.5677235811635075; Spearman: 0.7; exact ranking agreement: False; pairwise: 8/10
+  |err| <= 0.05 / 0.10 eV/atom: 1/5, 3/5
+  most negative formation energy among the five selected phases under this method: AlNi
+Mishin 2002 EAM:
+  mean signed error: +0.149494 eV/atom
+  MAE: 0.149494; RMSE: 0.166682; median |err|: 0.151410 eV/atom
+  maximum |err|: 0.273397 (Al3Ni2); minimum: 0.042967 (AlNi3)
+  Pearson: 0.740309260803653; Spearman: 0.7; exact ranking agreement: False; pairwise: 8/10
+  |err| <= 0.05 / 0.10 eV/atom: 1/5, 1/5
+  most negative formation energy among the five selected phases under this method: AlNi
+
+3. Method ranking by formation-energy MAE
+MACE-MP-0 Small > Pun-Mishin 2009 EAM > Mishin 2004 EAM (ipr2) > Mishin 2002 EAM (best first)
+Best method by MAE: MACE-MP-0 Small
+Per-phase best method: Al3Ni: MACE-MP-0 Small; Al3Ni2: MACE-MP-0 Small; AlNi: MACE-MP-0 Small; Al3Ni5: Pun-Mishin 2009 EAM; AlNi3: Mishin 2004 EAM (ipr2)
+
+4. Volume statistics versus MP (per method)
+MACE-MP-0 Small: mean signed +2.7849%; MAE 2.7849%; RMSE 2.8009%; max 3.2800%; symmetry agreement 5/5; direction: expansion
+Pun-Mishin 2009 EAM: mean signed +0.0931%; MAE 1.8576%; RMSE 2.3046%; max 4.0128%; symmetry agreement 5/5; direction: mixed
+Mishin 2004 EAM (ipr2): mean signed +2.6759%; MAE 2.6759%; RMSE 3.2298%; max 4.7059%; symmetry agreement 5/5; direction: expansion
+Mishin 2002 EAM: mean signed +1.5945%; MAE 1.6380%; RMSE 2.0520%; max 3.0849%; symmetry agreement 5/5; direction: mixed
+
+5. Runtime
+Pun-Mishin 2009 EAM: total 2.71 s over 21 states; mean per structure 0.39 s; total force evaluations 972
+Mishin 2004 EAM (ipr2): total 2.66 s over 21 states; mean per structure 0.38 s; total force evaluations 1123
+Mishin 2002 EAM: total 2.79 s over 21 states; mean per structure 0.40 s; total force evaluations 780
+MACE Step 6 full-cell wall times are listed as context only: they were measured on the same machine but include the Python-side per-step monitoring of that workflow, so the timing scopes differ and no precise LAMMPS-versus-MACE speed ratio is claimed.
+
+6. Limitations
+- Materials Project values are processed DFT-derived references, not experimental truth.
+- Five compounds are not a complete Ni-Al phase diagram; the per-potential envelopes are selected-set constructions, not complete hulls.
+- Accuracy on equilibrium bulk phases does not prove accuracy for defects, surfaces, interfaces, finite temperature, or molecular dynamics.
+- LAMMPS is the execution engine; the EAM file is the physical model.
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.

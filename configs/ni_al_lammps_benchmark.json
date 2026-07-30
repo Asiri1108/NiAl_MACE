@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "description": "Static LAMMPS EAM benchmark for selected Ni-Al phases.",
+  "lammps": {
+    "executable_environment_variable": "LAMMPS_EXECUTABLE",
+    "allow_step9_discovered_executable": true,
+    "executable_candidates": [
+      "lmp",
+      "lmp.exe",
+      "lmp_serial",
+      "lmp_serial.exe",
+      "lmp_mpi",
+      "lmp_mpi.exe"
+    ],
+    "require_eam_alloy": true,
+    "units": "metal",
+    "atom_style": "atomic",
+    "boundary": ["p", "p", "p"],
+    "atom_type_order": ["Al", "Ni"]
+  },
+  "potentials": {
+    "pun_mishin_2009": {
+      "role": "primary",
+      "path": "data/processed/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy",
+      "pair_style": "eam/alloy",
+      "pair_coeff_elements": ["Al", "Ni"]
+    },
+    "mishin_2004_ipr2": {
+      "role": "secondary",
+      "path": "data/processed/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy",
+      "pair_style": "eam/alloy",
+      "pair_coeff_elements": ["Al", "Ni"]
+    },
+    "mishin_2002": {
+      "role": "historical_secondary",
+      "path": "data/processed/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy",
+      "pair_style": "eam/alloy",
+      "pair_coeff_elements": ["Al", "Ni"]
+    }
+  },
+  "structures": {
+    "Al": {
+      "kind": "elemental_reference",
+      "path": "data/processed/elemental_references/selected/Al.extxyz",
+      "material_id": "mp-134",
+      "expected_atoms": 1,
+      "conversion_directory": "pure_Al"
+    },
+    "Ni": {
+      "kind": "elemental_reference",
+      "path": "data/processed/elemental_references/selected/Ni.extxyz",
+      "material_id": "mp-23",
+      "expected_atoms": 1,
+      "conversion_directory": "pure_Ni"
+    },
+    "Al3Ni": {
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni.extxyz",
+      "material_id": "mp-622209",
+      "expected_atoms": 16,
+      "conversion_directory": "Al3Ni"
+    },
+    "Al3Ni2": {
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni2.extxyz",
+      "material_id": "mp-1057",
+      "expected_atoms": 5,
+      "conversion_directory": "Al3Ni2"
+    },
+    "AlNi": {
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/AlNi.extxyz",
+      "material_id": "mp-1487",
+      "expected_atoms": 2,
+      "conversion_directory": "AlNi"
+    },
+    "Al3Ni5": {
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni5.extxyz",
+      "material_id": "mp-16514",
+      "expected_atoms": 8,
+      "conversion_directory": "Al3Ni5"
+    },
+    "AlNi3": {
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/AlNi3.extxyz",
+      "material_id": "mp-2593",
+      "expected_atoms": 4,
+      "conversion_directory": "AlNi3"
+    }
+  },
+  "scientific_convergence": {
+    "maximum_force_eV_per_A": 0.01,
+    "maximum_absolute_pressure_bar": 999.999988070,
+    "maximum_absolute_stress_eV_per_A3": 0.0006241509
+  },
+  "minimization": {
+    "style": "cg",
+    "line_search": "quadratic",
+    "energy_tolerance": 0.0,
+    "technical_force_tolerance_eV_per_A": 1e-10,
+    "maximum_iterations_per_cycle": 10000,
+    "maximum_force_evaluations_per_cycle": 100000,
+    "maximum_cycles": 5,
+    "box_relax_mode": "tri",
+    "target_pressure_bar": 0.0,
+    "vmax": 0.001,
+    "neighbor_skin_A": 2.0
+  },
+  "safety": {
+    "maximum_absolute_volume_change_percent": 25.0,
+    "maximum_internal_atomic_displacement_A": 2.0,
+    "stop_on_nonfinite_value": true,
+    "require_positive_cell_determinant": true,
+    "preserve_atom_order": true,
+    "preserve_composition": true
+  },
+  "symmetry": {
+    "symprec_A": 0.001,
+    "angle_tolerance_deg": 5.0
+  },
+  "comparison_sources": {
+    "step8_energy_table": "results/mace_vs_dft/tables/ni_al_mace_vs_mp_dft.json",
+    "step8_structural_table": "results/mace_vs_dft/tables/ni_al_structural_comparison.json",
+    "step8_checkpoint": "results/mace_vs_dft/checkpoints/step8_benchmark_result.json",
+    "step7_formation_table": "results/mace_formation_energy/tables/ni_al_mace_formation_energies.json",
+    "step6_full_cell_summary": "results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.json",
+    "step9_manifest": "results/lammps_potential_selection/manifests/ni_al_potential_file_manifest.json",
+    "step9_report": "results/lammps_potential_selection/reports/ni_al_step9_final_report.txt",
+    "step9_plan": "results/lammps_potential_selection/plans/ni_al_step10_lammps_benchmark_plan.json"
+  },
+  "analysis": {
+    "envelope_tolerance_eV_per_atom": 1e-8,
+    "arithmetic_tolerance_eV_per_atom": 1e-12,
+    "error_threshold_bins_eV_per_atom": [0.05, 0.1]
+  },
+  "outputs": {
+    "conversion_root": "data/processed/lammps_structures/ni_al",
+    "run_root": "results/lammps_benchmark/runs",
+    "analysis_root": "results/lammps_benchmark"
+  }
+}

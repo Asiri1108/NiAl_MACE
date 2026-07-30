@@ -1,0 +1,117 @@
+Ni-Al Step 10 Final Report
+==============================================================================
+
+1. Step 10 objective
+Execute the validated static LAMMPS benchmark for the three Step 9 EAM/alloy potentials and compare their formation energies and relaxed structures against MACE-MP-0 Small and Materials Project DFT-derived references.
+
+2. Completed gates
+Gate 1 preflight; Gate 2 configuration/executable/source validation; Gate 3 conversion; Gate 4 pilot; Gates 5-7 initial, fixed-cell, and full-cell batches; Gate 8 references and formation energies; Gate 9 comparison; Gate 10 reporting and verification.
+
+3-4. LAMMPS executable
+Path: C:\Users\A\AppData\Local\LAMMPS 64-bit 22Jul2025 with Python\bin\lmp.EXE
+Version: Large-scale Atomic/Molecular Massively Parallel Simulator - 22 Jul 2025 - Update 4
+eam/alloy available: Yes
+Executable SHA-256: a6fc5963a8538dbf2eb17f06bc9e34306e363931725402d38cb39d4479ddb54c
+
+5. Potential identities
+- pun_mishin_2009: sha256 e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b
+- mishin_2004_ipr2: sha256 15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611
+- mishin_2002: sha256 68de13eb1b6682bfdef15ef75248104f9b796eeae7fda5c8e1007872ba767b3b
+
+6. Structure conversion (all round-trip validated)
+- Al: data/processed/lammps_structures/ni_al/pure_Al/Al.lammps.data (round-trip PASS)
+- Ni: data/processed/lammps_structures/ni_al/pure_Ni/Ni.lammps.data (round-trip PASS)
+- Al3Ni: data/processed/lammps_structures/ni_al/Al3Ni/Al3Ni.lammps.data (round-trip PASS)
+- Al3Ni2: data/processed/lammps_structures/ni_al/Al3Ni2/Al3Ni2.lammps.data (round-trip PASS)
+- AlNi: data/processed/lammps_structures/ni_al/AlNi/AlNi.lammps.data (round-trip PASS)
+- Al3Ni5: data/processed/lammps_structures/ni_al/Al3Ni5/Al3Ni5.lammps.data (round-trip PASS)
+- AlNi3: data/processed/lammps_structures/ni_al/AlNi3/AlNi3.lammps.data (round-trip PASS)
+
+7. Pilot
+pun_mishin_2009/AlNi completed all three states with full-cell CONVERGED before the batch ran.
+
+8. Calculation matrix
+3 potentials x 7 structures x 3 states = 63 expected; 63 completed; failures: 0 (see the failure table).
+
+9-10. Potential-specific elemental references (full-cell)
+- pun_mishin_2009 Al (full_cell): -3.359999988 eV/atom [CONVERGED]
+- pun_mishin_2009 Ni (full_cell): -4.449999986 eV/atom [CONVERGED]
+- mishin_2004_ipr2 Al (full_cell): -3.360000023 eV/atom [CONVERGED]
+- mishin_2004_ipr2 Ni (full_cell): -4.449999985 eV/atom [CONVERGED]
+- mishin_2002 Al (full_cell): -3.362177320 eV/atom [CONVERGED]
+- mishin_2002 Ni (full_cell): -4.501335164 eV/atom [CONVERGED]
+
+11-13. Formation energies per potential and phase (eV/atom)
+- pun_mishin_2009 Al3Ni: initial -0.225127; fixed-cell -0.233042; full-cell -0.242708 eV/atom; on selected-set envelope: False
+- pun_mishin_2009 Al3Ni2: initial -0.365739; fixed-cell -0.366511; full-cell -0.362929 eV/atom; on selected-set envelope: False
+- pun_mishin_2009 AlNi: initial -0.606038; fixed-cell -0.606038; full-cell -0.605871 eV/atom; on selected-set envelope: True
+- pun_mishin_2009 Al3Ni5: initial -0.539702; fixed-cell -0.542002; full-cell -0.540870 eV/atom; on selected-set envelope: True
+- pun_mishin_2009 AlNi3: initial -0.460621; fixed-cell -0.460621; full-cell -0.453978 eV/atom; on selected-set envelope: True
+- mishin_2004_ipr2 Al3Ni: initial -0.218592; fixed-cell -0.229659; full-cell -0.243823 eV/atom; on selected-set envelope: False
+- mishin_2004_ipr2 Al3Ni2: initial -0.346027; fixed-cell -0.347609; full-cell -0.352211 eV/atom; on selected-set envelope: False
+- mishin_2004_ipr2 AlNi: initial -0.595217; fixed-cell -0.595217; full-cell -0.590420 eV/atom; on selected-set envelope: True
+- mishin_2004_ipr2 Al3Ni5: initial -0.489207; fixed-cell -0.494378; full-cell -0.512888 eV/atom; on selected-set envelope: False
+- mishin_2004_ipr2 AlNi3: initial -0.443635; fixed-cell -0.443635; full-cell -0.447720 eV/atom; on selected-set envelope: True
+- mishin_2002 Al3Ni: initial -0.244728; fixed-cell -0.261185; full-cell -0.267036 eV/atom; on selected-set envelope: True
+- mishin_2002 Al3Ni2: initial -0.363757; fixed-cell -0.369921; full-cell -0.370819 eV/atom; on selected-set envelope: False
+- mishin_2002 AlNi: initial -0.536236; fixed-cell -0.536236; full-cell -0.533491 eV/atom; on selected-set envelope: True
+- mishin_2002 Al3Ni5: initial -0.427070; fixed-cell -0.429789; full-cell -0.435295 eV/atom; on selected-set envelope: False
+- mishin_2002 AlNi3: initial -0.387313; fixed-cell -0.387313; full-cell -0.383452 eV/atom; on selected-set envelope: True
+
+14-18. Errors versus MP DFT and MACE metrics (n=5; signed = method - MP DFT)
+- MACE-MP-0 Small: MAE 0.030905; RMSE 0.038471; mean signed -0.029647; max |err| 0.061616 (AlNi3); Spearman 0.9999999999999999; exact ranking True; pairwise 10/10; |err|<=0.05: 4/5; <=0.10: 5/5
+- Pun-Mishin 2009 EAM: MAE 0.117265; RMSE 0.153381; mean signed +0.106242; max |err| 0.281287 (Al3Ni2); Spearman 0.7; exact ranking False; pairwise 8/10; |err|<=0.05: 2/5; <=0.10: 3/5
+- Mishin 2004 EAM (ipr2): MAE 0.126620; RMSE 0.159870; mean signed +0.118100; max |err| 0.292006 (Al3Ni2); Spearman 0.7; exact ranking False; pairwise 8/10; |err|<=0.05: 1/5; <=0.10: 3/5
+- Mishin 2002 EAM: MAE 0.149494; RMSE 0.166682; mean signed +0.149494; max |err| 0.273397 (Al3Ni2); Spearman 0.7; exact ranking False; pairwise 8/10; |err|<=0.05: 1/5; <=0.10: 1/5
+
+19. Best method by formation-energy MAE
+MACE-MP-0 Small (MAE 0.030905 eV/atom)
+
+20. Per-phase best-performing method
+- Al3Ni: MACE-MP-0 Small
+- Al3Ni2: MACE-MP-0 Small
+- AlNi: MACE-MP-0 Small
+- Al3Ni5: Pun-Mishin 2009 EAM
+- AlNi3: Mishin 2004 EAM (ipr2)
+
+21. Selected-set envelopes
+Per-potential selected-set lower convex envelopes were built from full-cell formation energies (see the formation table); every envelope is an incomplete-set construction, not a complete Ni-Al convex hull, and untested structures may lie below it.
+
+22-23. Volume and symmetry versus MP
+- MACE-MP-0 Small: mean signed +2.7849%; MAE 2.7849%; symmetry agreement 5/5; direction expansion
+- Pun-Mishin 2009 EAM: mean signed +0.0931%; MAE 1.8576%; symmetry agreement 5/5; direction mixed
+- Mishin 2004 EAM (ipr2): mean signed +2.6759%; MAE 2.6759%; symmetry agreement 5/5; direction expansion
+- Mishin 2002 EAM: mean signed +1.5945%; MAE 1.6380%; symmetry agreement 5/5; direction mixed
+
+24. Runtime
+- pun_mishin_2009: total 2.71 s; mean/structure 0.39 s; force evaluations 972
+- mishin_2004_ipr2: total 2.66 s; mean/structure 0.38 s; force evaluations 1123
+- mishin_2002: total 2.79 s; mean/structure 0.40 s; force evaluations 780
+MACE Step 6 full-cell wall times are listed as context only: they were measured on the same machine but include the Python-side per-step monitoring of that workflow, so the timing scopes differ and no precise LAMMPS-versus-MACE speed ratio is claimed.
+
+25-28. Potential-specific observations
+- pun_mishin_2009 (general binary fit): MAE 0.117265 eV/atom.
+- mishin_2004_ipr2 (gamma/gamma-prime scope): MAE 0.126620 eV/atom.
+- mishin_2002 (B2 focus; documented pure-element weakness): MAE 0.149494 eV/atom.
+
+29. Ni magnetic limitation
+The MACE and DFT interpretation retains the Step 7/8 Ni magnetic limitation: the structural MACE workflow exposes no spin input, so part of the Ni-rich error budget may be magnetic in origin.
+
+30. Scientific limitations
+Materials Project values are processed DFT-derived references, not experimental truth; five compounds are not a phase diagram; equilibrium-bulk accuracy does not prove defect, surface, interface, finite-temperature, or dynamical accuracy; LAMMPS is the engine, not the potential; no potential is universally best.
+
+31. Fine-tuning decision discussion
+MACE (MAE 0.030905 eV/atom) versus the best EAM (Pun-Mishin 2009 EAM, MAE 0.117265 eV/atom) defines the decision context together with the volume and ranking results above. The combined Step 8 and Step 10 evidence supports proceeding toward Step 11 (a DFT reference dataset with convergence tests and pilots); fine-tuning itself is neither started nor declared necessary here, and Step 12 would revisit it only after that dataset is validated.
+
+32. Output inventory
+741 files under data/processed/lammps_structures/ni_al and results/lammps_benchmark (tables, reports, checkpoints, figures, and per-run bundles).
+
+33. Protected-file verification
+All protected Step 6-9 inputs retained their recorded SHA-256, size, and modification-time fingerprints; potential files and original structures are unchanged.
+
+34. Overall Step 10 status
+OVERALL STEP 10 STATUS: SUCCESS
+
+35. Exact next stage
+Step 11 - Design and generate a DFT reference dataset for Ni-Al, beginning with convergence tests and pilot calculations.
+Step 11 is not implemented by this workflow.
