@@ -1,0 +1,7 @@
+5
+Lattice="3.994196 0.0 0.0 -1.997099 3.459074 0.0 0.0 0.0 4.880862" Properties=species:S:1:pos:R:3 source="Materials Project" material_id=mp-1057 phase_key=Al3Ni2 query_formula=Al3Ni2 formula_pretty=Al3Ni2 selected_candidate=T selection_rank=1 retrieval_time_utc=2026-07-20T14:16:25Z energy_above_hull_eV_per_atom=0.0 formation_energy_per_atom_eV=-0.6442166279999995 is_stable=T pbc="T T T"
+Al       0.00000000       0.00000000       0.00000000
+Al      -0.00000266       2.30605049       3.16320369
+Al       1.99709966       1.15302351       1.71765831
+Ni      -0.00000266       2.30605049       0.71539771
+Ni       1.99709966       1.15302351       4.16546429

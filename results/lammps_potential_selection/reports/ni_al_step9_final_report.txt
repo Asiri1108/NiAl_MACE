@@ -1,0 +1,117 @@
+Ni-Al Step 9 Final Report
+==============================================================================
+
+1. Step 9 objective
+Select, retrieve, validate, and document candidate classical Ni-Al EAM potentials from authoritative sources and design the future Step 10 LAMMPS benchmark. No LAMMPS simulation, MACE calculation, or DFT calculation was executed.
+
+2. Completed gates
+Gate 1 preflight; Gate 2 source inspection; Gate 3 configuration; Gate 4 retrieval; Gate 5 setfl validation; Gate 6 scope review; Gate 7 LAMMPS availability; Gate 8 selection and ranking; Gate 9 Step 10 design; Gate 10 reporting and verification.
+
+3. Authoritative source policy
+HTTPS-only retrieval from the NIST Interatomic Potentials Repository (www.ctcms.nist.gov) with redirect confinement, timeouts, bounded retries, and a size cap; OpenKIM and the original publications as cross-reference provenance; unverified sources rejected.
+
+4-6. Candidates, provenance, and intended scope
+- pun_mishin_2009 (primary): G. P. Purja Pun and Y. Mishin (2009), 'Development of an interatomic potential for the Ni-Al system', Philosophical Magazine 89(34-36), 3245-3267. DOI 10.1080/14786430903258184.
+  NIST: 2009--Purja-Pun-G-P-Mishin-Y--Ni-Al / 2009--Purja-Pun-G-P--Ni-Al--LAMMPS--ipr1.
+  Scope: Binary Ni-Al potential built on established pure Al and pure Ni descriptions; cross interaction fitted to experimental cohesive energy, lattice parameter, and elastic constants of B2-NiAl plus ab initio formation energies of several real or hypothetical intermetallic compounds; intended for Ni-Al phases, heterophase interfaces, and mechanical behavior.
+- mishin_2004_ipr2 (secondary): Y. Mishin (2004), 'Atomistic modeling of the gamma and gamma'-phases of the Ni-Al system', Acta Materialia 52(6), 1451-1467. DOI 10.1016/j.actamat.2003.11.026.
+  NIST: 2004--Mishin-Y--Ni-Al / 2004--Mishin-Y--Ni-Al--LAMMPS--ipr2.
+  Scope: Ni-Al potential developed primarily for the gamma (Ni solid solution) and gamma-prime (Ni3Al) phases; fitted to experimental and first-principles data for lattice properties, point defects, planar faults, and phase-diagram characteristics; narrower intended composition scope than the 2009 general binary potential.
+- mishin_2002 (historical_secondary): Y. Mishin, M. J. Mehl, and D. A. Papaconstantopoulos (2002), 'Embedded-atom potential for B2-NiAl', Physical Review B 65(22), 224114. DOI 10.1103/PhysRevB.65.224114.
+  NIST: 2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al / 2002--Mishin-Y--Ni-Al--LAMMPS--ipr1.
+  Scope: Historical EAM optimized for the B2 phase of NiAl, fitted to experimental properties and ab initio data for multiple crystal structures; accurately reproduces basic B2-NiAl lattice properties, planar faults, and point-defect characteristics.
+
+7-9. Files, fingerprints, and setfl validation
+- pun_mishin_2009:
+  raw: data/raw/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy
+  processed: data/processed/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy
+  sha256: e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b (1470580 bytes; raw==processed PASS)
+  release notes: data/raw/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009_releaseNotes_1.pdf
+  setfl: VALID; elements Ni Al; Nrho=10000; drho=0.0005013228884; Nr=10000; dr=0.000628721; cutoff=6.28721 A; 70000 tabulated values complete
+- mishin_2004_ipr2:
+  raw: data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy
+  processed: data/processed/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy
+  sha256: 15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611 (1904578 bytes; raw==processed PASS)
+  release notes: data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/Version 2 notes.pdf
+  setfl: VALID; elements Ni Al; Nrho=10001; drho=0.0006995103513; Nr=10001; dr=0.0006724884; cutoff=6.724884 A; 70007 tabulated values complete
+- mishin_2002:
+  raw: data/raw/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy
+  processed: data/processed/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy
+  sha256: 68de13eb1b6682bfdef15ef75248104f9b796eeae7fda5c8e1007872ba767b3b (1820580 bytes; raw==processed PASS)
+  release notes: data/raw/interatomic_potentials/ni_al/mishin_2002/NiAl02_releaseNotes_1.pdf
+  setfl: VALID; elements Ni Al; Nrho=10000; drho=0.0003; Nr=10000; dr=0.0005954144; cutoff=5.954144 A; 70000 tabulated values complete
+
+10. Element mapping
+Project convention: LAMMPS atom type 1 = Al, atom type 2 = Ni. Planned command for every eam/alloy file: 'pair_style eam/alloy' with 'pair_coeff * * <file> Al Ni'. The names after the filename map atom types to elements and need not match the internal header order textually; LAMMPS resolves the named elements. Per-pair pair_coeff lines and pair_style hybrid EAM mixing are prohibited.
+
+11. Superseded implementation checks
+The 2004 ipr1 file (NiAl.eam.alloy; superseded 2020-12-14; non-zero isolated-atom energies) was neither downloaded nor accepted; its absence from every bundle directory was verified. The corrected ipr2 file explicitly sets F(rho=0)=0 so isolated atoms have zero energy. Formation energies remain defined from consistently relaxed bulk elemental references, not isolated atoms.
+
+12. OpenKIM cross-reference
+- pun_mishin_2009: family MO_751354403791; documented current extended ID EAM_Dynamo_PunMishin_2009_NiAl__MO_751354403791_005; driver family EAM_Dynamo; species Al, Ni; cites the same publication as the NIST implementation. OpenKIM is provenance cross-reference only; no OpenKIM code was downloaded or executed and pair_style kim is not used. Step 10 will use the validated NIST eam/alloy files directly.
+- mishin_2004_ipr2: family MO_101214310689; documented current extended ID EAM_Dynamo_Mishin_2004_NiAl__MO_101214310689_005; driver family EAM_Dynamo; species Al, Ni; cites the same publication as the NIST implementation. OpenKIM is provenance cross-reference only; no OpenKIM code was downloaded or executed and pair_style kim is not used. Step 10 will use the validated NIST eam/alloy files directly.
+- mishin_2002: family MO_109933561507; documented current extended ID EAM_Dynamo_MishinMehlPapaconstantopoulos_2002_NiAl__MO_109933561507_005; driver family EAM_Dynamo; species Al, Ni; cites the same publication as the NIST implementation. OpenKIM is provenance cross-reference only; no OpenKIM code was downloaded or executed and pair_style kim is not used. Step 10 will use the validated NIST eam/alloy files directly.
+
+13. LAMMPS availability
+Status: AVAILABLE_AND_EAM_ALLOY_CONFIRMED
+Detail: 'C:\Users\A\AppData\Local\LAMMPS 64-bit 22Jul2025 with Python\bin\lmp.EXE -h' completed; eam/alloy was listed in the help output.
+Python 'lammps' package present: True
+LAMMPS was not installed automatically; absence is a Step 10 readiness issue, not a Step 9 failure.
+
+14-15. Selection
+Primary: pun_mishin_2009 (broad binary Ni-Al fitting including intermetallic formation energies; intended for phases, interfaces, and mechanical behavior).
+Secondary sensitivity test: mishin_2004_ipr2 (gamma/gamma-prime focus; corrected implementation).
+Historical secondary: mishin_2002 (B2-NiAl focus; documented pure-element weakness recorded).
+The expected ranking was confirmed by source inspection and file validation; no deviation was required.
+
+16. Excluded or deferred categories
+- ternary Ni-Al-Co, Ni-Al-H, and Fe-Ni-Al potentials
+- pure-element-only Al or Ni potentials
+- arbitrary tutorial or unverified personal-repository files
+- hybrid combinations of unrelated Al-Al, Ni-Ni, and Al-Ni functions or mixing rules
+- Lennard-Jones approximations and ReaxFF
+- potentials without documented Ni-Al cross interactions or with unclear license/citation/provenance
+
+17. Step 10 comparison design
+Each potential independently processes the same seven original selected structures (pure Al, pure Ni, five compounds): initial fixed-geometry values, Stage A fixed-cell minimization, then Stage B full-cell minimization at zero target pressure (fix box/relax, triclinic where needed); the primary classical result is full-cell relaxed. Static minimization only - no finite-temperature MD and no NPT substitute. Full plan: results/lammps_potential_selection/plans/ni_al_step10_lammps_benchmark_plan.json
+
+18. Formation-energy consistency rule
+mu_Al_P and mu_Ni_P come from potential P's own relaxed pure elements; E_form_P = (E_compound_P - N_Al*mu_Al_P - N_Ni*mu_Ni_P)/(N_Al+N_Ni) with actual cell counts and formula-unit cross-checks. MACE chemical potentials, MP elemental energies, and cross-potential mixing are prohibited; raw totals are never compared across compositions.
+
+19. Convergence design
+Force target 0.01 eV/angstrom (native metal units); stress target 0.0006241509 eV/angstrom^3 = 999.999988070 bar, converted programmatically from exact SI definitions (1 eV/angstrom^3 = 1.602176634e6 bar). Convergence is verified from recorded maximum force and pressure components; minimizer termination alone is never scientific convergence.
+
+20. Structure-conversion design
+One documented ASE/pymatgen converter from the existing EXTXYZ structures to LAMMPS data files, preserving triclinic cells, scaled coordinates, ordering, species, and periodicity, with volume/composition/coordinate validation and recorded fingerprints. No production Step 10 data files were written in Step 9.
+
+21. Scientific limitations
+This stage selected and validated potential files; it produced no new energies, so nothing here demonstrates classical-potential accuracy. The 2002 candidate's documented pure-element weakness and the 2004 candidate's narrower scope are recorded hypotheses that Step 10 will measure.
+
+22. Output inventory
+- data/processed/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy
+- data/processed/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy
+- data/processed/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy
+- data/raw/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy
+- data/raw/interatomic_potentials/ni_al/mishin_2002/NiAl02_releaseNotes_1.pdf
+- data/raw/interatomic_potentials/ni_al/mishin_2002/retrieval_manifest.json
+- data/raw/interatomic_potentials/ni_al/mishin_2002/source_metadata.json
+- data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy
+- data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/Version 2 notes.pdf
+- data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/retrieval_manifest.json
+- data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/source_metadata.json
+- data/raw/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy
+- data/raw/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009_releaseNotes_1.pdf
+- data/raw/interatomic_potentials/ni_al/pun_mishin_2009/retrieval_manifest.json
+- data/raw/interatomic_potentials/ni_al/pun_mishin_2009/source_metadata.json
+- results/lammps_potential_selection/plans/ni_al_step10_lammps_benchmark_plan.json
+- results/lammps_potential_selection/plans/ni_al_step10_lammps_benchmark_plan.txt
+
+23. Protected-file verification
+All protected Step 6, Step 7, and Step 8 inputs retained their recorded SHA-256, size, and modification-time fingerprints.
+
+24. Overall Step 9 status
+OVERALL STEP 9 STATUS: SUCCESS
+
+25. Exact next stage
+Step 10 - Execute the designed LAMMPS benchmark: convert structures, relax with each validated classical potential, and compare formation energies and structures against MACE and the Materials Project DFT references.
+Step 10 is not implemented by this workflow.

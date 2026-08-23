@@ -1,0 +1,147 @@
+Step 7 - Pure Al MACE Elemental Reference
+============================================================================
+
+1. Identity and provenance
+--------------------------
+Element: Al
+Materials Project ID: mp-134
+Atom count: 1
+Materials Project database version: 2026.04.13
+Retrieval time (UTC): 2026-07-28T07:07:12Z
+Selected structure: data/processed/elemental_references/selected/Al.extxyz
+Configuration: configs/mace_formation_energy.json
+Configuration SHA-256: d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f
+Started (UTC): 2026-07-28T07:07:42Z
+Completed (UTC): 2026-07-28T07:07:44Z
+
+2. Model settings
+-----------------
+Family: MACE
+Name: MACE-MP-0
+Model value: small
+Device: cpu
+Default dtype: float64
+Dispersion enabled: false
+Calculator class: mace.calculators.mace.MACECalculator
+Calculator loads in session: 1
+Recorded state evaluations: 8
+
+3. Optimizer and filter settings
+--------------------------------
+Optimizer: FIRE
+Optimizer created: True
+Maximum steps: 1000
+Actual optimizer steps: 7
+Force threshold (eV/angstrom): 0.01
+Stress threshold (eV/angstrom^3): 0.00062415089999999995
+Filter: ase.filters.FrechetCellFilter
+Hydrostatic strain: false
+Constant volume: false
+External pressure (eV/angstrom^3): 0
+ASE generalized auto-stop fmax: 0.0 eV/angstrom (control sentinel only; actual force and stress criteria are evaluated explicitly)
+
+4. Initial structure values
+---------------------------
+Total energy (eV): -3.709129750225296
+Energy per atom (eV/atom): -3.709129750225296
+Maximum force (eV/angstrom): 0
+RMS force (eV/angstrom): 0
+Total force norm (eV/angstrom): 0
+Stress [xx, yy, zz, yz, xz, xy] (eV/angstrom^3): [-0.0053499115941175873, -0.0053499067815469961, -0.0053498481239906952, -2.0545703111747626e-08, -2.9056015872476977e-08, 2.9555799988196048e-09]
+Maximum |stress| (eV/angstrom^3): 0.0053499115941175873
+Volume (angstrom^3): 16.471717630914863
+Volume per atom (angstrom^3/atom): 16.471717630914863
+Cell matrix (angstrom): [[2.473329,0.0,1.427977],[0.824443,2.331877,1.427977],[0.0,0.0,2.855955]]
+Lattice lengths (angstrom): [2.8559542459167657, 2.8559542916347591, 2.8559549999999998]
+Lattice angles (degrees): [60.000003377925204, 60.000002848386309, 60.00000242846307]
+Initial symmetry: Fm-3m (225)
+
+5. Final structure values
+-------------------------
+Total energy (eV): -3.7095879398802807
+Energy per atom (eV/atom): -3.7095879398802807
+Maximum force (eV/angstrom): 0
+RMS force (eV/angstrom): 0
+Stress [xx, yy, zz, yz, xz, xy] (eV/angstrom^3): [0.00046804928189573386, 0.00046805280639463141, 0.00046808837637533261, -1.222763014034339e-08, -1.7292481238534247e-08, 8.2514122530776452e-10]
+Maximum |stress| (eV/angstrom^3): 0.00046808837637533261
+Volume (angstrom^3): 16.66185899695218
+Volume per atom (angstrom^3/atom): 16.66185899695218
+Cell matrix (angstrom): [[2.4828097018132738,2.9597934643556225e-08,1.4334506293291136],[0.8276032618429603,2.3408154611649232,1.4334506293291096],[1.0606972421763838e-07,7.500261526955376e-08,2.8669020787731894]]
+Lattice lengths (angstrom): [2.8669015891973255, 2.8669016182921032, 2.8669020787731925]
+Lattice angles (degrees): [60.00000202980339, 60.00000169409325, 60.000001762940428]
+Final symmetry: Fm-3m (225)
+
+6. Changes
+----------
+Energy change (eV): -0.00045818965498467534
+Energy change per atom (eV/atom): -0.00045818965498467534
+Volume change (angstrom^3): 0.19014136603731657
+Volume change (percent): 1.1543505680333688
+Lattice-length changes (angstrom): [0.010947343280559796, 0.010947326657344103, 0.010947078773192676]
+Lattice-angle changes (degrees): [-1.3481218132938011e-06, -1.1542930593577694e-06, -6.6552264144092987e-07]
+Maximum internal displacement (angstrom): 0
+Maximum total Cartesian displacement (angstrom): 0
+
+7. Chemical-potential candidate
+-------------------------------
+mu_Al_MACE candidate (relaxed total energy / atoms): -3.7095879398802807 eV/atom
+This value becomes a valid chemical potential only because the convergence and safety checks below passed.
+
+8. Safety and provenance checks
+-------------------------------
+Safety status: PASS
+Energy/forces/stress/positions/cell finite: PASS
+Positive cell determinant and volume: PASS
+Atom identity, ordering, and PBC preserved: PASS
+Configured displacement and volume limits: PASS
+Protected source files unchanged: PASS
+Protected file fingerprints:
+  data/processed/elemental_references/selected/Al.extxyz: sha256=68d4ba270bd3a446767111ccf05d54dbfbfdb8d837ac3e5d2b0fc6c26d6b68aa; size=464
+  data/processed/elemental_references/selected/Al.metadata.json: sha256=21b61f5eef6d211538fc29ff2fdf1fbe0929d5cf6671dbb67c2c60aa0e0ca470; size=2946
+
+9. Output paths
+---------------
+Initial single point: results/mace_elemental_references/single_point/Al_mace_initial_single_point.json
+Final structure: results/mace_elemental_references/full_cell/structures/Al_mace_full_cell_relaxed.extxyz
+Trajectory: results/mace_elemental_references/full_cell/trajectories/Al_mace_full_cell.traj
+History CSV: results/mace_elemental_references/full_cell/tables/Al_mace_full_cell_history.csv
+Report: results/mace_elemental_references/full_cell/reports/Al_mace_reference_report.txt
+Optimizer log: results/mace_elemental_references/full_cell/logs/Al_mace_reference.log
+Checkpoint: results/mace_elemental_references/full_cell/checkpoints/Al_mace_reference_result.json
+
+10. Convergence status
+----------------------
+Force convergence: PASS
+Stress convergence: PASS
+Overall convergence: PASS
+Element status: CONVERGED
+
+11. Warnings
+------------
+- UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+
+12. Magnetic limitation
+-----------------------
+- Al is not treated as a magnetic element in standard DFT references; no additional magnetic limitation applies beyond the general MACE-consistency scope of Step 7.
+
+13. Scientific interpretation boundary
+--------------------------------------
+This is a geometry relaxation on the configured MACE potential-energy surface. It is not a DFT or experimental accuracy conclusion, and this raw elemental energy is never ranked against compound energies across compositions.

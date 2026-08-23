@@ -1,0 +1,146 @@
+Step 6B.3 - Remaining Ni-Al Baseline Reproduction Summary
+=========================================================
+
+Project and scope
+-----------------
+Project root: D:\Materials_Research\NiAl_MACE
+Report timestamp (UTC): 2026-07-26T10:15:16Z
+Configuration: configs/mace_relaxation.json
+Requested phases: Al3Ni, Al3Ni2, Al3Ni5, AlNi3
+AlNi pilot included in batch: No
+Purpose: reproduce stored Step 5 fixed-geometry single-point values.
+Scientific accuracy conclusion: not evaluated in this sub-step.
+
+Model and execution
+-------------------
+Model: MACE MACE-MP-0 small
+Device: cpu
+Default dtype: float64
+Dispersion enabled: false
+Calculator class: mace.calculators.mace.MACECalculator
+Calculator loads: 1
+Single-point calculations: 4
+Calculator reuse: one calculator reused across four independent original structures.
+
+Protected AlNi Step 6B.2 pilot
+--------------------------------
+[PASS] protected AlNi Step 6B.2 report content unchanged: initial_sha256=53beefe9e502ac925d2d96cd267dcef039d27d882181b4aa6bbafef1239ed6b2; final_sha256=53beefe9e502ac925d2d96cd267dcef039d27d882181b4aa6bbafef1239ed6b2
+[PASS] protected AlNi Step 6B.2 report size unchanged: initial=11873; final=11873 bytes
+[PASS] protected AlNi Step 6B.2 report modification time unchanged: initial=1785057634938970800; final=1785057634938970800 ns
+
+Per-phase summary
+-----------------
+
+Al3Ni
+~~~~~
+Material ID: mp-622209
+Atom count: 16
+Step 5 total energy: -74.695710878699174 eV
+Reproduced total energy: -74.695710878699174 eV
+Energy absolute difference: 0 eV
+Step 5 energy per atom: -4.6684819299186984 eV/atom
+Reproduced energy per atom: -4.6684819299186984 eV/atom
+Step 5 maximum force: 0.21279294890942585 eV/angstrom
+Reproduced maximum force: 0.21279294890942585 eV/angstrom
+Maximum-force absolute difference: 0 eV/angstrom
+Step 5 RMS force: 0.15050141287423791 eV/angstrom
+Reproduced RMS force: 0.15050141287423791 eV/angstrom
+RMS-force absolute difference: 0 eV/angstrom
+Stress comparison status: PASS
+Volume comparison status: PASS
+Identity status: PASS
+Immutability status: PASS
+Source-file status: PASS
+Phase reproducibility status: PASS
+
+Al3Ni2
+~~~~~~
+Material ID: mp-1057
+Atom count: 5
+Step 5 total energy: -25.780552090100379 eV
+Reproduced total energy: -25.780552090100379 eV
+Energy absolute difference: 0 eV
+Step 5 energy per atom: -5.1561104180200754 eV/atom
+Reproduced energy per atom: -5.1561104180200754 eV/atom
+Step 5 maximum force: 0.10259415553179091 eV/angstrom
+Reproduced maximum force: 0.10259415553179091 eV/angstrom
+Maximum-force absolute difference: 0 eV/angstrom
+Step 5 RMS force: 0.077932828283674094 eV/angstrom
+Reproduced RMS force: 0.077932828283674094 eV/angstrom
+RMS-force absolute difference: 0 eV/angstrom
+Stress comparison status: PASS
+Volume comparison status: PASS
+Identity status: PASS
+Immutability status: PASS
+Source-file status: PASS
+Phase reproducibility status: PASS
+
+Al3Ni5
+~~~~~~
+Material ID: mp-16514
+Atom count: 8
+Step 5 total energy: -44.568076076884417 eV
+Reproduced total energy: -44.568076076884417 eV
+Energy absolute difference: 0 eV
+Step 5 energy per atom: -5.5710095096105521 eV/atom
+Reproduced energy per atom: -5.5710095096105521 eV/atom
+Step 5 maximum force: 0.16080041576105142 eV/angstrom
+Reproduced maximum force: 0.16080041576105142 eV/angstrom
+Maximum-force absolute difference: 0 eV/angstrom
+Step 5 RMS force: 0.080470342205861869 eV/angstrom
+Reproduced RMS force: 0.080470342205861869 eV/angstrom
+RMS-force absolute difference: 0 eV/angstrom
+Stress comparison status: PASS
+Volume comparison status: PASS
+Identity status: PASS
+Immutability status: PASS
+Source-file status: PASS
+Phase reproducibility status: PASS
+
+AlNi3
+~~~~~
+Material ID: mp-2593
+Atom count: 4
+Step 5 total energy: -22.836292364226455 eV
+Reproduced total energy: -22.836292364226455 eV
+Energy absolute difference: 0 eV
+Step 5 energy per atom: -5.7090730910566139 eV/atom
+Reproduced energy per atom: -5.7090730910566139 eV/atom
+Step 5 maximum force: 5.9784952194884388e-08 eV/angstrom
+Reproduced maximum force: 5.9784952194884388e-08 eV/angstrom
+Maximum-force absolute difference: 0 eV/angstrom
+Step 5 RMS force: 5.6335097722200198e-08 eV/angstrom
+Reproduced RMS force: 5.6335097722200198e-08 eV/angstrom
+RMS-force absolute difference: 0 eV/angstrom
+Stress comparison status: PASS
+Volume comparison status: PASS
+Identity status: PASS
+Immutability status: PASS
+Source-file status: PASS
+Phase reproducibility status: PASS
+
+Execution boundary
+------------------
+Optimizer imported: No
+Optimizer created: No
+FIRE executed: No
+Relaxation executed: No
+Trajectories created: No
+Structures written: No
+Formation energy calculated: No
+Raw MACE energies were not used to rank physical stability.
+
+Final Step 6B.3 status
+----------------------
+Requested phases: 4
+Completed phases: 4
+Failed phases: 0
+Completed phase keys: Al3Ni, Al3Ni2, Al3Ni5, AlNi3
+Failed phase keys: none
+Calculator loads: 1
+Single-point calculations: 4
+Optimizer created: No
+Relaxation executed: No
+Overall Step 6B.3 status: PASS
+
+This status tests computational reproducibility only. It is not a scientific model-accuracy conclusion.

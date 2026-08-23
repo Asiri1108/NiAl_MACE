@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_lammps_structure_conversion",
+  "project_step": "10",
+  "structure_key": "Al",
+  "kind": "elemental_reference",
+  "material_id": "mp-134",
+  "generated_at_utc": "2026-07-28T10:08:54Z",
+  "source_path": "data/processed/elemental_references/selected/Al.extxyz",
+  "source_sha256": "68d4ba270bd3a446767111ccf05d54dbfbfdb8d837ac3e5d2b0fc6c26d6b68aa",
+  "data_file_path": "data/processed/lammps_structures/ni_al/pure_Al/Al.lammps.data",
+  "data_file_sha256": "6fc2918c1c6b4231dc2587885add72cfcaca44777c0ef8a43abc0759774c887c",
+  "conversion_settings": {
+    "tool": "ase.io.lammpsdata.write_lammps_data",
+    "units": "metal",
+    "atom_style": "atomic",
+    "specorder": [
+      "Al",
+      "Ni"
+    ],
+    "masses": true,
+    "force_skew": true,
+    "reduce_cell": false,
+    "atom_type_mapping": {
+      "1": "Al",
+      "2": "Ni"
+    }
+  },
+  "read_back_settings": {
+    "tool": "ase.io.lammpsdata.read_lammps_data",
+    "Z_of_type": {
+      "1": 13,
+      "2": 28
+    },
+    "units": "metal",
+    "atom_style": "atomic",
+    "sort_by_id": true
+  },
+  "atom_count": 1,
+  "al_count": 1,
+  "ni_count": 0,
+  "volume_A3": 16.471717630914863,
+  "lattice_lengths_A": [
+    2.8559542459167657,
+    2.855954291634759,
+    2.855955
+  ],
+  "lattice_angles_deg": [
+    60.0000033779252,
+    60.00000284838631,
+    60.00000242846307
+  ],
+  "round_trip_checks": {
+    "ordered_species_preserved": true,
+    "volume_difference_A3": 0.0,
+    "maximum_lattice_length_difference_A": 0.0,
+    "maximum_lattice_angle_difference_deg": 0.0,
+    "maximum_wrapped_fractional_difference": 0.0,
+    "maximum_pair_distance_difference_A": 0.0
+  },
+  "round_trip_status": "PASS",
+  "representation_note": "The data file stores the LAMMPS restricted-triclinic representation produced by the documented ASE Prism rotation; physical equivalence is validated through metric, fractional-coordinate, and pair-distance checks rather than textual cell identity."
+}

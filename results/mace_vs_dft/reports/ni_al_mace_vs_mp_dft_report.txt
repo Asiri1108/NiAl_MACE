@@ -1,0 +1,84 @@
+Step 8 - MACE versus Materials Project DFT Benchmark
+============================================================================
+
+1. Objective
+------------
+Quantify how the relaxed MACE-MP-0 Small formation energies and relaxed structures for the five selected Ni-Al phases differ from the Materials Project processed DFT-derived references.
+
+2. Benchmark definition
+-----------------------
+The benchmark energy is the Materials Project processed formation_energy_per_atom from the summary endpoint. Raw MACE and VASP total energies were never compared.
+
+3. Per-phase formation-energy comparison (eV/atom)
+--------------------------------------------------
+phase | x_Ni | MP DFT E_f | MACE initial E_f | MACE relaxed E_f | initial signed err | relaxed signed err | |err|
+Al3Ni | 0.2500 | -0.418776 | -0.455126 | -0.460362 | -0.036350 | -0.041587 | 0.041587
+Al3Ni2 | 0.4000 | -0.644217 | -0.640219 | -0.641073 | +0.003998 | +0.003143 | 0.003143
+AlNi | 0.5000 | -0.684901 | -0.689259 | -0.690231 | -0.004358 | -0.005330 | 0.005330
+Al3Ni5 | 0.6250 | -0.563251 | -0.601315 | -0.606098 | -0.038064 | -0.042847 | 0.042847
+AlNi3 | 0.7500 | -0.426420 | -0.487265 | -0.488036 | -0.060846 | -0.061616 | 0.061616
+
+Signed error convention: MACE minus MP DFT; positive means MACE predicts a less negative formation energy than the reference.
+
+4. Dataset statistics (n=5; descriptive only)
+---------------------------------------------
+Mean signed error: -0.029647 eV/atom
+Mean absolute error (MAE): 0.030905 eV/atom
+Root mean squared error (RMSE): 0.038471 eV/atom
+Median absolute error: 0.041587 eV/atom
+Maximum absolute error: 0.061616 eV/atom (AlNi3)
+Minimum absolute error phase: Al3Ni2
+Standard deviation of signed errors: 0.024517 eV/atom (population, n=5)
+Pearson correlation (exploratory): 0.9909501796557142
+Spearman rank correlation (exploratory): 0.9999999999999999
+Error-threshold counts (descriptive bins only): |err| <= 0.05 eV/atom: 4/5; |err| <= 0.1 eV/atom: 5/5; |err| <= 0.2 eV/atom: 5/5
+All signed errors positive: False
+All signed errors negative: False
+
+5. Ranking and trend
+--------------------
+MACE ranking (most negative first): AlNi < Al3Ni2 < Al3Ni5 < AlNi3 < Al3Ni
+MP DFT ranking (most negative first): AlNi < Al3Ni2 < Al3Ni5 < AlNi3 < Al3Ni
+Exact ranking agreement: True
+Pairwise ordering agreement: 10/10
+Composition-trend signs match: True
+AlNi has the most negative formation energy among the five selected phases under both methods.
+
+6. Energy-above-hull context (not an error metric)
+--------------------------------------------------
+Al3Ni: MP hull = 0.000000 eV/atom; MP stable = True; Step 7 selected-set envelope member = True
+Al3Ni2: MP hull = 0.000000 eV/atom; MP stable = True; Step 7 selected-set envelope member = True
+AlNi: MP hull = 0.000000 eV/atom; MP stable = True; Step 7 selected-set envelope member = True
+Al3Ni5: MP hull = 0.000000 eV/atom; MP stable = True; Step 7 selected-set envelope member = True
+AlNi3: MP hull = 0.000000 eV/atom; MP stable = True; Step 7 selected-set envelope member = True
+MP energy above hull uses the full Materials Project Ni-Al entry set; the Step 7 envelope uses only five compounds plus elemental endpoints on the MACE surface. These values answer different questions and were never subtracted.
+
+7. Structural comparison
+------------------------
+phase | MP V/atom | MACE V/atom | dV (%) | MP SG | MACE SG | preserved
+Al3Ni | 14.284421 | 14.675766 | +2.7397 | Pnma (62) | Pnma (62) | True
+Al3Ni2 | 13.487012 | 13.808355 | +2.3826 | P-3m1 (164) | P-3m1 (164) | True
+AlNi | 11.693286 | 12.000606 | +2.6282 | Pm-3m (221) | Pm-3m (221) | True
+Al3Ni5 | 11.296508 | 11.667038 | +3.2800 | Cmmm (65) | Cmmm (65) | True
+AlNi3 | 10.931964 | 11.248351 | +2.8941 | Pm-3m (221) | Pm-3m (221) | True
+
+Standardization: pymatgen SpacegroupAnalyzer.get_conventional_standard_structure (symprec=0.001 A, angle_tolerance=5.0 deg) applied identically to both structures.
+Structural summary: mean signed volume error +2.7849%; MAE 2.7849%; RMSE 2.8009%; maximum 3.2800% (Al3Ni5); symmetry agreement 5/5.
+All five selected phases show positive MACE volume-per-atom error relative to the Materials Project structures; the selected sample suggests systematic expansion, without claiming universal behavior beyond this dataset.
+
+8. Warnings
+-----------
+- None recorded.
+
+9. Limitations
+--------------
+- Materials Project values are processed DFT-derived reference data under the Materials Project correction and mixing scheme, not experimental truth and not raw uncorrected DFT total energies.
+- This five-phase benchmark is not a complete Ni-Al phase diagram.
+- Materials Project energy above hull is computed against the full Materials Project Ni-Al entry set and is not directly comparable to the Step 7 selected-set MACE envelope.
+- Raw MACE and VASP total energies are never compared.
+- Sample size is five compounds; correlation metrics are exploratory and threshold counts are descriptive bins only.
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.

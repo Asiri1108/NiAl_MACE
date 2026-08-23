@@ -1,0 +1,4 @@
+2
+Lattice="-1.938694 -1.381114 1.381114 -1.938694 1.381114 -1.381114 0.0 -2.191628 -2.191628" Properties=species:S:1:pos:R:3:initial_magmoms:R:1 source="Materials Project" material_id=mp-1228868 phase_key=AlNi query_formula=AlNi formula_pretty=AlNi selected_candidate=F selection_rank=2 retrieval_time_utc=2026-07-20T14:16:25Z energy_above_hull_eV_per_atom=0.02678004500000064 formation_energy_per_atom_eV=-0.6581211049999993 is_stable=F pbc="T T T"
+Al       0.00000000       0.00000000       0.00000000       0.00000000
+Ni      -1.93869400      -1.09581400      -1.09581400      -0.00000000

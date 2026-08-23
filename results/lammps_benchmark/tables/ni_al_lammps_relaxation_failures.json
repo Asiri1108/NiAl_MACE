@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_lammps_relaxation_failures",
+  "project_step": "10",
+  "generated_at_utc": "2026-07-28T10:09:38Z",
+  "failures": [],
+  "note": "Missing or failed states are recorded here explicitly; no fabricated rows exist in the summary table."
+}

@@ -1,0 +1,119 @@
+Step 10 LAMMPS Benchmark Plan (designed in Step 9; not executed)
+============================================================================
+
+Objective
+---------
+Fair static comparison of the validated classical Ni-Al EAM potentials against the MACE and Materials Project DFT results for the five selected compounds plus pure Al and pure Ni, using identical starting structures and per-potential elemental references.
+
+Generated (UTC): 2026-07-28T09:22:55Z
+Configuration SHA-256: e394478680c3920b0c935e8be9283b802bc8374fce1a67d6e4dc0cbab2297c82
+DESIGN ONLY: no LAMMPS simulation was executed in Step 9.
+
+LAMMPS availability
+-------------------
+Status: AVAILABLE_AND_EAM_ALLOY_CONFIRMED
+Detail: 'C:\Users\A\AppData\Local\LAMMPS 64-bit 22Jul2025 with Python\bin\lmp.EXE -h' completed; eam/alloy was listed in the help output.
+LAMMPS absence does not affect Step 9 selection but leaves Step 10 execution readiness incomplete until a LAMMPS build with the MANYBODY package (eam/alloy) is provided.
+
+Global settings
+---------------
+units metal; atom_style atomic; boundary p p p; pair_style eam/alloy; atom type 1 = Al, atom type 2 = Ni
+
+Potentials
+----------
+pun_mishin_2009 (primary):
+  file: data/processed/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy
+  sha256: e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b
+  file element order: Ni Al
+  cutoff: 6.287210 A
+  command: pair_style eam/alloy; pair_coeff * * Mishin-Ni-Al-2009.eam.alloy Al Ni
+mishin_2004_ipr2 (secondary):
+  file: data/processed/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy
+  sha256: 15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611
+  file element order: Ni Al
+  cutoff: 6.724884 A
+  command: pair_style eam/alloy; pair_coeff * * NiAl_Mishin_2004.eam.alloy Al Ni
+mishin_2002 (historical_secondary):
+  file: data/processed/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy
+  sha256: 68de13eb1b6682bfdef15ef75248104f9b796eeae7fda5c8e1007872ba767b3b
+  file element order: Ni Al
+  cutoff: 5.954144 A
+  command: pair_style eam/alloy; pair_coeff * * NiAl02.eam.alloy Al Ni
+
+Structures (identical starting points for every potential)
+----------------------------------------------------------
+- Al (elemental_reference): data/processed/elemental_references/selected/Al.extxyz (sha256 68d4ba270bd3a446...)
+- Ni (elemental_reference): data/processed/elemental_references/selected/Ni.extxyz (sha256 9ac0773888e640e6...)
+- Al3Ni (compound): data/processed/ni_al_structures/selected/Al3Ni.extxyz (sha256 d77210cd1a50396f...)
+- Al3Ni2 (compound): data/processed/ni_al_structures/selected/Al3Ni2.extxyz (sha256 55c490196464b8d9...)
+- AlNi (compound): data/processed/ni_al_structures/selected/AlNi.extxyz (sha256 ea9467bfc2963347...)
+- Al3Ni5 (compound): data/processed/ni_al_structures/selected/Al3Ni5.extxyz (sha256 7aa0e38fad171f4e...)
+- AlNi3 (compound): data/processed/ni_al_structures/selected/AlNi3.extxyz (sha256 686d4ff6fd5b8f07...)
+
+Workflow per potential
+----------------------
+1. Convert the seven source structures (Al, Ni, five compounds) to validated LAMMPS data files; independent copies per potential and phase.
+2. Initial fixed-geometry single point: record energy, forces, pressure tensor, and volume before any motion.
+3. Stage A minimization: atomic positions at fixed cell (minimize with the cell unchanged).
+4. Stage B minimization: atomic positions plus cell at zero target pressure using 'fix box/relax tri 0.0' (or aniso for orthogonal cells), allowing triclinic cells where needed; the primary classical result is the full-cell relaxed state.
+5. Record per-stage energies, maximum force, pressure tensor, volume, minimizer termination reason, and wall time.
+6. Verify convergence independently from the recorded maximum force and pressure components; LAMMPS minimizer termination alone is never treated as scientific convergence.
+7. Calculate mu_Al_P and mu_Ni_P from that potential's own relaxed pure-element cells; then formation energies for the five compounds using only that potential's references.
+8. Compare against Materials Project DFT and MACE formation energies, volumes, symmetry, convergence, and computational cost; never rank raw total energies across compositions.
+
+Proposed LAMMPS command template
+--------------------------------
+  units metal
+  atom_style atomic
+  boundary p p p
+  read_data <structure>.lmp
+  pair_style eam/alloy
+  pair_coeff * * <potential-file> Al Ni
+  neighbor 2.0 bin
+  neigh_modify every 1 delay 0 check yes
+  thermo 1
+  thermo_style custom step pe fmax press pxx pyy pzz pxy pxz pyz vol
+  min_style cg
+  # Stage A: atomic positions at fixed cell
+  minimize 0.0 <ftol> <maxiter> <maxeval>
+  # Stage B: full-cell relaxation at zero target pressure
+  fix boxrelax all box/relax tri 0.0
+  minimize 0.0 <ftol> <maxiter> <maxeval>
+  unfix boxrelax
+
+Convergence mapping
+-------------------
+MACE force threshold: 0.01 eV/angstrom (used directly; metal units are eV/angstrom)
+MACE stress threshold: 0.0006241509 eV/angstrom^3 = 999.999988070 bar (conversion computed from exact SI definitions: 1602176.63 bar per eV/angstrom^3)
+The minimizer force tolerance <ftol> should be set at or below 0.01 eV/angstrom (LAMMPS metal units use eV/angstrom natively), and convergence must be verified afterwards from the recorded maximum force and the six pressure components against these targets; energy tolerance is set to 0.0 so the force criterion governs, mirroring the Step 6 protocol.
+Independent checks: maximum force; maximum absolute stress/pressure components; energy convergence between final iterations; minimizer termination reason; cell determinant positivity; volume change versus the 25% safety limit; atom identity and count preservation; nonfinite-value rejection
+
+Formation-energy consistency
+----------------------------
+mu_Al_P = E(relaxed pure Al with potential P) / N_Al_atoms
+mu_Ni_P = E(relaxed pure Ni with potential P) / N_Ni_atoms
+E_form_P = (E_compound_P - N_Al*mu_Al_P - N_Ni*mu_Ni_P) / (N_Al + N_Ni)
+- Use actual simulation-cell atom counts and verify the formula-unit route agrees within 1e-12 eV/atom.
+- Never mix compound energies from one potential with elemental references from another potential.
+- Never use MACE chemical potentials or Materials Project elemental total energies in classical calculations.
+- Never compare raw classical total energies across compositions or across potentials.
+
+Structure conversion
+--------------------
+Tool: ASE public API (ase.io.read EXTXYZ -> ase.io.write lammps-data) or pymatgen LammpsData; one documented converter for all structures
+- preserve triclinic cells exactly (LAMMPS restricted triclinic form via the standard rotation; never manually approximated)
+- preserve scaled coordinates and atom ordering
+- preserve species and periodicity
+- map Al to atom type 1 and Ni to atom type 2
+- validate volume before and after conversion
+- validate composition and atom count
+- validate Cartesian coordinates modulo periodic wrapping
+- record conversion SHA-256 fingerprints for every data file
+No Step 10 production data files were written in Step 9.
+
+Limitations
+-----------
+- This is a design document; no LAMMPS result exists yet.
+- The 2002 candidate carries a documented warning about poor pure-element behavior that will directly affect its formation energies.
+- The 2004 candidate was fitted primarily for gamma/gamma-prime compositions; transferability across all five phases is part of what Step 10 measures.
+- Minimizer tolerances are proposals tied to the Step 6 MACE criteria and must be recorded verbatim by the Step 10 runner.

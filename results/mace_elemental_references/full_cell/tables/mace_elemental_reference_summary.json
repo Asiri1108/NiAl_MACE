@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_mace_elemental_reference_summary",
+  "project_step": "7",
+  "generated_at_utc": "2026-07-28T07:07:44Z",
+  "configuration_path": "configs/mace_formation_energy.json",
+  "configuration_fingerprint_sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+  "elements": [
+    "Al",
+    "Ni"
+  ],
+  "overall_status": "SUCCESS",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false,
+    "calculator_class": "mace.calculators.mace.MACECalculator"
+  },
+  "execution": {
+    "calculator_loads_this_invocation": 1,
+    "state_evaluations": 13,
+    "optimizer_steps": 11,
+    "executed_elements": [
+      "Al",
+      "Ni"
+    ],
+    "resumed_elements": [],
+    "optimizer": "FIRE",
+    "filter": "FrechetCellFilter"
+  },
+  "convergence": {
+    "force_threshold_eV_per_A": 0.01,
+    "stress_threshold_eV_per_A3": 0.0006241509,
+    "requires_actual_atomic_force": true,
+    "requires_actual_six_component_stress": true
+  },
+  "records": [
+    {
+      "element": "Al",
+      "material_id": "mp-134",
+      "number_of_atoms": 1,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "optimizer_steps": 7,
+      "state_evaluations": 8,
+      "wall_time_seconds": 1.3910000000614673,
+      "initial_total_energy_eV": -3.709129750225296,
+      "final_total_energy_eV": -3.7095879398802807,
+      "initial_energy_per_atom_eV": -3.709129750225296,
+      "final_energy_per_atom_eV": -3.7095879398802807,
+      "initial_maximum_force_eV_per_A": 0.0,
+      "final_maximum_force_eV_per_A": 0.0,
+      "initial_maximum_absolute_stress_eV_per_A3": 0.005349911594117587,
+      "final_maximum_absolute_stress_eV_per_A3": 0.0004680883763753326,
+      "initial_volume_A3": 16.471717630914863,
+      "final_volume_A3": 16.66185899695218,
+      "volume_change_percent": 1.1543505680333688,
+      "initial_volume_per_atom_A3": 16.471717630914863,
+      "final_volume_per_atom_A3": 16.66185899695218,
+      "initial_space_group": "Fm-3m (225)",
+      "final_space_group": "Fm-3m (225)",
+      "chemical_potential_candidate_eV_per_atom": -3.7095879398802807,
+      "resumed": false,
+      "checkpoint": "results/mace_elemental_references/full_cell/checkpoints/Al_mace_reference_result.json"
+    },
+    {
+      "element": "Ni",
+      "material_id": "mp-23",
+      "number_of_atoms": 1,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "optimizer_steps": 4,
+      "state_evaluations": 5,
+      "wall_time_seconds": 0.34300000010989606,
+      "initial_total_energy_eV": -5.726033697320794,
+      "final_total_energy_eV": -5.732347319930138,
+      "initial_energy_per_atom_eV": -5.726033697320794,
+      "final_energy_per_atom_eV": -5.732347319930138,
+      "initial_maximum_force_eV_per_A": 0.0,
+      "final_maximum_force_eV_per_A": 0.0,
+      "initial_maximum_absolute_stress_eV_per_A3": 0.039074822319937294,
+      "final_maximum_absolute_stress_eV_per_A3": 0.0006108177079502753,
+      "initial_volume_A3": 10.492020341068944,
+      "final_volume_A3": 10.830357430935019,
+      "volume_change_percent": 3.224708672568255,
+      "initial_volume_per_atom_A3": 10.492020341068944,
+      "final_volume_per_atom_A3": 10.830357430935019,
+      "initial_space_group": "Fm-3m (225)",
+      "final_space_group": "Fm-3m (225)",
+      "chemical_potential_candidate_eV_per_atom": -5.732347319930138,
+      "resumed": false,
+      "checkpoint": "results/mace_elemental_references/full_cell/checkpoints/Ni_mace_reference_result.json"
+    }
+  ],
+  "magnetic_limitation_Ni": [
+    "Ni is a magnetic element in DFT descriptions.",
+    "The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.",
+    "Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.",
+    "This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.",
+    "Magnetic-state sensitivity must be considered during later DFT comparison."
+  ],
+  "scientific_limitations": [
+    "MACE-potential reference states; not DFT or experimental validation.",
+    "Raw elemental energies are not ranked across compositions.",
+    "These references are consumed only by the Step 7 formation-energy calculation."
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_step10_lammps_benchmark_plan",
+  "project_step": "9",
+  "generated_at_utc": "2026-07-28T09:22:55Z",
+  "configuration_fingerprint_sha256": "e394478680c3920b0c935e8be9283b802bc8374fce1a67d6e4dc0cbab2297c82",
+  "objective": "Fair static comparison of the validated classical Ni-Al EAM potentials against the MACE and Materials Project DFT results for the five selected compounds plus pure Al and pure Ni, using identical starting structures and per-potential elemental references.",
+  "execution_status": "DESIGN ONLY: no LAMMPS simulation was executed in Step 9.",
+  "lammps_availability": {
+    "status": "AVAILABLE_AND_EAM_ALLOY_CONFIRMED",
+    "executable_path": "C:\\Users\\A\\AppData\\Local\\LAMMPS 64-bit 22Jul2025 with Python\\bin\\lmp.EXE",
+    "version_line": "Usage example: C:\\Users\\A\\AppData\\Local\\LAMMPS 64-bit 22Jul2025 with Python\\bin\\lmp.EXE -var t 300 -echo screen -in in.alloy",
+    "eam_alloy_listed": true,
+    "python_lammps_package_present": true,
+    "detail": "'C:\\Users\\A\\AppData\\Local\\LAMMPS 64-bit 22Jul2025 with Python\\bin\\lmp.EXE -h' completed; eam/alloy was listed in the help output.",
+    "step10_readiness_note": "LAMMPS absence does not affect Step 9 selection but leaves Step 10 execution readiness incomplete until a LAMMPS build with the MANYBODY package (eam/alloy) is provided."
+  },
+  "global_settings": {
+    "units": "metal",
+    "atom_style": "atomic",
+    "boundary": [
+      "p",
+      "p",
+      "p"
+    ],
+    "pair_style": "eam/alloy",
+    "atom_type_mapping": {
+      "1": "Al",
+      "2": "Ni"
+    },
+    "precision_note": "Use a double-precision LAMMPS build (the standard distribution default) for the static benchmark.",
+    "neighbor_note": "Default metal-units neighbor settings (e.g. 'neighbor 2.0 bin' with 'neigh_modify every 1 delay 0 check yes') are appropriate for these EAM cutoffs (~5.7-6.3 A)."
+  },
+  "structures": [
+    {
+      "key": "Al",
+      "kind": "elemental_reference",
+      "path": "data/processed/elemental_references/selected/Al.extxyz",
+      "sha256": "68d4ba270bd3a446767111ccf05d54dbfbfdb8d837ac3e5d2b0fc6c26d6b68aa"
+    },
+    {
+      "key": "Ni",
+      "kind": "elemental_reference",
+      "path": "data/processed/elemental_references/selected/Ni.extxyz",
+      "sha256": "9ac0773888e640e689d88f15ab5e0bc06a6ff193b4b3d1683f7f4f7b79cf81a5"
+    },
+    {
+      "key": "Al3Ni",
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni.extxyz",
+      "sha256": "d77210cd1a50396fc330e5665a94f63784557ab4af804703d5a269824267437a"
+    },
+    {
+      "key": "Al3Ni2",
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni2.extxyz",
+      "sha256": "55c490196464b8d975bde28da67265dc402356ab73290ff9665eedc46784e029"
+    },
+    {
+      "key": "AlNi",
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/AlNi.extxyz",
+      "sha256": "ea9467bfc2963347439036c138f3a7d1a40c94464969f4527c582cb3332a8761"
+    },
+    {
+      "key": "Al3Ni5",
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni5.extxyz",
+      "sha256": "7aa0e38fad171f4e57af5c9c1c2286b65ecf5f7075dd01fcd3991cc672bea052"
+    },
+    {
+      "key": "AlNi3",
+      "kind": "compound",
+      "path": "data/processed/ni_al_structures/selected/AlNi3.extxyz",
+      "sha256": "686d4ff6fd5b8f074d68989807e74b1ba23ab143d43c7158913aeb46f4ad2edf"
+    }
+  ],
+  "potentials": [
+    {
+      "candidate_key": "pun_mishin_2009",
+      "role": "primary",
+      "processed_file": "data/processed/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy",
+      "sha256": "e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b",
+      "file_element_order": [
+        "Ni",
+        "Al"
+      ],
+      "cutoff_A": 6.28721,
+      "pair_style": "eam/alloy",
+      "pair_coeff": "pair_coeff * * Mishin-Ni-Al-2009.eam.alloy Al Ni",
+      "known_warnings": []
+    },
+    {
+      "candidate_key": "mishin_2004_ipr2",
+      "role": "secondary",
+      "processed_file": "data/processed/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy",
+      "sha256": "15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611",
+      "file_element_order": [
+        "Ni",
+        "Al"
+      ],
+      "cutoff_A": 6.72488399972482,
+      "pair_style": "eam/alloy",
+      "pair_coeff": "pair_coeff * * NiAl_Mishin_2004.eam.alloy Al Ni",
+      "known_warnings": [
+        "The superseded ipr1 implementation (NiAl.eam.alloy) must not be used; it has non-zero isolated-atom energies."
+      ]
+    },
+    {
+      "candidate_key": "mishin_2002",
+      "role": "historical_secondary",
+      "processed_file": "data/processed/interatomic_potentials/ni_al/mishin_2002/NiAl02.eam.alloy",
+      "sha256": "68de13eb1b6682bfdef15ef75248104f9b796eeae7fda5c8e1007872ba767b3b",
+      "file_element_order": [
+        "Ni",
+        "Al"
+      ],
+      "cutoff_A": 5.954144000238657,
+      "pair_style": "eam/alloy",
+      "pair_coeff": "pair_coeff * * NiAl02.eam.alloy Al Ni",
+      "known_warnings": [
+        "NIST documentation cautions that the elemental descriptions taken from this B2-optimized alloy fit may perform poorly for pure Ni, pure Al, and non-B2 Ni-Al phases; this directly affects formation-energy transferability across the five selected compositions."
+      ]
+    }
+  ],
+  "structure_conversion_plan": {
+    "tool": "ASE public API (ase.io.read EXTXYZ -> ase.io.write lammps-data) or pymatgen LammpsData; one documented converter for all structures",
+    "requirements": [
+      "preserve triclinic cells exactly (LAMMPS restricted triclinic form via the standard rotation; never manually approximated)",
+      "preserve scaled coordinates and atom ordering",
+      "preserve species and periodicity",
+      "map Al to atom type 1 and Ni to atom type 2",
+      "validate volume before and after conversion",
+      "validate composition and atom count",
+      "validate Cartesian coordinates modulo periodic wrapping",
+      "record conversion SHA-256 fingerprints for every data file"
+    ],
+    "note": "No Step 10 production data files were written in Step 9."
+  },
+  "workflow_per_potential": [
+    "1. Convert the seven source structures (Al, Ni, five compounds) to validated LAMMPS data files; independent copies per potential and phase.",
+    "2. Initial fixed-geometry single point: record energy, forces, pressure tensor, and volume before any motion.",
+    "3. Stage A minimization: atomic positions at fixed cell (minimize with the cell unchanged).",
+    "4. Stage B minimization: atomic positions plus cell at zero target pressure using 'fix box/relax tri 0.0' (or aniso for orthogonal cells), allowing triclinic cells where needed; the primary classical result is the full-cell relaxed state.",
+    "5. Record per-stage energies, maximum force, pressure tensor, volume, minimizer termination reason, and wall time.",
+    "6. Verify convergence independently from the recorded maximum force and pressure components; LAMMPS minimizer termination alone is never treated as scientific convergence.",
+    "7. Calculate mu_Al_P and mu_Ni_P from that potential's own relaxed pure-element cells; then formation energies for the five compounds using only that potential's references.",
+    "8. Compare against Materials Project DFT and MACE formation energies, volumes, symmetry, convergence, and computational cost; never rank raw total energies across compositions."
+  ],
+  "proposed_lammps_template": [
+    "units metal",
+    "atom_style atomic",
+    "boundary p p p",
+    "read_data <structure>.lmp",
+    "pair_style eam/alloy",
+    "pair_coeff * * <potential-file> Al Ni",
+    "neighbor 2.0 bin",
+    "neigh_modify every 1 delay 0 check yes",
+    "thermo 1",
+    "thermo_style custom step pe fmax press pxx pyy pzz pxy pxz pyz vol",
+    "min_style cg",
+    "# Stage A: atomic positions at fixed cell",
+    "minimize 0.0 <ftol> <maxiter> <maxeval>",
+    "# Stage B: full-cell relaxation at zero target pressure",
+    "fix boxrelax all box/relax tri 0.0",
+    "minimize 0.0 <ftol> <maxiter> <maxeval>",
+    "unfix boxrelax"
+  ],
+  "convergence_mapping": {
+    "mace_force_threshold_eV_per_A": 0.01,
+    "mace_stress_threshold_eV_per_A3": 0.0006241509,
+    "lammps_force_threshold_eV_per_A": 0.01,
+    "stress_unit_conversion": {
+      "eV_exact_J": 1.602176634e-19,
+      "definition": "1 eV/angstrom^3 = 1.602176634e-19 J / 1e-30 m^3 = 1.602176634e11 Pa = 1.602176634e6 bar (exact SI definitions).",
+      "factor_bar_per_eV_per_A3": 1602176.6339999996,
+      "mace_stress_threshold_bar": 999.9999880700703
+    },
+    "proposed_lammps_targets": {
+      "maximum_force_eV_per_A": 0.01,
+      "maximum_absolute_pressure_component_bar": 999.9999880700703,
+      "note": "The minimizer force tolerance <ftol> should be set at or below 0.01 eV/angstrom (LAMMPS metal units use eV/angstrom natively), and convergence must be verified afterwards from the recorded maximum force and the six pressure components against these targets; energy tolerance is set to 0.0 so the force criterion governs, mirroring the Step 6 protocol."
+    },
+    "additional_checks": [
+      "maximum force",
+      "maximum absolute stress/pressure components",
+      "energy convergence between final iterations",
+      "minimizer termination reason",
+      "cell determinant positivity",
+      "volume change versus the 25% safety limit",
+      "atom identity and count preservation",
+      "nonfinite-value rejection"
+    ]
+  },
+  "formation_energy_design": {
+    "equations": [
+      "mu_Al_P = E(relaxed pure Al with potential P) / N_Al_atoms",
+      "mu_Ni_P = E(relaxed pure Ni with potential P) / N_Ni_atoms",
+      "E_form_P = (E_compound_P - N_Al*mu_Al_P - N_Ni*mu_Ni_P) / (N_Al + N_Ni)"
+    ],
+    "consistency_rules": [
+      "Use actual simulation-cell atom counts and verify the formula-unit route agrees within 1e-12 eV/atom.",
+      "Never mix compound energies from one potential with elemental references from another potential.",
+      "Never use MACE chemical potentials or Materials Project elemental total energies in classical calculations.",
+      "Never compare raw classical total energies across compositions or across potentials."
+    ]
+  },
+  "limitations": [
+    "This is a design document; no LAMMPS result exists yet.",
+    "The 2002 candidate carries a documented warning about poor pure-element behavior that will directly affect its formation energies.",
+    "The 2004 candidate was fitted primarily for gamma/gamma-prime compositions; transferability across all five phases is part of what Step 10 measures.",
+    "Minimizer tolerances are proposals tied to the Step 6 MACE criteria and must be recorded verbatim by the Step 10 runner."
+  ]
+}

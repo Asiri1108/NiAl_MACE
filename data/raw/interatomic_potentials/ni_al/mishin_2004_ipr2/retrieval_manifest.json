@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "candidate_key": "mishin_2004_ipr2",
+  "retrieval_time_utc": "2026-07-28T09:22:26Z",
+  "potential_file_url": "https://www.ctcms.nist.gov/potentials/Download/2004--Mishin-Y--Ni-Al/4/NiAl_Mishin_2004.eam.alloy",
+  "potential_file_final_url": "https://www.ctcms.nist.gov/potentials/Download/2004--Mishin-Y--Ni-Al/4/NiAl_Mishin_2004.eam.alloy",
+  "potential_file_sha256": "15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611",
+  "potential_file_size_bytes": 1904578,
+  "potential_file_attempts": 1,
+  "potential_file_local_path": "data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy",
+  "processed_copy_local_path": "data/processed/interatomic_potentials/ni_al/mishin_2004_ipr2/NiAl_Mishin_2004.eam.alloy",
+  "processed_copy_sha256": "15712c13a472843649cc8550e412f8af1847adc7a7ecf12947535f6b529a5611",
+  "release_notes_url": "https://www.ctcms.nist.gov/potentials/Download/2004--Mishin-Y--Ni-Al/4/Version%202%20notes.pdf",
+  "release_notes_available": true,
+  "release_notes_sha256": "1abdab91e00327400f9882fdba9f333835a116b621e1433420c7bf830500efb1",
+  "release_notes_size_bytes": 622461,
+  "release_notes_local_path": "data/raw/interatomic_potentials/ni_al/mishin_2004_ipr2/Version 2 notes.pdf",
+  "release_notes_error": null,
+  "user_agent": "NiAl-MACE-research-workflow-step9/1.0 (academic materials-science research)",
+  "https_required": true,
+  "allowed_hosts": [
+    "www.ctcms.nist.gov"
+  ],
+  "configuration_fingerprint_sha256": "e394478680c3920b0c935e8be9283b802bc8374fce1a67d6e4dc0cbab2297c82"
+}

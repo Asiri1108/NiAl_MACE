@@ -1,0 +1,19 @@
+Step 10 conversion report - Al3Ni
+================================================================
+Generated (UTC): 2026-07-28T10:08:54Z
+Source: data/processed/ni_al_structures/selected/Al3Ni.extxyz
+Source SHA-256: d77210cd1a50396fc330e5665a94f63784557ab4af804703d5a269824267437a
+Data file: data/processed/lammps_structures/ni_al/Al3Ni/Al3Ni.lammps.data
+Data file SHA-256: ab5e08b5668056b7e642715d4db2f6622684a34ac8b74c739286f6242f7724fc
+Material ID: mp-622209
+Atoms: 16 (Al 12, Ni 4)
+Volume: 228.550737269 A^3
+Convention: units metal; atom_style atomic; specorder [Al, Ni]; masses true; force_skew true; reduce_cell false; atom type 1 = Al, type 2 = Ni.
+Round-trip checks:
+  volume difference: 0.000e+00 A^3
+  max lattice length difference: 8.882e-16 A
+  max lattice angle difference: 0.000e+00 deg
+  max wrapped fractional difference: 3.331e-16
+  max periodic pair-distance difference: 2.665e-15 A
+Round-trip status: PASS
+The data file stores the LAMMPS restricted-triclinic representation produced by the documented ASE Prism rotation; physical equivalence is validated through metric, fractional-coordinate, and pair-distance checks rather than textual cell identity.

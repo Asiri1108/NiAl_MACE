@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "candidate_key": "pun_mishin_2009",
+  "role": "primary",
+  "potential_name": "Purja Pun and Mishin (2009) Ni-Al EAM",
+  "formalism": "EAM (setfl multielement)",
+  "authors": "G. P. Purja Pun and Y. Mishin",
+  "publication_year": 2009,
+  "citation": "G. P. Purja Pun and Y. Mishin (2009), 'Development of an interatomic potential for the Ni-Al system', Philosophical Magazine 89(34-36), 3245-3267.",
+  "doi": "10.1080/14786430903258184",
+  "source_organization": "NIST Interatomic Potentials Repository",
+  "source_page": "https://www.ctcms.nist.gov/potentials/entry/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/",
+  "repository_identity": "2009--Purja-Pun-G-P-Mishin-Y--Ni-Al",
+  "implementation_identity": "2009--Purja-Pun-G-P--Ni-Al--LAMMPS--ipr1",
+  "openkim_family_id": "MO_751354403791",
+  "openkim_extended_id": "EAM_Dynamo_PunMishin_2009_NiAl__MO_751354403791_005",
+  "openkim_model_driver_family": "EAM_Dynamo",
+  "expected_filename": "Mishin-Ni-Al-2009.eam.alloy",
+  "pair_style": "eam/alloy",
+  "expected_elements": [
+    "Al",
+    "Ni"
+  ],
+  "file_element_order": [
+    "Ni",
+    "Al"
+  ],
+  "fitting_scope": "Binary Ni-Al potential built on established pure Al and pure Ni descriptions; cross interaction fitted to experimental cohesive energy, lattice parameter, and elastic constants of B2-NiAl plus ab initio formation energies of several real or hypothetical intermetallic compounds; intended for Ni-Al phases, heterophase interfaces, and mechanical behavior.",
+  "implementation_notes": "LAMMPS eam/alloy conversion produced by Chandler Becker (13 Aug 2009) from the authors' plt tabulated functions; reference updated from in-press status on 15 Dec 2009.",
+  "known_warnings": [],
+  "reject_superseded_ipr1": false,
+  "superseded_ipr1": null,
+  "setfl": {
+    "comment_lines": [
+      " G.P. Purja Pun and Y. Mishin, Phil. Mag., in press (2009).              ",
+      " LAMMPS setfl format.  Conversion by C. A. Becker from Y. Mishin files.  ",
+      " 13 Aug 2009.  http://www.ctcms.nist.gov/potentials                      "
+    ],
+    "element_count": 2,
+    "elements": [
+      "Ni",
+      "Al"
+    ],
+    "nrho": 10000,
+    "drho": 0.0005013228884000001,
+    "nr": 10000,
+    "dr": 0.000628721,
+    "cutoff_A": 6.28721,
+    "element_records": [
+      {
+        "name": "Ni",
+        "atomic_number": 28,
+        "mass_amu": 58.71,
+        "lattice_constant_A": 3.52,
+        "lattice_type": "fcc"
+      },
+      {
+        "name": "Al",
+        "atomic_number": 13,
+        "mass_amu": 26.982,
+        "lattice_constant_A": 4.05,
+        "lattice_type": "fcc"
+      }
+    ],
+    "total_tabulated_values": 70000
+  }
+}

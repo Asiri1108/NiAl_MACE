@@ -1,0 +1,28 @@
+# Normalize text files in the Git repository.
+* text=auto
+
+# Keep cross-platform project files using LF line endings.
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+
+# Keep Windows batch scripts using CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Preserve fingerprinted scientific data files byte-for-byte on checkout.
+# Their SHA-256 values are recorded in validation manifests, so line-ending
+# rewrites on clone would break byte-identity verification.
+*.extxyz text eol=lf
+*.cif text eol=lf
+*.csv text eol=lf
+*.log text eol=lf
+*.eam.alloy text eol=lf
+*.data text eol=lf
+*.dump text eol=lf
+*.traj binary
+*.png binary
+*.pdf binary

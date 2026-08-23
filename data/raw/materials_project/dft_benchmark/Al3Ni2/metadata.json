@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "source": "Materials Project",
+  "summary_endpoint": "mp_api.client.MPRester.materials.summary.search (official public Materials Project summary endpoint)",
+  "thermo_endpoint": "mp_api.client.MPRester.materials.thermo.search (official public Materials Project thermodynamic endpoint)",
+  "retrieval_time_utc": "2026-07-28T08:12:37Z",
+  "phase": "Al3Ni2",
+  "material_id": "mp-1057",
+  "formula_pretty": "Al3Ni2",
+  "composition": {
+    "Al": 3,
+    "Ni": 2
+  },
+  "number_of_sites": 5,
+  "formation_energy_per_atom_eV": -0.6442166279999995,
+  "formation_energy_definition": "Materials Project processed formation_energy_per_atom from the summary endpoint; not a raw uncorrected DFT total-energy difference computed here.",
+  "energy_above_hull_eV_per_atom": 0.0,
+  "is_stable": true,
+  "deprecated": false,
+  "theoretical": false,
+  "selected_thermo_type": "GGA_GGA+U_R2SCAN",
+  "matching_thermo_types": [
+    "GGA_GGA+U_R2SCAN",
+    "r2SCAN"
+  ],
+  "thermo_selection_rationale": "Multiple thermodynamic entry types (GGA_GGA+U_R2SCAN, r2SCAN) match the summary value with numerically identical formation energies; the documented Materials Project preference order selected GGA_GGA+U_R2SCAN. No incompatible entries were averaged or mixed.",
+  "thermo_entries": [
+    {
+      "thermo_type": "r2SCAN",
+      "energy_type": "r2SCAN",
+      "formation_energy_per_atom_eV": -0.6442166279999995,
+      "energy_above_hull_eV_per_atom": 0.0,
+      "is_stable": true,
+      "decomposes_to": null,
+      "last_updated": "2026-05-30T04:43:30.144000Z"
+    },
+    {
+      "thermo_type": "GGA_GGA+U_R2SCAN",
+      "energy_type": "r2SCAN",
+      "formation_energy_per_atom_eV": -0.6442166279999995,
+      "energy_above_hull_eV_per_atom": 0.0,
+      "is_stable": true,
+      "decomposes_to": null,
+      "last_updated": "2026-05-30T04:42:47.256000Z"
+    },
+    {
+      "thermo_type": "GGA_GGA+U",
+      "energy_type": "GGA",
+      "formation_energy_per_atom_eV": -0.6132229100000004,
+      "energy_above_hull_eV_per_atom": 0.0,
+      "is_stable": true,
+      "decomposes_to": null,
+      "last_updated": "2026-05-30T04:43:30.014000Z"
+    }
+  ],
+  "materials_project_database_version": "2026.04.13",
+  "database_version_warning": null,
+  "mp_api_version": "0.46.4",
+  "requested_summary_fields": [
+    "material_id",
+    "formula_pretty",
+    "structure",
+    "formation_energy_per_atom",
+    "energy_above_hull",
+    "is_stable",
+    "deprecated",
+    "theoretical",
+    "symmetry",
+    "nsites",
+    "volume",
+    "density",
+    "last_updated"
+  ],
+  "requested_thermo_fields": [
+    "material_id",
+    "thermo_type",
+    "formation_energy_per_atom",
+    "energy_above_hull",
+    "is_stable",
+    "energy_type",
+    "decomposes_to",
+    "last_updated"
+  ],
+  "mp_space_group_symbol": "P-3m1",
+  "mp_space_group_number": 164,
+  "mp_crystal_system": "Trigonal",
+  "space_group_symbol": "P-3m1",
+  "space_group_number": 164,
+  "mp_reported_nsites": 5,
+  "mp_reported_volume_A3": 67.43506090961826,
+  "volume_A3": 67.4350609096183,
+  "volume_per_atom_A3": 13.48701218192366,
+  "density_g_cm3": 4.883766101605819,
+  "last_updated": "2023-10-07T13:16:30.189000Z",
+  "structure_cif_sha256": "fd1ac752f598ff408c5d591d96c190055c79408c20aaad01a6da2e1b03186541",
+  "structure_extxyz_sha256": "d125fa74c74fb3fefde42f3791b4a000c0dccff73f8f5885a977937d3b8fefdd",
+  "benchmark_limitation_statement": [
+    "Materials Project values are processed DFT-derived reference data under the Materials Project correction and mixing scheme, not experimental truth and not raw uncorrected DFT total energies.",
+    "This five-phase benchmark is not a complete Ni-Al phase diagram.",
+    "Materials Project energy above hull is computed against the full Materials Project Ni-Al entry set and is not directly comparable to the Step 7 selected-set MACE envelope.",
+    "Raw MACE and VASP total energies are never compared."
+  ]
+}

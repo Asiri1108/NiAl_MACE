@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "description": "Zero-shot single-point evaluation of the five selected Ni-Al intermetallic structures with the pretrained MACE-MP-0 small model.",
+  "model_family": "MACE",
+  "model_name": "MACE-MP-0",
+  "model_size": "small",
+  "device": "cpu",
+  "default_dtype": "float64",
+  "dispersion": false,
+  "input_directory": "data/processed/ni_al_structures/selected",
+  "output_directory": "results/mace_zero_shot",
+  "phase_order": [
+    "Al3Ni",
+    "Al3Ni2",
+    "AlNi",
+    "Al3Ni5",
+    "AlNi3"
+  ],
+  "expected_phases": 5
+}

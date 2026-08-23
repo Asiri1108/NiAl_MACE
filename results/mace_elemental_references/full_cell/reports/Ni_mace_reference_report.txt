@@ -1,0 +1,151 @@
+Step 7 - Pure Ni MACE Elemental Reference
+============================================================================
+
+1. Identity and provenance
+--------------------------
+Element: Ni
+Materials Project ID: mp-23
+Atom count: 1
+Materials Project database version: 2026.04.13
+Retrieval time (UTC): 2026-07-28T07:07:13Z
+Selected structure: data/processed/elemental_references/selected/Ni.extxyz
+Configuration: configs/mace_formation_energy.json
+Configuration SHA-256: d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f
+Started (UTC): 2026-07-28T07:07:44Z
+Completed (UTC): 2026-07-28T07:07:44Z
+
+2. Model settings
+-----------------
+Family: MACE
+Name: MACE-MP-0
+Model value: small
+Device: cpu
+Default dtype: float64
+Dispersion enabled: false
+Calculator class: mace.calculators.mace.MACECalculator
+Calculator loads in session: 1
+Recorded state evaluations: 5
+
+3. Optimizer and filter settings
+--------------------------------
+Optimizer: FIRE
+Optimizer created: True
+Maximum steps: 1000
+Actual optimizer steps: 4
+Force threshold (eV/angstrom): 0.01
+Stress threshold (eV/angstrom^3): 0.00062415089999999995
+Filter: ase.filters.FrechetCellFilter
+Hydrostatic strain: false
+Constant volume: false
+External pressure (eV/angstrom^3): 0
+ASE generalized auto-stop fmax: 0.0 eV/angstrom (control sentinel only; actual force and stress criteria are evaluated explicitly)
+
+4. Initial structure values
+---------------------------
+Total energy (eV): -5.7260336973207941
+Energy per atom (eV/atom): -5.7260336973207941
+Maximum force (eV/angstrom): 0
+RMS force (eV/angstrom): 0
+Total force norm (eV/angstrom): 0
+Stress [xx, yy, zz, yz, xz, xy] (eV/angstrom^3): [-0.039074699765626775, -0.039074250043032388, -0.039074822319937294, 1.1857789223953229e-09, 1.6769470072341669e-09, -8.466695028490299e-08]
+Maximum |stress| (eV/angstrom^3): 0.039074822319937294
+Volume (angstrom^3): 10.492020341068944
+Volume per atom (angstrom^3/atom): 10.492020341068944
+Cell matrix (angstrom): [[2.12808334,-0.0,1.22864943],[0.70936078,2.00637688,1.22864943],[-0.0,-0.0,2.45729885]]
+Lattice lengths (angstrom): [2.4572989488104371, 2.4572993962152978, 2.4572988499999999]
+Lattice angles (degrees): [60.000007218436089, 60.000001195550759, 60.000014592106623]
+Initial symmetry: Fm-3m (225)
+
+5. Final structure values
+-------------------------
+Total energy (eV): -5.7323473199301382
+Energy per atom (eV/atom): -5.7323473199301382
+Maximum force (eV/angstrom): 0
+RMS force (eV/angstrom): 0
+Stress [xx, yy, zz, yz, xz, xy] (eV/angstrom^3): [0.00061061042667287914, 0.00061081770795027527, 0.00061056477786021869, 5.3396298226284627e-10, 7.5513779921497971e-10, -4.4870456798428434e-08]
+Maximum |stress| (eV/angstrom^3): 0.00061081770795027527
+Volume (angstrom^3): 10.830357430935019
+Volume per atom (angstrom^3/atom): 10.830357430935019
+Cell matrix (angstrom): [[2.1507166798957718,6.31882838371571e-08,1.2417168436781552],[0.7169052826612454,2.0277155148610064,1.2417168436781565],[-1.415316601635861e-09,-1.00077870429875e-09,2.4834336797013545]]
+Lattice lengths (angstrom): [2.4834337029717415, 2.4834339357811954, 2.4834336797013545]
+Lattice angles (degrees): [60.000003341711782, 60.000000240653094, 60.000008263004482]
+Final symmetry: Fm-3m (225)
+
+6. Changes
+----------
+Energy change (eV): -0.0063136226093440939
+Energy change per atom (eV/atom): -0.0063136226093440939
+Volume change (angstrom^3): 0.33833708986607469
+Volume change (percent): 3.224708672568255
+Lattice-length changes (angstrom): [0.026134754161304397, 0.026134539565897619, 0.026134829701354612]
+Lattice-angle changes (degrees): [-3.8767243069059987e-06, -9.5489766493983552e-07, -6.3291021419331628e-06]
+Maximum internal displacement (angstrom): 0
+Maximum total Cartesian displacement (angstrom): 0
+
+7. Chemical-potential candidate
+-------------------------------
+mu_Ni_MACE candidate (relaxed total energy / atoms): -5.7323473199301382 eV/atom
+This value becomes a valid chemical potential only because the convergence and safety checks below passed.
+
+8. Safety and provenance checks
+-------------------------------
+Safety status: PASS
+Energy/forces/stress/positions/cell finite: PASS
+Positive cell determinant and volume: PASS
+Atom identity, ordering, and PBC preserved: PASS
+Configured displacement and volume limits: PASS
+Protected source files unchanged: PASS
+Protected file fingerprints:
+  data/processed/elemental_references/selected/Ni.extxyz: sha256=9ac0773888e640e689d88f15ab5e0bc06a6ff193b4b3d1683f7f4f7b79cf81a5; size=478
+  data/processed/elemental_references/selected/Ni.metadata.json: sha256=300b6979bc1e55bb3354a96f64b9b5ac9ad04c9300f4bd7ce92537af48c0eb28; size=2941
+
+9. Output paths
+---------------
+Initial single point: results/mace_elemental_references/single_point/Ni_mace_initial_single_point.json
+Final structure: results/mace_elemental_references/full_cell/structures/Ni_mace_full_cell_relaxed.extxyz
+Trajectory: results/mace_elemental_references/full_cell/trajectories/Ni_mace_full_cell.traj
+History CSV: results/mace_elemental_references/full_cell/tables/Ni_mace_full_cell_history.csv
+Report: results/mace_elemental_references/full_cell/reports/Ni_mace_reference_report.txt
+Optimizer log: results/mace_elemental_references/full_cell/logs/Ni_mace_reference.log
+Checkpoint: results/mace_elemental_references/full_cell/checkpoints/Ni_mace_reference_result.json
+
+10. Convergence status
+----------------------
+Force convergence: PASS
+Stress convergence: PASS
+Overall convergence: PASS
+Element status: CONVERGED
+
+11. Warnings
+------------
+- UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+- DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+
+12. Magnetic limitation
+-----------------------
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.
+
+13. Scientific interpretation boundary
+--------------------------------------
+This is a geometry relaxation on the configured MACE potential-energy surface. It is not a DFT or experimental accuracy conclusion, and this raw elemental energy is never ranked against compound energies across compositions.

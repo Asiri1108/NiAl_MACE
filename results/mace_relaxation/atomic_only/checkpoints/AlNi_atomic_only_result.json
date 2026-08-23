@@ -1,0 +1,980 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_mace_relaxation_phase_result",
+  "project_step": "6C",
+  "phase_key": "AlNi",
+  "material_id": "mp-1487",
+  "number_of_atoms": 2,
+  "mode": "atomic_only",
+  "generated_at_utc": "2026-07-26T11:28:42Z",
+  "configuration_path": "configs/mace_relaxation.json",
+  "configuration_fingerprint_sha256": "9d3e42c304f9eb02a898d067bdcd95f9ccbc4b35790769ae6c85f879d518f176",
+  "execution_status": "COMPLETED",
+  "convergence_status": "ALREADY_CONVERGED",
+  "force_converged": true,
+  "stress_converged": null,
+  "overall_converged": true,
+  "safety_status": "PASS",
+  "output_validation_status": "PASS",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false,
+    "calculator_class": "mace.calculators.mace.MACECalculator"
+  },
+  "optimizer": {
+    "name": "FIRE",
+    "created": false,
+    "steps": 0,
+    "maximum_steps": 500,
+    "force_threshold_eV_per_A": 0.01,
+    "stress_threshold_eV_per_A3": null,
+    "trajectory_interval": 1,
+    "history_interval": 1,
+    "ase_generalized_auto_stop_fmax_eV_per_A": 0.01,
+    "filter": null
+  },
+  "counts": {
+    "calculator_loads_in_session": 1,
+    "state_evaluations": 1,
+    "optimizer_steps": 0
+  },
+  "timing": {
+    "started_at_utc": "2026-07-26T11:28:41Z",
+    "completed_at_utc": "2026-07-26T11:28:42Z",
+    "wall_time_seconds": 0.25
+  },
+  "initial": {
+    "step": 0,
+    "elapsed_seconds": 0.0,
+    "total_energy_eV": -10.813681752983006,
+    "energy_per_atom_eV": -5.406840876491503,
+    "forces_eV_per_A": [
+      [
+        2.822545126942265e-08,
+        2.8225451246654404e-08,
+        2.822545118463804e-08
+      ],
+      [
+        -2.822545127484366e-08,
+        -2.822545120545472e-08,
+        -2.8225451170760252e-08
+      ]
+    ],
+    "force_magnitudes_eV_per_A": [
+      4.888791560310382e-08,
+      4.888791557443465e-08
+    ],
+    "maximum_force_eV_per_A": 4.888791560310382e-08,
+    "mean_force_eV_per_A": 4.888791558876923e-08,
+    "rms_force_eV_per_A": 4.888791558876923e-08,
+    "total_force_eV_per_A": [
+      -5.421010862427522e-18,
+      4.119968255444917e-17,
+      1.3877787807814457e-17
+    ],
+    "total_force_norm_eV_per_A": 4.3810891291968303e-17,
+    "stress_component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "yz",
+      "xz",
+      "xy"
+    ],
+    "stress_eV_per_A3": [
+      -0.029697285519781402,
+      -0.02969728551978137,
+      -0.02969728551978138,
+      -5.582584130504889e-17,
+      -4.313167677181642e-17,
+      -5.6680676502897e-17
+    ],
+    "maximum_absolute_stress_eV_per_A3": 0.029697285519781402,
+    "volume_A3": 23.386572118200654,
+    "volume_per_atom_A3": 11.693286059100327,
+    "cell_A": [
+      [
+        2.85971129,
+        0.0,
+        -0.0
+      ],
+      [
+        -0.0,
+        2.85971129,
+        -0.0
+      ],
+      [
+        0.0,
+        -0.0,
+        2.85971129
+      ]
+    ],
+    "lattice_lengths_A": [
+      2.85971129,
+      2.85971129,
+      2.85971129
+    ],
+    "lattice_angles_deg": [
+      90.0,
+      90.0,
+      90.0
+    ],
+    "positions_A": [
+      [
+        1.42985564,
+        1.42985564,
+        1.42985564
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "scaled_positions": [
+      [
+        0.49999999825157176,
+        0.49999999825157176,
+        0.49999999825157176
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "displacement": {
+      "internal_vectors_A": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "internal_magnitudes_A": [
+        0.0,
+        0.0
+      ],
+      "maximum_internal_A": 0.0,
+      "rms_internal_A": 0.0,
+      "mean_internal_A": 0.0,
+      "total_vectors_A": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "total_magnitudes_A": [
+        0.0,
+        0.0
+      ],
+      "maximum_total_A": 0.0,
+      "rms_total_A": 0.0,
+      "mean_total_A": 0.0,
+      "per_species": {
+        "Al": {
+          "atom_count": 1.0,
+          "maximum_internal_displacement_A": 0.0,
+          "rms_internal_displacement_A": 0.0,
+          "mean_internal_displacement_A": 0.0
+        },
+        "Ni": {
+          "atom_count": 1.0,
+          "maximum_internal_displacement_A": 0.0,
+          "rms_internal_displacement_A": 0.0,
+          "mean_internal_displacement_A": 0.0
+        }
+      }
+    },
+    "volume_change_percent": 0.0,
+    "force_converged": true,
+    "stress_converged": null,
+    "overall_converged": true
+  },
+  "final": {
+    "step": 0,
+    "elapsed_seconds": 0.0,
+    "total_energy_eV": -10.813681752983006,
+    "energy_per_atom_eV": -5.406840876491503,
+    "forces_eV_per_A": [
+      [
+        2.822545126942265e-08,
+        2.8225451246654404e-08,
+        2.822545118463804e-08
+      ],
+      [
+        -2.822545127484366e-08,
+        -2.822545120545472e-08,
+        -2.8225451170760252e-08
+      ]
+    ],
+    "force_magnitudes_eV_per_A": [
+      4.888791560310382e-08,
+      4.888791557443465e-08
+    ],
+    "maximum_force_eV_per_A": 4.888791560310382e-08,
+    "mean_force_eV_per_A": 4.888791558876923e-08,
+    "rms_force_eV_per_A": 4.888791558876923e-08,
+    "total_force_eV_per_A": [
+      -5.421010862427522e-18,
+      4.119968255444917e-17,
+      1.3877787807814457e-17
+    ],
+    "total_force_norm_eV_per_A": 4.3810891291968303e-17,
+    "stress_component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "yz",
+      "xz",
+      "xy"
+    ],
+    "stress_eV_per_A3": [
+      -0.029697285519781402,
+      -0.02969728551978137,
+      -0.02969728551978138,
+      -5.582584130504889e-17,
+      -4.313167677181642e-17,
+      -5.6680676502897e-17
+    ],
+    "maximum_absolute_stress_eV_per_A3": 0.029697285519781402,
+    "volume_A3": 23.386572118200654,
+    "volume_per_atom_A3": 11.693286059100327,
+    "cell_A": [
+      [
+        2.85971129,
+        0.0,
+        -0.0
+      ],
+      [
+        -0.0,
+        2.85971129,
+        -0.0
+      ],
+      [
+        0.0,
+        -0.0,
+        2.85971129
+      ]
+    ],
+    "lattice_lengths_A": [
+      2.85971129,
+      2.85971129,
+      2.85971129
+    ],
+    "lattice_angles_deg": [
+      90.0,
+      90.0,
+      90.0
+    ],
+    "positions_A": [
+      [
+        1.42985564,
+        1.42985564,
+        1.42985564
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "scaled_positions": [
+      [
+        0.49999999825157176,
+        0.49999999825157176,
+        0.49999999825157176
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "displacement": {
+      "internal_vectors_A": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "internal_magnitudes_A": [
+        0.0,
+        0.0
+      ],
+      "maximum_internal_A": 0.0,
+      "rms_internal_A": 0.0,
+      "mean_internal_A": 0.0,
+      "total_vectors_A": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "total_magnitudes_A": [
+        0.0,
+        0.0
+      ],
+      "maximum_total_A": 0.0,
+      "rms_total_A": 0.0,
+      "mean_total_A": 0.0,
+      "per_species": {
+        "Al": {
+          "atom_count": 1.0,
+          "maximum_internal_displacement_A": 0.0,
+          "rms_internal_displacement_A": 0.0,
+          "mean_internal_displacement_A": 0.0
+        },
+        "Ni": {
+          "atom_count": 1.0,
+          "maximum_internal_displacement_A": 0.0,
+          "rms_internal_displacement_A": 0.0,
+          "mean_internal_displacement_A": 0.0
+        }
+      }
+    },
+    "volume_change_percent": 0.0,
+    "force_converged": true,
+    "stress_converged": null,
+    "overall_converged": true
+  },
+  "changes": {
+    "total_energy_change_eV": 0.0,
+    "energy_per_atom_change_eV": 0.0,
+    "maximum_force_change_eV_per_A": 0.0,
+    "stress_change_eV_per_A3": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cell": {
+      "initial_cell_A": [
+        [
+          2.85971129,
+          0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          2.85971129,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          2.85971129
+        ]
+      ],
+      "final_cell_A": [
+        [
+          2.85971129,
+          0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          2.85971129,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          2.85971129
+        ]
+      ],
+      "initial_lattice_lengths_A": [
+        2.85971129,
+        2.85971129,
+        2.85971129
+      ],
+      "final_lattice_lengths_A": [
+        2.85971129,
+        2.85971129,
+        2.85971129
+      ],
+      "lattice_length_changes_A": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_lattice_angles_deg": [
+        90.0,
+        90.0,
+        90.0
+      ],
+      "final_lattice_angles_deg": [
+        90.0,
+        90.0,
+        90.0
+      ],
+      "lattice_angle_changes_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_volume_A3": 23.386572118200654,
+      "final_volume_A3": 23.386572118200654,
+      "volume_change_A3": 0.0,
+      "volume_change_percent": 0.0,
+      "deformation_gradient": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          1.0
+        ]
+      ],
+      "green_lagrange_strain": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "displacement": {
+      "internal_vectors_A": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "internal_magnitudes_A": [
+        0.0,
+        0.0
+      ],
+      "maximum_internal_A": 0.0,
+      "rms_internal_A": 0.0,
+      "mean_internal_A": 0.0,
+      "total_vectors_A": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "total_magnitudes_A": [
+        0.0,
+        0.0
+      ],
+      "maximum_total_A": 0.0,
+      "rms_total_A": 0.0,
+      "mean_total_A": 0.0,
+      "per_species": {
+        "Al": {
+          "atom_count": 1.0,
+          "maximum_internal_displacement_A": 0.0,
+          "rms_internal_displacement_A": 0.0,
+          "mean_internal_displacement_A": 0.0
+        },
+        "Ni": {
+          "atom_count": 1.0,
+          "maximum_internal_displacement_A": 0.0,
+          "rms_internal_displacement_A": 0.0,
+          "mean_internal_displacement_A": 0.0
+        }
+      }
+    }
+  },
+  "history": [
+    {
+      "step": 0,
+      "elapsed_seconds": 0.0,
+      "total_energy_eV": -10.813681752983006,
+      "energy_per_atom_eV": -5.406840876491503,
+      "forces_eV_per_A": [
+        [
+          2.822545126942265e-08,
+          2.8225451246654404e-08,
+          2.822545118463804e-08
+        ],
+        [
+          -2.822545127484366e-08,
+          -2.822545120545472e-08,
+          -2.8225451170760252e-08
+        ]
+      ],
+      "force_magnitudes_eV_per_A": [
+        4.888791560310382e-08,
+        4.888791557443465e-08
+      ],
+      "maximum_force_eV_per_A": 4.888791560310382e-08,
+      "mean_force_eV_per_A": 4.888791558876923e-08,
+      "rms_force_eV_per_A": 4.888791558876923e-08,
+      "total_force_eV_per_A": [
+        -5.421010862427522e-18,
+        4.119968255444917e-17,
+        1.3877787807814457e-17
+      ],
+      "total_force_norm_eV_per_A": 4.3810891291968303e-17,
+      "stress_component_order": [
+        "xx",
+        "yy",
+        "zz",
+        "yz",
+        "xz",
+        "xy"
+      ],
+      "stress_eV_per_A3": [
+        -0.029697285519781402,
+        -0.02969728551978137,
+        -0.02969728551978138,
+        -5.582584130504889e-17,
+        -4.313167677181642e-17,
+        -5.6680676502897e-17
+      ],
+      "maximum_absolute_stress_eV_per_A3": 0.029697285519781402,
+      "volume_A3": 23.386572118200654,
+      "volume_per_atom_A3": 11.693286059100327,
+      "cell_A": [
+        [
+          2.85971129,
+          0.0,
+          -0.0
+        ],
+        [
+          -0.0,
+          2.85971129,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.0,
+          2.85971129
+        ]
+      ],
+      "lattice_lengths_A": [
+        2.85971129,
+        2.85971129,
+        2.85971129
+      ],
+      "lattice_angles_deg": [
+        90.0,
+        90.0,
+        90.0
+      ],
+      "positions_A": [
+        [
+          1.42985564,
+          1.42985564,
+          1.42985564
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "scaled_positions": [
+        [
+          0.49999999825157176,
+          0.49999999825157176,
+          0.49999999825157176
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "displacement": {
+        "internal_vectors_A": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "internal_magnitudes_A": [
+          0.0,
+          0.0
+        ],
+        "maximum_internal_A": 0.0,
+        "rms_internal_A": 0.0,
+        "mean_internal_A": 0.0,
+        "total_vectors_A": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "total_magnitudes_A": [
+          0.0,
+          0.0
+        ],
+        "maximum_total_A": 0.0,
+        "rms_total_A": 0.0,
+        "mean_total_A": 0.0,
+        "per_species": {
+          "Al": {
+            "atom_count": 1.0,
+            "maximum_internal_displacement_A": 0.0,
+            "rms_internal_displacement_A": 0.0,
+            "mean_internal_displacement_A": 0.0
+          },
+          "Ni": {
+            "atom_count": 1.0,
+            "maximum_internal_displacement_A": 0.0,
+            "rms_internal_displacement_A": 0.0,
+            "mean_internal_displacement_A": 0.0
+          }
+        }
+      },
+      "volume_change_percent": 0.0,
+      "force_converged": true,
+      "stress_converged": null,
+      "overall_converged": true
+    }
+  ],
+  "warnings": [
+    "UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`."
+  ],
+  "protected_sources": [
+    {
+      "label": "Step 6 relaxation configuration",
+      "path": "configs/mace_relaxation.json",
+      "sha256": "9d3e42c304f9eb02a898d067bdcd95f9ccbc4b35790769ae6c85f879d518f176",
+      "size_bytes": 2430,
+      "modification_time_ns": 1785063384972990700
+    },
+    {
+      "label": "protected mace_zero_shot.json",
+      "path": "configs/mace_zero_shot.json",
+      "sha256": "6fc1b7960bead30aaa4c6b81c2f7608b8d6ae5dd517fa719013ce0427d4d32b0",
+      "size_bytes": 557,
+      "modification_time_ns": 1784632286948647000
+    },
+    {
+      "label": "protected ni_al_phases.json",
+      "path": "configs/ni_al_phases.json",
+      "sha256": "9a67d635c4a21eadc0284a9f3d8cf261ac1f90209a77836f6128b8b5f3efaf87",
+      "size_bytes": 1626,
+      "modification_time_ns": 1784554206274367000
+    },
+    {
+      "label": "selected Al3Ni EXTXYZ",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni.extxyz",
+      "sha256": "d77210cd1a50396fc330e5665a94f63784557ab4af804703d5a269824267437a",
+      "size_bytes": 1285,
+      "modification_time_ns": 1784556988849265900
+    },
+    {
+      "label": "selected Al3Ni metadata",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni.metadata.json",
+      "sha256": "8cbe486c08af562ffa8b30dbb24761360aca7103774d9e497bab137e7a011995",
+      "size_bytes": 2723,
+      "modification_time_ns": 1784556988852981300
+    },
+    {
+      "label": "selected Al3Ni2 EXTXYZ",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni2.extxyz",
+      "sha256": "55c490196464b8d975bde28da67265dc402356ab73290ff9665eedc46784e029",
+      "size_bytes": 669,
+      "modification_time_ns": 1784556989646292600
+    },
+    {
+      "label": "selected Al3Ni2 metadata",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni2.metadata.json",
+      "sha256": "14cce6f9383641720a7e41abe98638377d84b4cf3a90ec85e158fd9ff4284e19",
+      "size_bytes": 2812,
+      "modification_time_ns": 1784556989662038100
+    },
+    {
+      "label": "selected Al3Ni5 EXTXYZ",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni5.extxyz",
+      "sha256": "7aa0e38fad171f4e57af5c9c1c2286b65ecf5f7075dd01fcd3991cc672bea052",
+      "size_bytes": 850,
+      "modification_time_ns": 1784556990835157200
+    },
+    {
+      "label": "selected Al3Ni5 metadata",
+      "path": "data/processed/ni_al_structures/selected/Al3Ni5.metadata.json",
+      "sha256": "9fd6266f0d121fc3594cc730f295264e31d88992c7ca8a541091f0e4c55cf77d",
+      "size_bytes": 2776,
+      "modification_time_ns": 1784556990835157200
+    },
+    {
+      "label": "selected AlNi EXTXYZ",
+      "path": "data/processed/ni_al_structures/selected/AlNi.extxyz",
+      "sha256": "ea9467bfc2963347439036c138f3a7d1a40c94464969f4527c582cb3332a8761",
+      "size_bytes": 494,
+      "modification_time_ns": 1784556990322976900
+    },
+    {
+      "label": "selected AlNi metadata",
+      "path": "data/processed/ni_al_structures/selected/AlNi.metadata.json",
+      "sha256": "4305d76c5b3261ab79e62bb17e6807257aecfa3c712a1db91415abf32fca3aba",
+      "size_bytes": 2869,
+      "modification_time_ns": 1784556990322976900
+    },
+    {
+      "label": "selected AlNi3 EXTXYZ",
+      "path": "data/processed/ni_al_structures/selected/AlNi3.extxyz",
+      "sha256": "686d4ff6fd5b8f074d68989807e74b1ba23ab143d43c7158913aeb46f4ad2edf",
+      "size_bytes": 611,
+      "modification_time_ns": 1784556991502278000
+    },
+    {
+      "label": "selected AlNi3 metadata",
+      "path": "data/processed/ni_al_structures/selected/AlNi3.metadata.json",
+      "sha256": "258a5e5a06de99f00a6d862a51b086d5b325019a8dac4c337568513f2fc73ee2",
+      "size_bytes": 3010,
+      "modification_time_ns": 1784556991502278000
+    },
+    {
+      "label": "protected prior output requirements_step6a.txt",
+      "path": "environment/requirements_step6a.txt",
+      "sha256": "6588b7e151b8d95384c4ddd5f888ab572f0b5441e1a19aa07cd0824080bec998",
+      "size_bytes": 3254,
+      "modification_time_ns": 1784725706713346100
+    },
+    {
+      "label": "protected prior output requirements_step6b1.txt",
+      "path": "environment/requirements_step6b1.txt",
+      "sha256": "6588b7e151b8d95384c4ddd5f888ab572f0b5441e1a19aa07cd0824080bec998",
+      "size_bytes": 3254,
+      "modification_time_ns": 1784730315528416300
+    },
+    {
+      "label": "protected prior output requirements_step6b2.txt",
+      "path": "environment/requirements_step6b2.txt",
+      "sha256": "6588b7e151b8d95384c4ddd5f888ab572f0b5441e1a19aa07cd0824080bec998",
+      "size_bytes": 3254,
+      "modification_time_ns": 1785057583038358500
+    },
+    {
+      "label": "protected prior output requirements_step6b3.txt",
+      "path": "environment/requirements_step6b3.txt",
+      "sha256": "6588b7e151b8d95384c4ddd5f888ab572f0b5441e1a19aa07cd0824080bec998",
+      "size_bytes": 3254,
+      "modification_time_ns": 1785060937095438200
+    },
+    {
+      "label": "Al3Ni2 Step 6B.3 report",
+      "path": "results/mace_relaxation/comparison/reports/Al3Ni2_step6b3_baseline_reproduction.txt",
+      "sha256": "b865973182b645e183f23479e35cfed056909ad3af0c7e25b45346a04db831ce",
+      "size_bytes": 14070,
+      "modification_time_ns": 1785060916260613600
+    },
+    {
+      "label": "Al3Ni5 Step 6B.3 report",
+      "path": "results/mace_relaxation/comparison/reports/Al3Ni5_step6b3_baseline_reproduction.txt",
+      "sha256": "429b4e784e666eb0cab32cb782c013dbf618bf46be481420c78fec5154e2981d",
+      "size_bytes": 14608,
+      "modification_time_ns": 1785060916265613700
+    },
+    {
+      "label": "Al3Ni Step 6B.3 report",
+      "path": "results/mace_relaxation/comparison/reports/Al3Ni_step6b3_baseline_reproduction.txt",
+      "sha256": "9292325024f80ad946b47185070447498e0646e9e06266101f422c14a96b0b79",
+      "size_bytes": 15933,
+      "modification_time_ns": 1785060916253577100
+    },
+    {
+      "label": "AlNi3 Step 6B.3 report",
+      "path": "results/mace_relaxation/comparison/reports/AlNi3_step6b3_baseline_reproduction.txt",
+      "sha256": "62d83112f213793cc0c4de61ca3370e265d926d21039a45df54c6ac416ae3179",
+      "size_bytes": 13890,
+      "modification_time_ns": 1785060916274907500
+    },
+    {
+      "label": "protected AlNi Step 6B.2 report",
+      "path": "results/mace_relaxation/comparison/reports/AlNi_step6b2_baseline_reproduction.txt",
+      "sha256": "53beefe9e502ac925d2d96cd267dcef039d27d882181b4aa6bbafef1239ed6b2",
+      "size_bytes": 11873,
+      "modification_time_ns": 1785057634938970800
+    },
+    {
+      "label": "Step 6B.3 combined report",
+      "path": "results/mace_relaxation/comparison/reports/ni_al_step6b3_baseline_reproduction_summary.txt",
+      "sha256": "e715593fab0c7d5ff3e453708c376d38e9823666f0333550ff9bbefc2bd0d79e",
+      "size_bytes": 5097,
+      "modification_time_ns": 1785060916280911200
+    },
+    {
+      "label": "Step 6B.3 combined JSON",
+      "path": "results/mace_relaxation/comparison/tables/ni_al_step6b3_baseline_reproduction.json",
+      "sha256": "b40474a5c8649e4fc3306291485d54fb147ec2c09d56ad31b91375655abee01d",
+      "size_bytes": 39963,
+      "modification_time_ns": 1785060916286907000
+    },
+    {
+      "label": "protected Step 5 output ni_al_mace_zero_shot.txt",
+      "path": "results/mace_zero_shot/reports/ni_al_mace_zero_shot.txt",
+      "sha256": "f74c63018cfa26c308b9b853ff3c39e4783a94831af0460cc7c7a7f083119c49",
+      "size_bytes": 7288,
+      "modification_time_ns": 1784635616948531700
+    },
+    {
+      "label": "Step 5 annotated Al3Ni2 EXTXYZ",
+      "path": "results/mace_zero_shot/structures/Al3Ni2_mace_zero_shot.extxyz",
+      "sha256": "62a732f3db84fb3ade0b4a2714668459c63c0df2457e8baae6b82c59cc47e9b0",
+      "size_bytes": 1457,
+      "modification_time_ns": 1784635616409609200
+    },
+    {
+      "label": "Step 5 annotated Al3Ni5 EXTXYZ",
+      "path": "results/mace_zero_shot/structures/Al3Ni5_mace_zero_shot.extxyz",
+      "sha256": "a5c0c65b4ebd37b1f715b33af2a08b5c0798feff23defa46c4de18b1e7980b49",
+      "size_bytes": 1790,
+      "modification_time_ns": 1784635616800178800
+    },
+    {
+      "label": "Step 5 annotated Al3Ni EXTXYZ",
+      "path": "results/mace_zero_shot/structures/Al3Ni_mace_zero_shot.extxyz",
+      "sha256": "61966994715dd2d7bf3765aae248c00b19312d2dddaa2909c688a3782ef72cae",
+      "size_bytes": 2634,
+      "modification_time_ns": 1784635616000265400
+    },
+    {
+      "label": "Step 5 annotated AlNi3 EXTXYZ",
+      "path": "results/mace_zero_shot/structures/AlNi3_mace_zero_shot.extxyz",
+      "sha256": "4143b8151050d7c788bb9028f84b62d2262fbf4da9244803055cc0667338bad6",
+      "size_bytes": 1350,
+      "modification_time_ns": 1784635616929468000
+    },
+    {
+      "label": "Step 5 annotated AlNi EXTXYZ",
+      "path": "results/mace_zero_shot/structures/AlNi_mace_zero_shot.extxyz",
+      "sha256": "58d7ff2b56767a7a1d48084f9753564e87719528851eeaaf82858d3d0e835558",
+      "size_bytes": 1128,
+      "modification_time_ns": 1784635616575660000
+    },
+    {
+      "label": "protected Step 5 output ni_al_mace_zero_shot.csv",
+      "path": "results/mace_zero_shot/tables/ni_al_mace_zero_shot.csv",
+      "sha256": "09ae049a4b861bd030f29c71c6ede6a8cee34ba41ca0ee4a314c6da921009e17",
+      "size_bytes": 3648,
+      "modification_time_ns": 1784635616937197100
+    },
+    {
+      "label": "Step 5 zero-shot JSON table",
+      "path": "results/mace_zero_shot/tables/ni_al_mace_zero_shot.json",
+      "sha256": "83658efab2902dcb8113f9562c9adebebd963d697adc6791dc8cd4213c912488",
+      "size_bytes": 8933,
+      "modification_time_ns": 1784635616942765600
+    }
+  ],
+  "artifacts": {
+    "final_structure": {
+      "path": "results/mace_relaxation/atomic_only/structures/AlNi_atomic_only_relaxed.extxyz",
+      "sha256": "c3aecb60d126ebad1cad16621af51798c005dda691b5406a6e5702627c31a52b",
+      "size_bytes": 1527
+    },
+    "trajectory": {
+      "path": "results/mace_relaxation/atomic_only/trajectories/AlNi_atomic_only.traj",
+      "sha256": "ddff5bcf193591cdb49402b83f42464728b1cda381f0101bc3de914446311750",
+      "size_bytes": 1153
+    },
+    "history_csv": {
+      "path": "results/mace_relaxation/atomic_only/tables/AlNi_atomic_only_history.csv",
+      "sha256": "7811b4a426e3d3403e9d6e725eacbcb8a8276a332ba18e938ee08c426fd1e3ed",
+      "size_bytes": 1021
+    },
+    "report": {
+      "path": "results/mace_relaxation/atomic_only/reports/AlNi_atomic_only_report.txt",
+      "sha256": "2908d7dadacd9bc6ec91e260257a1cf6d9b5202cf8df494276c552d314c438e5",
+      "size_bytes": 12107
+    },
+    "optimizer_log": {
+      "path": "results/mace_relaxation/atomic_only/logs/AlNi_atomic_only.log",
+      "sha256": "b52689c5a07d6ae4f79a5a1e960c6411c433294de6674959fc403f3c1601bd62",
+      "size_bytes": 91
+    }
+  },
+  "scientific_limitations": [
+    "MACE-potential relaxation; not a DFT validation.",
+    "Not an experimental validation.",
+    "Raw energies are not ranked across compositions.",
+    "No formation energies were calculated."
+  ]
+}

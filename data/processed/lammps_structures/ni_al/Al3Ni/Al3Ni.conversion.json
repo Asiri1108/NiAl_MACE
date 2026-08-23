@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_lammps_structure_conversion",
+  "project_step": "10",
+  "structure_key": "Al3Ni",
+  "kind": "compound",
+  "material_id": "mp-622209",
+  "generated_at_utc": "2026-07-28T10:08:54Z",
+  "source_path": "data/processed/ni_al_structures/selected/Al3Ni.extxyz",
+  "source_sha256": "d77210cd1a50396fc330e5665a94f63784557ab4af804703d5a269824267437a",
+  "data_file_path": "data/processed/lammps_structures/ni_al/Al3Ni/Al3Ni.lammps.data",
+  "data_file_sha256": "ab5e08b5668056b7e642715d4db2f6622684a34ac8b74c739286f6242f7724fc",
+  "conversion_settings": {
+    "tool": "ase.io.lammpsdata.write_lammps_data",
+    "units": "metal",
+    "atom_style": "atomic",
+    "specorder": [
+      "Al",
+      "Ni"
+    ],
+    "masses": true,
+    "force_skew": true,
+    "reduce_cell": false,
+    "atom_type_mapping": {
+      "1": "Al",
+      "2": "Ni"
+    }
+  },
+  "read_back_settings": {
+    "tool": "ase.io.lammpsdata.read_lammps_data",
+    "Z_of_type": {
+      "1": 13,
+      "2": 28
+    },
+    "units": "metal",
+    "atom_style": "atomic",
+    "sort_by_id": true
+  },
+  "atom_count": 16,
+  "al_count": 12,
+  "ni_count": 4,
+  "volume_A3": 228.5507372689479,
+  "lattice_lengths_A": [
+    4.770571360012452,
+    6.558905180019103,
+    7.30433827
+  ],
+  "lattice_angles_deg": [
+    90.0,
+    90.0,
+    89.99973080413505
+  ],
+  "round_trip_checks": {
+    "ordered_species_preserved": true,
+    "volume_difference_A3": 0.0,
+    "maximum_lattice_length_difference_A": 8.881784197001252e-16,
+    "maximum_lattice_angle_difference_deg": 0.0,
+    "maximum_wrapped_fractional_difference": 3.3306690738754696e-16,
+    "maximum_pair_distance_difference_A": 2.6645352591003757e-15
+  },
+  "round_trip_status": "PASS",
+  "representation_note": "The data file stores the LAMMPS restricted-triclinic representation produced by the documented ASE Prism rotation; physical equivalence is validated through metric, fractional-coordinate, and pair-distance checks rather than textual cell identity."
+}

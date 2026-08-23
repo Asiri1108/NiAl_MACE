@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "candidate_key": "mishin_2004_ipr2",
+  "role": "secondary",
+  "potential_name": "Mishin (2004) Ni-Al EAM (gamma/gamma-prime)",
+  "formalism": "EAM (setfl multielement)",
+  "authors": "Y. Mishin",
+  "publication_year": 2004,
+  "citation": "Y. Mishin (2004), 'Atomistic modeling of the gamma and gamma'-phases of the Ni-Al system', Acta Materialia 52(6), 1451-1467.",
+  "doi": "10.1016/j.actamat.2003.11.026",
+  "source_organization": "NIST Interatomic Potentials Repository",
+  "source_page": "https://www.ctcms.nist.gov/potentials/entry/2004--Mishin-Y--Ni-Al/",
+  "repository_identity": "2004--Mishin-Y--Ni-Al",
+  "implementation_identity": "2004--Mishin-Y--Ni-Al--LAMMPS--ipr2",
+  "openkim_family_id": "MO_101214310689",
+  "openkim_extended_id": "EAM_Dynamo_Mishin_2004_NiAl__MO_101214310689_005",
+  "openkim_model_driver_family": "EAM_Dynamo",
+  "expected_filename": "NiAl_Mishin_2004.eam.alloy",
+  "pair_style": "eam/alloy",
+  "expected_elements": [
+    "Al",
+    "Ni"
+  ],
+  "file_element_order": [
+    "Ni",
+    "Al"
+  ],
+  "fitting_scope": "Ni-Al potential developed primarily for the gamma (Ni solid solution) and gamma-prime (Ni3Al) phases; fitted to experimental and first-principles data for lattice properties, point defects, planar faults, and phase-diagram characteristics; narrower intended composition scope than the 2009 general binary potential.",
+  "implementation_notes": "Only the corrected ipr2 implementation is accepted for this project. Project formation energies are still calculated from consistently relaxed bulk elemental references, never from isolated atoms.",
+  "known_warnings": [
+    "The superseded ipr1 implementation (NiAl.eam.alloy) must not be used; it has non-zero isolated-atom energies."
+  ],
+  "reject_superseded_ipr1": true,
+  "superseded_ipr1": {
+    "implementation_identity": "2004--Mishin-Y--Ni-Al--LAMMPS--ipr1",
+    "filename": "NiAl.eam.alloy",
+    "superseded_date": "2020-12-14",
+    "rejection_reason": "The ipr1 file has non-zero isolated-atom energies: bulk potential energies are correct but do not correspond to cohesive energies. The corrected ipr2 file explicitly sets the zero-density embedding value F(rho=0)=0 so isolated atoms have zero energy."
+  },
+  "setfl": {
+    "comment_lines": [
+      "NiAl (L12) EAM from Y. Mishin, Acta Mat. 52, 1451-1467 (2004).",
+      "This is a reimplementation by Lucas Hale based on cubic spline interpolations of Yuri Mishin's plt files.",
+      "Specifically, this version explicitly sets F(0)=0 to ensure energies of isolated atoms are 0.0."
+    ],
+    "element_count": 2,
+    "elements": [
+      "Ni",
+      "Al"
+    ],
+    "nrho": 10001,
+    "drho": 0.000699510351340587,
+    "nr": 10001,
+    "dr": 0.0006724883999724821,
+    "cutoff_A": 6.72488399972482,
+    "element_records": [
+      {
+        "name": "Ni",
+        "atomic_number": 28,
+        "mass_amu": 58.71,
+        "lattice_constant_A": 3.52,
+        "lattice_type": "fcc"
+      },
+      {
+        "name": "Al",
+        "atomic_number": 13,
+        "mass_amu": 26.982,
+        "lattice_constant_A": 4.05,
+        "lattice_type": "fcc"
+      }
+    ],
+    "total_tabulated_values": 70007
+  }
+}

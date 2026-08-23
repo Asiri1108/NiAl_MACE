@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "candidate_key": "pun_mishin_2009",
+  "retrieval_time_utc": "2026-07-28T09:22:23Z",
+  "potential_file_url": "https://www.ctcms.nist.gov/potentials/Download/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/2/Mishin-Ni-Al-2009.eam.alloy",
+  "potential_file_final_url": "https://www.ctcms.nist.gov/potentials/Download/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/2/Mishin-Ni-Al-2009.eam.alloy",
+  "potential_file_sha256": "e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b",
+  "potential_file_size_bytes": 1470580,
+  "potential_file_attempts": 1,
+  "potential_file_local_path": "data/raw/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy",
+  "processed_copy_local_path": "data/processed/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009.eam.alloy",
+  "processed_copy_sha256": "e0c4b32cbf05f8044540fb5ebe220171aa4f2915d98040e6cbce1a1f8e2f582b",
+  "release_notes_url": "https://www.ctcms.nist.gov/potentials/Download/2009--Purja-Pun-G-P-Mishin-Y--Ni-Al/2/Mishin-Ni-Al-2009_releaseNotes_1.pdf",
+  "release_notes_available": true,
+  "release_notes_sha256": "e02f4f0071ef873516e81e1da15593ea3b1d839d704356fe44343b157fa973af",
+  "release_notes_size_bytes": 98650,
+  "release_notes_local_path": "data/raw/interatomic_potentials/ni_al/pun_mishin_2009/Mishin-Ni-Al-2009_releaseNotes_1.pdf",
+  "release_notes_error": null,
+  "user_agent": "NiAl-MACE-research-workflow-step9/1.0 (academic materials-science research)",
+  "https_required": true,
+  "allowed_hosts": [
+    "www.ctcms.nist.gov"
+  ],
+  "configuration_fingerprint_sha256": "e394478680c3920b0c935e8be9283b802bc8374fce1a67d6e4dc0cbab2297c82"
+}

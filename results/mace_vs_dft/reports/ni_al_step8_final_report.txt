@@ -1,0 +1,127 @@
+Ni-Al MACE Step 8 Final Report
+==============================================================================
+
+1. Step 8 objective
+Benchmark the Step 7 relaxed MACE formation energies and Step 6 MACE-relaxed structures against Materials Project DFT-derived processed reference data for the five selected Ni-Al phases.
+
+2. Completed gates
+Gate 1 preflight; Gate 2 configuration; Gate 3 benchmark retrieval; Gate 4 benchmark validation; Gate 5 MACE validation; Gate 6 formation-energy errors; Gate 7 structural comparison; Gate 8 statistics and ranking; Gate 9 tables, reports, figures; Gate 10 documentation and verification.
+
+3. Materials Project retrieval method
+Exact material-ID queries against the official public summary endpoint, with the thermodynamic endpoint inspected to document the processed entry type. The API key was never printed or stored.
+
+4. Database version
+2026.04.13
+Step 7 retrieval version(s): Al=2026.04.13; Ni=2026.04.13
+
+5. Benchmark field definitions
+Primary benchmark: Materials Project processed formation_energy_per_atom (summary endpoint). Context fields: energy_above_hull, is_stable, symmetry, structure, volume. These are processed DFT-derived values under the MP correction scheme, not experimental truth and not raw uncorrected totals.
+
+6. Thermodynamic entry selection method
+All thermo entries per material were retrieved; the entry type whose formation energy numerically matches the summary processed value is recorded as its provenance. Incompatible functional schemes were never averaged or mixed. Per-phase resolution:
+- Al3Ni: GGA_GGA+U_R2SCAN (Multiple thermodynamic entry types (GGA_GGA+U_R2SCAN, r2SCAN) match the summary value with numerically identical formation energies; the documented Materials Project preference order selected GGA_GGA+U_R2SCAN. No incompatible entries were averaged or mixed.)
+- Al3Ni2: GGA_GGA+U_R2SCAN (Multiple thermodynamic entry types (GGA_GGA+U_R2SCAN, r2SCAN) match the summary value with numerically identical formation energies; the documented Materials Project preference order selected GGA_GGA+U_R2SCAN. No incompatible entries were averaged or mixed.)
+- AlNi: GGA_GGA+U_R2SCAN (Multiple thermodynamic entry types (GGA_GGA+U_R2SCAN, r2SCAN) match the summary value with numerically identical formation energies; the documented Materials Project preference order selected GGA_GGA+U_R2SCAN. No incompatible entries were averaged or mixed.)
+- Al3Ni5: GGA_GGA+U_R2SCAN (Multiple thermodynamic entry types (GGA_GGA+U_R2SCAN, r2SCAN) match the summary value with numerically identical formation energies; the documented Materials Project preference order selected GGA_GGA+U_R2SCAN. No incompatible entries were averaged or mixed.)
+- AlNi3: GGA_GGA+U_R2SCAN (Multiple thermodynamic entry types (GGA_GGA+U_R2SCAN, r2SCAN) match the summary value with numerically identical formation energies; the documented Materials Project preference order selected GGA_GGA+U_R2SCAN. No incompatible entries were averaged or mixed.)
+
+7. MACE source files and model settings
+Step 7 table: results/mace_formation_energy/tables/ni_al_mace_formation_energies.json; Step 6 summary: results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.json. Model: MACE-MP-0 Small; cpu; float64; dispersion=false. mu_Al_MACE = -3.709587940 eV/atom; mu_Ni_MACE = -5.732347320 eV/atom.
+
+8-11. Per-phase energies and errors (eV/atom)
+- Al3Ni: MP DFT = -0.418776; MACE initial = -0.455126; MACE relaxed = -0.460362; signed error = -0.041587; absolute error = 0.041587
+- Al3Ni2: MP DFT = -0.644217; MACE initial = -0.640219; MACE relaxed = -0.641073; signed error = +0.003143; absolute error = 0.003143
+- AlNi: MP DFT = -0.684901; MACE initial = -0.689259; MACE relaxed = -0.690231; signed error = -0.005330; absolute error = 0.005330
+- Al3Ni5: MP DFT = -0.563251; MACE initial = -0.601315; MACE relaxed = -0.606098; signed error = -0.042847; absolute error = 0.042847
+- AlNi3: MP DFT = -0.426420; MACE initial = -0.487265; MACE relaxed = -0.488036; signed error = -0.061616; absolute error = 0.061616
+
+12-15. Aggregate error metrics (n=5)
+MAE = 0.030905 eV/atom
+RMSE = 0.038471 eV/atom
+Mean signed error = -0.029647 eV/atom
+Maximum absolute error = 0.061616 eV/atom (AlNi3)
+
+16. Correlation and ranking
+Pearson (exploratory): 0.9909501796557142; Spearman (exploratory): 0.9999999999999999; exact ranking agreement: True; pairwise ordering agreement: 10/10; most negative formation energy among the five selected phases under each method: AlNi (MACE), AlNi (MP DFT).
+
+17. Descriptive error-threshold counts
+|err| <= 0.05 eV/atom: 4/5; |err| <= 0.1 eV/atom: 5/5; |err| <= 0.2 eV/atom: 5/5 (descriptive bins only, not universal accuracy standards)
+
+18. Materials Project energy-above-hull context
+- Al3Ni: hull = 0.000000 eV/atom; stable = True; Step 7 envelope member = True
+- Al3Ni2: hull = 0.000000 eV/atom; stable = True; Step 7 envelope member = True
+- AlNi: hull = 0.000000 eV/atom; stable = True; Step 7 envelope member = True
+- Al3Ni5: hull = 0.000000 eV/atom; stable = True; Step 7 envelope member = True
+- AlNi3: hull = 0.000000 eV/atom; stable = True; Step 7 envelope member = True
+MP hull values and the Step 7 selected-set envelope answer different questions and were never subtracted from each other.
+
+19-20. Volume and symmetry comparison
+- Al3Ni: MP V/atom = 14.284421 A^3; MACE V/atom = 14.675766 A^3; error = +2.7397%; symmetry Pnma -> Pnma (preserved)
+- Al3Ni2: MP V/atom = 13.487012 A^3; MACE V/atom = 13.808355 A^3; error = +2.3826%; symmetry P-3m1 -> P-3m1 (preserved)
+- AlNi: MP V/atom = 11.693286 A^3; MACE V/atom = 12.000606 A^3; error = +2.6282%; symmetry Pm-3m -> Pm-3m (preserved)
+- Al3Ni5: MP V/atom = 11.296508 A^3; MACE V/atom = 11.667038 A^3; error = +3.2800%; symmetry Cmmm -> Cmmm (preserved)
+- AlNi3: MP V/atom = 10.931964 A^3; MACE V/atom = 11.248351 A^3; error = +2.8941%; symmetry Pm-3m -> Pm-3m (preserved)
+Volume summary: mean signed +2.7849%; MAE 2.7849%; RMSE 2.8009%; symmetry agreement 5/5.
+
+21. Systematic cell-expansion evidence
+All five selected phases show positive MACE volume-per-atom error relative to the Materials Project structures; the selected sample suggests systematic expansion, without claiming universal behavior beyond this dataset.
+
+22. Ni magnetic limitation
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.
+
+23. Warnings
+- None recorded.
+
+24. Scientific limitations
+- Materials Project values are processed DFT-derived reference data under the Materials Project correction and mixing scheme, not experimental truth and not raw uncorrected DFT total energies.
+- This five-phase benchmark is not a complete Ni-Al phase diagram.
+- Materials Project energy above hull is computed against the full Materials Project Ni-Al entry set and is not directly comparable to the Step 7 selected-set MACE envelope.
+- Raw MACE and VASP total energies are never compared.
+- Five compounds are a small sample; no universal accuracy or inaccuracy claim about MACE is made.
+
+25. Fine-tuning decision boundary
+The relaxed signed errors do not share a common sign. The mean signed error of -0.029647 eV/atom and MAE of 0.030905 eV/atom are moderate on the explicit numeric scale of the benchmarked formation energies (roughly -0.40 to -0.69 eV/atom), and the volume errors share one sign, which together justify a deeper fine-tuning investigation - but no undocumented universal threshold is used, and fine-tuning is neither started nor declared necessary here. The distinct issues are: (1) formation-energy bias, (2) systematic volume error, (3) ranking agreement (True), (4) the Ni magnetic limitation, and (5) the five-phase sample size.
+
+26. Output inventory
+- results/mace_vs_dft/checkpoints/step8_benchmark_result.json
+- results/mace_vs_dft/figures/formation_energy_error_by_phase.png
+- results/mace_vs_dft/figures/formation_energy_parity_plot.png
+- results/mace_vs_dft/figures/initial_vs_relaxed_mace_error.png
+- results/mace_vs_dft/figures/mace_vs_dft_formation_energy_by_composition.png
+- results/mace_vs_dft/figures/volume_per_atom_mace_vs_mp.png
+- results/mace_vs_dft/figures/volume_percent_error_by_phase.png
+- results/mace_vs_dft/reports/ni_al_mace_vs_mp_dft_report.txt
+- results/mace_vs_dft/reports/ni_al_step8_final_report.txt
+- results/mace_vs_dft/tables/ni_al_mace_vs_mp_dft.csv
+- results/mace_vs_dft/tables/ni_al_mace_vs_mp_dft.json
+- results/mace_vs_dft/tables/ni_al_structural_comparison.csv
+- results/mace_vs_dft/tables/ni_al_structural_comparison.json
+- data/raw/materials_project/dft_benchmark/Al3Ni/metadata.json
+- data/raw/materials_project/dft_benchmark/Al3Ni/structure.cif
+- data/raw/materials_project/dft_benchmark/Al3Ni/structure.extxyz
+- data/raw/materials_project/dft_benchmark/Al3Ni2/metadata.json
+- data/raw/materials_project/dft_benchmark/Al3Ni2/structure.cif
+- data/raw/materials_project/dft_benchmark/Al3Ni2/structure.extxyz
+- data/raw/materials_project/dft_benchmark/Al3Ni5/metadata.json
+- data/raw/materials_project/dft_benchmark/Al3Ni5/structure.cif
+- data/raw/materials_project/dft_benchmark/Al3Ni5/structure.extxyz
+- data/raw/materials_project/dft_benchmark/AlNi/metadata.json
+- data/raw/materials_project/dft_benchmark/AlNi/structure.cif
+- data/raw/materials_project/dft_benchmark/AlNi/structure.extxyz
+- data/raw/materials_project/dft_benchmark/AlNi3/metadata.json
+- data/raw/materials_project/dft_benchmark/AlNi3/structure.cif
+- data/raw/materials_project/dft_benchmark/AlNi3/structure.extxyz
+
+27. Protected-file verification
+All Step 6 and Step 7 inputs consumed by Step 8 retained their recorded SHA-256, size, and modification-time fingerprints; no MACE calculation was rerun and no source was modified.
+
+28. Overall Step 8 status
+OVERALL STEP 8 STATUS: SUCCESS
+
+29. Exact next stage
+Step 9 - Select and document candidate classical Ni-Al interatomic potentials and design the LAMMPS comparison.
+Step 9 is not implemented by this workflow.

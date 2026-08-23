@@ -1,0 +1,439 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_full_cell_relaxation_summary",
+  "project_step": "6D",
+  "generated_at_utc": "2026-07-26T11:46:10Z",
+  "mode": "full_cell",
+  "configuration_path": "configs/mace_relaxation.json",
+  "configuration_fingerprint_sha256": "9d3e42c304f9eb02a898d067bdcd95f9ccbc4b35790769ae6c85f879d518f176",
+  "requested_phases": [
+    "Al3Ni",
+    "Al3Ni2",
+    "AlNi",
+    "Al3Ni5",
+    "AlNi3"
+  ],
+  "completed_phases": [
+    "Al3Ni",
+    "Al3Ni2",
+    "AlNi",
+    "Al3Ni5",
+    "AlNi3"
+  ],
+  "failed_phases": [],
+  "converged_phases": [
+    "Al3Ni",
+    "Al3Ni2",
+    "AlNi",
+    "Al3Ni5",
+    "AlNi3"
+  ],
+  "not_converged_phases": [],
+  "overall_status": "SUCCESS",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false,
+    "calculator_class": "mace.calculators.mace.MACECalculator"
+  },
+  "execution": {
+    "calculator_loads_this_invocation": 1,
+    "calculator_reused_sequentially": true,
+    "state_evaluations": 131,
+    "optimizer_steps": 126,
+    "resumed_phases": [],
+    "executed_phases": [
+      "Al3Ni",
+      "Al3Ni2",
+      "AlNi",
+      "Al3Ni5",
+      "AlNi3"
+    ],
+    "optimizer": "FIRE",
+    "filter": "FrechetCellFilter"
+  },
+  "convergence": {
+    "force_threshold_eV_per_A": 0.01,
+    "stress_threshold_eV_per_A3": 0.0006241509,
+    "requires_actual_atomic_force": true,
+    "requires_actual_six_component_stress": true
+  },
+  "stress_component_order": [
+    "xx",
+    "yy",
+    "zz",
+    "yz",
+    "xz",
+    "xy"
+  ],
+  "records": [
+    {
+      "phase_key": "Al3Ni",
+      "material_id": "mp-622209",
+      "number_of_atoms": 16,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "force_converged": true,
+      "stress_converged": true,
+      "overall_converged": true,
+      "optimizer_steps": 40,
+      "state_evaluations": 41,
+      "wall_time_seconds": 67.31200000003446,
+      "initial_total_energy_eV": -74.69571087869917,
+      "final_total_energy_eV": -74.81024262576469,
+      "energy_change_eV": -0.11453174706551295,
+      "initial_energy_per_atom_eV": -4.668481929918698,
+      "final_energy_per_atom_eV": -4.675640164110293,
+      "initial_maximum_force_eV_per_A": 0.2127929489094258,
+      "final_maximum_force_eV_per_A": 0.005809431958205054,
+      "initial_rms_force_eV_per_A": 0.1505014128742379,
+      "final_rms_force_eV_per_A": 0.004523557446348245,
+      "initial_total_force_norm_eV_per_A": 3.681686233925158e-16,
+      "final_total_force_norm_eV_per_A": 1.3761949996881778e-16,
+      "initial_stress_eV_per_A3": [
+        -0.016041624498206574,
+        -0.018531779439234102,
+        -0.02025182492773854,
+        5.077573533412292e-11,
+        -2.0965047274540503e-12,
+        -5.915717316885883e-07
+      ],
+      "final_stress_eV_per_A3": [
+        -0.0001389340925515161,
+        -0.00013103583997058207,
+        0.0004761163665090529,
+        2.39967288241613e-12,
+        -6.15842812497585e-13,
+        -1.6737892615033657e-07
+      ],
+      "initial_maximum_absolute_stress_eV_per_A3": 0.02025182492773854,
+      "final_maximum_absolute_stress_eV_per_A3": 0.0004761163665090529,
+      "initial_volume_A3": 228.5507372689479,
+      "final_volume_A3": 234.8122635612436,
+      "volume_change_A3": 6.261526292295713,
+      "volume_change_percent": 2.739665759610932,
+      "initial_lattice_lengths_A": [
+        4.770571360012452,
+        6.558905180019103,
+        7.30433827
+      ],
+      "final_lattice_lengths_A": [
+        4.733918385346819,
+        6.69299719141167,
+        7.4110435628184
+      ],
+      "initial_lattice_angles_deg": [
+        90.0,
+        90.0,
+        89.99973080413505
+      ],
+      "final_lattice_angles_deg": [
+        89.9999999995037,
+        90.0000000001672,
+        90.00004673033646
+      ],
+      "maximum_internal_displacement_A": 0.06037605856961677,
+      "rms_internal_displacement_A": 0.05303668845935382,
+      "maximum_total_displacement_A": 0.1948540732280128,
+      "rms_total_displacement_A": 0.11700247892898874,
+      "resumed": false,
+      "result_manifest": "results/mace_relaxation/full_cell/checkpoints/Al3Ni_full_cell_result.json"
+    },
+    {
+      "phase_key": "Al3Ni2",
+      "material_id": "mp-1057",
+      "number_of_atoms": 5,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "force_converged": true,
+      "stress_converged": true,
+      "overall_converged": true,
+      "optimizer_steps": 33,
+      "state_evaluations": 34,
+      "wall_time_seconds": 18.71799999999348,
+      "initial_total_energy_eV": -25.78055209010038,
+      "final_total_energy_eV": -25.798824772972484,
+      "energy_change_eV": -0.01827268287210515,
+      "initial_energy_per_atom_eV": -5.156110418020075,
+      "final_energy_per_atom_eV": -5.159764954594497,
+      "initial_maximum_force_eV_per_A": 0.10259415553179091,
+      "final_maximum_force_eV_per_A": 0.009253892285241845,
+      "initial_rms_force_eV_per_A": 0.0779328282836741,
+      "final_rms_force_eV_per_A": 0.007985378058713667,
+      "initial_total_force_norm_eV_per_A": 2.5063819858718887e-16,
+      "final_total_force_norm_eV_per_A": 5.209169458473516e-17,
+      "initial_stress_eV_per_A3": [
+        -0.023517664718076,
+        -0.023518164956813057,
+        -0.01605193361656587,
+        -1.1946262195306376e-08,
+        1.189897118181321e-09,
+        -3.098263829685444e-07
+      ],
+      "final_stress_eV_per_A3": [
+        -6.590182962362398e-05,
+        -6.592218368073582e-05,
+        0.0002693647048544764,
+        2.393013502864925e-09,
+        -1.8430118530062345e-09,
+        -1.4476088902322046e-09
+      ],
+      "initial_maximum_absolute_stress_eV_per_A3": 0.023518164956813057,
+      "final_maximum_absolute_stress_eV_per_A3": 0.0002693647048544764,
+      "initial_volume_A3": 67.4350609096183,
+      "final_volume_A3": 69.04177735149862,
+      "volume_change_A3": 1.606716441880323,
+      "volume_change_percent": 2.3826128726031293,
+      "initial_lattice_lengths_A": [
+        3.994196,
+        3.994195457570523,
+        4.880862
+      ],
+      "final_lattice_lengths_A": [
+        4.035136286048502,
+        4.035136176792927,
+        4.896265242684819
+      ],
+      "initial_lattice_angles_deg": [
+        90.0,
+        90.0,
+        120.00002105628027
+      ],
+      "final_lattice_angles_deg": [
+        89.99999917122695,
+        90.00000049138794,
+        120.00000196852307
+      ],
+      "maximum_internal_displacement_A": 0.006822674984666958,
+      "rms_internal_displacement_A": 0.0043313728537345084,
+      "maximum_total_displacement_A": 0.027340451757935164,
+      "rms_total_displacement_A": 0.0227445145710778,
+      "resumed": false,
+      "result_manifest": "results/mace_relaxation/full_cell/checkpoints/Al3Ni2_full_cell_result.json"
+    },
+    {
+      "phase_key": "AlNi",
+      "material_id": "mp-1487",
+      "number_of_atoms": 2,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "force_converged": true,
+      "stress_converged": true,
+      "overall_converged": true,
+      "optimizer_steps": 5,
+      "state_evaluations": 6,
+      "wall_time_seconds": 2.14000000001397,
+      "initial_total_energy_eV": -10.813681752983006,
+      "final_total_energy_eV": -10.822397327556473,
+      "energy_change_eV": -0.008715574573466611,
+      "initial_energy_per_atom_eV": -5.406840876491503,
+      "final_energy_per_atom_eV": -5.4111986637782366,
+      "initial_maximum_force_eV_per_A": 4.888791560310382e-08,
+      "final_maximum_force_eV_per_A": 1.5380728593448733e-08,
+      "initial_rms_force_eV_per_A": 4.888791558876923e-08,
+      "final_rms_force_eV_per_A": 1.5380728580767085e-08,
+      "initial_total_force_norm_eV_per_A": 4.3810891291968303e-17,
+      "final_total_force_norm_eV_per_A": 2.890315338807757e-17,
+      "initial_stress_eV_per_A3": [
+        -0.029697285519781402,
+        -0.02969728551978137,
+        -0.02969728551978138,
+        -5.582584130504889e-17,
+        -4.313167677181642e-17,
+        -5.6680676502897e-17
+      ],
+      "final_stress_eV_per_A3": [
+        0.0006058763453162851,
+        0.0006058763453163399,
+        0.0006058763453162393,
+        2.2718042132595513e-16,
+        5.480994439648397e-18,
+        -7.964637332537697e-17
+      ],
+      "initial_maximum_absolute_stress_eV_per_A3": 0.029697285519781402,
+      "final_maximum_absolute_stress_eV_per_A3": 0.0006058763453163399,
+      "initial_volume_A3": 23.386572118200654,
+      "final_volume_A3": 24.00121131508189,
+      "volume_change_A3": 0.6146391968812353,
+      "volume_change_percent": 2.6281713873017365,
+      "initial_lattice_lengths_A": [
+        2.85971129,
+        2.85971129,
+        2.85971129
+      ],
+      "final_lattice_lengths_A": [
+        2.8845476680944184,
+        2.8845476680944193,
+        2.8845476680944184
+      ],
+      "initial_lattice_angles_deg": [
+        90.0,
+        90.0,
+        90.0
+      ],
+      "final_lattice_angles_deg": [
+        89.99999999999999,
+        90.0,
+        90.0
+      ],
+      "maximum_internal_displacement_A": 2.8025568946340096e-09,
+      "rms_internal_displacement_A": 2.8025565979369462e-09,
+      "maximum_total_displacement_A": 0.021508937119445497,
+      "rms_total_displacement_A": 0.015209115293275087,
+      "resumed": false,
+      "result_manifest": "results/mace_relaxation/full_cell/checkpoints/AlNi_full_cell_result.json"
+    },
+    {
+      "phase_key": "Al3Ni5",
+      "material_id": "mp-16514",
+      "number_of_atoms": 8,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "force_converged": true,
+      "stress_converged": true,
+      "overall_converged": true,
+      "optimizer_steps": 34,
+      "state_evaluations": 35,
+      "wall_time_seconds": 25.530999999959022,
+      "initial_total_energy_eV": -44.56807607688442,
+      "final_total_energy_eV": -44.639280982911714,
+      "energy_change_eV": -0.07120490602729745,
+      "initial_energy_per_atom_eV": -5.571009509610552,
+      "final_energy_per_atom_eV": -5.579910122863964,
+      "initial_maximum_force_eV_per_A": 0.16080041576105142,
+      "final_maximum_force_eV_per_A": 0.007496331098762014,
+      "initial_rms_force_eV_per_A": 0.08047034220586187,
+      "final_rms_force_eV_per_A": 0.004008539352110402,
+      "initial_total_force_norm_eV_per_A": 2.514001842458065e-16,
+      "final_total_force_norm_eV_per_A": 2.9385371642999075e-16,
+      "initial_stress_eV_per_A3": [
+        -0.04042359454436498,
+        -0.0374954184483201,
+        -0.03847086961862685,
+        0.004519597716073869,
+        1.4748760648434658e-17,
+        1.8244816712616336e-17
+      ],
+      "final_stress_eV_per_A3": [
+        0.0006148686007560159,
+        0.0002255978904532953,
+        0.0003028567540184644,
+        -0.0003574905755803338,
+        -6.13278086966576e-17,
+        -3.322193953658472e-17
+      ],
+      "initial_maximum_absolute_stress_eV_per_A3": 0.04042359454436498,
+      "final_maximum_absolute_stress_eV_per_A3": 0.0006148686007560159,
+      "initial_volume_A3": 90.37206581100938,
+      "final_volume_A3": 93.33630626034235,
+      "volume_change_A3": 2.9642404493329764,
+      "volume_change_percent": 3.280040599638334,
+      "initial_lattice_lengths_A": [
+        3.72527337,
+        4.94345815722683,
+        4.9434597467306105
+      ],
+      "final_lattice_lengths_A": [
+        3.820900208638465,
+        4.979234855986257,
+        4.9792351462654025
+      ],
+      "initial_lattice_angles_deg": [
+        96.93144550351933,
+        90.0,
+        90.0
+      ],
+      "final_lattice_angles_deg": [
+        99.84296002516471,
+        90.00000000000001,
+        90.0
+      ],
+      "maximum_internal_displacement_A": 0.03554655046017107,
+      "rms_internal_displacement_A": 0.01983038122876221,
+      "maximum_total_displacement_A": 0.14707589322380946,
+      "rms_total_displacement_A": 0.09026947433747734,
+      "resumed": false,
+      "result_manifest": "results/mace_relaxation/full_cell/checkpoints/Al3Ni5_full_cell_result.json"
+    },
+    {
+      "phase_key": "AlNi3",
+      "material_id": "mp-2593",
+      "number_of_atoms": 4,
+      "status": "CONVERGED",
+      "safety_status": "PASS",
+      "force_converged": true,
+      "stress_converged": true,
+      "overall_converged": true,
+      "optimizer_steps": 14,
+      "state_evaluations": 15,
+      "wall_time_seconds": 2.0469999999040738,
+      "initial_total_energy_eV": -22.836292364226455,
+      "final_total_energy_eV": -22.858771955109983,
+      "energy_change_eV": -0.022479590883527578,
+      "initial_energy_per_atom_eV": -5.709073091056614,
+      "final_energy_per_atom_eV": -5.714692988777496,
+      "initial_maximum_force_eV_per_A": 5.978495219488439e-08,
+      "final_maximum_force_eV_per_A": 4.588836767778199e-09,
+      "initial_rms_force_eV_per_A": 5.63350977222002e-08,
+      "final_rms_force_eV_per_A": 4.16289383434992e-09,
+      "initial_total_force_norm_eV_per_A": 8.309549272970379e-17,
+      "final_total_force_norm_eV_per_A": 6.20098012892339e-17,
+      "initial_stress_eV_per_A3": [
+        -0.03664195876647671,
+        -0.036619047115213375,
+        -0.03661917398439417,
+        -6.518081729040704e-18,
+        2.6831920314577485e-18,
+        5.8249061297221476e-18
+      ],
+      "final_stress_eV_per_A3": [
+        8.19518802540776e-05,
+        9.648868500045964e-05,
+        9.640822392199008e-05,
+        1.8403249669546238e-16,
+        2.3667225268382706e-17,
+        1.3015561319414371e-17
+      ],
+      "initial_maximum_absolute_stress_eV_per_A3": 0.03664195876647671,
+      "final_maximum_absolute_stress_eV_per_A3": 9.648868500045964e-05,
+      "initial_volume_A3": 43.727854385354966,
+      "final_volume_A3": 44.99340391956207,
+      "volume_change_A3": 1.2655495342071035,
+      "volume_change_percent": 2.894149626126996,
+      "initial_lattice_lengths_A": [
+        3.5229346,
+        3.52311529,
+        3.52311429
+      ],
+      "final_lattice_lengths_A": [
+        3.5566391486815903,
+        3.5567600208018852,
+        3.556759351998055
+      ],
+      "initial_lattice_angles_deg": [
+        90.0,
+        90.0,
+        90.0
+      ],
+      "final_lattice_angles_deg": [
+        89.99999999999997,
+        90.0,
+        90.0
+      ],
+      "maximum_internal_displacement_A": 3.3046534977218197e-09,
+      "rms_internal_displacement_A": 3.2449203866454405e-09,
+      "maximum_total_displacement_A": 0.023811690896430548,
+      "rms_total_displacement_A": 0.02061539082036521,
+      "resumed": false,
+      "result_manifest": "results/mace_relaxation/full_cell/checkpoints/AlNi3_full_cell_result.json"
+    }
+  ],
+  "scientific_limitations": [
+    "MACE-potential relaxation; not DFT or experimental validation.",
+    "No raw-energy phase-stability ranking across compositions.",
+    "No formation energies calculated."
+  ]
+}

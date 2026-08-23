@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "candidate_key": "mishin_2002",
+  "role": "historical_secondary",
+  "potential_name": "Mishin, Mehl, and Papaconstantopoulos (2002) B2-NiAl EAM",
+  "formalism": "EAM (setfl multielement)",
+  "authors": "Y. Mishin, M. J. Mehl, and D. A. Papaconstantopoulos",
+  "publication_year": 2002,
+  "citation": "Y. Mishin, M. J. Mehl, and D. A. Papaconstantopoulos (2002), 'Embedded-atom potential for B2-NiAl', Physical Review B 65(22), 224114.",
+  "doi": "10.1103/PhysRevB.65.224114",
+  "source_organization": "NIST Interatomic Potentials Repository",
+  "source_page": "https://www.ctcms.nist.gov/potentials/entry/2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al/",
+  "repository_identity": "2002--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A--Ni-Al",
+  "implementation_identity": "2002--Mishin-Y--Ni-Al--LAMMPS--ipr1",
+  "openkim_family_id": "MO_109933561507",
+  "openkim_extended_id": "EAM_Dynamo_MishinMehlPapaconstantopoulos_2002_NiAl__MO_109933561507_005",
+  "openkim_model_driver_family": "EAM_Dynamo",
+  "expected_filename": "NiAl02.eam.alloy",
+  "pair_style": "eam/alloy",
+  "expected_elements": [
+    "Al",
+    "Ni"
+  ],
+  "file_element_order": [
+    "Ni",
+    "Al"
+  ],
+  "fitting_scope": "Historical EAM optimized for the B2 phase of NiAl, fitted to experimental properties and ab initio data for multiple crystal structures; accurately reproduces basic B2-NiAl lattice properties, planar faults, and point-defect characteristics.",
+  "implementation_notes": "LAMMPS eam/alloy conversion produced by Chandler Becker (14 Feb 2009) from the authors' plt tabulated functions; historical model-generation comparison role, not the primary production recommendation. Age alone is not treated as proof of lower accuracy.",
+  "known_warnings": [
+    "NIST documentation cautions that the elemental descriptions taken from this B2-optimized alloy fit may perform poorly for pure Ni, pure Al, and non-B2 Ni-Al phases; this directly affects formation-energy transferability across the five selected compositions."
+  ],
+  "reject_superseded_ipr1": false,
+  "superseded_ipr1": null,
+  "setfl": {
+    "comment_lines": [
+      " Ni-Al EAM from Y. Mishin, et al., PRB 65, 224114 (2002).                ",
+      " LAMMPS setfl format.  Conversion by C. A. Becker from Y. Mishin files.  ",
+      " 14 February 2009.  http://www.ctcms.nist.gov/potentials                 "
+    ],
+    "element_count": 2,
+    "elements": [
+      "Ni",
+      "Al"
+    ],
+    "nrho": 10000,
+    "drho": 0.0003,
+    "nr": 10000,
+    "dr": 0.0005954144000238658,
+    "cutoff_A": 5.954144000238657,
+    "element_records": [
+      {
+        "name": "Ni",
+        "atomic_number": 28,
+        "mass_amu": 58.71,
+        "lattice_constant_A": 3.52,
+        "lattice_type": "fcc"
+      },
+      {
+        "name": "Al",
+        "atomic_number": 13,
+        "mass_amu": 26.982,
+        "lattice_constant_A": 4.05,
+        "lattice_type": "fcc"
+      }
+    ],
+    "total_tabulated_values": 70000
+  }
+}

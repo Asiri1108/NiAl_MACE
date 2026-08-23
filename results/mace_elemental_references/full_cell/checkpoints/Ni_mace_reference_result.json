@@ -1,0 +1,546 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_mace_elemental_reference_result",
+  "project_step": "7",
+  "element": "Ni",
+  "material_id": "mp-23",
+  "number_of_atoms": 1,
+  "generated_at_utc": "2026-07-28T07:07:44Z",
+  "configuration_path": "configs/mace_formation_energy.json",
+  "configuration_fingerprint_sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+  "execution_status": "COMPLETED",
+  "convergence_status": "CONVERGED",
+  "force_converged": true,
+  "stress_converged": true,
+  "overall_converged": true,
+  "safety_status": "PASS",
+  "output_validation_status": "PASS",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false,
+    "calculator_class": "mace.calculators.mace.MACECalculator"
+  },
+  "optimizer": {
+    "name": "FIRE",
+    "created": true,
+    "steps": 4,
+    "maximum_steps": 1000,
+    "force_threshold_eV_per_A": 0.01,
+    "stress_threshold_eV_per_A3": 0.0006241509,
+    "trajectory_interval": 1,
+    "ase_generalized_auto_stop_fmax_eV_per_A": 0.0,
+    "filter": {
+      "name": "FrechetCellFilter",
+      "mask": "all",
+      "exp_cell_factor": 1.0,
+      "hydrostatic_strain": false,
+      "constant_volume": false,
+      "external_pressure_eV_per_A3": 0.0
+    }
+  },
+  "counts": {
+    "calculator_loads_in_session": 1,
+    "state_evaluations": 5,
+    "optimizer_steps": 4
+  },
+  "timing": {
+    "started_at_utc": "2026-07-28T07:07:44Z",
+    "completed_at_utc": "2026-07-28T07:07:44Z",
+    "wall_time_seconds": 0.34300000010989606
+  },
+  "initial": {
+    "step": 0,
+    "elapsed_seconds": 0.0,
+    "total_energy_eV": -5.726033697320794,
+    "energy_per_atom_eV": -5.726033697320794,
+    "forces_eV_per_A": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "maximum_force_eV_per_A": 0.0,
+    "rms_force_eV_per_A": 0.0,
+    "total_force_eV_per_A": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "total_force_norm_eV_per_A": 0.0,
+    "stress_component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "yz",
+      "xz",
+      "xy"
+    ],
+    "stress_eV_per_A3": [
+      -0.039074699765626775,
+      -0.03907425004303239,
+      -0.039074822319937294,
+      1.185778922395323e-09,
+      1.676947007234167e-09,
+      -8.466695028490299e-08
+    ],
+    "maximum_absolute_stress_eV_per_A3": 0.039074822319937294,
+    "volume_A3": 10.492020341068944,
+    "volume_per_atom_A3": 10.492020341068944,
+    "cell_A": [
+      [
+        2.12808334,
+        -0.0,
+        1.22864943
+      ],
+      [
+        0.70936078,
+        2.00637688,
+        1.22864943
+      ],
+      [
+        -0.0,
+        -0.0,
+        2.45729885
+      ]
+    ],
+    "lattice_lengths_A": [
+      2.457298948810437,
+      2.457299396215298,
+      2.45729885
+    ],
+    "lattice_angles_deg": [
+      60.00000721843609,
+      60.00000119555076,
+      60.00001459210662
+    ],
+    "positions_A": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "scaled_positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "maximum_internal_displacement_A": 0.0,
+    "rms_internal_displacement_A": 0.0,
+    "maximum_total_displacement_A": 0.0,
+    "rms_total_displacement_A": 0.0,
+    "volume_change_percent": 0.0,
+    "force_converged": true,
+    "stress_converged": false,
+    "overall_converged": false
+  },
+  "final": {
+    "step": 4,
+    "elapsed_seconds": 0.3119999999180436,
+    "total_energy_eV": -5.732347319930138,
+    "energy_per_atom_eV": -5.732347319930138,
+    "forces_eV_per_A": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "maximum_force_eV_per_A": 0.0,
+    "rms_force_eV_per_A": 0.0,
+    "total_force_eV_per_A": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "total_force_norm_eV_per_A": 0.0,
+    "stress_component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "yz",
+      "xz",
+      "xy"
+    ],
+    "stress_eV_per_A3": [
+      0.0006106104266728791,
+      0.0006108177079502753,
+      0.0006105647778602187,
+      5.339629822628463e-10,
+      7.551377992149797e-10,
+      -4.4870456798428434e-08
+    ],
+    "maximum_absolute_stress_eV_per_A3": 0.0006108177079502753,
+    "volume_A3": 10.830357430935019,
+    "volume_per_atom_A3": 10.830357430935019,
+    "cell_A": [
+      [
+        2.1507166798957718,
+        6.31882838371571e-08,
+        1.2417168436781552
+      ],
+      [
+        0.7169052826612454,
+        2.0277155148610064,
+        1.2417168436781565
+      ],
+      [
+        -1.415316601635861e-09,
+        -1.00077870429875e-09,
+        2.4834336797013545
+      ]
+    ],
+    "lattice_lengths_A": [
+      2.4834337029717415,
+      2.4834339357811954,
+      2.4834336797013545
+    ],
+    "lattice_angles_deg": [
+      60.00000334171178,
+      60.000000240653094,
+      60.00000826300448
+    ],
+    "positions_A": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "scaled_positions": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "maximum_internal_displacement_A": 0.0,
+    "rms_internal_displacement_A": 0.0,
+    "maximum_total_displacement_A": 0.0,
+    "rms_total_displacement_A": 0.0,
+    "volume_change_percent": 3.224708672568255,
+    "force_converged": true,
+    "stress_converged": true,
+    "overall_converged": true
+  },
+  "initial_symmetry": {
+    "space_group_symbol": "Fm-3m",
+    "space_group_number": 225,
+    "crystal_system": "cubic",
+    "symprec_A": 0.001,
+    "angle_tolerance_deg": 5.0
+  },
+  "final_symmetry": {
+    "space_group_symbol": "Fm-3m",
+    "space_group_number": 225,
+    "crystal_system": "cubic",
+    "symprec_A": 0.001,
+    "angle_tolerance_deg": 5.0,
+    "limitation": "Space-group detection is tolerance-dependent; no symmetry constraint or refinement was applied."
+  },
+  "lattice_changes": {
+    "initial_lattice_lengths_A": [
+      2.457298948810437,
+      2.457299396215298,
+      2.45729885
+    ],
+    "final_lattice_lengths_A": [
+      2.4834337029717415,
+      2.4834339357811954,
+      2.4834336797013545
+    ],
+    "lattice_length_changes_A": [
+      0.026134754161304397,
+      0.02613453956589762,
+      0.02613482970135461
+    ],
+    "initial_lattice_angles_deg": [
+      60.00000721843609,
+      60.00000119555076,
+      60.00001459210662
+    ],
+    "final_lattice_angles_deg": [
+      60.00000334171178,
+      60.000000240653094,
+      60.00000826300448
+    ],
+    "lattice_angle_changes_deg": [
+      -3.876724306905999e-06,
+      -9.548976649398355e-07,
+      -6.329102141933163e-06
+    ],
+    "initial_volume_A3": 10.492020341068944,
+    "final_volume_A3": 10.830357430935019,
+    "volume_change_A3": 0.3383370898660747,
+    "volume_change_percent": 3.224708672568255
+  },
+  "chemical_potential_candidate_eV_per_atom": -5.732347319930138,
+  "history_rows": [
+    {
+      "step": 0,
+      "elapsed_seconds": 0.0,
+      "total_energy_eV": -5.726033697320794,
+      "energy_per_atom_eV": -5.726033697320794,
+      "maximum_force_eV_per_A": 0.0,
+      "rms_force_eV_per_A": 0.0,
+      "total_force_norm_eV_per_A": 0.0,
+      "maximum_absolute_stress_eV_per_A3": 0.039074822319937294,
+      "volume_A3": 10.492020341068944,
+      "volume_per_atom_A3": 10.492020341068944,
+      "volume_change_percent": 0.0,
+      "maximum_internal_displacement_A": 0.0,
+      "rms_internal_displacement_A": 0.0,
+      "maximum_total_displacement_A": 0.0,
+      "rms_total_displacement_A": 0.0,
+      "force_converged": true,
+      "stress_converged": false,
+      "overall_converged": false,
+      "safety_status": "PASS",
+      "stress_xx_eV_per_A3": -0.039074699765626775,
+      "stress_yy_eV_per_A3": -0.03907425004303239,
+      "stress_zz_eV_per_A3": -0.039074822319937294,
+      "stress_yz_eV_per_A3": 1.185778922395323e-09,
+      "stress_xz_eV_per_A3": 1.676947007234167e-09,
+      "stress_xy_eV_per_A3": -8.466695028490299e-08,
+      "lattice_a_A": 2.457298948810437,
+      "lattice_b_A": 2.457299396215298,
+      "lattice_c_A": 2.45729885,
+      "angle_alpha_deg": 60.00000721843609,
+      "angle_beta_deg": 60.00000119555076,
+      "angle_gamma_deg": 60.00001459210662
+    },
+    {
+      "step": 1,
+      "elapsed_seconds": 0.125,
+      "total_energy_eV": -5.730053970697359,
+      "energy_per_atom_eV": -5.730053970697359,
+      "maximum_force_eV_per_A": 0.0,
+      "rms_force_eV_per_A": 0.0,
+      "total_force_norm_eV_per_A": 0.0,
+      "maximum_absolute_stress_eV_per_A3": 0.023029666919930976,
+      "volume_A3": 10.621860010829383,
+      "volume_per_atom_A3": 10.621860010829383,
+      "volume_change_percent": 1.2375087498849746,
+      "maximum_internal_displacement_A": 0.0,
+      "rms_internal_displacement_A": 0.0,
+      "maximum_total_displacement_A": 0.0,
+      "rms_total_displacement_A": 0.0,
+      "force_converged": true,
+      "stress_converged": false,
+      "overall_converged": false,
+      "safety_status": "PASS",
+      "stress_xx_eV_per_A3": -0.02302957153146945,
+      "stress_yy_eV_per_A3": -0.02302920626278487,
+      "stress_zz_eV_per_A3": -0.023029666919930976,
+      "stress_yz_eV_per_A3": 9.582840732962575e-10,
+      "stress_xz_eV_per_A3": 1.3552199999292078e-09,
+      "stress_xy_eV_per_A3": -7.100677320709121e-08,
+      "lattice_a_A": 2.4673938864805454,
+      "lattice_b_A": 2.4673942684398997,
+      "lattice_c_A": 2.467393811435241,
+      "angle_alpha_deg": 60.00000601248981,
+      "angle_beta_deg": 60.000000891657265,
+      "angle_gamma_deg": 60.0000126563072
+    },
+    {
+      "step": 2,
+      "elapsed_seconds": 0.2029999999795109,
+      "total_energy_eV": -5.7323457569424585,
+      "energy_per_atom_eV": -5.7323457569424585,
+      "maximum_force_eV_per_A": 0.0,
+      "rms_force_eV_per_A": 0.0,
+      "total_force_norm_eV_per_A": 0.0,
+      "maximum_absolute_stress_eV_per_A3": 0.0008419269795911831,
+      "volume_A3": 10.832509619333402,
+      "volume_per_atom_A3": 10.832509619333402,
+      "volume_change_percent": 3.2452212938596903,
+      "maximum_internal_displacement_A": 0.0,
+      "rms_internal_displacement_A": 0.0,
+      "maximum_total_displacement_A": 0.0,
+      "rms_total_displacement_A": 0.0,
+      "force_converged": true,
+      "stress_converged": false,
+      "overall_converged": false,
+      "safety_status": "PASS",
+      "stress_xx_eV_per_A3": 0.000841697593592803,
+      "stress_yy_eV_per_A3": 0.0008419269795911831,
+      "stress_zz_eV_per_A3": 0.0008416452184147064,
+      "stress_yz_eV_per_A3": 5.930615533560143e-10,
+      "stress_xz_eV_per_A3": 8.387157474232603e-10,
+      "stress_xy_eV_per_A3": -4.865297131054716e-08,
+      "lattice_a_A": 2.483598178896899,
+      "lattice_b_A": 2.4835984377160147,
+      "lattice_c_A": 2.4835981476530486,
+      "angle_alpha_deg": 60.00000378637797,
+      "angle_beta_deg": 60.00000033909482,
+      "angle_gamma_deg": 60.00000904239755
+    },
+    {
+      "step": 3,
+      "elapsed_seconds": 0.2649999998975545,
+      "total_energy_eV": -5.732346351052502,
+      "energy_per_atom_eV": -5.732346351052502,
+      "maximum_force_eV_per_A": 0.0,
+      "rms_force_eV_per_A": 0.0,
+      "total_force_norm_eV_per_A": 0.0,
+      "maximum_absolute_stress_eV_per_A3": 0.0007624082167858953,
+      "volume_A3": 10.831768836160169,
+      "volume_per_atom_A3": 10.831768836160169,
+      "volume_change_percent": 3.238160850311611,
+      "maximum_internal_displacement_A": 0.0,
+      "rms_internal_displacement_A": 0.0,
+      "maximum_total_displacement_A": 0.0,
+      "rms_total_displacement_A": 0.0,
+      "force_converged": true,
+      "stress_converged": false,
+      "overall_converged": false,
+      "safety_status": "PASS",
+      "stress_xx_eV_per_A3": 0.0007621862582147806,
+      "stress_yy_eV_per_A3": 0.0007624082167858953,
+      "stress_zz_eV_per_A3": 0.0007621361466194142,
+      "stress_yz_eV_per_A3": 5.731997615293353e-10,
+      "stress_xz_eV_per_A3": 8.106268920755003e-10,
+      "stress_xy_eV_per_A3": -4.738386601627226e-08,
+      "lattice_a_A": 2.4835415686330125,
+      "lattice_b_A": 2.4835418187035105,
+      "lattice_c_A": 2.4835415400806937,
+      "angle_alpha_deg": 60.000003636690835,
+      "angle_beta_deg": 60.00000030585701,
+      "angle_gamma_deg": 60.00000878051172
+    },
+    {
+      "step": 4,
+      "elapsed_seconds": 0.3119999999180436,
+      "total_energy_eV": -5.732347319930138,
+      "energy_per_atom_eV": -5.732347319930138,
+      "maximum_force_eV_per_A": 0.0,
+      "rms_force_eV_per_A": 0.0,
+      "total_force_norm_eV_per_A": 0.0,
+      "maximum_absolute_stress_eV_per_A3": 0.0006108177079502753,
+      "volume_A3": 10.830357430935019,
+      "volume_per_atom_A3": 10.830357430935019,
+      "volume_change_percent": 3.224708672568255,
+      "maximum_internal_displacement_A": 0.0,
+      "rms_internal_displacement_A": 0.0,
+      "maximum_total_displacement_A": 0.0,
+      "rms_total_displacement_A": 0.0,
+      "force_converged": true,
+      "stress_converged": true,
+      "overall_converged": true,
+      "safety_status": "PASS",
+      "stress_xx_eV_per_A3": 0.0006106104266728791,
+      "stress_yy_eV_per_A3": 0.0006108177079502753,
+      "stress_zz_eV_per_A3": 0.0006105647778602187,
+      "stress_yz_eV_per_A3": 5.339629822628463e-10,
+      "stress_xz_eV_per_A3": 7.551377992149797e-10,
+      "stress_xy_eV_per_A3": -4.4870456798428434e-08,
+      "lattice_a_A": 2.4834337029717415,
+      "lattice_b_A": 2.4834339357811954,
+      "lattice_c_A": 2.4834336797013545,
+      "angle_alpha_deg": 60.00000334171178,
+      "angle_beta_deg": 60.000000240653094,
+      "angle_gamma_deg": 60.00000826300448
+    }
+  ],
+  "warnings": [
+    "UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.",
+    "DeprecationWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`."
+  ],
+  "magnetic_limitation": [
+    "Ni is a magnetic element in DFT descriptions.",
+    "The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.",
+    "Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.",
+    "This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.",
+    "Magnetic-state sensitivity must be considered during later DFT comparison."
+  ],
+  "source": {
+    "selected_structure_path": "data/processed/elemental_references/selected/Ni.extxyz",
+    "selected_metadata_path": "data/processed/elemental_references/selected/Ni.metadata.json",
+    "materials_project_database_version": "2026.04.13",
+    "retrieval_time_utc": "2026-07-28T07:07:13Z"
+  },
+  "protected_sources": [
+    {
+      "label": "selected Ni EXTXYZ",
+      "path": "data/processed/elemental_references/selected/Ni.extxyz",
+      "sha256": "9ac0773888e640e689d88f15ab5e0bc06a6ff193b4b3d1683f7f4f7b79cf81a5",
+      "size_bytes": 478,
+      "modification_time_ns": 1785222434261447000
+    },
+    {
+      "label": "selected Ni metadata",
+      "path": "data/processed/elemental_references/selected/Ni.metadata.json",
+      "sha256": "300b6979bc1e55bb3354a96f64b9b5ac9ad04c9300f4bd7ce92537af48c0eb28",
+      "size_bytes": 2941,
+      "modification_time_ns": 1785222434272880300
+    },
+    {
+      "label": "Step 7 configuration",
+      "path": "configs/mace_formation_energy.json",
+      "sha256": "d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f",
+      "size_bytes": 2283,
+      "modification_time_ns": 1785221146596962600
+    }
+  ],
+  "artifacts": {
+    "single_point_json": {
+      "path": "results/mace_elemental_references/single_point/Ni_mace_initial_single_point.json",
+      "sha256": "cfbb717b56438eb1ab1468038a96d3771b84dcddd57e472dc8fb3cd7593fc457",
+      "size_bytes": 2697
+    },
+    "final_structure": {
+      "path": "results/mace_elemental_references/full_cell/structures/Ni_mace_full_cell_relaxed.extxyz",
+      "sha256": "62bc5c1f83c929ce0474fa3b818151f8b0091e91e91bd23b23b443a7ab122d57",
+      "size_bytes": 1002
+    },
+    "trajectory": {
+      "path": "results/mace_elemental_references/full_cell/trajectories/Ni_mace_full_cell.traj",
+      "sha256": "a0dae1086bf55e55ed56341bbf1b328c65f4905a9c13957bc48aa5e8948fdb2a",
+      "size_bytes": 5714
+    },
+    "history_csv": {
+      "path": "results/mace_elemental_references/full_cell/tables/Ni_mace_full_cell_history.csv",
+      "sha256": "fc06ae9922e31faa0278bc637b30562cad8c572f00ab0e897750d00ca4e5f48d",
+      "size_bytes": 2698
+    },
+    "report": {
+      "path": "results/mace_elemental_references/full_cell/reports/Ni_mace_reference_report.txt",
+      "sha256": "3ecb3a904430c1dbe58fae86d218713021fca42ee33a69ff4098d62071d62ea4",
+      "size_bytes": 8067
+    },
+    "optimizer_log": {
+      "path": "results/mace_elemental_references/full_cell/logs/Ni_mace_reference.log",
+      "sha256": "992392a55f107e29164c228585bfa6296b095df8f3b535884b96a6a211382afb",
+      "size_bytes": 316
+    }
+  },
+  "scientific_limitations": [
+    "MACE-potential reference state; not a DFT or experimental validation.",
+    "Raw elemental energies are not ranked against compounds.",
+    "The reference is valid only together with its convergence and safety statuses."
+  ]
+}

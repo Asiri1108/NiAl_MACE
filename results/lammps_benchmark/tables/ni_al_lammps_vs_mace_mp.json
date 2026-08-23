@@ -1,0 +1,577 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "ni_al_lammps_vs_mace_mp",
+  "project_step": "10",
+  "generated_at_utc": "2026-07-28T10:10:12Z",
+  "configuration_fingerprint_sha256": "074f74df6c51db397f3644754ced864bf66a4e7771acb6e08ca95a9e03bf4fe1",
+  "error_convention": "signed_error = method - MP processed DFT (eV/atom).",
+  "records": [
+    {
+      "method": "mace_mp0_small",
+      "method_label": "MACE-MP-0 Small",
+      "phase": "Al3Ni",
+      "material_id": "mp-622209",
+      "ni_atomic_fraction": 0.25,
+      "mp_dft_formation_energy_eV_per_atom": -0.4187757031250001,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.46036237921754797,
+      "signed_error_vs_mp_eV_per_atom": -0.04158667609254785,
+      "absolute_error_vs_mp_eV_per_atom": 0.04158667609254785,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mace_mp0_small",
+      "method_label": "MACE-MP-0 Small",
+      "phase": "Al3Ni2",
+      "material_id": "mp-1057",
+      "ni_atomic_fraction": 0.4,
+      "mp_dft_formation_energy_eV_per_atom": -0.6442166279999995,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.6410732626942732,
+      "signed_error_vs_mp_eV_per_atom": 0.003143365305726231,
+      "absolute_error_vs_mp_eV_per_atom": 0.003143365305726231,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mace_mp0_small",
+      "method_label": "MACE-MP-0 Small",
+      "phase": "AlNi",
+      "material_id": "mp-1487",
+      "ni_atomic_fraction": 0.5,
+      "mp_dft_formation_energy_eV_per_atom": -0.68490115,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.6902310338730269,
+      "signed_error_vs_mp_eV_per_atom": -0.005329883873026908,
+      "absolute_error_vs_mp_eV_per_atom": 0.005329883873026908,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mace_mp0_small",
+      "method_label": "MACE-MP-0 Small",
+      "phase": "Al3Ni5",
+      "material_id": "mp-16514",
+      "ni_atomic_fraction": 0.625,
+      "mp_dft_formation_energy_eV_per_atom": -0.5632505449999989,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.6060975704525231,
+      "signed_error_vs_mp_eV_per_atom": -0.04284702545252417,
+      "absolute_error_vs_mp_eV_per_atom": 0.04284702545252417,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mace_mp0_small",
+      "method_label": "MACE-MP-0 Small",
+      "phase": "AlNi3",
+      "material_id": "mp-2593",
+      "ni_atomic_fraction": 0.75,
+      "mp_dft_formation_energy_eV_per_atom": -0.4264197774999996,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.48803551385982225,
+      "signed_error_vs_mp_eV_per_atom": -0.06161573635982265,
+      "absolute_error_vs_mp_eV_per_atom": 0.06161573635982265,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "pun_mishin_2009",
+      "method_label": "Pun-Mishin 2009 EAM",
+      "phase": "Al3Ni",
+      "material_id": "mp-622209",
+      "ni_atomic_fraction": 0.25,
+      "mp_dft_formation_energy_eV_per_atom": -0.4187757031250001,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.24270775540982004,
+      "signed_error_vs_mp_eV_per_atom": 0.17606794771518008,
+      "absolute_error_vs_mp_eV_per_atom": 0.17606794771518008,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "pun_mishin_2009",
+      "method_label": "Pun-Mishin 2009 EAM",
+      "phase": "Al3Ni2",
+      "material_id": "mp-1057",
+      "ni_atomic_fraction": 0.4,
+      "mp_dft_formation_energy_eV_per_atom": -0.6442166279999995,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.36292919591476824,
+      "signed_error_vs_mp_eV_per_atom": 0.2812874320852312,
+      "absolute_error_vs_mp_eV_per_atom": 0.2812874320852312,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "pun_mishin_2009",
+      "method_label": "Pun-Mishin 2009 EAM",
+      "phase": "AlNi",
+      "material_id": "mp-1487",
+      "ni_atomic_fraction": 0.5,
+      "mp_dft_formation_energy_eV_per_atom": -0.68490115,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.6058710297041103,
+      "signed_error_vs_mp_eV_per_atom": 0.07903012029588963,
+      "absolute_error_vs_mp_eV_per_atom": 0.07903012029588963,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "pun_mishin_2009",
+      "method_label": "Pun-Mishin 2009 EAM",
+      "phase": "Al3Ni5",
+      "material_id": "mp-16514",
+      "ni_atomic_fraction": 0.625,
+      "mp_dft_formation_energy_eV_per_atom": -0.5632505449999989,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.5408698602688089,
+      "signed_error_vs_mp_eV_per_atom": 0.022380684731190037,
+      "absolute_error_vs_mp_eV_per_atom": 0.022380684731190037,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "pun_mishin_2009",
+      "method_label": "Pun-Mishin 2009 EAM",
+      "phase": "AlNi3",
+      "material_id": "mp-2593",
+      "ni_atomic_fraction": 0.75,
+      "mp_dft_formation_energy_eV_per_atom": -0.4264197774999996,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.45397797197801815,
+      "signed_error_vs_mp_eV_per_atom": -0.02755819447801855,
+      "absolute_error_vs_mp_eV_per_atom": 0.02755819447801855,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mishin_2004_ipr2",
+      "method_label": "Mishin 2004 EAM (ipr2)",
+      "phase": "Al3Ni",
+      "material_id": "mp-622209",
+      "ni_atomic_fraction": 0.25,
+      "mp_dft_formation_energy_eV_per_atom": -0.4187757031250001,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.24382347385797276,
+      "signed_error_vs_mp_eV_per_atom": 0.17495222926702736,
+      "absolute_error_vs_mp_eV_per_atom": 0.17495222926702736,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "mishin_2004_ipr2",
+      "method_label": "Mishin 2004 EAM (ipr2)",
+      "phase": "Al3Ni2",
+      "material_id": "mp-1057",
+      "ni_atomic_fraction": 0.4,
+      "mp_dft_formation_energy_eV_per_atom": -0.6442166279999995,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.35221082931485836,
+      "signed_error_vs_mp_eV_per_atom": 0.2920057986851411,
+      "absolute_error_vs_mp_eV_per_atom": 0.2920057986851411,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "mishin_2004_ipr2",
+      "method_label": "Mishin 2004 EAM (ipr2)",
+      "phase": "AlNi",
+      "material_id": "mp-1487",
+      "ni_atomic_fraction": 0.5,
+      "mp_dft_formation_energy_eV_per_atom": -0.68490115,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.5904200463395299,
+      "signed_error_vs_mp_eV_per_atom": 0.09448110366047002,
+      "absolute_error_vs_mp_eV_per_atom": 0.09448110366047002,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mishin_2004_ipr2",
+      "method_label": "Mishin 2004 EAM (ipr2)",
+      "phase": "Al3Ni5",
+      "material_id": "mp-16514",
+      "ni_atomic_fraction": 0.625,
+      "mp_dft_formation_energy_eV_per_atom": -0.5632505449999989,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.5128884615205926,
+      "signed_error_vs_mp_eV_per_atom": 0.050362083479406294,
+      "absolute_error_vs_mp_eV_per_atom": 0.050362083479406294,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "mishin_2004_ipr2",
+      "method_label": "Mishin 2004 EAM (ipr2)",
+      "phase": "AlNi3",
+      "material_id": "mp-2593",
+      "ni_atomic_fraction": 0.75,
+      "mp_dft_formation_energy_eV_per_atom": -0.4264197774999996,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.44771989407631985,
+      "signed_error_vs_mp_eV_per_atom": -0.02130011657632025,
+      "absolute_error_vs_mp_eV_per_atom": 0.02130011657632025,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mishin_2002",
+      "method_label": "Mishin 2002 EAM",
+      "phase": "Al3Ni",
+      "material_id": "mp-622209",
+      "ni_atomic_fraction": 0.25,
+      "mp_dft_formation_energy_eV_per_atom": -0.4187757031250001,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.2670358516593123,
+      "signed_error_vs_mp_eV_per_atom": 0.1517398514656878,
+      "absolute_error_vs_mp_eV_per_atom": 0.1517398514656878,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mishin_2002",
+      "method_label": "Mishin 2002 EAM",
+      "phase": "Al3Ni2",
+      "material_id": "mp-1057",
+      "ni_atomic_fraction": 0.4,
+      "mp_dft_formation_energy_eV_per_atom": -0.6442166279999995,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.3708193751705878,
+      "signed_error_vs_mp_eV_per_atom": 0.2733972528294117,
+      "absolute_error_vs_mp_eV_per_atom": 0.2733972528294117,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "mishin_2002",
+      "method_label": "Mishin 2002 EAM",
+      "phase": "AlNi",
+      "material_id": "mp-1487",
+      "ni_atomic_fraction": 0.5,
+      "mp_dft_formation_energy_eV_per_atom": -0.68490115,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.5334912205262903,
+      "signed_error_vs_mp_eV_per_atom": 0.15140992947370968,
+      "absolute_error_vs_mp_eV_per_atom": 0.15140992947370968,
+      "on_selected_set_envelope": true
+    },
+    {
+      "method": "mishin_2002",
+      "method_label": "Mishin 2002 EAM",
+      "phase": "Al3Ni5",
+      "material_id": "mp-16514",
+      "ni_atomic_fraction": 0.625,
+      "mp_dft_formation_energy_eV_per_atom": -0.5632505449999989,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.4352946953613701,
+      "signed_error_vs_mp_eV_per_atom": 0.12795584963862883,
+      "absolute_error_vs_mp_eV_per_atom": 0.12795584963862883,
+      "on_selected_set_envelope": false
+    },
+    {
+      "method": "mishin_2002",
+      "method_label": "Mishin 2002 EAM",
+      "phase": "AlNi3",
+      "material_id": "mp-2593",
+      "ni_atomic_fraction": 0.75,
+      "mp_dft_formation_energy_eV_per_atom": -0.4264197774999996,
+      "mp_energy_above_hull_eV_per_atom": 0.0,
+      "mp_is_stable": true,
+      "formation_energy_eV_per_atom": -0.3834524566598101,
+      "signed_error_vs_mp_eV_per_atom": 0.042967320840189505,
+      "absolute_error_vs_mp_eV_per_atom": 0.042967320840189505,
+      "on_selected_set_envelope": true
+    }
+  ],
+  "statistics_by_method": {
+    "mace_mp0_small": {
+      "sample_size": 5,
+      "mean_signed_error_eV_per_atom": -0.029647191294439067,
+      "mean_absolute_error_eV_per_atom": 0.03090453741672956,
+      "rmse_eV_per_atom": 0.03847104519834134,
+      "median_absolute_error_eV_per_atom": 0.04158667609254785,
+      "maximum_absolute_error_eV_per_atom": 0.06161573635982265,
+      "phase_with_maximum_absolute_error": "AlNi3",
+      "minimum_absolute_error_eV_per_atom": 0.003143365305726231,
+      "phase_with_minimum_absolute_error": "Al3Ni2",
+      "standard_deviation_of_signed_errors_eV_per_atom": 0.024516634495863387,
+      "pearson_correlation": 0.9909501796557142,
+      "spearman_rank_correlation": 0.9999999999999999,
+      "ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni2",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni"
+      ],
+      "dft_ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni2",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni"
+      ],
+      "exact_ranking_agreement": true,
+      "pairwise_ordering_agreement": "10/10",
+      "most_negative_phase": "AlNi",
+      "error_threshold_counts": {
+        "0.05": 4,
+        "0.1": 5
+      },
+      "correlation_note": "Exploratory only: five compounds cannot support strong statistical claims."
+    },
+    "pun_mishin_2009": {
+      "sample_size": 5,
+      "mean_signed_error_eV_per_atom": 0.10624159806989449,
+      "mean_absolute_error_eV_per_atom": 0.1172648758611019,
+      "rmse_eV_per_atom": 0.1533809966766724,
+      "median_absolute_error_eV_per_atom": 0.07903012029588963,
+      "maximum_absolute_error_eV_per_atom": 0.2812874320852312,
+      "phase_with_maximum_absolute_error": "Al3Ni2",
+      "minimum_absolute_error_eV_per_atom": 0.022380684731190037,
+      "phase_with_minimum_absolute_error": "Al3Ni5",
+      "standard_deviation_of_signed_errors_eV_per_atom": 0.11062754169321662,
+      "pearson_correlation": 0.578035468132815,
+      "spearman_rank_correlation": 0.7,
+      "ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni2",
+        "Al3Ni"
+      ],
+      "dft_ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni2",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni"
+      ],
+      "exact_ranking_agreement": false,
+      "pairwise_ordering_agreement": "8/10",
+      "most_negative_phase": "AlNi",
+      "error_threshold_counts": {
+        "0.05": 2,
+        "0.1": 3
+      },
+      "correlation_note": "Exploratory only: five compounds cannot support strong statistical claims."
+    },
+    "mishin_2004_ipr2": {
+      "sample_size": 5,
+      "mean_signed_error_eV_per_atom": 0.11810021970314491,
+      "mean_absolute_error_eV_per_atom": 0.12662026633367301,
+      "rmse_eV_per_atom": 0.15987018631295932,
+      "median_absolute_error_eV_per_atom": 0.09448110366047002,
+      "maximum_absolute_error_eV_per_atom": 0.2920057986851411,
+      "phase_with_maximum_absolute_error": "Al3Ni2",
+      "minimum_absolute_error_eV_per_atom": 0.02130011657632025,
+      "phase_with_minimum_absolute_error": "AlNi3",
+      "standard_deviation_of_signed_errors_eV_per_atom": 0.1077534898637127,
+      "pearson_correlation": 0.5677235811635075,
+      "spearman_rank_correlation": 0.7,
+      "ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni2",
+        "Al3Ni"
+      ],
+      "dft_ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni2",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni"
+      ],
+      "exact_ranking_agreement": false,
+      "pairwise_ordering_agreement": "8/10",
+      "most_negative_phase": "AlNi",
+      "error_threshold_counts": {
+        "0.05": 1,
+        "0.1": 3
+      },
+      "correlation_note": "Exploratory only: five compounds cannot support strong statistical claims."
+    },
+    "mishin_2002": {
+      "sample_size": 5,
+      "mean_signed_error_eV_per_atom": 0.1494940408495255,
+      "mean_absolute_error_eV_per_atom": 0.1494940408495255,
+      "rmse_eV_per_atom": 0.1666822709454483,
+      "median_absolute_error_eV_per_atom": 0.15140992947370968,
+      "maximum_absolute_error_eV_per_atom": 0.2733972528294117,
+      "phase_with_maximum_absolute_error": "Al3Ni2",
+      "minimum_absolute_error_eV_per_atom": 0.042967320840189505,
+      "phase_with_minimum_absolute_error": "AlNi3",
+      "standard_deviation_of_signed_errors_eV_per_atom": 0.07371913725764996,
+      "pearson_correlation": 0.740309260803653,
+      "spearman_rank_correlation": 0.7,
+      "ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni2",
+        "Al3Ni"
+      ],
+      "dft_ranking_most_negative_first": [
+        "AlNi",
+        "Al3Ni2",
+        "Al3Ni5",
+        "AlNi3",
+        "Al3Ni"
+      ],
+      "exact_ranking_agreement": false,
+      "pairwise_ordering_agreement": "8/10",
+      "most_negative_phase": "AlNi",
+      "error_threshold_counts": {
+        "0.05": 1,
+        "0.1": 1
+      },
+      "correlation_note": "Exploratory only: five compounds cannot support strong statistical claims."
+    }
+  },
+  "mace_statistics_from_step8": {
+    "sample_size": 5,
+    "sample_size_note": "Only five selected compounds; all statistics are descriptive and correlation metrics are exploratory.",
+    "mean_signed_error_eV_per_atom": -0.029647191294439067,
+    "mean_absolute_error_eV_per_atom": 0.03090453741672956,
+    "root_mean_squared_error_eV_per_atom": 0.03847104519834134,
+    "median_absolute_error_eV_per_atom": 0.04158667609254785,
+    "maximum_absolute_error_eV_per_atom": 0.06161573635982265,
+    "phase_with_maximum_absolute_error": "AlNi3",
+    "phase_with_minimum_absolute_error": "Al3Ni2",
+    "standard_deviation_of_signed_errors_eV_per_atom": 0.024516634495863387,
+    "standard_deviation_note": "Population standard deviation over n=5.",
+    "pearson_correlation": 0.9909501796557142,
+    "spearman_rank_correlation": 0.9999999999999999,
+    "correlation_note": "Exploratory only: five data points cannot support strong statistical claims.",
+    "mace_ranking_most_negative_first": [
+      "AlNi",
+      "Al3Ni2",
+      "Al3Ni5",
+      "AlNi3",
+      "Al3Ni"
+    ],
+    "dft_ranking_most_negative_first": [
+      "AlNi",
+      "Al3Ni2",
+      "Al3Ni5",
+      "AlNi3",
+      "Al3Ni"
+    ],
+    "exact_ranking_agreement": true,
+    "pairwise_ordering_agreement": "10/10",
+    "pairwise_ordering_agreement_fraction": 1.0,
+    "most_negative_phase_mace": "AlNi",
+    "most_negative_phase_dft": "AlNi",
+    "composition_trend_signs_match": true,
+    "error_threshold_counts": {
+      "0.05": 4,
+      "0.1": 5,
+      "0.2": 5
+    },
+    "error_threshold_note": "Descriptive bins only, not universal accuracy standards.",
+    "all_signed_errors_positive": false,
+    "all_signed_errors_negative": false
+  },
+  "mae_ranking_best_first": [
+    "mace_mp0_small",
+    "pun_mishin_2009",
+    "mishin_2004_ipr2",
+    "mishin_2002"
+  ],
+  "best_method_by_mae": "mace_mp0_small",
+  "per_phase_best_method": {
+    "Al3Ni": "mace_mp0_small",
+    "Al3Ni2": "mace_mp0_small",
+    "AlNi": "mace_mp0_small",
+    "Al3Ni5": "pun_mishin_2009",
+    "AlNi3": "mishin_2004_ipr2"
+  },
+  "selected_set_envelopes": {
+    "pun_mishin_2009": {
+      "description": "Selected-set lower convex envelope over pure Al, the five selected compounds, and pure Ni using full-cell formation energies from this potential only. Not a complete Ni-Al convex hull, not the Materials Project hull, and not a complete phase diagram; untested Ni-Al structures may lie below it.",
+      "vertices": [
+        {
+          "ni_fraction": 0.0,
+          "formation_energy_eV_per_atom": 0.0
+        },
+        {
+          "ni_fraction": 0.5,
+          "formation_energy_eV_per_atom": -0.6058710297041103
+        },
+        {
+          "ni_fraction": 0.625,
+          "formation_energy_eV_per_atom": -0.5408698602688089
+        },
+        {
+          "ni_fraction": 0.75,
+          "formation_energy_eV_per_atom": -0.45397797197801815
+        },
+        {
+          "ni_fraction": 1.0,
+          "formation_energy_eV_per_atom": 0.0
+        }
+      ]
+    },
+    "mishin_2004_ipr2": {
+      "description": "Selected-set lower convex envelope over pure Al, the five selected compounds, and pure Ni using full-cell formation energies from this potential only. Not a complete Ni-Al convex hull, not the Materials Project hull, and not a complete phase diagram; untested Ni-Al structures may lie below it.",
+      "vertices": [
+        {
+          "ni_fraction": 0.0,
+          "formation_energy_eV_per_atom": 0.0
+        },
+        {
+          "ni_fraction": 0.5,
+          "formation_energy_eV_per_atom": -0.5904200463395299
+        },
+        {
+          "ni_fraction": 0.75,
+          "formation_energy_eV_per_atom": -0.44771989407631985
+        },
+        {
+          "ni_fraction": 1.0,
+          "formation_energy_eV_per_atom": 0.0
+        }
+      ]
+    },
+    "mishin_2002": {
+      "description": "Selected-set lower convex envelope over pure Al, the five selected compounds, and pure Ni using full-cell formation energies from this potential only. Not a complete Ni-Al convex hull, not the Materials Project hull, and not a complete phase diagram; untested Ni-Al structures may lie below it.",
+      "vertices": [
+        {
+          "ni_fraction": 0.0,
+          "formation_energy_eV_per_atom": 0.0
+        },
+        {
+          "ni_fraction": 0.25,
+          "formation_energy_eV_per_atom": -0.2670358516593123
+        },
+        {
+          "ni_fraction": 0.5,
+          "formation_energy_eV_per_atom": -0.5334912205262903
+        },
+        {
+          "ni_fraction": 0.75,
+          "formation_energy_eV_per_atom": -0.3834524566598101
+        },
+        {
+          "ni_fraction": 1.0,
+          "formation_energy_eV_per_atom": 0.0
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "n=5 compounds; statistics are descriptive and correlations exploratory.",
+    "Materials Project values are processed DFT-derived references, not experimental truth.",
+    "Selected-set envelopes are not complete Ni-Al convex hulls.",
+    "Ni is a magnetic element in DFT descriptions.",
+    "The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.",
+    "Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.",
+    "This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.",
+    "Magnetic-state sensitivity must be considered during later DFT comparison."
+  ]
+}

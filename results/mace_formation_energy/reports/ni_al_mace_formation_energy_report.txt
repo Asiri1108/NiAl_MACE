@@ -1,0 +1,78 @@
+Step 7 - MACE-Consistent Ni-Al Formation Energies
+============================================================================
+
+1. Objective
+------------
+Calculate MACE-consistent formation energies for the five selected Ni-Al phases using MACE-relaxed pure Al and pure Ni reference states from the same model and convergence criteria.
+
+2. Model and provenance
+-----------------------
+Model: MACE-MP-0 small; device=cpu; dtype=float64; dispersion=false
+Configuration SHA-256: d1bd8629a98e50c17bfc8e032937dde0671a1a33b034ce23729da74c5d84941f
+Materials Project database version (structure provenance only): Al=2026.04.13; Ni=2026.04.13
+
+3. Elemental chemical potentials (MACE, relaxed)
+------------------------------------------------
+mu_Al_MACE = -3.7095879398802807 eV/atom
+  source: mp-134; 1 atom(s); CONVERGED; 7 optimizer step(s)
+  initial single-point energy per atom: -3.709129750225296 eV/atom
+mu_Ni_MACE = -5.7323473199301382 eV/atom
+  source: mp-23; 1 atom(s); CONVERGED; 4 optimizer step(s)
+  initial single-point energy per atom: -5.7260336973207941 eV/atom
+
+4. Formation-energy equation
+----------------------------
+formation_energy_eV_per_atom =
+  (compound_total_energy_eV
+   - N_Al * mu_Al_MACE_eV_per_atom
+   - N_Ni * mu_Ni_MACE_eV_per_atom) / (N_Al + N_Ni)
+The actual cell composition was used; the formula-unit route was validated to agree within 1e-12 eV/atom.
+
+5. Per-phase results (eV/atom)
+------------------------------
+phase | x_Ni | initial E_f | relaxed E_f | relaxation effect | above envelope | on envelope
+Al3Ni | 0.250000 | -0.455126193 | -0.460362379 | -0.005236186 | 0.000000000 | yes
+Al3Ni2 | 0.400000 | -0.640219089 | -0.641073263 | -0.000854174 | 0.000000000 | yes
+AlNi | 0.500000 | -0.689259153 | -0.690231034 | -0.000971881 | 0.000000000 | yes
+Al3Ni5 | 0.625000 | -0.601314792 | -0.606097570 | -0.004782778 | 0.000000000 | yes
+AlNi3 | 0.750000 | -0.487265381 | -0.488035514 | -0.000770133 | 0.000000000 | yes
+
+The initial values are a clearly labeled fixed-geometry diagnostic: initial compound single points minus initial elemental single points. The relaxed values are the primary result: full-cell relaxed compounds minus full-cell relaxed elemental references. Initial and relaxed states were never mixed.
+
+6. Selected-set lower convex envelope
+-------------------------------------
+Vertices (Ni fraction, formation energy eV/atom):
+  (0.000000, 0.000000000)
+  (0.250000, -0.460362379)
+  (0.400000, -0.641073263)
+  (0.500000, -0.690231034)
+  (0.625000, -0.606097570)
+  (0.750000, -0.488035514)
+  (1.000000, 0.000000000)
+Envelope membership tolerance: 1e-08 eV/atom
+
+IMPORTANT LIMITATIONS:
+- This selected-set analysis is incomplete: only pure Al, pure Ni, and the five selected compounds were included.
+- Untested Ni-Al compositions may lie below the selected envelope.
+- The selected-set lower convex envelope is not Materials Project energy above hull and is not a complete Ni-Al convex hull.
+- This is not a complete phase diagram and is not proof of experimental stability.
+
+7. Lower-energy trend within the selected set
+---------------------------------------------
+Within only the selected five compounds and the two elemental endpoints, the relaxed MACE formation energies order as listed above; this ordering is a statement about the configured MACE potential on this incomplete selected set, not a complete phase diagram, not a DFT result, and not an experimental stability proof.
+
+8. Magnetic limitation for Ni
+-----------------------------
+- Ni is a magnetic element in DFT descriptions.
+- The current structural MACE workflow does not provide an explicit user-controlled spin or magnetic-moment input.
+- Step 7 therefore calculates the reference energy produced by the configured pretrained MACE model for the selected Ni crystal structure.
+- This is a MACE-consistent reference, not a direct controlled magnetic DFT reference.
+- Magnetic-state sensitivity must be considered during later DFT comparison.
+
+9. Scientific boundaries
+------------------------
+- No DFT calculation was performed.
+- No comparison against Materials Project DFT formation energies was performed in this step.
+- MACE and DFT energies were never mixed.
+- Raw total energies were never ranked across compositions.
+- No conclusion about MACE accuracy or fine-tuning necessity is made here.

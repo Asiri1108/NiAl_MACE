@@ -1,0 +1,10 @@
+8
+Lattice="3.72527337 0.0 0.0 0.0 4.9112235 -0.56361537 0.0 -0.03319863 4.94334827" Properties=species:S:1:pos:R:3:MACE_forces_eV_per_A:R:3 source="Materials Project" material_id=mp-16514 phase_key=Al3Ni5 query_formula=Al3Ni5 formula_pretty=Al3Ni5 selected_candidate=T selection_rank=1 retrieval_time_utc=2026-07-20T14:16:25Z energy_above_hull_eV_per_atom=0.0 formation_energy_per_atom_eV=-0.5632505449999989 is_stable=T MACE_total_energy_eV=-44.56807607688442 MACE_energy_per_atom_eV=-5.571009509610552 MACE_stress_eV_per_A3="-0.04042359454436498 -0.0374954184483201 -0.03847086961862685 0.004519597716073869 1.4748760648434658e-17 1.8244816712616336e-17" source_material_id=mp-16514 source_formula=Al3Ni5 model_family=MACE model_name=MACE-MP-0 model_size=small device=cpu default_dtype=float64 dispersion=F evaluation_type="zero-shot single-point" evaluation_time_utc=2026-07-21T12:06:56Z ASE_stress_order="xx yy zz yz xz xy" pbc="T T T"
+Al       0.00000000       2.43901243       2.18986645       0.00000006       0.00000006       0.00000002
+Al       1.86263669       1.06081899       3.72486103      -0.00000004       0.00448877      -0.00499828
+Al       1.86263669       3.81720588       0.65487187      -0.00000004      -0.00448876       0.00499831
+Ni       0.00000000       0.00000000       0.00000000       0.00000004      -0.00000001       0.00000002
+Ni       0.00000000       2.45561175      -0.28180768       0.00000004       0.00000000      -0.00000004
+Ni       0.00000000      -0.01659931       2.47167414       0.00000004      -0.00000006      -0.00000004
+Ni       1.86263669       1.34580828       1.20833349      -0.00000005       0.11965015       0.10742724
+Ni       1.86263669       3.53221659       3.17139941      -0.00000005      -0.11965017      -0.10742723

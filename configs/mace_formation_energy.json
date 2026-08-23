@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "description": "MACE-consistent elemental references and Ni-Al formation-energy workflow.",
+  "model": {
+    "family": "MACE",
+    "name": "MACE-MP-0",
+    "value": "small",
+    "device": "cpu",
+    "default_dtype": "float64",
+    "dispersion": false
+  },
+  "materials_project": {
+    "api_key_environment_variable": "MP_API_KEY",
+    "require_stable_elemental_reference": true,
+    "maximum_energy_above_hull_eV_per_atom": 1e-8,
+    "expected_elemental_space_group_symbol": "Fm-3m",
+    "expected_elemental_space_group_number": 225
+  },
+  "elemental_references": {
+    "Al": {
+      "expected_formula": "Al",
+      "expected_elements": ["Al"]
+    },
+    "Ni": {
+      "expected_formula": "Ni",
+      "expected_elements": ["Ni"]
+    }
+  },
+  "relaxation": {
+    "optimizer": "FIRE",
+    "force_threshold_eV_per_A": 0.01,
+    "stress_threshold_eV_per_A3": 0.0006241509,
+    "maximum_steps": 1000,
+    "trajectory_interval": 1,
+    "hydrostatic_strain": false,
+    "constant_volume": false,
+    "external_pressure_eV_per_A3": 0.0
+  },
+  "safety": {
+    "maximum_absolute_volume_change_percent": 25.0,
+    "maximum_atomic_displacement_A": 2.0,
+    "stop_on_nonfinite_value": true,
+    "preserve_original_structure": true,
+    "require_periodic_cell": true
+  },
+  "symmetry": {
+    "symprec_A": 0.001,
+    "angle_tolerance_deg": 5.0
+  },
+  "compound_energy_sources": {
+    "initial_zero_shot_table": "results/mace_zero_shot/tables/ni_al_mace_zero_shot.json",
+    "full_cell_summary": "results/mace_relaxation/full_cell/tables/ni_al_full_cell_summary.json",
+    "full_cell_checkpoint_directory": "results/mace_relaxation/full_cell/checkpoints",
+    "selected_structure_directory": "data/processed/ni_al_structures/selected"
+  },
+  "phase_order": [
+    "Al3Ni",
+    "Al3Ni2",
+    "AlNi",
+    "Al3Ni5",
+    "AlNi3"
+  ],
+  "input": {
+    "elemental_raw_root": "data/raw/materials_project/elemental_references",
+    "elemental_selected_directory": "data/processed/elemental_references/selected"
+  },
+  "output": {
+    "elemental_reference_root": "results/mace_elemental_references",
+    "formation_energy_root": "results/mace_formation_energy"
+  },
+  "analysis": {
+    "envelope_tolerance_eV_per_atom": 1e-8,
+    "arithmetic_tolerance_eV_per_atom": 1e-12
+  }
+}
