@@ -1,3 +1,187 @@
+# Project Knowledge: Ni-Al Interatomic-Potential Benchmark
+
+## 1. What this project actually did
+
+This repository evaluated a pretrained machine-learning interatomic potential and three published classical Ni-Al potentials on five selected bulk intermetallic crystal structures. The results cover zero-shot single points, geometry relaxation, formation energies, structural comparison, and a static LAMMPS EAM benchmark.
+
+The work completed through Step 10. It did **not** train or fine-tune MACE, run a new DFT calculation, run molecular dynamics, or analyse trajectories in OVITO. Earlier planning language in the repository is superseded by this record and by [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md).
+
+## 2. Research question and scope
+
+The practical question was:
+
+> How does a pretrained MACE-MP-0 Small model compare with three published Ni-Al EAM potentials for static formation energies and equilibrium structures of five selected Ni-Al intermetallic phases?
+
+The scope is deliberately narrow:
+
+- Static, zero-temperature bulk structures only.
+- Five selected intermetallic compounds plus pure Al and Ni reference cells.
+- Materials Project processed DFT-derived values as a benchmark, not experimental truth.
+- Independent elemental references for each potential family before formation energies are calculated.
+
+It is not a phase-diagram calculation, a validation of finite-temperature properties, or proof of behaviour for defects, surfaces, interfaces, deformation, or long molecular-dynamics runs.
+
+## 3. Models used
+
+| Category | Model | Status in this project |
+|---|---|---|
+| ML potential | **MACE-MP-0 Small** | Main model. Pretrained and used zero-shot only; no Ni-Al fine-tuning. |
+| Classical potential | **Purja Pun-Mishin 2009 Ni-Al EAM** | LAMMPS `eam/alloy` primary EAM baseline. |
+| Classical potential | **Mishin 2004 Ni-Al EAM (ipr2)** | LAMMPS `eam/alloy` secondary baseline. The superseded `ipr1` implementation was excluded. |
+| Classical potential | **Mishin-Mehl-Papaconstantopoulos 2002 B2-NiAl EAM** | LAMMPS `eam/alloy` historical baseline. |
+| Reference dataset | **Materials Project processed DFT-derived thermodynamics** | Benchmark data only, database version `2026.04.13`. |
+
+The key model answer is therefore: **MACE-MP-0 Small was used, as a pretrained CPU zero-shot model. It was not fine-tuned.**
+
+## 4. Systems used
+
+| System | MP ID | Space group | Atoms | Role |
+|---|---|---|---:|---|
+| Al | `mp-134` | Fm-3m (225) | 1 | Elemental reference |
+| Ni | `mp-23` | Fm-3m (225) | 1 | Elemental reference |
+| Al3Ni | `mp-622209` | Pnma (62) | 16 | Compound benchmark |
+| Al3Ni2 | `mp-1057` | P-3m1 (164) | 5 | Compound benchmark |
+| AlNi | `mp-1487` | Pm-3m (221) | 2 | Compound benchmark |
+| Al3Ni5 | `mp-16514` | Cmmm (65) | 8 | Compound benchmark |
+| AlNi3 | `mp-2593` | Pm-3m (221) | 4 | Compound benchmark |
+
+Step 4 retained nine exact-composition candidate structures and chose the five working structures deterministically. The selection rule is recorded in `data/processed/ni_al_structures/ni_al_phase_manifest.csv`; alternative polymorphs remain available under `data/raw/`.
+
+## 5. Software and numerical systems
+
+| Item | Recorded configuration |
+|---|---|
+| MACE | MACE-MP-0 Small; CPU; float64; dispersion disabled for Steps 5-8 |
+| Step 3 sanity check | MACE-MP-0 Small; CPU; float32 |
+| Python atomistic framework | ASE |
+| MACE relaxer | FIRE, through `FrechetCellFilter` for full-cell optimisation |
+| LAMMPS | `22 Jul 2025 - Update 4`; `metal` units; `atomic` atoms; periodic cells; `eam/alloy` |
+| LAMMPS minimiser | Conjugate gradient with quadratic line search and `tri` box relaxation |
+| MACE force criterion | <= `0.01 eV/Angstrom` |
+| MACE full-cell stress criterion | <= `0.0006241509 eV/Angstrom^3` |
+| LAMMPS benchmark | 3 potentials x 7 systems x 3 states = 63 calculations; all completed |
+
+The environment snapshots in `environment/requirements_step*_final.txt` list `mace-torch==0.3.16`, `ase==3.29.0`, and `torch==2.13.0+cpu`. The result artifacts document CPU execution but do not identify a processor model, memory, OS edition, CUDA version, or GPU, so none is inferred.
+
+## 6. Methodology
+
+### Structure handling
+
+Materials Project structures were acquired with their provenance and written to `data/raw/`. The selected working structures in `data/processed/` were read as inputs and were not overwritten by calculated structures.
+
+### MACE calculations
+
+The five compound structures were first evaluated as zero-shot single points. They were then relaxed in two intentionally distinct modes:
+
+1. **Fixed cell:** only atomic positions could change.
+2. **Full cell:** positions, cell shape, and volume could change at zero external pressure.
+
+Full-cell MACE calculations began from the original selected structure, not from fixed-cell output. All scheduled MACE relaxations converged and preserved the detected phase symmetry under the project tolerance.
+
+### Formation-energy convention
+
+Formation energies are potential-family-specific. MACE values use MACE-relaxed pure Al and pure Ni references:
+
+`E_f = (E_compound - N_Al * mu_Al - N_Ni * mu_Ni) / (N_Al + N_Ni)`.
+
+For MACE, the calculated chemical potentials are:
+
+- `mu_Al = -3.7095879398802807 eV/atom`
+- `mu_Ni = -5.7323473199301382 eV/atom`
+
+The EAM comparisons likewise use independently relaxed Al and Ni references from the same EAM potential. Raw total energies from different models are not compared across compositions.
+
+### Materials Project benchmark convention
+
+Each compound is benchmarked against its Materials Project processed `formation_energy_per_atom`, with the documented entry type `GGA_GGA+U_R2SCAN`. The project compares formation energies, not raw DFT and MACE total energies. Error is always:
+
+`signed error = method formation energy - Materials Project processed DFT formation energy`.
+
+## 7. Completed-stage outcomes
+
+| Step | Outcome |
+|---|---|
+| 3 | FCC-Al response check completed: a 0.05-Angstrom displacement raised the MACE energy by 0.004013062 eV and generated a clear force response. |
+| 4 | Nine candidate structures retained; five selected working phases published with full provenance. |
+| 5 | Five of five MACE zero-shot single points completed successfully. |
+| 6 | Five fixed-cell and five full-cell MACE relaxations completed safely; all converged. |
+| 7 | Pure Al and Ni MACE references converged and five MACE formation energies were calculated. |
+| 8 | MACE full-cell formation energies and structures benchmarked against Materials Project values. |
+| 9 | Three NIST-sourced EAM/alloy potential files verified and prepared. |
+| 10 | 63 LAMMPS states completed with zero failures; MACE and all three EAM models compared. |
+
+## 8. Principal numerical results
+
+### MACE against the Materials Project benchmark
+
+| Phase | MP formation energy | MACE full-cell formation energy | MACE absolute error | MACE volume error |
+|---|---:|---:|---:|---:|
+| Al3Ni | -0.418776 | -0.460362 | 0.041587 | +2.7397% |
+| Al3Ni2 | -0.644217 | -0.641073 | 0.003143 | +2.3826% |
+| AlNi | -0.684901 | -0.690231 | 0.005330 | +2.6282% |
+| Al3Ni5 | -0.563251 | -0.606098 | 0.042847 | +3.2800% |
+| AlNi3 | -0.426420 | -0.488036 | 0.061616 | +2.8941% |
+
+All energies in this table are eV/atom. The five-phase aggregate is MAE `0.030905 eV/atom`, RMSE `0.038471 eV/atom`, mean signed error `-0.029647 eV/atom`, exact ranking agreement, and 10/10 pairwise ordering agreement. All five volume errors are positive; their mean absolute value is 2.7849%.
+
+### Four-model full-cell scorecard
+
+| Model | Formation-energy MAE | RMSE | Mean signed error | Pairwise ordering | Volume MAE |
+|---|---:|---:|---:|---:|
+| **MACE-MP-0 Small** | **0.030905** | **0.038471** | -0.029647 | **10/10** | 2.7849% |
+| Purja Pun-Mishin 2009 EAM | 0.117265 | 0.153381 | +0.106242 | 8/10 | 1.8576% |
+| Mishin 2004 EAM (ipr2) | 0.126620 | 0.159870 | +0.118100 | 8/10 | 2.6759% |
+| Mishin 2002 EAM | 0.149494 | 0.166682 | +0.149494 | 8/10 | **1.6380%** |
+
+MACE has the lowest formation-energy MAE in this selected five-compound test and is the only model with exact energy ordering. The result is not a claim that it is best for every system: Purja Pun-Mishin 2009 has the smallest error for Al3Ni5, and Mishin 2004 ipr2 has the smallest error for AlNi3.
+
+### MACE relaxation outcome
+
+| Phase | Fixed-cell status | Fixed-cell steps | Full-cell status | Full-cell steps | Full-cell volume change |
+|---|---|---:|---|---:|---:|
+| Al3Ni | CONVERGED | 28 | CONVERGED | 40 | +2.739666% |
+| Al3Ni2 | CONVERGED | 10 | CONVERGED | 33 | +2.382613% |
+| AlNi | ALREADY_CONVERGED | 0 | CONVERGED | 5 | +2.628171% |
+| Al3Ni5 | CONVERGED | 24 | CONVERGED | 34 | +3.280041% |
+| AlNi3 | ALREADY_CONVERGED | 0 | CONVERGED | 14 | +2.894150% |
+
+The complete zero-shot, relaxation, elemental-reference, formation-energy, and LAMMPS calculation tables are reproduced in [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md).
+
+## 9. Correct interpretation of the result
+
+The static five-phase data support a narrow conclusion: MACE-MP-0 Small is the best of the four tested models for the pooled formation-energy metric and phase-energy ordering in this benchmark. It also has a consistent positive volume bias across this sample. The EAM models are less accurate on the pooled energy metric but have lower volume MAE for this particular set.
+
+This does not establish that any potential is universally reliable. In particular:
+
+- Five compounds are not a complete Ni-Al phase diagram.
+- A selected-set envelope is not a complete convex hull.
+- Materials Project processed values are not experimental truth.
+- Ni magnetism remains a caveat because this structural MACE workflow exposes no explicit spin or magnetic-moment input.
+- Static equilibrium results do not validate dynamical or defect properties.
+
+## 10. Authoritative files
+
+| Topic | Primary file |
+|---|---|
+| Structure provenance | `data/processed/ni_al_structures/ni_al_phase_manifest.csv` |
+| MACE zero-shot table | `results/mace_zero_shot/tables/ni_al_mace_zero_shot.csv` |
+| MACE relaxation table | `results/mace_relaxation/comparison/tables/ni_al_relaxation_comparison.csv` |
+| MACE formation energies | `results/mace_formation_energy/tables/ni_al_mace_formation_energies.csv` |
+| MACE vs MP benchmark | `results/mace_vs_dft/tables/ni_al_mace_vs_mp_dft.csv` |
+| EAM formation energies | `results/lammps_benchmark/tables/ni_al_lammps_formation_energies.csv` |
+| Four-model scorecard | `results/lammps_benchmark/tables/ni_al_lammps_vs_mace_mp.csv` |
+| Final run report | `results/lammps_benchmark/reports/ni_al_step10_final_report.txt` |
+
+## 11. Next research stage
+
+The recorded next stage is a controlled DFT reference-data campaign for Ni-Al. It should include convergence tests and an explicit treatment of nickel magnetic state. A fine-tuning decision belongs after that reference dataset is validated, not before.
+
+---
+
+## Historical project knowledge preserved verbatim
+
+The section below is retained from the repository revision before the 2026-08-19 documentation audit. It records the original learning notes and planning sequence. The current record above and [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md) take precedence if a historical plan conflicts with the completed Step 3-10 work.
+
 # PROJECT_KNOWLEDGE — Ni–Al MACE Research Project
 
 > **Project path:** `D:\Materials_Research\NiAl_MACE`  
@@ -1067,499 +1251,7 @@ Determine how each Ni–Al phase changes on the MACE potential-energy surface.
 - allow cell size and shape to change;
 - evaluate force and stress convergence.
 
-Separating these tests helps determine whether the mismatch is mainly caused by:
-
-- internal atomic coordinates;
-- cell parameters;
-- both.
-
-### Important outputs
-
-For each phase:
-
-- initial and final energy;
-- energy change;
-- initial and final maximum force;
-- optimization step count;
-- initial and final volume;
-- percentage volume change;
-- atomic displacement statistics;
-- initial and final stress;
-- convergence status;
-- relaxed EXTXYZ;
-- report.
-
----
-
-## 37. Questions for Step 6
-
-- Which phase requires the largest atomic movement?
-- Which phase has the largest energy decrease?
-- Do AlNi and AlNi3 remain almost unchanged?
-- Does Al3Ni show the largest relaxation?
-- Does the cell shrink or expand?
-- Is symmetry preserved?
-- Are final forces below the selected threshold?
-- Do all phases converge?
-- Does atomic-only relaxation differ strongly from full-cell relaxation?
-
----
-
-## 38. Future formation-energy step
-
-After relaxation, calculate pure reference structures using the same MACE model and conventions.
-
-Likely references:
-
-- FCC Al;
-- FCC Ni.
-
-A consistent formation-energy calculation needs:
-
-- compound energy;
-- pure Al energy;
-- pure Ni energy;
-- matching precision;
-- matching relaxation convention.
-
----
-
-## 39. Future LAMMPS comparison
-
-A fair comparison should control:
-
-- structure;
-- composition;
-- cell convention;
-- relaxation settings;
-- force threshold;
-- stress threshold;
-- units;
-- reference structures;
-- property definitions.
-
-Each potential should be documented with:
-
-- source;
-- publication;
-- type;
-- supported elements;
-- fitting database;
-- known limitations.
-
----
-
-## 40. Fine-tuning decision
-
-Fine-tuning should only be performed if the results justify it.
-
-Possible evidence includes:
-
-- systematic formation-energy error;
-- large force error against reference DFT;
-- incorrect relaxed structures;
-- large volume error;
-- poor off-equilibrium behavior;
-- repeated failure for certain compositions.
-
-Fine-tuning needs reliable DFT labels:
-
-- energy;
-- forces;
-- stress.
-
-Materials Project summary metadata alone is not a full force-training dataset.
-
----
-
-## 41. What has been learned
-
-### Technical
-
-- virtual environments;
-- Git project organization;
-- JSON configuration;
-- Materials Project API;
-- CIF and EXTXYZ;
-- ASE;
-- MACE loading;
-- zero-shot calculations;
-- CSV, JSON, and text reports;
-- validation modes;
-- output overwrite protection.
-
-### Scientific
-
-- raw energy versus formation energy;
-- energy above hull;
-- force and stress;
-- zero-shot evaluation;
-- DFT geometry versus MACE equilibrium;
-- total force versus maximum atomic force;
-- the importance of data provenance.
-
----
-
-## 42. Open questions
-
-1. Why are AlNi and AlNi3 forces nearly zero?
-2. Why are forces larger for Al3Ni, Al3Ni2, and Al3Ni5?
-3. Is the mismatch mainly atomic or volumetric?
-4. Will MACE relaxation preserve the space group?
-5. How much will cell volume change?
-6. How will MACE formation energies compare with consistent references?
-7. Which classical potential gives the closest behavior?
-8. Does performance vary with composition?
-9. Are errors systematic?
-10. Is fine-tuning justified?
-
----
-
-## 43. How to study a new script
-
-1. Identify the script purpose.
-2. List its inputs.
-3. List its outputs.
-4. Start reading from:
-
-```python
-if __name__ == "__main__":
-    main()
-```
-
-5. Follow `main()` and write the workflow using arrows.
-6. For each important function, record:
-   - purpose;
-   - input;
-   - output;
-   - possible errors.
-7. Connect code to science:
-   - where is the model loaded?
-   - where is energy calculated?
-   - where are forces calculated?
-   - where is stress calculated?
-   - where are atoms or the cell changed?
-   - where are outputs saved?
-
----
-
-## 44. Script study template
-
-### Script name
-
-`script_name.py`
-
-### Project step
-
-Step X
-
-### Purpose
-
-One clear sentence.
-
-### Inputs
-
-- input files;
-- configuration;
-- command-line options.
-
-### Outputs
-
-- structure files;
-- tables;
-- reports.
-
-### Main workflow
-
-```text
-Start
-  ↓
-...
-  ↓
-Finish
-```
-
-### Important functions
-
-#### Function name
-
-- Purpose:
-- Input:
-- Output:
-- Possible errors:
-
-### Scientific meaning
-
-Explain the physical quantity and why it matters.
-
-### Validation command
-
-```cmd
-...
-```
-
-### Full command
-
-```cmd
-...
-```
-
-### Success criteria
-
-- ...
-- ...
-
-### What I learned
-
-- ...
-- ...
-
----
-
-## 45. Daily log template
-
-### Date
-
-`YYYY-MM-DD`
-
-### Step
-
-Step X
-
-### Goal
-
-...
-
-### Commands
-
-```cmd
-...
-```
-
-### Files created
-
-- ...
-
-### Files modified
-
-- ...
-
-### Results
-
-...
-
-### Warnings or errors
-
-...
-
-### Interpretation
-
-...
-
-### Questions remaining
-
-...
-
-### Next action
-
-...
-
----
-
-## 46. Current log — 2026-07-21
-
-### Work completed
-
-- activated the project virtual environment;
-- validated Step 4;
-- downloaded five Ni–Al phase families;
-- saved nine candidates;
-- selected five structures;
-- validated Step 5;
-- reviewed the existing Step 5 report;
-- confirmed successful zero-shot evaluation for all five phases.
-
-### Main result
-
-MACE-MP-0 Small successfully produced finite energies, forces, and stresses for all five selected Ni–Al structures without project-specific training.
-
-### Important observation
-
-- AlNi and AlNi3 had forces near zero.
-- Al3Ni, Al3Ni2, and Al3Ni5 had larger residual forces.
-- Controlled relaxation is needed before stronger conclusions.
-
-### Historical next action after Step 5
-
-At the end of Step 5, the planned next work was Step 6:
-
-- atomic-only relaxation;
-- full-cell relaxation;
-- convergence and structural-change analysis.
-
-That work is now complete.
-
----
-
-## 47. One-paragraph project explanation
-
-This project evaluates the pretrained MACE-MP-0 Small universal
-machine-learning interatomic potential on five Ni–Al intermetallic phases
-obtained from Materials Project. The workflow established a reproducible Python
-and ASE environment, selected and documented one structure per phase, produced
-zero-shot fixed-geometry energy/force/stress baselines, and independently
-reproduced those baselines without training. Step 6 then completed independent
-atomic-only and full-cell relaxations for all five phases, followed by
-comparison, symmetry analysis, and validated reporting. All ten results
-converged safely. The next action is Step 7: calculate consistent pure Al and
-pure Ni MACE reference states, then calculate MACE-consistent Ni–Al formation
-energies. LAMMPS comparison remains a later, separately reviewed stage.
-
----
-
-## 48. Short oral explanation
-
-> We prepared the Python environment, tested ASE and MACE on aluminum, and
-> selected one documented Materials Project structure for each of five Ni–Al
-> phases. MACE-MP-0 Small then produced fixed-geometry energy, force, and stress
-> baselines, and a separately controlled workflow reproduced all stored values
-> exactly while proving that the structures and source files were unchanged.
-> Independent fixed-cell and full-cell relaxations then converged safely for
-> all five phases, with symmetry and structural changes reported separately.
-> These are MACE-potential results, not DFT or experimental validation. The
-> next step is to establish consistent pure Al and pure Ni MACE reference
-> states before calculating formation energies.
-
----
-
-## Step 6A — Relaxation Design and Validation
-
-Step 6 is divided into small sub-steps so model loading, reproduction of the
-initial single-point state, atomic relaxation, cell relaxation, and comparison
-can each be reviewed before the next operation is allowed. This reduces the
-risk of confusing preparation or baseline checks with newly generated
-relaxation results.
-
-Two independent future relaxation modes are defined. `atomic_only` permits
-atomic positions to change but fixes the complete cell. `full_cell` permits
-atomic positions, cell shape, and cell volume to change while retaining
-three-dimensional periodicity. Running them separately from copies of the same
-original input will distinguish internal-coordinate effects from cell effects.
-
-Step 6A created:
-
-```text
-configs/mace_relaxation.json
-scripts/validate_ni_al_mace_relaxation.py
-environment/requirements_step6a.txt
-results/mace_relaxation/  (empty planned directory tree only)
-```
-
-The planned model is MACE-MP-0 small on CPU with float64 precision and no
-dispersion. Both modes use FIRE and a force threshold of 0.01 eV/angstrom.
-`atomic_only` allows at most 500 steps. `full_cell` allows at most 1000 steps
-and uses a stress threshold of 0.0006241509 eV/angstrom^3. These are initial
-controlled values that may later receive sensitivity tests.
-
-Future runs must stop on nonfinite values, preserve the selected source files,
-retain periodicity, stop if the absolute volume change exceeds 25%, and stop if
-an atomic displacement exceeds 2.0 angstrom. Step 6A validated strict JSON,
-paths confined to the repository, mode permissions, safety parameters, finite
-periodic Al-Ni geometries, reduced compositions, metadata IDs and formulas,
-calculator-free ASE inputs, and successful finite Step 5 baseline records and
-annotated output paths for all five phases.
-
-No MACE module or model was loaded. No calculator was attached, no energy,
-force, or stress was calculated, no optimization ran, and no atomic positions
-or cell vectors changed. The empty output directories are preparation, not
-scientific results.
-
-Before Step 6B, understand that a successful Step 6A result proves only that
-the planned relaxation is internally consistent and ready for the next safety
-gate. Step 6B will load MACE once and reproduce the initial Step 5 energy,
-force, stress, and volume values before any relaxation is permitted.
-
----
-
-## Step 6B.1 — MACE Model Loading Test
-
-Step 6B.1 isolates model construction from structure handling and physical
-calculation. This separation proves that configuration, imports, and model
-construction work before a structure is introduced, so a later calculation
-failure is not confused with a model-loading failure.
-
-The new file is:
-
-```text
-scripts/reproduce_ni_al_mace_baseline.py
-```
-
-It reads the model family, name, value, device, numerical dtype, and dispersion
-flag from `configs/mace_relaxation.json`. For the current project these settings
-are MACE, MACE-MP-0, small, CPU, float64, and no dispersion. The installed MACE
-factory is called exactly once and its result must inherit from the ASE
-calculator interface.
-
-No CIF or EXTXYZ file is read, no `Atoms` object is created, and the calculator
-is not attached to a structure. No energy, force, stress, or volume is
-requested; no optimizer, relaxation, molecular dynamics, LAMMPS, training, or
-fine-tuning runs; and no scientific output file is created.
-
-Before Step 6B.2, understand that successful calculator creation confirms only
-software and model-loading readiness. It provides no physical result and says
-nothing yet about the reproduced AlNi values. Step 6B.2 will introduce only the
-AlNi input and reproduce its fixed-geometry single-point properties without
-moving atoms or changing the cell.
-
----
-
-## Step 6B.2 — AlNi Initial Baseline Reproduction
-
-Status: Completed on 2026-07-26. The AlNi identity, Step 5 baseline, numerical
-comparisons, structural immutability checks, and source-file fingerprints all
-passed. The calculator was loaded once and one fixed-geometry single-point
-calculation was performed.
-
-### Why AlNi Is the Pilot Phase
-
-AlNi is used as the first reproduction case because the selected B2 structure
-contains only two atoms and has a clear one-to-one Al/Ni ordering. A small,
-unambiguous cell makes unintended atom reordering, position changes, or cell
-changes easier to detect. Verifying the complete workflow on this pilot limits
-the scientific and operational scope before the same fixed-geometry procedure
-is extended to the other four phases.
-
-### Reproducibility Is Not Accuracy
-
-Reproducibility asks whether the same model, numerical precision, execution
-device, input geometry, and property definitions reproduce the stored Step 5
-results within declared numerical tolerances. Accuracy asks a different
-question: whether the model agrees with trustworthy reference calculations or
-experiments. Step 6B.2 tests reproducibility only and must not be interpreted
-as a DFT or experimental accuracy result.
-
-### Fixed-Geometry Single-Point Workflow
-
-The workflow reads the original selected AlNi EXTXYZ, its provenance metadata,
-and the unique successful AlNi record in the Step 5 JSON table. It validates
-the reduced composition with a pymatgen `Composition`, confirms `mp-1487`,
-requires two Al/Ni atoms with full three-dimensional periodicity, and checks
-finite positions, cell vectors, and positive volume. The annotated Step 5
-AlNi EXTXYZ must exist and preserve the source geometry, but the full-precision
-JSON record is the numerical baseline.
-
-MACE-MP-0 Small is loaded exactly once on CPU using float64 precision with
-dispersion disabled. The calculator is attached only to a deep in-memory copy
-of the source. The copy is evaluated once using ASE requests for potential
-energy, atomic forces, and six-component Voigt stress. No geometry setter or
-optimization interface is used.
-
-The calculated and derived quantities are:
-
-* total energy and energy per atom;
-* all atomic force vectors and their per-atom magnitudes;
-* maximum and root-mean-square force magnitude;
-* total force vector and total-force norm;
+Separating these tests helps determi…3319 tokens truncated…orce norm;
 * stress in ASE order `xx, yy, zz, yz, xz, xy`;
 * volume and volume per atom.
 

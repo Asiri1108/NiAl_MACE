@@ -1,4 +1,4 @@
 Python 3.13.7
-pip 26.1.2 from C:\Users\A\AppData\Roaming\Python\Python313\site-packages\pip (python 3.13)
+pip 26.1.2 from C:\Users\A\AppData\Roaming\Python\Python313\site-packages\pip (python 3.13)
 C:\Python313\python.exe
 C:\Users\A\AppData\Local\Microsoft\WindowsApps\python.exe
