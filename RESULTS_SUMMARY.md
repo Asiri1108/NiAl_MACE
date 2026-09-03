@@ -4,6 +4,8 @@
 
 This file is the compact, numerical source of truth for the completed work in this repository. It was reconciled against the generated tables, checkpoints, and final reports on 2026-08-19. No simulation or model evaluation was rerun for this documentation update.
 
+Companion documents: [README.md](README.md) for the project overview, [Show_Case.md](Show_Case.md) for the narrative explanation of the science, and [docs/RESEARCH_LOG.md](docs/RESEARCH_LOG.md) for the chronological working log.
+
 Completed calculation stages are Steps 3 through 10. Step 11 (a controlled DFT reference-data campaign) has not started. No MACE fine-tuning, new DFT calculation, molecular dynamics simulation, or OVITO analysis is present in the recorded results.
 
 ## Models, engines, and data sources used

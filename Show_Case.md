@@ -14,7 +14,7 @@ DFT stability ranking of the five phases exactly.
 
 ## Documentation audit and authoritative record
 
-This presentation was reconciled with the generated project artifacts on 2026-08-19. The complete calculation tables, exact input systems, execution settings, and source paths are maintained in [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md). No calculation was rerun for the documentation audit.
+This presentation was reconciled with the generated project artifacts on 2026-08-19. No calculation was rerun for the documentation audit. Companion documents: [README.md](README.md) for the project overview and repository layout, [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md) for the complete calculation tables, exact input systems, execution settings, and source paths, and [docs/RESEARCH_LOG.md](docs/RESEARCH_LOG.md) for the chronological working log.
 
 | Role | Item actually used |
 |---|---|

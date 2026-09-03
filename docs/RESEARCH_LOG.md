@@ -1,8 +1,24 @@
-# Historical Documentation Archive
+# Research Log Archive
 
-This archive preserves the complete pre-audit versions of the repository's two primary Markdown documents. It is retained so that no earlier documentation content is lost. For current results, models, systems, and scope, use [README.md](README.md), [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md), and [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md).
+Chronological, step-by-step working record of Steps 0-10, preserved verbatim from the
+repository's pre-audit documentation. It records how the work was done and what was
+learned at each stage, including planning language that was later superseded.
 
-## Original README.md (verbatim)
+**This file is history, not the current record.** Where it conflicts with the audited
+result, the audited result wins. For the current project use:
+
+| Need | File |
+|---|---|
+| Overview, models, systems, headline results | [../README.md](../README.md) |
+| Complete audited numbers and settings | [../RESULTS_SUMMARY.md](../RESULTS_SUMMARY.md) |
+| Narrative explanation of the science | [../Show_Case.md](../Show_Case.md) |
+
+The `<!-- NI_AL_STEP*_ -->` comment markers below are write targets for the
+`scripts/run_step*_pipeline.py` documentation stage. Do not remove or duplicate them.
+
+---
+
+## Part 1 — Step-by-step build log (original README)
 
 "# NiAl_MACE" 
 # Ni–Al MACE Interatomic Potential Project
@@ -204,7 +220,6 @@ The project will initially use Materials Project data for:
 
 * Selecting relevant Ni–Al phases.
 * Obtaining relaxed crystal structures.
-<!-- README_HISTORICAL_PART_1_END -->
 * Recording material identifiers and calculation provenance.
 * Comparing lattice, energy, formation-energy, and stability results.
 * Investigating relaxation trajectories as a possible source of training configurations.
@@ -405,7 +420,6 @@ Directories are created only by a real successful acquisition when needed:
 configs/
 └── ni_al_phases.json
 data/
-<!-- README_HISTORICAL_PART_2_END -->
 ├── raw/materials_project/ni_al/
 │   └── <phase_key>/<material_id>/
 │       ├── structure.cif
@@ -606,7 +620,6 @@ copy of the original selected structure:
 * `atomic_only` may change atomic positions while cell vectors, volume, shape,
   and periodic boundary conditions remain fixed.
 * `full_cell` may change atomic positions, cell vectors, volume, and shape while
-<!-- README_HISTORICAL_PART_3_END -->
   periodic boundary conditions remain enabled.
 
 This separation will show whether differences between the Materials Project
@@ -807,7 +820,6 @@ The controlled script is:
 
 ```text
 scripts/reproduce_ni_al_mace_baseline.py
-<!-- README_HISTORICAL_PART_4_END -->
 ```
 
 Run the isolated Step 6B.1 loading behavior:
@@ -1008,7 +1020,6 @@ results/mace_relaxation/comparison/tables/ni_al_step6b3_baseline_reproduction.js
 No optimizer was imported or created, FIRE was not executed, no relaxation
 occurred, no positions or cells changed, and no trajectory or structure was
 written.
-<!-- README_HISTORICAL_PART_5_END -->
 +
 ### Success Criteria
 
@@ -1209,7 +1220,6 @@ Step 10 is not implemented here.
 Step 10 executed the Step 9-designed static benchmark: the three validated NIST EAM/alloy potentials each processed independent copies of the same seven original selected structures (pure Al, pure Ni, five compounds) through an initial `run 0`, a fixed-cell CG minimization, and a full-cell `fix box/relax tri 0.0` minimization (63 states total; sequential; no dynamics, velocities, or thermostats). Convergence was verified independently: max force <= 0.01 eV/angstrom and max |pressure component| <= 999.999988 bar (= 0.0006241509 eV/angstrom^3; stress = -pressure/1.602176634e6). Formation energies use each potential's own relaxed pure-element references in the matching state; no cross-potential, MACE, or MP elemental reference was ever mixed.
 
 | Method | MAE (eV/atom) | RMSE (eV/atom) | Mean signed (eV/atom) | Ranking exact | Volume MAE (%) | Symmetry |
-<!-- README_HISTORICAL_PART_6_END -->
 |---|---:|---:|---:|---|---:|---|
 | MACE-MP-0 Small | 0.030905 | 0.038471 | -0.029647 | True | 2.7849 | 5/5 |
 | Pun-Mishin 2009 EAM | 0.117265 | 0.153381 | +0.106242 | False | 1.8576 | 5/5 |
@@ -1232,9 +1242,8 @@ Step 11 - Design and generate a DFT reference dataset for Ni-Al, beginning with 
 
 Step 11 is not implemented here.
 <!-- NI_AL_STEP10_END -->
-<!-- README_HISTORICAL_PART_7_END -->
 +
-## Original PROJECT_KNOWLEDGE.md (verbatim)
+## Part 2 — Learning and reasoning notes (original PROJECT_KNOWLEDGE)
 
 # PROJECT_KNOWLEDGE — Ni–Al MACE Research Project
 
@@ -1436,7 +1445,6 @@ Raw data should normally not be edited manually.
 Stores selected and organized inputs for calculations.
 
 The selected structures are under:
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_1_END -->
 +
 ```text
 data/processed/ni_al_structures/selected/
@@ -1637,7 +1645,6 @@ Total candidates saved: 9
 | AlNi | `mp-1487` | Pm-3m (221) | 2 | 0 eV/atom |
 | Al3Ni5 | `mp-16514` | Cmmm (65) | 8 | 0 eV/atom |
 | AlNi3 | `mp-2593` | Pm-3m (221) | 4 | 0 eV/atom |
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_2_END -->
 +
 All selected structures lie on the Materials Project convex hull.
 
@@ -1838,7 +1845,6 @@ Records provenance such as:
 - phase key;
 - material ID;
 - formula;
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_3_END -->
 - number of sites;
 - space group;
 - energy above hull;
@@ -2039,7 +2045,6 @@ Al3Ni  ≈ 0.213 eV/Å
 Al3Ni2 ≈ 0.103 eV/Å
 Al3Ni5 ≈ 0.161 eV/Å
 ```
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_4_END -->
 +
 This indicates that MACE would likely move some atoms during relaxation.
 
@@ -2240,7 +2245,6 @@ Always inspect:
 ```cmd
 git status
 git diff
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_5_END -->
 ```
 
 before committing.
@@ -2441,7 +2445,6 @@ Materials Project summary metadata alone is not a full force-training dataset.
 - total force versus maximum atomic force;
 - the importance of data provenance.
 
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_6_END -->
 ---
 
 ## 42. Open questions
@@ -2642,7 +2645,6 @@ At the end of Step 5, the planned next work was Step 6:
 - convergence and structural-change analysis.
 
 That work is now complete.
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_7_END -->
 +
 ---
 
@@ -2843,7 +2845,6 @@ Energy, force, stress, and volume use separate tolerances appropriate to their
 units and stored precision. Atom count and material ID must match exactly.
 Every comparison records its Step 5 value, reproduced value, absolute
 difference, relative difference when meaningful, tolerance, and pass/fail
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_8_END -->
 status.
 
 ### Deliberately Not Executed
@@ -3044,7 +3045,6 @@ Actual Step 8 findings (n=5): MAE = 0.030905 eV/atom; RMSE = 0.038471 eV/atom; m
 | Al3Ni5 | -0.563251 | -0.606098 | -0.042847 | 0.000000 | +3.2800 |
 | AlNi3 | -0.426420 | -0.488036 | -0.061616 | 0.000000 | +2.8941 |
 
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_9_END -->
 Ni remains a magnetic element in DFT descriptions while the structural MACE workflow exposes no spin input, so part of the Ni-rich error budget may be magnetic; this is recorded, not resolved. The next research decision (whether fine-tuning is justified) must weigh the formation-energy bias, the single-signed volume error, the preserved or broken ranking, the Ni magnetic limitation, and the five-phase sample size - no undocumented universal threshold decides it.
 
 Overall Step 8 status: **SUCCESS**.
@@ -3084,4 +3084,3 @@ The combined Step 8 and Step 10 evidence feeds the Step 11 decision: a DFT refer
 
 Overall Step 10 status: **SUCCESS**.
 <!-- NI_AL_STEP10_KNOWLEDGE_END -->
-<!-- PROJECT_KNOWLEDGE_HISTORICAL_PART_10_END -->
