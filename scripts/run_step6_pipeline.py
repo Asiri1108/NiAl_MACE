@@ -54,6 +54,8 @@ DEFAULT_CONFIG = Path("configs/mace_relaxation.json")
 FINAL_REPORT_RELATIVE = Path(
     "results/mace_relaxation/comparison/reports/ni_al_step6_final_report.txt"
 )
+# Both marked sections below are written into docs/RESEARCH_LOG.md: the README_*
+# pair holds the step summary, the KNOWLEDGE_* pair the reasoning entry.
 README_MARKER_START = "<!-- NI_AL_STEP6_C_TO_F_START -->"
 README_MARKER_END = "<!-- NI_AL_STEP6_C_TO_F_END -->"
 KNOWLEDGE_MARKER_START = "<!-- NI_AL_STEP6_KNOWLEDGE_START -->"
@@ -903,13 +905,13 @@ def _update_documentation(
         ]
     )
     _replace_marked_section(
-        project_root / "README.md",
+        project_root / "docs" / "RESEARCH_LOG.md",
         README_MARKER_START,
         README_MARKER_END,
         readme_body,
     )
     _replace_marked_section(
-        project_root / "PROJECT_KNOWLEDGE.md",
+        project_root / "docs" / "RESEARCH_LOG.md",
         KNOWLEDGE_MARKER_START,
         KNOWLEDGE_MARKER_END,
         knowledge_body,

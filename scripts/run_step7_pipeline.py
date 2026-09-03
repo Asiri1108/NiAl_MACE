@@ -68,6 +68,8 @@ from step7_utils import (
 
 LOGGER = logging.getLogger("ni_al_step7.pipeline")
 DEFAULT_CONFIG = Path("configs/mace_formation_energy.json")
+# Both marked sections below are written into docs/RESEARCH_LOG.md: the README_*
+# pair holds the step summary, the KNOWLEDGE_* pair the reasoning entry.
 README_MARKER_START = "<!-- NI_AL_STEP7_START -->"
 README_MARKER_END = "<!-- NI_AL_STEP7_END -->"
 KNOWLEDGE_MARKER_START = "<!-- NI_AL_STEP7_KNOWLEDGE_START -->"
@@ -814,13 +816,13 @@ def _update_documentation(config: Step7Config, status: str) -> None:
         ]
     )
     _replace_marked_section(
-        config.project_root / "README.md",
+        config.project_root / "docs" / "RESEARCH_LOG.md",
         README_MARKER_START,
         README_MARKER_END,
         readme_body,
     )
     _replace_marked_section(
-        config.project_root / "PROJECT_KNOWLEDGE.md",
+        config.project_root / "docs" / "RESEARCH_LOG.md",
         KNOWLEDGE_MARKER_START,
         KNOWLEDGE_MARKER_END,
         knowledge_body,
